@@ -1,0 +1,997 @@
+
+==================== FINAL INTERFACE ====================
+2016-07-28 17:18:20.438478 UTC
+
+interface main@main:Buchstabensalat 7103
+  interface hash: 16cdb335229aae339e3414c3020a5e7a
+  ABI hash: 32ba96229e0caf42864712a66543dcef
+  export-list hash: 5b9981a2a51415b52ccff9ce49653365
+  orphan hash: e74979096f4d5bc8deaee76f4b9c7ccf
+  flag hash: 1ba42ae73d0b95f43952688546ccbfaa
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Buchstabensalat.checkPuzzle
+  Buchstabensalat.clues
+  Buchstabensalat.epsilons
+  Buchstabensalat.main
+  Buchstabensalat.matchClue
+  Buchstabensalat.movesToPuzzle
+  Buchstabensalat.optimalPlay
+  Buchstabensalat.p
+  Buchstabensalat.prettyPrint
+  Buchstabensalat.valid
+  Buchstabensalat.Coordinate
+  Buchstabensalat.Move
+  Buchstabensalat.Position
+  Buchstabensalat.Puzzle
+  Buchstabensalat.R
+  Buchstabensalat.Value
+module dependencies: GameLogic
+package dependencies: base-4.8.2.0 ghc-prim-0.4.0.0
+                      integer-gmp-1.0.0.0
+orphans: base-4.8.2.0:GHC.Base base-4.8.2.0:GHC.Float
+family instance modules: base-4.8.2.0:Control.Applicative
+                         base-4.8.2.0:Data.Either base-4.8.2.0:Data.Monoid
+                         base-4.8.2.0:Data.Type.Equality base-4.8.2.0:GHC.Generics
+import  -/  base-4.8.2.0:Control.Monad 480c5067477275068c9b98be08410df9
+import  -/  base-4.8.2.0:Data.Foldable 2ce969969ad5231eb40bd713f94f05ad
+import  -/  base-4.8.2.0:Data.List 3f0782c8d4bf50eecefcd5ea1798aac8
+import  -/  base-4.8.2.0:Data.Maybe 1cb58de2b04ee3c0c0a7dc9201184aff
+import  -/  base-4.8.2.0:Data.OldList d8fd80b0e14aa085ce6219cd89dad356
+import  -/  base-4.8.2.0:GHC.Base 1db77db5dae73d8c424c85b09fbadb89
+import  -/  base-4.8.2.0:GHC.List 0c736920522bbd14b770342776012ab6
+import  -/  base-4.8.2.0:Prelude 694dcaf039efe62df1c44834e2dbd2fb
+import  -/  base-4.8.2.0:System.IO 0248c1e850b7ea124cf7a2e1669ebf67
+import  -/  ghc-prim-0.4.0.0:GHC.Classes e1f4ff80f7b5262008a595d29986fb18
+import  -/  ghc-prim-0.4.0.0:GHC.Types 6b27fb3fdbd0e3f0925a4496c66513bb
+import  -/  GameLogic 0b53a799af830780d41d4547bedd253d
+  exports: 317b64144625346fcdfb42c1fb88af54
+  J d7de4bb8c2cf07d476f757e42c973f23
+  bigotimes 0390703f8b24ec89a7aaa580f2c54eac
+  find 19473f3b700cd7a01ba9465996d293bf
+  setMinus 4ad413d40cc9382bca94a4a68753d099
+f770f83902d8b449e767264ba08f9b89
+  $s$fEqMaybe :: GHC.Classes.Eq (GHC.Base.Maybe GHC.Types.Char)
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ (GHC.Base.Maybe GHC.Types.Char)
+                  Buchstabensalat.$s$fEqMaybe1
+                  (GHC.Base.$fEqMaybe_$c/= @ GHC.Types.Char GHC.Classes.$fEqChar) -}
+1a4187194f4b53fe736b8347b59ef48b
+  $s$fEqMaybe1 ::
+    GHC.Base.Maybe GHC.Types.Char
+    -> GHC.Base.Maybe GHC.Types.Char -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ ds :: GHC.Base.Maybe GHC.Types.Char
+                   ds1 :: GHC.Base.Maybe GHC.Types.Char ->
+                 case ds of wild {
+                   GHC.Base.Nothing
+                   -> case ds1 of wild1 {
+                        GHC.Base.Nothing -> GHC.Types.True
+                        GHC.Base.Just ipv -> GHC.Types.False }
+                   GHC.Base.Just a3
+                   -> case ds1 of wild1 {
+                        GHC.Base.Nothing -> GHC.Types.False
+                        GHC.Base.Just b1 -> GHC.Classes.$fEqChar_$c== a3 b1 } }) -}
+8a4f16c4d4f4563e5ca71013fbf49719
+  $s$fEq[] :: GHC.Classes.Eq [GHC.Base.Maybe GHC.Types.Char]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ [GHC.Base.Maybe GHC.Types.Char]
+                  (GHC.Classes.$fEq[]_$c==
+                     @ (GHC.Base.Maybe GHC.Types.Char)
+                     Buchstabensalat.$s$fEq[]1)
+                  (GHC.Classes.$fEq[]_$c/=
+                     @ (GHC.Base.Maybe GHC.Types.Char)
+                     Buchstabensalat.$s$fEq[]1) -}
+0050eb7ad5647d1672b8046a7261f4cd
+  $s$fEq[]1 :: GHC.Classes.Eq (GHC.Base.Maybe GHC.Types.Char)
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True)
+                Buchstabensalat.$s$fEqMaybe -}
+77791217cae3358f57270d54a5877bb5
+  $s$fOrdMaybe :: GHC.Classes.Ord (GHC.Base.Maybe GHC.Types.Char)
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ (GHC.Base.Maybe GHC.Types.Char)
+                  Buchstabensalat.$s$fEq[]1
+                  Buchstabensalat.$s$fOrdMaybe7
+                  Buchstabensalat.$s$fOrdMaybe6
+                  Buchstabensalat.$s$fOrdMaybe5
+                  Buchstabensalat.$s$fOrdMaybe4
+                  Buchstabensalat.$s$fOrdMaybe3
+                  Buchstabensalat.$s$fOrdMaybe2
+                  Buchstabensalat.$s$fOrdMaybe1 -}
+97a4a8a25deb58c8b40bdfb4ff9d71ca
+  $s$fOrdMaybe1 ::
+    GHC.Base.Maybe GHC.Types.Char
+    -> GHC.Base.Maybe GHC.Types.Char -> GHC.Base.Maybe GHC.Types.Char
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: (\ x2 :: GHC.Base.Maybe GHC.Types.Char
+                   y :: GHC.Base.Maybe GHC.Types.Char ->
+                 case x2 of wild {
+                   GHC.Base.Nothing
+                   -> case y of wild1 { DEFAULT -> GHC.Base.Nothing @ GHC.Types.Char }
+                   GHC.Base.Just a3
+                   -> case y of wild1 {
+                        GHC.Base.Nothing -> GHC.Base.Nothing @ GHC.Types.Char
+                        GHC.Base.Just b1
+                        -> case a3 of wild2 { GHC.Types.C# c1 ->
+                           case b1 of wild3 { GHC.Types.C# c2 ->
+                           case GHC.Prim.tagToEnum#
+                                  @ GHC.Types.Bool
+                                  (GHC.Prim.leChar# c1 c2) of wild4 {
+                             GHC.Types.False -> wild1 GHC.Types.True -> wild } } } } }) -}
+eeb3b443115430989f2635e09ca5e29d
+  $s$fOrdMaybe2 ::
+    GHC.Base.Maybe GHC.Types.Char
+    -> GHC.Base.Maybe GHC.Types.Char -> GHC.Base.Maybe GHC.Types.Char
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ x2 :: GHC.Base.Maybe GHC.Types.Char
+                   y :: GHC.Base.Maybe GHC.Types.Char ->
+                 case x2 of wild {
+                   GHC.Base.Nothing -> y
+                   GHC.Base.Just a3
+                   -> case y of wild1 {
+                        GHC.Base.Nothing -> wild
+                        GHC.Base.Just b1
+                        -> case a3 of wild2 { GHC.Types.C# c1 ->
+                           case b1 of wild3 { GHC.Types.C# c2 ->
+                           case GHC.Prim.tagToEnum#
+                                  @ GHC.Types.Bool
+                                  (GHC.Prim.leChar# c1 c2) of wild4 {
+                             GHC.Types.False -> wild GHC.Types.True -> wild1 } } } } }) -}
+176661d7c07c6b902506b703f4c34c2a
+  $s$fOrdMaybe3 ::
+    GHC.Base.Maybe GHC.Types.Char
+    -> GHC.Base.Maybe GHC.Types.Char -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ a3 :: GHC.Base.Maybe GHC.Types.Char
+                   b :: GHC.Base.Maybe GHC.Types.Char ->
+                 case a3 of wild {
+                   GHC.Base.Nothing
+                   -> case b of wild1 {
+                        GHC.Base.Nothing -> GHC.Types.True
+                        GHC.Base.Just ipv -> GHC.Types.False }
+                   GHC.Base.Just a4
+                   -> case b of wild1 {
+                        GHC.Base.Nothing -> GHC.Types.True
+                        GHC.Base.Just b1 -> GHC.Classes.$fOrdChar_$c>= a4 b1 } }) -}
+3538853311ec5c300c828dfc86549019
+  $s$fOrdMaybe4 ::
+    GHC.Base.Maybe GHC.Types.Char
+    -> GHC.Base.Maybe GHC.Types.Char -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ a3 :: GHC.Base.Maybe GHC.Types.Char
+                   b :: GHC.Base.Maybe GHC.Types.Char ->
+                 case a3 of wild {
+                   GHC.Base.Nothing -> case b of wild1 { DEFAULT -> GHC.Types.False }
+                   GHC.Base.Just a4
+                   -> case b of wild1 {
+                        GHC.Base.Nothing -> GHC.Types.True
+                        GHC.Base.Just b1 -> GHC.Classes.$fOrdChar_$c> a4 b1 } }) -}
+3f30db10c34da91ba55275e6b0bf41e4
+  $s$fOrdMaybe5 ::
+    GHC.Base.Maybe GHC.Types.Char
+    -> GHC.Base.Maybe GHC.Types.Char -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ a3 :: GHC.Base.Maybe GHC.Types.Char
+                   b :: GHC.Base.Maybe GHC.Types.Char ->
+                 case a3 of wild {
+                   GHC.Base.Nothing -> case b of wild1 { DEFAULT -> GHC.Types.True }
+                   GHC.Base.Just a4
+                   -> case b of wild1 {
+                        GHC.Base.Nothing -> GHC.Types.False
+                        GHC.Base.Just b1 -> GHC.Classes.$fOrdChar_$c<= a4 b1 } }) -}
+2c9c41bc1c36feb95a7fbad36fb38d4e
+  $s$fOrdMaybe6 ::
+    GHC.Base.Maybe GHC.Types.Char
+    -> GHC.Base.Maybe GHC.Types.Char -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ a3 :: GHC.Base.Maybe GHC.Types.Char
+                   b :: GHC.Base.Maybe GHC.Types.Char ->
+                 case a3 of wild {
+                   GHC.Base.Nothing
+                   -> case b of wild1 {
+                        GHC.Base.Nothing -> GHC.Types.False
+                        GHC.Base.Just ipv -> GHC.Types.True }
+                   GHC.Base.Just a4
+                   -> case b of wild1 {
+                        GHC.Base.Nothing -> GHC.Types.False
+                        GHC.Base.Just b1 -> GHC.Classes.$fOrdChar_$c< a4 b1 } }) -}
+eed483bc8ebb29e24105fc6aff5f6186
+  $s$fOrdMaybe7 ::
+    GHC.Base.Maybe GHC.Types.Char
+    -> GHC.Base.Maybe GHC.Types.Char -> GHC.Types.Ordering
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ a3 :: GHC.Base.Maybe GHC.Types.Char
+                   b :: GHC.Base.Maybe GHC.Types.Char ->
+                 case a3 of wild {
+                   GHC.Base.Nothing
+                   -> case b of wild1 {
+                        GHC.Base.Nothing -> GHC.Types.EQ
+                        GHC.Base.Just ipv -> GHC.Types.LT }
+                   GHC.Base.Just a4
+                   -> case b of wild1 {
+                        GHC.Base.Nothing -> GHC.Types.GT
+                        GHC.Base.Just b1 -> GHC.Classes.$fOrdChar_$ccompare a4 b1 } }) -}
+0e633afcf5ec40668e6ae63ca6fe61ba
+  $s$fOrd[] :: GHC.Classes.Ord [GHC.Base.Maybe GHC.Types.Char]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ [GHC.Base.Maybe GHC.Types.Char]
+                  Buchstabensalat.$s$fOrd[]2
+                  (GHC.Classes.$fOrd[]_$ccompare
+                     @ (GHC.Base.Maybe GHC.Types.Char)
+                     Buchstabensalat.$s$fOrd[]2
+                     Buchstabensalat.$s$fOrd[]1)
+                  (GHC.Classes.$fOrd[]_$c<
+                     @ (GHC.Base.Maybe GHC.Types.Char)
+                     Buchstabensalat.$s$fOrd[]2
+                     Buchstabensalat.$s$fOrd[]1)
+                  (GHC.Classes.$fOrd[]_$c<=
+                     @ (GHC.Base.Maybe GHC.Types.Char)
+                     Buchstabensalat.$s$fOrd[]2
+                     Buchstabensalat.$s$fOrd[]1)
+                  (GHC.Classes.$fOrd[]_$c>
+                     @ (GHC.Base.Maybe GHC.Types.Char)
+                     Buchstabensalat.$s$fOrd[]2
+                     Buchstabensalat.$s$fOrd[]1)
+                  (GHC.Classes.$fOrd[]_$c>=
+                     @ (GHC.Base.Maybe GHC.Types.Char)
+                     Buchstabensalat.$s$fOrd[]2
+                     Buchstabensalat.$s$fOrd[]1)
+                  (GHC.Classes.$fOrd[]_$cmax
+                     @ (GHC.Base.Maybe GHC.Types.Char)
+                     Buchstabensalat.$s$fOrd[]2
+                     Buchstabensalat.$s$fOrd[]1)
+                  (GHC.Classes.$fOrd[]_$cmin
+                     @ (GHC.Base.Maybe GHC.Types.Char)
+                     Buchstabensalat.$s$fOrd[]2
+                     Buchstabensalat.$s$fOrd[]1) -}
+e95a72c61a0037ab3aba65ac67c42daf
+  $s$fOrd[]1 :: GHC.Classes.Ord (GHC.Base.Maybe GHC.Types.Char)
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True)
+                Buchstabensalat.$s$fOrdMaybe -}
+77f7e784fd7848239635c34ccc122e3a
+  $s$fOrd[]2 :: GHC.Classes.Eq [GHC.Base.Maybe GHC.Types.Char]
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True) Buchstabensalat.$s$fEq[] -}
+5ed620929e5ae7049ccd7dc87b1773a3
+  $wlvl ::
+    GHC.Base.Maybe GHC.Types.Char
+    -> Buchstabensalat.Move
+    -> GHC.Base.Maybe GHC.Types.Char
+    -> [GHC.Types.Char]
+  {- Arity: 3, Strictness: <L,1*U><L,1*U><L,1*U>, Inline: [0],
+     Unfolding: (\ ww :: GHC.Base.Maybe GHC.Types.Char
+                   ww1 :: Buchstabensalat.Move
+                   ww2 :: GHC.Base.Maybe GHC.Types.Char ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   Buchstabensalat.prettyPrint6
+                   (GHC.Types.:
+                      @ GHC.Types.Char
+                      (case ww of wild {
+                         GHC.Base.Nothing -> Buchstabensalat.prettyPrint1
+                         GHC.Base.Just v -> v })
+                      (GHC.CString.unpackAppendCString#
+                         " | "#
+                         (case GHC.Base.map
+                                 @ (GHC.Base.Maybe GHC.Types.Char)
+                                 @ [GHC.Types.Char]
+                                 Buchstabensalat.prettyPrint5
+                                 ww1 of wild {
+                            []
+                            -> GHC.CString.unpackAppendCString#
+                                 " |"#
+                                 (GHC.Base.++
+                                    @ GHC.Types.Char
+                                    Buchstabensalat.prettyPrint6
+                                    (GHC.Types.:
+                                       @ GHC.Types.Char
+                                       (case ww2 of wild1 {
+                                          GHC.Base.Nothing -> Buchstabensalat.prettyPrint1
+                                          GHC.Base.Just v -> v })
+                                       (GHC.Types.[] @ GHC.Types.Char)))
+                            : x2 xs1
+                            -> GHC.Base.++
+                                 @ GHC.Types.Char
+                                 (Data.OldList.intercalate_$spoly_go
+                                    @ GHC.Types.Char
+                                    x2
+                                    (Data.OldList.prependToAll
+                                       @ [GHC.Types.Char]
+                                       Buchstabensalat.prettyPrint4
+                                       xs1))
+                                 (GHC.CString.unpackAppendCString#
+                                    " |"#
+                                    (GHC.Base.++
+                                       @ GHC.Types.Char
+                                       Buchstabensalat.prettyPrint6
+                                       (GHC.Types.:
+                                          @ GHC.Types.Char
+                                          (case ww2 of wild1 {
+                                             GHC.Base.Nothing -> Buchstabensalat.prettyPrint1
+                                             GHC.Base.Just v -> v })
+                                          (GHC.Types.[] @ GHC.Types.Char)))) })))) -}
+300b8c2c70b13b664d0069290b8f2b39
+  $wxs ::
+    GHC.Prim.Int#
+    -> (# [Buchstabensalat.Move]
+          -> GameLogic.J Buchstabensalat.R Buchstabensalat.Move,
+          [[Buchstabensalat.Move]
+           -> GameLogic.J Buchstabensalat.R Buchstabensalat.Move] #)
+  {- Arity: 1, Strictness: <S,1*U>, Inline: [0] -}
+26be3dcd24b511a89a6b70710812c831
+  $wxs1 :: GHC.Prim.Int# -> [GHC.Types.Char]
+  {- Arity: 1, Strictness: <S,1*U>, Inline: [0] -}
+777c32e1d0df35f20c5ad96e6bcacf8f
+  type Coordinate = GHC.Types.Int
+787c9504a390acd70a402c506ad34e98
+  type Move = [Buchstabensalat.Value]
+9212f0b95fbcbdaca5222547d4b6bf50
+  type Position =
+    (Buchstabensalat.Coordinate,
+     Buchstabensalat.Coordinate,
+     GHC.Base.Maybe GHC.Types.Char)
+82964e22ad10a3afb7f65f0e4fbcfe60
+  type Puzzle = [Buchstabensalat.Position]
+5518e264f8bae043011bf87867e2515c
+  type R = GHC.Types.Bool
+a38c5bfa9601b801c361600a5945cd36
+  type Value = GHC.Base.Maybe GHC.Types.Char
+9c7760e1033c60eca28e55f29772e1a0
+  checkPuzzle :: Buchstabensalat.Puzzle -> GHC.Types.Bool
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: (\ xs :: Buchstabensalat.Puzzle ->
+                 letrec {
+                   go2 :: [Buchstabensalat.Coordinate]
+                          -> [[GHC.Base.Maybe GHC.Types.Char]]
+                     {- Arity: 1, Strictness: <S,1*U> -}
+                   = \ ds :: [Buchstabensalat.Coordinate] ->
+                     case ds of wild {
+                       [] -> GHC.Types.[] @ [GHC.Base.Maybe GHC.Types.Char]
+                       : y ys
+                       -> GHC.Types.:
+                            @ [GHC.Base.Maybe GHC.Types.Char]
+                            (letrec {
+                               go3 :: [(Buchstabensalat.Coordinate,
+                                        Buchstabensalat.Coordinate,
+                                        GHC.Base.Maybe GHC.Types.Char)]
+                                      -> [GHC.Base.Maybe GHC.Types.Char]
+                                 {- Arity: 1, Strictness: <S,1*U> -}
+                               = \ ds1 :: [(Buchstabensalat.Coordinate,
+                                            Buchstabensalat.Coordinate,
+                                            GHC.Base.Maybe GHC.Types.Char)] ->
+                                 case ds1 of wild1 {
+                                   [] -> GHC.Types.[] @ (GHC.Base.Maybe GHC.Types.Char)
+                                   : y1 ys1
+                                   -> case y1 of wild2 { (,,) ds2 y' ds3 ->
+                                      case y' of wild3 { GHC.Types.I# x2 ->
+                                      case y of wild4 { GHC.Types.I# y2 ->
+                                      case GHC.Prim.tagToEnum#
+                                             @ GHC.Types.Bool
+                                             (GHC.Prim.==# x2 y2) of wild5 {
+                                        GHC.Types.False -> go3 ys1
+                                        GHC.Types.True
+                                        -> GHC.Types.:
+                                             @ (GHC.Base.Maybe GHC.Types.Char)
+                                             ds3
+                                             (go3 ys1) } } } } }
+                             } in
+                             Data.OldList.sortBy
+                               @ (GHC.Base.Maybe GHC.Types.Char)
+                               Buchstabensalat.$s$fOrdMaybe7
+                               (go3 xs))
+                            (go2 ys) }
+                 } in
+                 case (Buchstabensalat.checkPuzzle_go1
+                         (go2 Buchstabensalat.checkPuzzle1))
+                        `cast`
+                      (Data.Monoid.NTCo:All[0]) of wild {
+                   GHC.Types.False -> GHC.Types.False
+                   GHC.Types.True
+                   -> letrec {
+                        go3 :: [Buchstabensalat.Coordinate]
+                               -> [[GHC.Base.Maybe GHC.Types.Char]]
+                          {- Arity: 1, Strictness: <S,1*U> -}
+                        = \ ds :: [Buchstabensalat.Coordinate] ->
+                          case ds of wild1 {
+                            [] -> GHC.Types.[] @ [GHC.Base.Maybe GHC.Types.Char]
+                            : y ys
+                            -> GHC.Types.:
+                                 @ [GHC.Base.Maybe GHC.Types.Char]
+                                 (letrec {
+                                    go4 :: [(Buchstabensalat.Coordinate,
+                                             Buchstabensalat.Coordinate,
+                                             GHC.Base.Maybe GHC.Types.Char)]
+                                           -> [GHC.Base.Maybe GHC.Types.Char]
+                                      {- Arity: 1, Strictness: <S,1*U> -}
+                                    = \ ds1 :: [(Buchstabensalat.Coordinate,
+                                                 Buchstabensalat.Coordinate,
+                                                 GHC.Base.Maybe GHC.Types.Char)] ->
+                                      case ds1 of wild2 {
+                                        [] -> GHC.Types.[] @ (GHC.Base.Maybe GHC.Types.Char)
+                                        : y1 ys1
+                                        -> case y1 of wild3 { (,,) x' ds2 ds3 ->
+                                           case x' of wild4 { GHC.Types.I# x2 ->
+                                           case y of wild5 { GHC.Types.I# y2 ->
+                                           case GHC.Prim.tagToEnum#
+                                                  @ GHC.Types.Bool
+                                                  (GHC.Prim.==# x2 y2) of wild6 {
+                                             GHC.Types.False -> go4 ys1
+                                             GHC.Types.True
+                                             -> GHC.Types.:
+                                                  @ (GHC.Base.Maybe GHC.Types.Char)
+                                                  ds3
+                                                  (go4 ys1) } } } } }
+                                  } in
+                                  Data.OldList.sortBy
+                                    @ (GHC.Base.Maybe GHC.Types.Char)
+                                    Buchstabensalat.$s$fOrdMaybe7
+                                    (go4 xs))
+                                 (go3 ys) }
+                      } in
+                      (Buchstabensalat.checkPuzzle_go (go3 Buchstabensalat.checkPuzzle1))
+                        `cast`
+                      (Data.Monoid.NTCo:All[0]) }) -}
+f14c2b06d9334808dd350b77e912344f
+  checkPuzzle1 :: [GHC.Types.Int]
+  {- Unfolding: (GHC.Enum.eftInt 1 4) -}
+c2ee3d78e3fa05c0cb8ee2cbe5e30892
+  checkPuzzle_go ::
+    [[GHC.Base.Maybe GHC.Types.Char]] -> Data.Monoid.All
+  {- Arity: 1, Strictness: <S,1*U> -}
+3a15049d2e1ae49c01a3a39e6fb2de61
+  checkPuzzle_go1 ::
+    [[GHC.Base.Maybe GHC.Types.Char]] -> Data.Monoid.All
+  {- Arity: 1, Strictness: <S,1*U> -}
+382fbbf505ba3eda6673ed88fcc0bbcf
+  clues :: [Buchstabensalat.Move]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Buchstabensalat.Move
+                   Buchstabensalat.clues20
+                   Buchstabensalat.clues1) -}
+015f09c0d65460ae8223b59fec1bae41
+  clues1 :: [Buchstabensalat.Move]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Buchstabensalat.Move
+                   Buchstabensalat.clues14
+                   Buchstabensalat.clues2) -}
+bd5cb0c703c89fab5b3487b980b02e82
+  clues10 :: [Buchstabensalat.Value]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Buchstabensalat.Value
+                   Buchstabensalat.clues8
+                   Buchstabensalat.clues11) -}
+50537db6a36d1c306cfce26ffd6a35e2
+  clues11 :: [Buchstabensalat.Value]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Buchstabensalat.Value
+                   (GHC.Base.Nothing @ GHC.Types.Char)
+                   Buchstabensalat.clues12) -}
+f8f15e5aecab8fd39520a0745f328fe6
+  clues12 :: [Buchstabensalat.Value]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Buchstabensalat.Value
+                   (GHC.Base.Nothing @ GHC.Types.Char)
+                   Buchstabensalat.clues13) -}
+3e3dbe95ce68cbb6e962e89cb717027d
+  clues13 :: [Buchstabensalat.Value]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Buchstabensalat.Value
+                   (GHC.Base.Nothing @ GHC.Types.Char)
+                   (GHC.Types.[] @ Buchstabensalat.Value)) -}
+0e973e7b756864d7dd8093455928660c
+  clues14 :: [Buchstabensalat.Value]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Buchstabensalat.Value
+                   (GHC.Base.Nothing @ GHC.Types.Char)
+                   Buchstabensalat.clues15) -}
+99302281527b044e2e00ec48ac2b3e52
+  clues15 :: [Buchstabensalat.Value]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Buchstabensalat.Value
+                   (GHC.Base.Nothing @ GHC.Types.Char)
+                   Buchstabensalat.clues16) -}
+27f546092ddfa15286d22bfb5c5af7f4
+  clues16 :: [Buchstabensalat.Value]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Buchstabensalat.Value
+                   (GHC.Base.Nothing @ GHC.Types.Char)
+                   Buchstabensalat.clues17) -}
+f4e6bae86d9c673d5bf05c244d86b968
+  clues17 :: [Buchstabensalat.Value]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Buchstabensalat.Value
+                   Buchstabensalat.clues18
+                   (GHC.Types.[] @ Buchstabensalat.Value)) -}
+9502f01413c6a9c79eb72daae3196def
+  clues18 :: GHC.Base.Maybe GHC.Types.Char
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Base.Just
+                   @ GHC.Types.Char
+                   Buchstabensalat.clues19) -}
+6b9023ec7252f01fdc749cbd44fbd6f7
+  clues19 :: GHC.Types.Char
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.C# 'A') -}
+da29ccdbf86753b8a7c5ddbc6f64ca20
+  clues2 :: [Buchstabensalat.Move]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Buchstabensalat.Move
+                   Buchstabensalat.clues10
+                   Buchstabensalat.clues3) -}
+b9f92dd7bcc8261dd88d2f486c04fb96
+  clues20 :: [Buchstabensalat.Value]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Buchstabensalat.Value
+                   Buchstabensalat.clues21
+                   Buchstabensalat.clues11) -}
+1e6293a34b8268c31be8c4135acc3d4a
+  clues21 :: GHC.Base.Maybe GHC.Types.Char
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Base.Just
+                   @ GHC.Types.Char
+                   Buchstabensalat.clues22) -}
+e3f3cd08694a5f75b63dcaf29fec9af2
+  clues22 :: GHC.Types.Char
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.C# 'B') -}
+cfaae6efa016ce42bf46b9ae87b7c1fd
+  clues3 :: [Buchstabensalat.Move]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Buchstabensalat.Move
+                   Buchstabensalat.clues4
+                   (GHC.Types.[] @ Buchstabensalat.Move)) -}
+64883c2ecda65b7a5b4be7253411b33c
+  clues4 :: [Buchstabensalat.Value]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Buchstabensalat.Value
+                   (GHC.Base.Nothing @ GHC.Types.Char)
+                   Buchstabensalat.clues5) -}
+efc1b6c729d2c9b1b73bbbe034df2753
+  clues5 :: [Buchstabensalat.Value]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Buchstabensalat.Value
+                   (GHC.Base.Nothing @ GHC.Types.Char)
+                   Buchstabensalat.clues6) -}
+83ae23dd11623842f5711a787b88a2ac
+  clues6 :: [Buchstabensalat.Value]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Buchstabensalat.Value
+                   (GHC.Base.Nothing @ GHC.Types.Char)
+                   Buchstabensalat.clues7) -}
+f45dcf0f2ce47a2022d5b9a21941eae5
+  clues7 :: [Buchstabensalat.Value]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Buchstabensalat.Value
+                   Buchstabensalat.clues8
+                   (GHC.Types.[] @ Buchstabensalat.Value)) -}
+aa52da3d5b1a327c5eb33fad625ba7c8
+  clues8 :: GHC.Base.Maybe GHC.Types.Char
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Base.Just
+                   @ GHC.Types.Char
+                   Buchstabensalat.clues9) -}
+39e7a9696a9ecff8464b3376945670d7
+  clues9 :: GHC.Types.Char
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.C# 'C') -}
+58febcbc27db06deafea4d2d63779223
+  epsilons ::
+    [[Buchstabensalat.Move]
+     -> GameLogic.J Buchstabensalat.R Buchstabensalat.Move]
+  {- Unfolding: (case Buchstabensalat.$wxs 4 of ww { (#,#) ww1 ww2 ->
+                 GHC.Types.:
+                   @ ([Buchstabensalat.Move]
+                      -> GameLogic.J Buchstabensalat.R Buchstabensalat.Move)
+                   ww1
+                   ww2 }) -}
+c22b055f611604d27f6058db030aec47
+  main :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Buchstabensalat.main1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
+79bfe139369e17f98ab64a6e149c18c7
+  main1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ eta :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 GHC.IO.Handle.Text.hPutStr2
+                   GHC.IO.Handle.FD.stdout
+                   (Buchstabensalat.prettyPrint
+                      Buchstabensalat.clues
+                      Buchstabensalat.optimalPlay)
+                   GHC.Types.True
+                   eta) -}
+56c9fc34b2c54545ad39eefdcecf08a3
+  matchClue ::
+    [Buchstabensalat.Move] -> [Buchstabensalat.Move] -> GHC.Types.Bool
+  {- Arity: 2, Strictness: <S,1*U><L,U>,
+     Unfolding: (\ ds :: [Buchstabensalat.Move]
+                   moves :: [Buchstabensalat.Move] ->
+                 case ds of wild {
+                   [] -> Buchstabensalat.matchClue1
+                   : l ds1
+                   -> case ds1 of wild1 {
+                        [] -> Buchstabensalat.matchClue1
+                        : r ds2
+                        -> case ds2 of wild2 {
+                             [] -> Buchstabensalat.matchClue1
+                             : t ds3
+                             -> case ds3 of wild3 {
+                                  [] -> Buchstabensalat.matchClue1
+                                  : b ds4
+                                  -> case ds4 of wild4 {
+                                       []
+                                       -> let {
+                                            rows :: [GHC.Base.String]
+                                            = Data.OldList.transpose
+                                                @ GHC.Types.Char
+                                                (GHC.Base.map
+                                                   @ [GHC.Base.Maybe GHC.Types.Char]
+                                                   @ [GHC.Types.Char]
+                                                   (Data.Maybe.catMaybes @ GHC.Types.Char)
+                                                   moves)
+                                          } in
+                                          case (Buchstabensalat.matchClue_go6
+                                                  (Buchstabensalat.matchClue_go5
+                                                     (GHC.List.zip
+                                                        @ (GHC.Base.Maybe GHC.Types.Char)
+                                                        @ GHC.Types.Char
+                                                        l
+                                                        (case rows of wild5 {
+                                                           [] -> GHC.List.badHead @ [GHC.Types.Char]
+                                                           : x2 ds5 -> x2 }))))
+                                                 `cast`
+                                               (Data.Monoid.NTCo:All[0]) of wild5 {
+                                            GHC.Types.False -> GHC.Types.False
+                                            GHC.Types.True
+                                            -> case (Buchstabensalat.matchClue_go4
+                                                       (Buchstabensalat.matchClue_go5
+                                                          (GHC.List.zip
+                                                             @ (GHC.Base.Maybe GHC.Types.Char)
+                                                             @ GHC.Types.Char
+                                                             r
+                                                             (Buchstabensalat.matchClue_go3
+                                                                rows
+                                                                (GHC.List.lastError
+                                                                   @ [GHC.Types.Char])))))
+                                                      `cast`
+                                                    (Data.Monoid.NTCo:All[0]) of wild6 {
+                                                 GHC.Types.False -> GHC.Types.False
+                                                 GHC.Types.True
+                                                 -> let {
+                                                      cols :: [GHC.Base.String]
+                                                      = Data.OldList.transpose
+                                                          @ GHC.Types.Char
+                                                          (GHC.Base.map
+                                                             @ [GHC.Base.Maybe GHC.Types.Char]
+                                                             @ [GHC.Types.Char]
+                                                             (Data.Maybe.catMaybes @ GHC.Types.Char)
+                                                             (Data.OldList.transpose
+                                                                @ (GHC.Base.Maybe GHC.Types.Char)
+                                                                moves))
+                                                    } in
+                                                    case (Buchstabensalat.matchClue_go2
+                                                            (Buchstabensalat.matchClue_go5
+                                                               (GHC.List.zip
+                                                                  @ (GHC.Base.Maybe GHC.Types.Char)
+                                                                  @ GHC.Types.Char
+                                                                  t
+                                                                  (case cols of wild7 {
+                                                                     []
+                                                                     -> GHC.List.badHead
+                                                                          @ [GHC.Types.Char]
+                                                                     : x2 ds5 -> x2 }))))
+                                                           `cast`
+                                                         (Data.Monoid.NTCo:All[0]) of wild7 {
+                                                      GHC.Types.False -> GHC.Types.False
+                                                      GHC.Types.True
+                                                      -> (Buchstabensalat.matchClue_go1
+                                                            (Buchstabensalat.matchClue_go5
+                                                               (GHC.List.zip
+                                                                  @ (GHC.Base.Maybe GHC.Types.Char)
+                                                                  @ GHC.Types.Char
+                                                                  b
+                                                                  (Buchstabensalat.matchClue_go
+                                                                     cols
+                                                                     (GHC.List.lastError
+                                                                        @ [GHC.Types.Char])))))
+                                                           `cast`
+                                                         (Data.Monoid.NTCo:All[0]) } } }
+                                       : ipv ipv1 -> Buchstabensalat.matchClue1 } } } } }) -}
+0c20bd85f915f557a863763cf3d9b11c
+  matchClue1 :: GHC.Types.Bool
+  {- Strictness: b -}
+5ce230747564c4512446b9648976055f
+  matchClue_go ::
+    [[GHC.Types.Char]] -> [GHC.Types.Char] -> [GHC.Types.Char]
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,1*U> -}
+3867179a12f864b3622538a3bda6688b
+  matchClue_go1 :: [GHC.Types.Bool] -> Data.Monoid.All
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+81ead8888835bdae7898d83c08476a9d
+  matchClue_go2 :: [GHC.Types.Bool] -> Data.Monoid.All
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+f6f4226cb8a0e4aa8075723cb2c46b5f
+  matchClue_go3 ::
+    [[GHC.Types.Char]] -> [GHC.Types.Char] -> [GHC.Types.Char]
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,1*U> -}
+bd73a8e0516767b052db2e9c8264922d
+  matchClue_go4 :: [GHC.Types.Bool] -> Data.Monoid.All
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+a1e8e08c343df390f17adab0de66c110
+  matchClue_go5 ::
+    [(GHC.Base.Maybe GHC.Types.Char, GHC.Types.Char)]
+    -> [GHC.Types.Bool]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+020f42ca68b40fed5118f58e80e467a7
+  matchClue_go6 :: [GHC.Types.Bool] -> Data.Monoid.All
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+bce87c23dfd2970d13618800268b5ede
+  movesToPuzzle :: [Buchstabensalat.Move] -> Buchstabensalat.Puzzle
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ x2 :: [Buchstabensalat.Move] ->
+                 GHC.List.zip3
+                   @ Buchstabensalat.Coordinate
+                   @ Buchstabensalat.Coordinate
+                   @ (GHC.Base.Maybe GHC.Types.Char)
+                   Buchstabensalat.movesToPuzzle_xs
+                   Buchstabensalat.movesToPuzzle_ys
+                   (Control.Parallel.Strategies.$sconcat
+                      @ (GHC.Base.Maybe GHC.Types.Char)
+                      x2)) -}
+1f4f922705d122446f522e70f166ad52
+  movesToPuzzle1 ::
+    ([Buchstabensalat.Coordinate], [Buchstabensalat.Coordinate])
+  {- Unfolding: (Buchstabensalat.movesToPuzzle_go 1) -}
+72ae629a217ad4d14a86826f5846f888
+  movesToPuzzle_go ::
+    GHC.Prim.Int#
+    -> ([Buchstabensalat.Coordinate], [Buchstabensalat.Coordinate])
+  {- Arity: 1, Strictness: <L,U> -}
+370cb0ba835daf8670cdf4bc3f8262d5
+  movesToPuzzle_xs :: [Buchstabensalat.Coordinate]
+  {- Unfolding: (case Buchstabensalat.movesToPuzzle1 of wild { (,) xs ys ->
+                 xs }) -}
+b3cef3504add73029a19dddc77f2a7a4
+  movesToPuzzle_ys :: [Buchstabensalat.Coordinate]
+  {- Unfolding: (case Buchstabensalat.movesToPuzzle1 of wild { (,) xs ys ->
+                 ys }) -}
+e4f544267df5c0903fe242e55665d553
+  optimalPlay :: [Buchstabensalat.Move]
+  {- Unfolding: (Buchstabensalat.optimalPlay1 Buchstabensalat.p) -}
+65ca5c7f0b935a33b6f936b78507aaa1
+  optimalPlay1 ::
+    GameLogic.J Buchstabensalat.R [Buchstabensalat.Move]
+  {- Unfolding: (GameLogic.bigotimes
+                   @ Buchstabensalat.Move
+                   @ Buchstabensalat.R
+                   Buchstabensalat.epsilons) -}
+193bc43fe3eeb03e3e7adf2267038a94
+  p :: [Buchstabensalat.Move] -> Buchstabensalat.R
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: (\ ms :: [Buchstabensalat.Move] ->
+                 case Buchstabensalat.checkPuzzle
+                        (Buchstabensalat.movesToPuzzle ms) of wild {
+                   GHC.Types.False -> GHC.Types.False
+                   GHC.Types.True
+                   -> Buchstabensalat.matchClue Buchstabensalat.clues ms }) -}
+d43293b70c70cbb6a3d53c845a66b6e6
+  prettyPrint ::
+    [Buchstabensalat.Move] -> [Buchstabensalat.Move] -> GHC.Base.String
+  {- Arity: 2, Strictness: <S,1*U><L,1*U>,
+     Unfolding: (\ ds :: [Buchstabensalat.Move]
+                   ms :: [Buchstabensalat.Move] ->
+                 case ds of wild {
+                   [] -> Buchstabensalat.prettyPrint9
+                   : l ds1
+                   -> case ds1 of wild1 {
+                        [] -> Buchstabensalat.prettyPrint9
+                        : r ds2
+                        -> case ds2 of wild2 {
+                             [] -> Buchstabensalat.prettyPrint9
+                             : t ds3
+                             -> case ds3 of wild3 {
+                                  [] -> Buchstabensalat.prettyPrint9
+                                  : b ds4
+                                  -> case ds4 of wild4 {
+                                       []
+                                       -> GHC.CString.unpackAppendCString#
+                                            "  "#
+                                            (let {
+                                               z :: [GHC.Types.Char]
+                                               = GHC.CString.unpackAppendCString#
+                                                   "    "#
+                                                   (GHC.Base.++
+                                                      @ GHC.Types.Char
+                                                      Buchstabensalat.prettyPrint_divider
+                                                      (let {
+                                                         n1 :: [GHC.Types.Char]
+                                                         = GHC.CString.unpackAppendCString#
+                                                             "    "#
+                                                             (GHC.Base.++
+                                                                @ GHC.Types.Char
+                                                                Buchstabensalat.prettyPrint_divider
+                                                                (GHC.CString.unpackAppendCString#
+                                                                   "  "#
+                                                                   (Buchstabensalat.prettyPrint_go
+                                                                      b)))
+                                                       } in
+                                                       case GHC.Base.map
+                                                              @ (GHC.Base.Maybe GHC.Types.Char,
+                                                                 Buchstabensalat.Move,
+                                                                 GHC.Base.Maybe GHC.Types.Char)
+                                                              @ [GHC.Types.Char]
+                                                              Buchstabensalat.prettyPrint3
+                                                              (GHC.List.zip3
+                                                                 @ (GHC.Base.Maybe GHC.Types.Char)
+                                                                 @ Buchstabensalat.Move
+                                                                 @ (GHC.Base.Maybe GHC.Types.Char)
+                                                                 l
+                                                                 ms
+                                                                 r) of wild5 {
+                                                         [] -> n1
+                                                         : x2 xs1
+                                                         -> GHC.Base.++
+                                                              @ GHC.Types.Char
+                                                              (Data.OldList.intercalate_$spoly_go
+                                                                 @ GHC.Types.Char
+                                                                 x2
+                                                                 (Data.OldList.prependToAll
+                                                                    @ [GHC.Types.Char]
+                                                                    Buchstabensalat.prettyPrint_divider
+                                                                    xs1))
+                                                              n1 }))
+                                             } in
+                                             letrec {
+                                               go2 :: [GHC.Base.Maybe GHC.Types.Char]
+                                                      -> [GHC.Types.Char]
+                                                 {- Arity: 1, Strictness: <S,1*U> -}
+                                               = \ ds5 :: [GHC.Base.Maybe GHC.Types.Char] ->
+                                                 case ds5 of wild5 {
+                                                   [] -> z
+                                                   : y ys
+                                                   -> GHC.Base.++
+                                                        @ GHC.Types.Char
+                                                        Buchstabensalat.prettyPrint2
+                                                        (GHC.Types.:
+                                                           @ GHC.Types.Char
+                                                           (case y of wild6 {
+                                                              GHC.Base.Nothing
+                                                              -> Buchstabensalat.prettyPrint1
+                                                              GHC.Base.Just v -> v })
+                                                           (go2 ys)) }
+                                             } in
+                                             go2 t)
+                                       : ipv ipv1 -> Buchstabensalat.prettyPrint9 } } } } }) -}
+6ceaebb88fbe2fbabb8b0b15501e294f
+  prettyPrint1 :: GHC.Types.Char
+  {- HasNoCafRefs, Unfolding: (GHC.Types.C# ' ') -}
+7f2fe82efc1d38c6476851143ab49fea
+  prettyPrint2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "   "#) -}
+6d787ad56904dd26bd4372c1428737f0
+  prettyPrint3 ::
+    (GHC.Base.Maybe GHC.Types.Char,
+     Buchstabensalat.Move,
+     GHC.Base.Maybe GHC.Types.Char)
+    -> [GHC.Types.Char]
+  {- Arity: 1, Strictness: <S,1*U(1*U,1*U,1*U)>, Inline: INLINE[0],
+     Unfolding: InlineRule (1, True, False)
+                (\ w :: (GHC.Base.Maybe GHC.Types.Char,
+                         Buchstabensalat.Move,
+                         GHC.Base.Maybe GHC.Types.Char) ->
+                 case w of ww { (,,) ww1 ww2 ww3 ->
+                 Buchstabensalat.$wlvl ww1 ww2 ww3 }) -}
+b48f27b01006fb77c70a77f00d2a8bde
+  prettyPrint4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# " | "#) -}
+85503664bb52778c33e9be76721d4451
+  prettyPrint5 :: Buchstabensalat.Value -> [GHC.Types.Char]
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,1*U>m2,
+     Unfolding: InlineRule (1, True, False)
+                (\ x2 :: Buchstabensalat.Value ->
+                 GHC.Types.:
+                   @ GHC.Types.Char
+                   (case x2 of wild {
+                      GHC.Base.Nothing -> Buchstabensalat.prettyPrint1
+                      GHC.Base.Just v -> v })
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+302732bf08f74f952b5fa6aac7804882
+  prettyPrint6 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# " "#) -}
+14c6e74163bea5eecd3d7e0f775bfdaf
+  prettyPrint7 :: [GHC.Types.Char]
+  {- Unfolding: (case Buchstabensalat.$wxs1 4 of wild {
+                   []
+                   -> GHC.Base.++
+                        @ GHC.Types.Char
+                        (GHC.Types.[] @ GHC.Types.Char)
+                        Buchstabensalat.prettyPrint8
+                   : ds1 xs
+                   -> GHC.Base.++
+                        @ GHC.Types.Char
+                        xs
+                        Buchstabensalat.prettyPrint8 }) -}
+8d0caa38c2289a7b7572a12ae0e8d304
+  prettyPrint8 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# " \n"#) -}
+032db76822d9964c871ecf08fd53570a
+  prettyPrint9 :: GHC.Base.String
+  {- Strictness: b -}
+e3093a3752de0f31961350284494c0ea
+  prettyPrint_divider :: GHC.Base.String
+  {- Unfolding: (GHC.CString.unpackAppendCString#
+                   " \n\
+                   \    "#
+                   Buchstabensalat.prettyPrint7) -}
+e44eba9a2713da90c8b7b71649619818
+  prettyPrint_go ::
+    [GHC.Base.Maybe GHC.Types.Char] -> [GHC.Types.Char]
+  {- Arity: 1, Strictness: <S,1*U> -}
+ba35e10a2dbd4aef495794d7e4946d02
+  valid :: Buchstabensalat.Puzzle -> Buchstabensalat.R
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Buchstabensalat.checkPuzzle -}
+"SPEC/Buchstabensalat $fEqMaybe @ Char" [ALWAYS] forall $dEq :: GHC.Classes.Eq
+                                                                  GHC.Types.Char
+  GHC.Base.$fEqMaybe @ GHC.Types.Char $dEq
+  = Buchstabensalat.$s$fEqMaybe
+"SPEC/Buchstabensalat $fEq[] @ (Maybe Char)" [ALWAYS] forall $dEq :: GHC.Classes.Eq
+                                                                       (GHC.Base.Maybe
+                                                                          GHC.Types.Char)
+  GHC.Classes.$fEq[] @ (GHC.Base.Maybe GHC.Types.Char) $dEq
+  = Buchstabensalat.$s$fEq[]
+"SPEC/Buchstabensalat $fOrdMaybe @ Char" [ALWAYS] forall $dEq :: GHC.Classes.Eq
+                                                                   (GHC.Base.Maybe GHC.Types.Char)
+                                                         $dOrd :: GHC.Classes.Ord GHC.Types.Char
+  GHC.Base.$fOrdMaybe @ GHC.Types.Char $dEq $dOrd
+  = Buchstabensalat.$s$fOrdMaybe
+"SPEC/Buchstabensalat $fOrd[] @ (Maybe Char)" [ALWAYS] forall $dEq :: GHC.Classes.Eq
+                                                                        [GHC.Base.Maybe
+                                                                           GHC.Types.Char]
+                                                              $dOrd :: GHC.Classes.Ord
+                                                                         (GHC.Base.Maybe
+                                                                            GHC.Types.Char)
+  GHC.Classes.$fOrd[] @ (GHC.Base.Maybe GHC.Types.Char) $dEq $dOrd
+  = Buchstabensalat.$s$fOrd[]
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

@@ -1,0 +1,670 @@
+
+==================== FINAL INTERFACE ====================
+2016-07-28 17:18:19.885545 UTC
+
+interface main@main:Nonograms 7103
+  interface hash: ab4fc429bfd9bf1c3d2e1602f802f50a
+  ABI hash: a7a61488f1ceda331c521d3e3e0940a9
+  export-list hash: dffdedfaa9ee569f7fe76f4965066cb2
+  orphan hash: 223316b8ab4ebf66fc0f05939e5f7870
+  flag hash: 1ba42ae73d0b95f43952688546ccbfaa
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Nonograms.clues
+  Nonograms.epsilons
+  Nonograms.main
+  Nonograms.matchClues
+  Nonograms.maybeAt
+  Nonograms.movesToPuzzle
+  Nonograms.optimalPlay
+  Nonograms.p
+  Nonograms.prettyPrint
+  Nonograms.Clue{Nonograms.Cont Nonograms.Seg Nonograms.getCont Nonograms.getSeg}
+  Nonograms.Coordinate
+  Nonograms.Move
+  Nonograms.Position
+  Nonograms.Puzzle
+  Nonograms.R
+  Nonograms.Value
+module dependencies: GameLogic
+package dependencies: base-4.8.2.0 ghc-prim-0.4.0.0
+                      integer-gmp-1.0.0.0
+orphans: base-4.8.2.0:GHC.Base base-4.8.2.0:GHC.Float
+family instance modules: base-4.8.2.0:Control.Applicative
+                         base-4.8.2.0:Data.Either base-4.8.2.0:Data.Monoid
+                         base-4.8.2.0:Data.Type.Equality base-4.8.2.0:GHC.Generics
+import  -/  base-4.8.2.0:Control.Monad 480c5067477275068c9b98be08410df9
+import  -/  base-4.8.2.0:Data.Foldable 2ce969969ad5231eb40bd713f94f05ad
+import  -/  base-4.8.2.0:Data.List 3f0782c8d4bf50eecefcd5ea1798aac8
+import  -/  base-4.8.2.0:Data.Maybe 1cb58de2b04ee3c0c0a7dc9201184aff
+import  -/  base-4.8.2.0:Data.OldList d8fd80b0e14aa085ce6219cd89dad356
+import  -/  base-4.8.2.0:GHC.Base 1db77db5dae73d8c424c85b09fbadb89
+import  -/  base-4.8.2.0:GHC.Enum debc6de3086023a15993ab0cecffb90b
+import  -/  base-4.8.2.0:GHC.List 0c736920522bbd14b770342776012ab6
+import  -/  base-4.8.2.0:GHC.Num 9f42750c866f5832ca565146bd660c60
+import  -/  base-4.8.2.0:GHC.Show 0e1d8380a8fb0cfb07ebeda3b70cbf38
+import  -/  base-4.8.2.0:Prelude 694dcaf039efe62df1c44834e2dbd2fb
+import  -/  base-4.8.2.0:System.IO 0248c1e850b7ea124cf7a2e1669ebf67
+import  -/  ghc-prim-0.4.0.0:GHC.Classes e1f4ff80f7b5262008a595d29986fb18
+import  -/  GameLogic 0b53a799af830780d41d4547bedd253d
+  exports: 317b64144625346fcdfb42c1fb88af54
+  J d7de4bb8c2cf07d476f757e42c973f23
+  bigotimes 0390703f8b24ec89a7aaa580f2c54eac
+  find 19473f3b700cd7a01ba9465996d293bf
+  setMinus 4ad413d40cc9382bca94a4a68753d099
+9cac5fbc657b888b023f5860d06aee14
+  $fEqClue :: GHC.Classes.Eq Nonograms.Clue
+  DFunId[0]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Nonograms.Clue Nonograms.$fEqClue_$c== Nonograms.$fEqClue_$c/= -}
+9cac5fbc657b888b023f5860d06aee14
+  $fEqClue_$c/= :: Nonograms.Clue -> Nonograms.Clue -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: (\ a4 :: Nonograms.Clue b :: Nonograms.Clue ->
+                 case a4 of wild {
+                   Nonograms.Cont a5
+                   -> case b of wild1 {
+                        Nonograms.Cont b1
+                        -> case a5 of wild2 { GHC.Types.I# x1 ->
+                           case b1 of wild3 { GHC.Types.I# y ->
+                           case GHC.Prim.tagToEnum#
+                                  @ GHC.Types.Bool
+                                  (GHC.Prim.==# x1 y) of wild4 {
+                             GHC.Types.False -> GHC.Types.True
+                             GHC.Types.True -> GHC.Types.False } } }
+                        Nonograms.Seg ipv -> GHC.Types.True }
+                   Nonograms.Seg a5
+                   -> case b of wild1 {
+                        Nonograms.Cont ipv -> GHC.Types.True
+                        Nonograms.Seg b1
+                        -> case GHC.Classes.$fEq[]_$s$c== a5 b1 of wild2 {
+                             GHC.Types.False -> GHC.Types.True
+                             GHC.Types.True -> GHC.Types.False } } }) -}
+9cac5fbc657b888b023f5860d06aee14
+  $fEqClue_$c== :: Nonograms.Clue -> Nonograms.Clue -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: (\ ds :: Nonograms.Clue ds1 :: Nonograms.Clue ->
+                 case ds of wild {
+                   Nonograms.Cont a4
+                   -> case ds1 of wild1 {
+                        Nonograms.Cont b1 -> GHC.Classes.eqInt a4 b1
+                        Nonograms.Seg ipv -> GHC.Types.False }
+                   Nonograms.Seg a4
+                   -> case ds1 of wild1 {
+                        Nonograms.Cont ipv -> GHC.Types.False
+                        Nonograms.Seg b1 -> GHC.Classes.$fEq[]_$s$c== a4 b1 } }) -}
+9cac5fbc657b888b023f5860d06aee14
+  $fShowClue :: GHC.Show.Show Nonograms.Clue
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Nonograms.Clue
+                  Nonograms.$fShowClue_$cshowsPrec
+                  Nonograms.$fShowClue_$cshow
+                  Nonograms.$fShowClue_$cshowList -}
+9cac5fbc657b888b023f5860d06aee14
+  $fShowClue1 :: Nonograms.Clue -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (\ w :: Nonograms.Clue w1 :: GHC.Base.String ->
+                 Nonograms.$w$cshowsPrec 0 w w1) -}
+9cac5fbc657b888b023f5860d06aee14
+  $fShowClue_$cshow :: Nonograms.Clue -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ x1 :: Nonograms.Clue ->
+                 Nonograms.$fShowClue_$cshowsPrec
+                   GHC.Show.shows18
+                   x1
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+9cac5fbc657b888b023f5860d06aee14
+  $fShowClue_$cshowList :: [Nonograms.Clue] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ Nonograms.Clue
+                   Nonograms.$fShowClue1) -}
+9cac5fbc657b888b023f5860d06aee14
+  $fShowClue_$cshowsPrec ::
+    GHC.Types.Int -> Nonograms.Clue -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <S,1*U(U)><S,1*U><L,U>, Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ w :: GHC.Types.Int w1 :: Nonograms.Clue w2 :: GHC.Base.String ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 Nonograms.$w$cshowsPrec ww1 w1 w2 }) -}
+044567d8421ed1e47792f0823d26dd76
+  $s$fEq[] :: GHC.Classes.Eq [GHC.Types.Bool]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ [GHC.Types.Bool]
+                  (GHC.Classes.$fEq[]_$c== @ GHC.Types.Bool GHC.Classes.$fEqBool)
+                  Nonograms.$s$fEq[]_$s$fEq[]_$c/= -}
+a1f7aeac3fe45a2cec1c4520f9a2f9a9
+  $s$fEq[]_$s$fEq[]_$c/= ::
+    [GHC.Types.Bool] -> [GHC.Types.Bool] -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Inline: INLINE (sat-args=2),
+     Unfolding: InlineRule (2, False, False)
+                (\ x1 :: [GHC.Types.Bool] y :: [GHC.Types.Bool] ->
+                 GHC.Classes.not
+                   (GHC.Classes.$fEq[]_$c==
+                      @ GHC.Types.Bool
+                      GHC.Classes.$fEqBool
+                      x1
+                      y)) -}
+487317c487c5ca1692be9c3a3879ea45
+  $s$fOrd[] :: GHC.Classes.Ord [GHC.Types.Bool]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ [GHC.Types.Bool]
+                  Nonograms.$s$fOrd[]7
+                  (GHC.Classes.$fOrd[]_$ccompare
+                     @ GHC.Types.Bool
+                     Nonograms.$s$fOrd[]7
+                     GHC.Classes.$fOrdBool)
+                  Nonograms.$s$fOrd[]6
+                  Nonograms.$s$fOrd[]5
+                  Nonograms.$s$fOrd[]4
+                  Nonograms.$s$fOrd[]3
+                  Nonograms.$s$fOrd[]2
+                  Nonograms.$s$fOrd[]1 -}
+bf59a398edb33b4755e49f281a47fdc6
+  $s$fOrd[]1 ::
+    [GHC.Types.Bool] -> [GHC.Types.Bool] -> [GHC.Types.Bool]
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,U><S,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ x1 :: [GHC.Types.Bool] y :: [GHC.Types.Bool] ->
+                 case GHC.Classes.$w$ccompare14
+                        @ GHC.Types.Bool
+                        GHC.Classes.$fOrdBool
+                        x1
+                        y of wild {
+                   DEFAULT -> x1 GHC.Types.GT -> y }) -}
+6e372a9961bdf8f9409315727ff8bcd9
+  $s$fOrd[]2 ::
+    [GHC.Types.Bool] -> [GHC.Types.Bool] -> [GHC.Types.Bool]
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,U><S,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ x1 :: [GHC.Types.Bool] y :: [GHC.Types.Bool] ->
+                 case GHC.Classes.$w$ccompare14
+                        @ GHC.Types.Bool
+                        GHC.Classes.$fOrdBool
+                        x1
+                        y of wild {
+                   DEFAULT -> y GHC.Types.GT -> x1 }) -}
+8ca9a41c659054a92a4f8422cf261c85
+  $s$fOrd[]3 ::
+    [GHC.Types.Bool] -> [GHC.Types.Bool] -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ x1 :: [GHC.Types.Bool] y :: [GHC.Types.Bool] ->
+                 case GHC.Classes.$w$ccompare14
+                        @ GHC.Types.Bool
+                        GHC.Classes.$fOrdBool
+                        x1
+                        y of wild {
+                   DEFAULT -> GHC.Types.True GHC.Types.LT -> GHC.Types.False }) -}
+96532ebc8c239ad6a271bebb85e070de
+  $s$fOrd[]4 ::
+    [GHC.Types.Bool] -> [GHC.Types.Bool] -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ x1 :: [GHC.Types.Bool] y :: [GHC.Types.Bool] ->
+                 case GHC.Classes.$w$ccompare14
+                        @ GHC.Types.Bool
+                        GHC.Classes.$fOrdBool
+                        x1
+                        y of wild {
+                   DEFAULT -> GHC.Types.False GHC.Types.GT -> GHC.Types.True }) -}
+c137fc7908506b6cd2a361ca21501f7d
+  $s$fOrd[]5 ::
+    [GHC.Types.Bool] -> [GHC.Types.Bool] -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ x1 :: [GHC.Types.Bool] y :: [GHC.Types.Bool] ->
+                 case GHC.Classes.$w$ccompare14
+                        @ GHC.Types.Bool
+                        GHC.Classes.$fOrdBool
+                        x1
+                        y of wild {
+                   DEFAULT -> GHC.Types.True GHC.Types.GT -> GHC.Types.False }) -}
+c30fdd2bd450e93a48ea4609a929a638
+  $s$fOrd[]6 ::
+    [GHC.Types.Bool] -> [GHC.Types.Bool] -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ x1 :: [GHC.Types.Bool] y :: [GHC.Types.Bool] ->
+                 case GHC.Classes.$w$ccompare14
+                        @ GHC.Types.Bool
+                        GHC.Classes.$fOrdBool
+                        x1
+                        y of wild {
+                   DEFAULT -> GHC.Types.False GHC.Types.LT -> GHC.Types.True }) -}
+0129412cc4ce7c501c0cc9680f288f51
+  $s$fOrd[]7 :: GHC.Classes.Eq [GHC.Types.Bool]
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True) Nonograms.$s$fEq[] -}
+9cac5fbc657b888b023f5860d06aee14
+  $w$cshowsPrec ::
+    GHC.Prim.Int#
+    -> Nonograms.Clue -> GHC.Base.String -> GHC.Base.String
+  {- Arity: 3, Strictness: <L,U><S,1*U><L,U>, Inline: [0] -}
+15cdef252bf7ffe7b46a0ede4439e6b2
+  $wmarch' ::
+    [Nonograms.Value]
+    -> GHC.Types.Bool
+    -> GHC.Types.Bool
+    -> GHC.Types.Int
+    -> [GHC.Types.Int]
+    -> (# GHC.Types.Bool, [GHC.Types.Int] #)
+  {- Arity: 5, HasNoCafRefs,
+     Strictness: <S,1*U><L,U><L,U><L,U(U)><L,U>, Inline: [0] -}
+70952317dcb83d38f951cfdd960b062e
+  $wmaybeAt :: [a] -> GHC.Prim.Int# -> GHC.Base.Maybe a
+  {- Arity: 2, Strictness: <S,U><L,U>, Inline: [0],
+     Unfolding: (\ @ a4 w :: [a4] ww :: GHC.Prim.Int# ->
+                 case GHC.List.$wlenAcc @ a4 w 0 of ww2 {
+                   DEFAULT
+                   -> case GHC.Prim.tagToEnum#
+                             @ GHC.Types.Bool
+                             (GHC.Prim.<=# ww (GHC.Prim.-# ww2 1)) of wild {
+                        GHC.Types.False -> GHC.Base.Nothing @ a4
+                        GHC.Types.True
+                        -> case GHC.Prim.tagToEnum#
+                                  @ GHC.Types.Bool
+                                  (GHC.Prim.>=# ww 0) of wild1 {
+                             GHC.Types.False -> GHC.Base.Nothing @ a4
+                             GHC.Types.True -> GHC.Base.Just @ a4 (GHC.List.$w!! @ a4 w ww) } }
+                   (-9223372036854775808)
+                   -> case GHC.Enum.$fEnumInt1 ret_ty (GHC.Base.Maybe a4) of {} }) -}
+fb395bc73bc6f014219a8dedf70126ae
+  $wxs ::
+    GHC.Prim.Int#
+    -> (# [Nonograms.Move] -> GameLogic.J Nonograms.R Nonograms.Move,
+          [[Nonograms.Move] -> GameLogic.J Nonograms.R Nonograms.Move] #)
+  {- Arity: 1, Strictness: <S,1*U>, Inline: [0] -}
+9cac5fbc657b888b023f5860d06aee14
+  data Clue
+    = Cont {getCont :: GHC.Types.Int} | Seg {getSeg :: [GHC.Types.Int]}
+36f337c82816d899f9f502f01fc2fa9e
+  type Coordinate = GHC.Types.Int
+66b5803141577dbb0a5af2806d65cfbe
+  type Move = [Nonograms.Value]
+f9cfd32dd4a712e831e18872504cdb2c
+  type Position =
+    (Nonograms.Coordinate, Nonograms.Coordinate, Nonograms.Value)
+285a20c6602d189a244b43542ff3cb75
+  type Puzzle = [Nonograms.Position]
+3af2a42f40f59be5804ddafebb161814
+  type R = GHC.Types.Bool
+ee324fdb8eff95aee3d2376deb2efa43
+  type Value = GHC.Types.Bool
+9aa121294c0eec5da99df0042573c39a
+  clues :: [[Nonograms.Clue]]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ [Nonograms.Clue]
+                   Nonograms.clues19
+                   Nonograms.clues1) -}
+bd515a9b7d7390a82bac7ad6700afec3
+  clues1 :: [[Nonograms.Clue]]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ [Nonograms.Clue]
+                   Nonograms.clues2
+                   (GHC.Types.[] @ [Nonograms.Clue])) -}
+34be08881ca50113efbcd234ee287f25
+  clues10 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 2) -}
+84b3fc0cc510f81b10b2dec012b769f9
+  clues11 :: Nonograms.Clue
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (Nonograms.Seg Nonograms.clues12) -}
+99734ce9ea9264babcf0f19f3847ffd3
+  clues12 :: [GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   Nonograms.clues13
+                   Nonograms.clues9) -}
+b401b8b2f490c8bc90f5e7f5ffe6cf19
+  clues13 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 1) -}
+2cb5ee2477cf4f0b366e6b4466d9bcd6
+  clues14 :: Nonograms.Clue
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (Nonograms.Seg Nonograms.clues15) -}
+86ab92b3e033d2e2814aee093aec9701
+  clues15 :: [GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   Nonograms.clues13
+                   Nonograms.clues16) -}
+4aa91a0252a3432f2d6cff069fff341b
+  clues16 :: [GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   Nonograms.clues17
+                   (GHC.Types.[] @ GHC.Types.Int)) -}
+532c19063815fe57e135f9f67c42e6fa
+  clues17 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 3) -}
+6da1dd71d2f0ef82d7a8c4a030153363
+  clues18 :: Nonograms.Clue
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (Nonograms.Cont Nonograms.clues13) -}
+50188fc706b4635e49204ad4290422fe
+  clues19 :: [Nonograms.Clue]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Nonograms.Clue
+                   Nonograms.clues26
+                   Nonograms.clues20) -}
+ab802cec8c02ed09d1b3879b93fe2205
+  clues2 :: [Nonograms.Clue]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Nonograms.Clue
+                   Nonograms.clues18
+                   Nonograms.clues3) -}
+0cb6db6f99f426cc516e630b1775ac98
+  clues20 :: [Nonograms.Clue]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Nonograms.Clue
+                   Nonograms.clues18
+                   Nonograms.clues21) -}
+648c9345828ead6bbfce24fc498c24e8
+  clues21 :: [Nonograms.Clue]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Nonograms.Clue
+                   Nonograms.clues27
+                   Nonograms.clues22) -}
+8516e81ebd5981d740be265ba3d50fb4
+  clues22 :: [Nonograms.Clue]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Nonograms.Clue
+                   Nonograms.clues26
+                   Nonograms.clues23) -}
+2ee373b4600b924b1f4ff065c37a6cff
+  clues23 :: [Nonograms.Clue]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Nonograms.Clue
+                   Nonograms.clues24
+                   (GHC.Types.[] @ Nonograms.Clue)) -}
+90e01aef955e5c4eb68c39bcba249ffb
+  clues24 :: Nonograms.Clue
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (Nonograms.Cont Nonograms.clues25) -}
+db0311fe113b54bbfa1891db85d2b9ec
+  clues25 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 4) -}
+0c1f2d7806e9dfd0741012c461bbf7ef
+  clues26 :: Nonograms.Clue
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (Nonograms.Cont Nonograms.clues17) -}
+814e719da0e173d7bf3c259c62142903
+  clues27 :: Nonograms.Clue
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (Nonograms.Seg Nonograms.clues28) -}
+6a5a769cec1e214c61c4c7cf05606a21
+  clues28 :: [GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   Nonograms.clues13
+                   Nonograms.clues29) -}
+6ea3c70298ef11be5fb1c4356b0c18fb
+  clues29 :: [GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   Nonograms.clues13
+                   (GHC.Types.[] @ GHC.Types.Int)) -}
+dc4014e1dcf639f0572d04364ea4c992
+  clues3 :: [Nonograms.Clue]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Nonograms.Clue
+                   Nonograms.clues18
+                   Nonograms.clues4) -}
+114017463087f5c8a7d153edeb614610
+  clues4 :: [Nonograms.Clue]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Nonograms.Clue
+                   Nonograms.clues14
+                   Nonograms.clues5) -}
+f7f75370fabdb7831d94603aa23c3bd9
+  clues5 :: [Nonograms.Clue]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Nonograms.Clue
+                   Nonograms.clues11
+                   Nonograms.clues6) -}
+de4b1384177c2a195a63177a1efef1db
+  clues6 :: [Nonograms.Clue]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Nonograms.Clue
+                   Nonograms.clues7
+                   (GHC.Types.[] @ Nonograms.Clue)) -}
+39a09cdd1daf7c9ae01533e5c3902929
+  clues7 :: Nonograms.Clue
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (Nonograms.Seg Nonograms.clues8) -}
+3a3d83ce6cafc2ae8709d30f387fbd4c
+  clues8 :: [GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   Nonograms.clues10
+                   Nonograms.clues9) -}
+da70c1e41c8fcc3762ddd2d946827e2d
+  clues9 :: [GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   Nonograms.clues10
+                   (GHC.Types.[] @ GHC.Types.Int)) -}
+4e56dd02f2498152ccb0954b92a4a203
+  epsilons ::
+    [[Nonograms.Move] -> GameLogic.J Nonograms.R Nonograms.Move]
+  {- Unfolding: (case Nonograms.$wxs 5 of ww { (#,#) ww1 ww2 ->
+                 GHC.Types.:
+                   @ ([Nonograms.Move] -> GameLogic.J Nonograms.R Nonograms.Move)
+                   ww1
+                   ww2 }) -}
+beb829c06c3ae0ad443f25e56dd25760
+  getCont :: Nonograms.Clue -> GHC.Types.Int
+  RecSel Nonograms.Clue
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds :: Nonograms.Clue ->
+                 case ds of wild {
+                   Nonograms.Cont ds1 -> ds1
+                   Nonograms.Seg ipv -> Nonograms.getCont1 }) -}
+a7e25411e6bde9d7089008efa30249e3
+  getCont1 :: GHC.Types.Int
+  {- Strictness: b -}
+1dca28caeb91790519e48703a2cdc71a
+  getSeg :: Nonograms.Clue -> [GHC.Types.Int]
+  RecSel Nonograms.Clue
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds :: Nonograms.Clue ->
+                 case ds of wild {
+                   Nonograms.Cont ipv -> Nonograms.getSeg1
+                   Nonograms.Seg ds1 -> ds1 }) -}
+a6fb0ac7dce7d3acbc99a4677d25b645
+  getSeg1 :: [GHC.Types.Int]
+  {- Strictness: b -}
+78a21568dcdb7f39d9a0731cf469f874
+  main :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Nonograms.main1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
+c825246e1a215059a8774df250dc27de
+  main1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ eta :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 GHC.IO.Handle.Text.hPutStr2
+                   GHC.IO.Handle.FD.stdout
+                   (Nonograms.prettyPrint Nonograms.clues Nonograms.optimalPlay)
+                   GHC.Types.True
+                   eta) -}
+1b601c728d307082f2e27bbdd9e0fefd
+  matchClues ::
+    [[Nonograms.Clue]] -> [Nonograms.Move] -> GHC.Types.Bool
+  {- Arity: 2, Strictness: <S,1*U><L,U>,
+     Unfolding: (\ cs :: [[Nonograms.Clue]] ms :: [Nonograms.Move] ->
+                 case cs of wild {
+                   [] -> case GHC.List.badHead ret_ty GHC.Types.Bool of {}
+                   : x1 ds1
+                   -> case (Nonograms.matchClues_go2
+                              (GHC.List.zipWith
+                                 @ Nonograms.Clue
+                                 @ [Nonograms.Value]
+                                 @ GHC.Types.Bool
+                                 Nonograms.matchClues_march
+                                 x1
+                                 ms))
+                             `cast`
+                           (Data.Monoid.NTCo:All[0]) of wild1 {
+                        GHC.Types.False -> GHC.Types.False
+                        GHC.Types.True
+                        -> (Nonograms.matchClues_go1
+                              (GHC.List.zipWith
+                                 @ Nonograms.Clue
+                                 @ [Nonograms.Value]
+                                 @ GHC.Types.Bool
+                                 Nonograms.matchClues_march
+                                 (Nonograms.matchClues_go
+                                    wild
+                                    (GHC.List.lastError @ [Nonograms.Clue]))
+                                 (Data.OldList.transpose @ Nonograms.Value ms)))
+                             `cast`
+                           (Data.Monoid.NTCo:All[0]) } }) -}
+058441e17032b299de462bd05d159cc5
+  matchClues1 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0) -}
+306afc84d82bdf16394e592b8bdcfb12
+  matchClues_go ::
+    [[Nonograms.Clue]] -> [Nonograms.Clue] -> [Nonograms.Clue]
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,1*U> -}
+e728a4c402a1a44da43e9a109d9ab785
+  matchClues_go1 :: [GHC.Types.Bool] -> Data.Monoid.All
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+7a0bb968892c536baa26c24aaa27cabd
+  matchClues_go2 :: [GHC.Types.Bool] -> Data.Monoid.All
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+e5968a5f499aea9245ac0f73de9c5e06
+  matchClues_march ::
+    Nonograms.Clue -> [Nonograms.Value] -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: (\ ds :: Nonograms.Clue bools :: [Nonograms.Value] ->
+                 case ds of wild {
+                   Nonograms.Cont i
+                   -> case Nonograms.$wmarch'
+                             bools
+                             GHC.Types.False
+                             GHC.Types.False
+                             Nonograms.matchClues1
+                             (GHC.Types.[] @ GHC.Types.Int) of ww { (#,#) ww1 ww2 ->
+                      case ww1 of wild1 {
+                        GHC.Types.False
+                        -> GHC.Classes.$fEq[]_$s$c==
+                             (GHC.Types.: @ GHC.Types.Int i (GHC.Types.[] @ GHC.Types.Int))
+                             ww2
+                        GHC.Types.True -> GHC.Types.False } }
+                   Nonograms.Seg xs
+                   -> case Nonograms.$wmarch'
+                             bools
+                             GHC.Types.False
+                             GHC.Types.False
+                             Nonograms.matchClues1
+                             (GHC.Types.[] @ GHC.Types.Int) of ww { (#,#) ww1 ww2 ->
+                      case ww1 of wild1 {
+                        GHC.Types.False -> GHC.Types.False
+                        GHC.Types.True -> GHC.Classes.$fEq[]_$s$c== ww2 xs } } }) -}
+540c483d485fad5af570934d7435dd8d
+  maybeAt :: [a] -> GHC.Types.Int -> GHC.Base.Maybe a
+  {- Arity: 2, Strictness: <S,U><S,1*U(U)>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a4 w :: [a4] w1 :: GHC.Types.Int ->
+                 case w1 of ww { GHC.Types.I# ww1 ->
+                 Nonograms.$wmaybeAt @ a4 w ww1 }) -}
+b90ed1d5805a2d305caa53308e554665
+  movesToPuzzle :: [Nonograms.Move] -> Nonograms.Puzzle
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ x1 :: [Nonograms.Move] ->
+                 GHC.List.zip3
+                   @ Nonograms.Coordinate
+                   @ Nonograms.Coordinate
+                   @ Nonograms.Value
+                   Nonograms.movesToPuzzle_xs
+                   Nonograms.movesToPuzzle_ys
+                   (Control.Parallel.Strategies.$sconcat @ GHC.Types.Bool x1)) -}
+474a6113ba0e2b2a0d33060e84e5e9b6
+  movesToPuzzle1 :: ([Nonograms.Coordinate], [Nonograms.Coordinate])
+  {- Unfolding: (Nonograms.movesToPuzzle_go 1) -}
+65d866a46ff5298573c0c21ba77fa022
+  movesToPuzzle_go ::
+    GHC.Prim.Int# -> ([Nonograms.Coordinate], [Nonograms.Coordinate])
+  {- Arity: 1, Strictness: <L,U> -}
+a9de4566258dba7576e1f4712797515d
+  movesToPuzzle_xs :: [Nonograms.Coordinate]
+  {- Unfolding: (case Nonograms.movesToPuzzle1 of wild { (,) xs ys ->
+                 xs }) -}
+f541a6c74d50166ead8fa90b2858cdf6
+  movesToPuzzle_ys :: [Nonograms.Coordinate]
+  {- Unfolding: (case Nonograms.movesToPuzzle1 of wild { (,) xs ys ->
+                 ys }) -}
+ab5719a345889dca3e3f853db78d88c9
+  optimalPlay :: [Nonograms.Move]
+  {- Unfolding: (Nonograms.optimalPlay1 Nonograms.p) -}
+9e895852f90992b8dd5bcf06fe8790b4
+  optimalPlay1 :: GameLogic.J Nonograms.R [Nonograms.Move]
+  {- Unfolding: (GameLogic.bigotimes
+                   @ Nonograms.Move
+                   @ Nonograms.R
+                   Nonograms.epsilons) -}
+a8d1618724575a763be00be094cf836d
+  p :: [Nonograms.Move] -> Nonograms.R
+  {- Arity: 1, Unfolding: (Nonograms.matchClues Nonograms.clues) -}
+2e08abaeeeac024d68dee4265a8f5f8a
+  prettyPrint ::
+    [[Nonograms.Clue]] -> [Nonograms.Move] -> GHC.Base.String
+  {- Arity: 2, Strictness: <S,1*U><L,U> -}
+instance GHC.Classes.Eq [Nonograms.Clue] = Nonograms.$fEqClue
+instance GHC.Show.Show [Nonograms.Clue] = Nonograms.$fShowClue
+"SPEC/Nonograms $fEq[] @ Bool" [ALWAYS] forall $dEq :: GHC.Classes.Eq
+                                                         GHC.Types.Bool
+  GHC.Classes.$fEq[] @ GHC.Types.Bool $dEq = Nonograms.$s$fEq[]
+"SPEC/Nonograms $fEq[]_$c/= @ Bool" [ALWAYS] forall $dEq :: GHC.Classes.Eq
+                                                              GHC.Types.Bool
+  GHC.Classes.$fEq[]_$c/= @ GHC.Types.Bool $dEq
+  = Nonograms.$s$fEq[]_$s$fEq[]_$c/=
+"SPEC/Nonograms $fOrd[] @ Bool" [ALWAYS] forall $dEq :: GHC.Classes.Eq
+                                                          [GHC.Types.Bool]
+                                                $dOrd :: GHC.Classes.Ord GHC.Types.Bool
+  GHC.Classes.$fOrd[] @ GHC.Types.Bool $dEq $dOrd
+  = Nonograms.$s$fOrd[]
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

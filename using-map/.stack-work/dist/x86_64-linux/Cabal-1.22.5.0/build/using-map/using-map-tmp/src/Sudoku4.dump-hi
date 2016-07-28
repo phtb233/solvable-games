@@ -1,0 +1,672 @@
+
+==================== FINAL INTERFACE ====================
+2016-07-28 16:49:05.42935 UTC
+
+interface main@main:Sudoku4 7103
+  interface hash: 0d2ad61056c18cfbe96874be66af20d0
+  ABI hash: 51118c62877a15c4e2baaf37b45781bb
+  export-list hash: 6a48f7af1f4ab8197578534ed6e50f7d
+  orphan hash: eba97eeb0769d58108cc8c5e5858cb52
+  flag hash: 544be7a67884f4b6b321b963ecf80260
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Sudoku4.checkPuzzle
+  Sudoku4.epsilons
+  Sudoku4.main
+  Sudoku4.matchClue
+  Sudoku4.movesToPuzzle
+  Sudoku4.optimalPlay
+  Sudoku4.p
+  Sudoku4.pPar
+  Sudoku4.parEpsilons
+  Sudoku4.parOptimalPlay
+  Sudoku4.prettyPrint
+  Sudoku4.size
+  Sudoku4.valid
+  Sudoku4.Coordinate
+  Sudoku4.Move
+  Sudoku4.Position
+  Sudoku4.Puzzle
+  Sudoku4.R
+  Sudoku4.Value
+module dependencies: GameLogic
+package dependencies: array-0.5.1.0@array_67iodizgJQIIxYVTp4emlA
+                      base-4.8.2.0 containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU
+                      deepseq-1.4.1.1@deeps_6vMKxt5sPFR0XsbRWvvq59 ghc-prim-0.4.0.0
+                      integer-gmp-1.0.0.0 parallel-3.2.1.0@paral_BEbrIfHgHtmEpYU5TfKWK9
+orphans: base-4.8.2.0:GHC.Base base-4.8.2.0:GHC.Float
+family instance modules: base-4.8.2.0:Control.Applicative
+                         base-4.8.2.0:Data.Either base-4.8.2.0:Data.Functor.Identity
+                         base-4.8.2.0:Data.Monoid base-4.8.2.0:Data.Type.Equality
+                         base-4.8.2.0:Data.Void base-4.8.2.0:GHC.Exts
+                         base-4.8.2.0:GHC.Generics
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Map.Base
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Set.Base
+import  -/  base-4.8.2.0:Control.Monad 480c5067477275068c9b98be08410df9
+import  -/  base-4.8.2.0:Data.Foldable 2ce969969ad5231eb40bd713f94f05ad
+import  -/  base-4.8.2.0:Data.List 3f0782c8d4bf50eecefcd5ea1798aac8
+import  -/  base-4.8.2.0:Data.Maybe 1cb58de2b04ee3c0c0a7dc9201184aff
+import  -/  base-4.8.2.0:Data.Monoid 85b292b52bfd80ed619cddb767d638d3
+import  -/  base-4.8.2.0:Data.OldList d8fd80b0e14aa085ce6219cd89dad356
+import  -/  base-4.8.2.0:Data.Tuple 012ad951a59a9d85fe1de36a2f012986
+import  -/  base-4.8.2.0:Debug.Trace 6660afb6094d69397ea084364da8f950
+import  -/  base-4.8.2.0:GHC.Base 1db77db5dae73d8c424c85b09fbadb89
+import  -/  base-4.8.2.0:GHC.Enum debc6de3086023a15993ab0cecffb90b
+import  -/  base-4.8.2.0:GHC.Float e532d434ec2447d809887c0fca1d78a5
+import  -/  base-4.8.2.0:GHC.List 0c736920522bbd14b770342776012ab6
+import  -/  base-4.8.2.0:GHC.Num 9f42750c866f5832ca565146bd660c60
+import  -/  base-4.8.2.0:GHC.Real 1281efa9baf803bc7859d7efb89a38b3
+import  -/  base-4.8.2.0:GHC.Show 0e1d8380a8fb0cfb07ebeda3b70cbf38
+import  -/  base-4.8.2.0:Prelude 694dcaf039efe62df1c44834e2dbd2fb
+import  -/  base-4.8.2.0:System.IO 0248c1e850b7ea124cf7a2e1669ebf67
+import  -/  containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Map.Base 61f4bf9a28a6b2eb8805b671ced219c1
+import  -/  containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Map.Strict 1c3e955bd48ee0eecb78cf325060b5fa
+import  -/  ghc-prim-0.4.0.0:GHC.Classes e1f4ff80f7b5262008a595d29986fb18
+import  -/  ghc-prim-0.4.0.0:GHC.Types 6b27fb3fdbd0e3f0925a4496c66513bb
+import  -/  GameLogic 0b53a799af830780d41d4547bedd253d
+  exports: 317b64144625346fcdfb42c1fb88af54
+  J d7de4bb8c2cf07d476f757e42c973f23
+  bigotimes 0390703f8b24ec89a7aaa580f2c54eac
+  find 19473f3b700cd7a01ba9465996d293bf
+  setMinus 4ad413d40cc9382bca94a4a68753d099
+import  -/  parallel-3.2.1.0@paral_BEbrIfHgHtmEpYU5TfKWK9:Control.Parallel.Strategies e559e49e970aa71559d76fa817ccb0ac
+9d368b33a3c58fa0afbd8c6dbe505939
+  $sfromList ::
+    [(Sudoku4.Position, a)] -> Data.Map.Base.Map Sudoku4.Position a
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ @ a1 ds :: [(Sudoku4.Position, a1)] ->
+                 case ds of wild {
+                   [] -> Data.Map.Base.Tip @ Sudoku4.Position @ a1
+                   : ds1 ds2
+                   -> case ds1 of wild1 { (,) kx x2 ->
+                      case ds2 of wild2 {
+                        []
+                        -> case x2 of x3 { DEFAULT ->
+                           case kx of dt { (,) ipv ipv1 ->
+                           Data.Map.Base.Bin
+                             @ Sudoku4.Position
+                             @ a1
+                             1
+                             dt
+                             x3
+                             (Data.Map.Base.Tip @ Sudoku4.Position @ a1)
+                             (Data.Map.Base.Tip @ Sudoku4.Position @ a1) } }
+                        : ipv ipv1
+                        -> case ipv of wild3 { (,) ky ds3 ->
+                           case kx of ww { (,) ww1 ww2 ->
+                           case ky of ww3 { (,) ww4 ww5 ->
+                           case ww1 of wild4 { GHC.Types.I# x# ->
+                           case ww4 of wild5 { GHC.Types.I# y# ->
+                           case GHC.Prim.tagToEnum#
+                                  @ GHC.Types.Bool
+                                  (GHC.Prim.<# x# y#) of wild6 {
+                             GHC.Types.False
+                             -> case GHC.Prim.tagToEnum#
+                                       @ GHC.Types.Bool
+                                       (GHC.Prim.==# x# y#) of wild7 {
+                                  GHC.Types.False
+                                  -> case x2 of x0 { DEFAULT ->
+                                     Sudoku4.$sfromList1
+                                       @ a1
+                                       (Data.Map.Base.Bin
+                                          @ Sudoku4.Position
+                                          @ a1
+                                          1
+                                          ww
+                                          x0
+                                          (Data.Map.Base.Tip @ Sudoku4.Position @ a1)
+                                          (Data.Map.Base.Tip @ Sudoku4.Position @ a1))
+                                       wild2 }
+                                  GHC.Types.True
+                                  -> case ww2 of wild8 { GHC.Types.I# x3 ->
+                                     case ww5 of wild9 { GHC.Types.I# y ->
+                                     case GHC.Prim.tagToEnum#
+                                            @ GHC.Types.Bool
+                                            (GHC.Prim.>=# x3 y) of wild10 {
+                                       GHC.Types.False
+                                       -> case x2 of x0 { DEFAULT ->
+                                          Sudoku4.$wpoly_go4
+                                            @ a1
+                                            1
+                                            (Data.Map.Base.Bin
+                                               @ Sudoku4.Position
+                                               @ a1
+                                               1
+                                               ww
+                                               x0
+                                               (Data.Map.Base.Tip @ Sudoku4.Position @ a1)
+                                               (Data.Map.Base.Tip @ Sudoku4.Position @ a1))
+                                            wild2 }
+                                       GHC.Types.True
+                                       -> case x2 of x0 { DEFAULT ->
+                                          Sudoku4.$sfromList1
+                                            @ a1
+                                            (Data.Map.Base.Bin
+                                               @ Sudoku4.Position
+                                               @ a1
+                                               1
+                                               ww
+                                               x0
+                                               (Data.Map.Base.Tip @ Sudoku4.Position @ a1)
+                                               (Data.Map.Base.Tip @ Sudoku4.Position @ a1))
+                                            wild2 } } } } }
+                             GHC.Types.True
+                             -> case x2 of x0 { DEFAULT ->
+                                Sudoku4.$wpoly_go4
+                                  @ a1
+                                  1
+                                  (Data.Map.Base.Bin
+                                     @ Sudoku4.Position
+                                     @ a1
+                                     1
+                                     ww
+                                     x0
+                                     (Data.Map.Base.Tip @ Sudoku4.Position @ a1)
+                                     (Data.Map.Base.Tip @ Sudoku4.Position @ a1))
+                                  wild2 } } } } } } } } } }) -}
+a34aa749782936a671066d7780ec8496
+  $sfromList1 ::
+    Data.Map.Base.Map Sudoku4.Position a1
+    -> [(Sudoku4.Position, a1)]
+    -> Data.Map.Base.Map Sudoku4.Position a1
+  {- Arity: 2, Strictness: <S,1*U><S,1*U> -}
+4dc0a7f71a3fc2b5203e336bc61a56c3
+  $ssort :: [Sudoku4.Value] -> [Sudoku4.Value]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ eta :: [Sudoku4.Value] ->
+                 Data.OldList.sortBy @ Sudoku4.Value GHC.Classes.compareInt eta) -}
+f95b800c28916edac8c074ee89d25199
+  $w$sgo4 ::
+    Sudoku4.Coordinate
+    -> Sudoku4.Coordinate
+    -> a1
+    -> Data.Map.Base.Map Sudoku4.Position a1
+    -> Data.Map.Base.Map Sudoku4.Position a1
+  {- Arity: 4, Strictness: <L,U(U)><L,U(U)><S,1*U><S,1*U>,
+     Inline: [0] -}
+83e759d1cf2ef859ab5f1c2b6e6813c0
+  $wa ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <L,U>, Inline: [0],
+     Unfolding: (\ w :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 GHC.IO.Handle.Text.hPutStr2
+                   GHC.IO.Handle.FD.stdout
+                   Sudoku4.main5
+                   GHC.Types.True
+                   w) -}
+30649be9d65f6fef6fe4468de9dca5da
+  $wpoly_go10 ::
+    Sudoku4.Coordinate
+    -> Sudoku4.Coordinate
+    -> Data.Map.Base.Map (Sudoku4.Coordinate, Sudoku4.Coordinate) a
+    -> GHC.Base.Maybe a
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,U(U)><L,U(U)><S,1*U>,
+     Inline: [0] -}
+886a0e4b12f2a8219e25764c6b5250e3
+  $wpoly_go4 ::
+    GHC.Prim.Int#
+    -> Data.Map.Base.Map Sudoku4.Position a
+    -> [(Sudoku4.Position, a)]
+    -> Data.Map.Base.Map Sudoku4.Position a
+  {- Arity: 3, Strictness: <L,U><S,1*U><S,1*U>, Inline: [0] -}
+82697f7c12d624c4e05bdc1c2e20ab96
+  $wxs ::
+    GHC.Prim.Int#
+    -> (# [Sudoku4.Move] -> GameLogic.J Sudoku4.R Sudoku4.Move,
+          [[Sudoku4.Move] -> GameLogic.J Sudoku4.R Sudoku4.Move] #)
+  {- Arity: 1, Strictness: <S,1*U>, Inline: [0] -}
+8a80305ccaf722917a468fdc9b93e433
+  $wxs1 :: GHC.Prim.Int# -> [GHC.Types.Char]
+  {- Arity: 1, Strictness: <S,1*U>, Inline: [0] -}
+acdcd35f471ebf723b9324614832a860
+  type Coordinate = GHC.Types.Int
+8ae00266a265610f52ca82ea9165ff6f
+  type Move = [Sudoku4.Value]
+e66791da4aa31bb8c4a9c3d12710e554
+  type Position = (Sudoku4.Coordinate, Sudoku4.Coordinate)
+4a89879f24cc9df0595aceaa4d46c316
+  type Puzzle = Data.Map.Base.Map Sudoku4.Position Sudoku4.Value
+459b87b9ec6361d9dc8f966d22eca480
+  type R = GHC.Types.Bool
+00732a4398b5ff9b04be5782bdf03d92
+  type Value = GHC.Types.Int
+c4b8bef939ff9e9ced9d442b1434d766
+  checkPuzzle :: Sudoku4.Puzzle -> GHC.Types.Bool
+  {- Arity: 1, Strictness: <L,U> -}
+34f5f6f1c8ea3d43e233a438c78ff063
+  epsilons :: [[Sudoku4.Move] -> GameLogic.J Sudoku4.R Sudoku4.Move]
+  {- Unfolding: (case Sudoku4.$wxs 4 of ww { (#,#) ww1 ww2 ->
+                 GHC.Types.:
+                   @ ([Sudoku4.Move] -> GameLogic.J Sudoku4.R Sudoku4.Move)
+                   ww1
+                   ww2 }) -}
+d31af8e96acf921a9a613ce32735cc31
+  main :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Sudoku4.main1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
+ff18edcaf90eae82d261d78cc583da0e
+  main1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: (\ eta :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 case Sudoku4.checkPuzzle Sudoku4.main6 of wild {
+                   GHC.Types.False -> Sudoku4.$wa eta
+                   GHC.Types.True
+                   -> case Sudoku4.matchClue Sudoku4.main_results of wild1 {
+                        GHC.Types.False -> Sudoku4.$wa eta
+                        GHC.Types.True
+                        -> GHC.IO.Handle.Text.hPutStr2
+                             GHC.IO.Handle.FD.stdout
+                             Sudoku4.main2
+                             GHC.Types.True
+                             eta } }) -}
+203441b2b5fafef9c23ee79118a2995f
+  main2 :: GHC.Base.String
+  {- Unfolding: (Sudoku4.prettyPrint Sudoku4.main_results) -}
+e81a141262e9260855fb37565571e6f7
+  main3 :: [[Sudoku4.Move]]
+  {- Unfolding: (Sudoku4.main_go Sudoku4.main_possibilities) -}
+9e8985e0393c571a62d9413c9e431496
+  main4 :: [[Sudoku4.Coordinate]]
+  {- Unfolding: (Data.OldList.permutations1
+                   @ Sudoku4.Coordinate
+                   Sudoku4.main_xs0
+                   (GHC.Types.[] @ Sudoku4.Coordinate)) -}
+00f9aa4b7fa4f6fc929d2c7113c70193
+  main5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   "I couldn't solve this puzzle."#) -}
+182e2fa574b2776d6292197a6ac6fb36
+  main6 :: Sudoku4.Puzzle
+  {- Unfolding: (Sudoku4.$sfromList
+                   @ GHC.Types.Int
+                   (GHC.List.zipWith
+                      @ (Sudoku4.Coordinate, Sudoku4.Coordinate)
+                      @ GHC.Types.Int
+                      @ (Sudoku4.Position, Sudoku4.Value)
+                      (GHC.Tuple.(,) @ Sudoku4.Position @ Sudoku4.Value)
+                      Sudoku4.movesToPuzzle_coords
+                      (Sudoku4.movesToPuzzle_go Sudoku4.main_results))) -}
+99e031029e827dc4aaae195f0ecc1a78
+  main_a4 ::
+    [[Sudoku4.Move]]
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, [[Sudoku4.Move]] #)
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U> -}
+73b6d82860532f64edde1a6d3900db03
+  main_go :: [[Sudoku4.Coordinate]] -> [[Sudoku4.Move]]
+  {- Arity: 1, Strictness: <S,1*U> -}
+4c3000e58061168ec31e586afa060988
+  main_possibilities :: [[Sudoku4.Coordinate]]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ [Sudoku4.Coordinate]
+                   Sudoku4.main_xs0
+                   Sudoku4.main4) -}
+77fa2eca3eb69f8abf30fbcdfc0bc2fa
+  main_results :: [Sudoku4.Move]
+  {- Unfolding: (case Sudoku4.main_a4
+                        Sudoku4.main3
+                        GHC.Prim.realWorld# of ds { (#,#) ipv ipv1 ->
+                 GameLogic.find @ [Sudoku4.Move] ipv1 Sudoku4.p }) -}
+0e665e623ba39bc2bc535794794b0574
+  main_xs0 :: [Sudoku4.Coordinate]
+  {- Unfolding: (GHC.Enum.eftInt 1 4) -}
+3da300ad17e8c9a666f226a10ccefce3
+  matchClue :: [Sudoku4.Move] -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: (\ ds :: [Sudoku4.Move] ->
+                 case ds of wild {
+                   [] -> GHC.Types.False
+                   : ds1 ds2
+                   -> case ds1 of wild1 {
+                        [] -> GHC.Types.False
+                        : ds3 ds4
+                        -> case ds4 of wild2 {
+                             [] -> GHC.Types.False
+                             : ds5 ds6
+                             -> case ds5 of wild3 { GHC.Types.I# ds7 ->
+                                case ds7 of ds8 {
+                                  DEFAULT -> GHC.Types.False
+                                  2
+                                  -> case ds6 of wild4 {
+                                       [] -> GHC.Types.False
+                                       : ds9 ds10
+                                       -> case ds10 of wild5 {
+                                            [] -> GHC.Types.False
+                                            : ds11 ds12
+                                            -> case ds11 of wild6 { GHC.Types.I# ds13 ->
+                                               case ds13 of ds14 {
+                                                 DEFAULT -> GHC.Types.False
+                                                 1
+                                                 -> case ds12 of wild7 {
+                                                      []
+                                                      -> case ds2 of wild8 {
+                                                           [] -> GHC.Types.False
+                                                           : ds15 ds16
+                                                           -> case ds15 of wild9 {
+                                                                [] -> GHC.Types.False
+                                                                : ds17 ds18
+                                                                -> case ds17 of wild10 { GHC.Types.I# ds19 ->
+                                                                   case ds19 of ds20 {
+                                                                     DEFAULT -> GHC.Types.False
+                                                                     1
+                                                                     -> case ds18 of wild11 {
+                                                                          [] -> GHC.Types.False
+                                                                          : ds21 ds22
+                                                                          -> case ds22 of wild12 {
+                                                                               [] -> GHC.Types.False
+                                                                               : ds23 ds24
+                                                                               -> case ds24 of wild13 {
+                                                                                    []
+                                                                                    -> GHC.Types.False
+                                                                                    : ds25 ds26
+                                                                                    -> case ds26 of wild14 {
+                                                                                         []
+                                                                                         -> case ds16 of wild15 {
+                                                                                              []
+                                                                                              -> GHC.Types.False
+                                                                                              : ds27 ds28
+                                                                                              -> case ds27 of wild16 {
+                                                                                                   []
+                                                                                                   -> GHC.Types.False
+                                                                                                   : ds29 ds30
+                                                                                                   -> case ds30 of wild17 {
+                                                                                                        []
+                                                                                                        -> GHC.Types.False
+                                                                                                        : ds31 ds32
+                                                                                                        -> case ds32 of wild18 {
+                                                                                                             []
+                                                                                                             -> GHC.Types.False
+                                                                                                             : ds33 ds34
+                                                                                                             -> case ds34 of wild19 {
+                                                                                                                  []
+                                                                                                                  -> GHC.Types.False
+                                                                                                                  : ds35 ds36
+                                                                                                                  -> case ds35 of wild20 { GHC.Types.I# ds37 ->
+                                                                                                                     case ds37 of ds38 {
+                                                                                                                       DEFAULT
+                                                                                                                       -> GHC.Types.False
+                                                                                                                       4
+                                                                                                                       -> case ds36 of wild21 {
+                                                                                                                            []
+                                                                                                                            -> case ds28 of wild22 {
+                                                                                                                                 []
+                                                                                                                                 -> GHC.Types.False
+                                                                                                                                 : ds39 ds40
+                                                                                                                                 -> case ds39 of wild23 {
+                                                                                                                                      []
+                                                                                                                                      -> GHC.Types.False
+                                                                                                                                      : ds41 ds42
+                                                                                                                                      -> case ds41 of wild24 { GHC.Types.I# ds43 ->
+                                                                                                                                         case ds43 of ds44 {
+                                                                                                                                           DEFAULT
+                                                                                                                                           -> GHC.Types.False
+                                                                                                                                           4
+                                                                                                                                           -> case ds42 of wild25 {
+                                                                                                                                                []
+                                                                                                                                                -> GHC.Types.False
+                                                                                                                                                : ds45 ds46
+                                                                                                                                                -> case ds46 of wild26 {
+                                                                                                                                                     []
+                                                                                                                                                     -> GHC.Types.False
+                                                                                                                                                     : ds47 ds48
+                                                                                                                                                     -> case ds47 of wild27 { GHC.Types.I# ds49 ->
+                                                                                                                                                        case ds49 of ds50 {
+                                                                                                                                                          DEFAULT
+                                                                                                                                                          -> GHC.Types.False
+                                                                                                                                                          3
+                                                                                                                                                          -> case ds48 of wild28 {
+                                                                                                                                                               []
+                                                                                                                                                               -> GHC.Types.False
+                                                                                                                                                               : ds51 ds52
+                                                                                                                                                               -> case ds52 of wild29 {
+                                                                                                                                                                    []
+                                                                                                                                                                    -> case ds40 of wild30 {
+                                                                                                                                                                         []
+                                                                                                                                                                         -> GHC.Types.True
+                                                                                                                                                                         : ipv ipv1
+                                                                                                                                                                         -> GHC.Types.False }
+                                                                                                                                                                    : ipv ipv1
+                                                                                                                                                                    -> GHC.Types.False } } } } } } } } } }
+                                                                                                                            : ipv ipv1
+                                                                                                                            -> GHC.Types.False } } } } } } } }
+                                                                                         : ipv ipv1
+                                                                                         -> GHC.Types.False } } } } } } } }
+                                                      : ipv ipv1
+                                                      -> GHC.Types.False } } } } } } } } } }) -}
+ea2157e536858fe49371357fcebc2746
+  movesToPuzzle :: [Sudoku4.Move] -> Sudoku4.Puzzle
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: (\ x2 :: [Sudoku4.Move] ->
+                 Sudoku4.$sfromList
+                   @ GHC.Types.Int
+                   (GHC.List.zipWith
+                      @ (Sudoku4.Coordinate, Sudoku4.Coordinate)
+                      @ GHC.Types.Int
+                      @ (Sudoku4.Position, Sudoku4.Value)
+                      (GHC.Tuple.(,) @ Sudoku4.Position @ Sudoku4.Value)
+                      Sudoku4.movesToPuzzle_coords
+                      (Sudoku4.movesToPuzzle_go x2))) -}
+9c90bc446a3574734b45b55b94102b44
+  movesToPuzzle_coords :: [(Sudoku4.Coordinate, Sudoku4.Coordinate)]
+  {- Unfolding: (Sudoku4.movesToPuzzle_go1 1) -}
+66619f8e78741e091e8ef1fbff2ebd84
+  movesToPuzzle_go :: [[GHC.Types.Int]] -> [GHC.Types.Int]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+58334c2e208fa6b8b344b1bf420a3de4
+  movesToPuzzle_go1 ::
+    GHC.Prim.Int# -> [(Sudoku4.Coordinate, Sudoku4.Coordinate)]
+  {- Arity: 1, Strictness: <L,U> -}
+d698399007894673b22e712c2cd25ed1
+  optimalPlay :: [Sudoku4.Move]
+  {- Unfolding: (Sudoku4.optimalPlay1 Sudoku4.p) -}
+9ccfc27c345ed3fc20f2613f5bbac2f9
+  optimalPlay1 :: GameLogic.J Sudoku4.R [Sudoku4.Move]
+  {- Unfolding: (GameLogic.bigotimes
+                   @ Sudoku4.Move
+                   @ Sudoku4.R
+                   Sudoku4.epsilons) -}
+d0932544945f353da15d92e26087093f
+  p :: [Sudoku4.Move] -> Sudoku4.R
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ms :: [Sudoku4.Move] ->
+                 case Sudoku4.checkPuzzle (Sudoku4.movesToPuzzle ms) of wild {
+                   GHC.Types.False -> GHC.Types.False
+                   GHC.Types.True -> Sudoku4.matchClue ms }) -}
+be821a3e8fc860c0094e0a082fb89fdd
+  pPar :: [Sudoku4.Move] -> [Sudoku4.Move] -> Sudoku4.R
+  {- Arity: 2, Strictness: <L,1*U><L,1*U>,
+     Unfolding: (\ preceding :: [Sudoku4.Move] ms :: [Sudoku4.Move] ->
+                 let {
+                   ms' :: [Sudoku4.Move] = GHC.Base.++ @ [Sudoku4.Value] preceding ms
+                 } in
+                 case Sudoku4.checkPuzzle (Sudoku4.movesToPuzzle ms') of wild {
+                   GHC.Types.False -> GHC.Types.False
+                   GHC.Types.True -> Sudoku4.matchClue ms' }) -}
+df5f1674026d697831cc6b8ace4f7f02
+  parEpsilons ::
+    [Sudoku4.Move]
+    -> [[Sudoku4.Move] -> GameLogic.J Sudoku4.R Sudoku4.Move]
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ preceding :: [Sudoku4.Move] ->
+                 case GHC.List.$wlenAcc
+                        @ [Sudoku4.Value]
+                        preceding
+                        0 of ww2 { DEFAULT ->
+                 let {
+                   y :: GHC.Prim.Int# = GHC.Prim.-# 4 ww2
+                 } in
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.<# 0 y) of wild {
+                   GHC.Types.False
+                   -> GHC.Types.[]
+                        @ ([Sudoku4.Move] -> GameLogic.J Sudoku4.R Sudoku4.Move)
+                   GHC.Types.True
+                   -> let {
+                        possibilities :: [[Sudoku4.Coordinate]]
+                        = Data.OldList.\\
+                            @ [Sudoku4.Coordinate]
+                            GHC.Classes.$fEq[]_$s$fEq[]
+                            Sudoku4.main_possibilities
+                            preceding
+                      } in
+                      let {
+                        x2 :: [Sudoku4.Move] -> GameLogic.J Sudoku4.R Sudoku4.Move
+                          {- Arity: 1, Strictness: <L,1*U>,
+                             Unfolding: InlineRule (1, True, False)
+                                        (\ h :: [[Sudoku4.Coordinate]] ->
+                                         GameLogic.find
+                                           @ [Sudoku4.Coordinate]
+                                           (GameLogic.setMinus
+                                              @ [Sudoku4.Coordinate]
+                                              GHC.Classes.$fOrd[]_$s$fOrd[]
+                                              possibilities
+                                              h)) -}
+                        = \ h :: [[Sudoku4.Coordinate]] ->
+                          GameLogic.find
+                            @ [Sudoku4.Coordinate]
+                            (GameLogic.setMinus
+                               @ [Sudoku4.Coordinate]
+                               GHC.Classes.$fOrd[]_$s$fOrd[]
+                               possibilities
+                               h)
+                      } in
+                      let {
+                        lvl4 :: [[Sudoku4.Move] -> GameLogic.J Sudoku4.R Sudoku4.Move]
+                        = GHC.Types.:
+                            @ ([Sudoku4.Move] -> GameLogic.J Sudoku4.R Sudoku4.Move)
+                            x2
+                            (GHC.Types.[]
+                               @ ([Sudoku4.Move] -> GameLogic.J Sudoku4.R Sudoku4.Move))
+                      } in
+                      letrec {
+                        $wxs2 :: GHC.Prim.Int#
+                                 -> [[Sudoku4.Move] -> GameLogic.J Sudoku4.R Sudoku4.Move]
+                          {- Arity: 1, Strictness: <S,1*U>, Inline: [0] -}
+                        = \ ww :: GHC.Prim.Int# ->
+                          case ww of ds1 {
+                            DEFAULT
+                            -> GHC.Types.:
+                                 @ ([Sudoku4.Move] -> GameLogic.J Sudoku4.R Sudoku4.Move)
+                                 x2
+                                 ($wxs2 (GHC.Prim.-# ds1 1))
+                            1 -> lvl4 }
+                      } in
+                      $wxs2 y } }) -}
+a7127ae2fd2873d4c78ddc09406cc0eb
+  parOptimalPlay :: [Sudoku4.Move] -> [Sudoku4.Move]
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ preceding :: [Sudoku4.Move] ->
+                 GHC.Base.++
+                   @ [Sudoku4.Value]
+                   preceding
+                   (GameLogic.bigotimes
+                      @ Sudoku4.Move
+                      @ Sudoku4.R
+                      (Sudoku4.parEpsilons preceding)
+                      (Sudoku4.pPar preceding))) -}
+7c325f18bd64b6f87e7c421ff5553a4a
+  prettyPrint :: [Sudoku4.Move] -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: (\ ms :: [Sudoku4.Move] ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   Sudoku4.prettyPrint_divider
+                   (case GHC.Base.map
+                           @ [Sudoku4.Value]
+                           @ [GHC.Types.Char]
+                           Sudoku4.prettyPrint1
+                           ms of wild {
+                      [] -> Sudoku4.prettyPrint_divider
+                      : x2 xs1
+                      -> GHC.Base.++
+                           @ GHC.Types.Char
+                           (Data.OldList.intercalate_$spoly_go
+                              @ GHC.Types.Char
+                              x2
+                              (Data.OldList.prependToAll
+                                 @ [GHC.Types.Char]
+                                 Sudoku4.prettyPrint_divider
+                                 xs1))
+                           Sudoku4.prettyPrint_divider })) -}
+4ed91e76172d4d9835191db3fc5b58da
+  prettyPrint1 :: [Sudoku4.Value] -> [GHC.Types.Char]
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: (\ x2 :: [Sudoku4.Value] ->
+                 GHC.CString.unpackAppendCString#
+                   "| "#
+                   (case GHC.Base.map
+                           @ GHC.Types.Int
+                           @ [GHC.Types.Char]
+                           GHC.Show.$fShowInt_$cshow
+                           x2 of wild {
+                      [] -> Sudoku4.prettyPrint3
+                      : x3 xs1
+                      -> GHC.Base.++
+                           @ GHC.Types.Char
+                           (Data.OldList.intercalate_$spoly_go
+                              @ GHC.Types.Char
+                              x3
+                              (Data.OldList.prependToAll
+                                 @ [GHC.Types.Char]
+                                 Sudoku4.prettyPrint2
+                                 xs1))
+                           Sudoku4.prettyPrint3 })) -}
+190a19b299ac88612204a573a76d2f7a
+  prettyPrint2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# " | "#) -}
+12f9433297f56c9c96c2c9afcd8eb9f7
+  prettyPrint3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# " |"#) -}
+0089d31d8e70876e6101854c4ffc8649
+  prettyPrint4 :: [GHC.Types.Char]
+  {- Unfolding: (case Sudoku4.$wxs1 4 of wild {
+                   []
+                   -> GHC.Base.++
+                        @ GHC.Types.Char
+                        (GHC.Types.[] @ GHC.Types.Char)
+                        Sudoku4.prettyPrint5
+                   : ds1 xs
+                   -> GHC.Base.++ @ GHC.Types.Char xs Sudoku4.prettyPrint5 }) -}
+bd4598c9ff0601a570b8a58389f63ac4
+  prettyPrint5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# " \n"#) -}
+833deda56bd9a94c17338d8b5c6716dd
+  prettyPrint_divider :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackAppendCString#
+                   " \n\
+                   \ "#
+                   Sudoku4.prettyPrint4) -}
+8f909692a4abf8f3ea035b4c79988f33
+  size :: Sudoku4.Coordinate
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 4) -}
+1e1a82ec0420a4f03ea6cd733a3e40b1
+  valid :: Sudoku4.Puzzle -> Sudoku4.R
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True) Sudoku4.checkPuzzle -}
+"SPEC/Sudoku4 fromList @ Position _" [ALWAYS] forall @ a1
+                                                     $dOrd :: GHC.Classes.Ord Sudoku4.Position
+  Data.Map.Strict.fromList @ (Sudoku4.Coordinate, Sudoku4.Coordinate)
+                           @ a1
+                           $dOrd
+  = Sudoku4.$sfromList @ a1
+"SPEC/Sudoku4 sort @ Value" [ALWAYS] forall $dOrd :: GHC.Classes.Ord
+                                                       Sudoku4.Value
+  Data.OldList.sort @ GHC.Types.Int $dOrd = Sudoku4.$ssort
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

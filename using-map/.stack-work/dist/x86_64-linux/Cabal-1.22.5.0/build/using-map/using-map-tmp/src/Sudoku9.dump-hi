@@ -1,0 +1,1106 @@
+
+==================== FINAL INTERFACE ====================
+2016-07-28 16:49:06.873526 UTC
+
+interface main@main:Sudoku9 7103
+  interface hash: aa7536825c6d8e754006e897b28c83da
+  ABI hash: 806c4e900b84684ec8d53f3a66bc2b2a
+  export-list hash: eabc1960f7a60cfc81426bf0b02de36b
+  orphan hash: db2fa9f45c51451bb4df1c95f741da6f
+  flag hash: 544be7a67884f4b6b321b963ecf80260
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Sudoku9.checkPuzzle
+  Sudoku9.epsilons
+  Sudoku9.main
+  Sudoku9.matchClue
+  Sudoku9.movesToPuzzle
+  Sudoku9.optimalPlay
+  Sudoku9.p
+  Sudoku9.pPar
+  Sudoku9.parEpsilons
+  Sudoku9.parOptimalPlay
+  Sudoku9.prettyPrint
+  Sudoku9.size
+  Sudoku9.solution
+  Sudoku9.valid
+  Sudoku9.Coordinate
+  Sudoku9.Move
+  Sudoku9.Position
+  Sudoku9.Puzzle
+  Sudoku9.R
+  Sudoku9.Value
+module dependencies: GameLogic
+package dependencies: array-0.5.1.0@array_67iodizgJQIIxYVTp4emlA
+                      base-4.8.2.0 containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU
+                      deepseq-1.4.1.1@deeps_6vMKxt5sPFR0XsbRWvvq59 ghc-prim-0.4.0.0
+                      integer-gmp-1.0.0.0 parallel-3.2.1.0@paral_BEbrIfHgHtmEpYU5TfKWK9
+orphans: base-4.8.2.0:GHC.Base base-4.8.2.0:GHC.Float
+family instance modules: base-4.8.2.0:Control.Applicative
+                         base-4.8.2.0:Data.Either base-4.8.2.0:Data.Functor.Identity
+                         base-4.8.2.0:Data.Monoid base-4.8.2.0:Data.Type.Equality
+                         base-4.8.2.0:Data.Void base-4.8.2.0:GHC.Exts
+                         base-4.8.2.0:GHC.Generics
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Map.Base
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Set.Base
+import  -/  base-4.8.2.0:Control.Exception e9090e246fba030faecf7b81b3e8e320
+import  -/  base-4.8.2.0:Control.Monad 480c5067477275068c9b98be08410df9
+import  -/  base-4.8.2.0:Data.Foldable 2ce969969ad5231eb40bd713f94f05ad
+import  -/  base-4.8.2.0:Data.List 3f0782c8d4bf50eecefcd5ea1798aac8
+import  -/  base-4.8.2.0:Data.Maybe 1cb58de2b04ee3c0c0a7dc9201184aff
+import  -/  base-4.8.2.0:Data.Monoid 85b292b52bfd80ed619cddb767d638d3
+import  -/  base-4.8.2.0:Data.OldList d8fd80b0e14aa085ce6219cd89dad356
+import  -/  base-4.8.2.0:Data.Tuple 012ad951a59a9d85fe1de36a2f012986
+import  -/  base-4.8.2.0:GHC.Base 1db77db5dae73d8c424c85b09fbadb89
+import  -/  base-4.8.2.0:GHC.Enum debc6de3086023a15993ab0cecffb90b
+import  -/  base-4.8.2.0:GHC.Float e532d434ec2447d809887c0fca1d78a5
+import  -/  base-4.8.2.0:GHC.List 0c736920522bbd14b770342776012ab6
+import  -/  base-4.8.2.0:GHC.Num 9f42750c866f5832ca565146bd660c60
+import  -/  base-4.8.2.0:GHC.Real 1281efa9baf803bc7859d7efb89a38b3
+import  -/  base-4.8.2.0:GHC.Show 0e1d8380a8fb0cfb07ebeda3b70cbf38
+import  -/  base-4.8.2.0:Prelude 694dcaf039efe62df1c44834e2dbd2fb
+import  -/  base-4.8.2.0:System.IO 0248c1e850b7ea124cf7a2e1669ebf67
+import  -/  containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Map.Base 61f4bf9a28a6b2eb8805b671ced219c1
+import  -/  containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Map.Strict 1c3e955bd48ee0eecb78cf325060b5fa
+import  -/  ghc-prim-0.4.0.0:GHC.Classes e1f4ff80f7b5262008a595d29986fb18
+import  -/  ghc-prim-0.4.0.0:GHC.Types 6b27fb3fdbd0e3f0925a4496c66513bb
+import  -/  GameLogic 0b53a799af830780d41d4547bedd253d
+  exports: 317b64144625346fcdfb42c1fb88af54
+  J d7de4bb8c2cf07d476f757e42c973f23
+  bigotimes 0390703f8b24ec89a7aaa580f2c54eac
+  find 19473f3b700cd7a01ba9465996d293bf
+  setMinus 4ad413d40cc9382bca94a4a68753d099
+import  -/  parallel-3.2.1.0@paral_BEbrIfHgHtmEpYU5TfKWK9:Control.Parallel.Strategies e559e49e970aa71559d76fa817ccb0ac
+bf2429a612a0b33469aba741e6e3c75b
+  $ssort :: [Sudoku9.Value] -> [Sudoku9.Value]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ eta :: [Sudoku9.Value] ->
+                 Data.OldList.sortBy @ Sudoku9.Value GHC.Classes.compareInt eta) -}
+46ca9cd2dc4f84b67ba65bb070806b4d
+  $w$sgo4 ::
+    Sudoku9.Coordinate
+    -> Sudoku9.Coordinate
+    -> a1
+    -> Data.Map.Base.Map (Sudoku9.Coordinate, Sudoku9.Coordinate) a1
+    -> Data.Map.Base.Map (Sudoku9.Coordinate, Sudoku9.Coordinate) a1
+  {- Arity: 4, Strictness: <L,U(U)><L,U(U)><S,1*U><S,1*U>,
+     Inline: [0] -}
+5520707a925ba3e968437c74d3de64b2
+  $wpoly_go10 ::
+    Sudoku9.Coordinate
+    -> Sudoku9.Coordinate
+    -> Data.Map.Base.Map (Sudoku9.Coordinate, Sudoku9.Coordinate) a
+    -> GHC.Base.Maybe a
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,U(U)><L,U(U)><S,1*U>,
+     Inline: [0] -}
+736c36d3b82f218123748d293a405d2f
+  $wxs ::
+    GHC.Prim.Int#
+    -> (# [Sudoku9.Move] -> GameLogic.J Sudoku9.R Sudoku9.Move,
+          [[Sudoku9.Move] -> GameLogic.J Sudoku9.R Sudoku9.Move] #)
+  {- Arity: 1, Strictness: <S,1*U>, Inline: [0] -}
+9f1de9c51495cc7868a0617f2fb048a8
+  $wxs1 :: GHC.Prim.Int# -> [GHC.Types.Char]
+  {- Arity: 1, Strictness: <S,1*U>, Inline: [0] -}
+f1e5dbfcea985687d01fe4509bddf530
+  type Coordinate = GHC.Types.Int
+e8d1c35c1aa7e96aa28b83d36e9b7818
+  type Move = [Sudoku9.Value]
+1026d437b978bebfa0bdad26163544b3
+  type Position = (Sudoku9.Coordinate, Sudoku9.Coordinate)
+a5e507c3aaa0a0f3a92115e41520b008
+  type Puzzle = Data.Map.Base.Map Sudoku9.Position Sudoku9.Value
+92a5f99484c49aa71041a02ab08d74f3
+  type R = GHC.Types.Bool
+fcca61f8efbcee642105ba461d089101
+  type Value = GHC.Types.Int
+453b090ca00af32411c5c621313ccb61
+  checkPuzzle :: Sudoku9.Puzzle -> GHC.Types.Bool
+  {- Arity: 1, Strictness: <L,U> -}
+dd769ddaa46e1468aa8b0ae60fb1907a
+  epsilons :: [[Sudoku9.Move] -> GameLogic.J Sudoku9.R Sudoku9.Move]
+  {- Unfolding: (case Sudoku9.$wxs 9 of ww { (#,#) ww1 ww2 ->
+                 GHC.Types.:
+                   @ ([Sudoku9.Move] -> GameLogic.J Sudoku9.R Sudoku9.Move)
+                   ww1
+                   ww2 }) -}
+8c6bac8dbe5c8830cb507f6f5c678e3d
+  main :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Sudoku9.main1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
+ba2a4fff726743164a5086956ec893c4
+  main1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: (\ s :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 case Sudoku9.checkPuzzle Sudoku9.main7 of wild {
+                   GHC.Types.False
+                   -> case GHC.IO.Handle.Text.hPutStr2
+                             GHC.IO.Handle.FD.stdout
+                             Sudoku9.main6
+                             GHC.Types.True
+                             s of ds1 { (#,#) ipv ipv1 ->
+                      (# ipv, GHC.Tuple.() #) }
+                   GHC.Types.True
+                   -> case Sudoku9.matchClue Sudoku9.main_results of wild1 {
+                        GHC.Types.False
+                        -> case GHC.IO.Handle.Text.hPutStr2
+                                  GHC.IO.Handle.FD.stdout
+                                  Sudoku9.main6
+                                  GHC.Types.True
+                                  s of ds1 { (#,#) ipv ipv1 ->
+                           (# ipv, GHC.Tuple.() #) }
+                        GHC.Types.True
+                        -> case GHC.IO.Handle.Text.hPutStr2
+                                  GHC.IO.Handle.FD.stdout
+                                  Sudoku9.main2
+                                  GHC.Types.True
+                                  s of ds1 { (#,#) ipv ipv1 ->
+                           (# ipv, GHC.Tuple.() #) } } }) -}
+9495741d46609a48abc9f1f68de89cf4
+  main2 :: GHC.Base.String
+  {- Unfolding: (Sudoku9.prettyPrint Sudoku9.main_results) -}
+51213c3d45c03e7f9f0c2a4fc939bcd4
+  main3 :: [[Sudoku9.Move]]
+  {- Unfolding: (Sudoku9.main_go Sudoku9.main4) -}
+172014ab7bdfd4d524465ccb7b28c52c
+  main4 :: [[Sudoku9.Coordinate]]
+  {- Unfolding: (GHC.Types.:
+                   @ [Sudoku9.Coordinate]
+                   Sudoku9.main_xs0
+                   Sudoku9.main5) -}
+41d050025df5e42ccd8685e4c7e590a0
+  main5 :: [[Sudoku9.Coordinate]]
+  {- Unfolding: (Data.OldList.permutations1
+                   @ Sudoku9.Coordinate
+                   Sudoku9.main_xs0
+                   (GHC.Types.[] @ Sudoku9.Coordinate)) -}
+56d6bd27fd51d21a44b63f87a1098183
+  main6 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   "Couldn't solve this puzzle."#) -}
+d65c1af7ba2da8a3712be0335c1b561f
+  main7 :: Sudoku9.Puzzle
+  {- Unfolding: (Sudoku9.movesToPuzzle Sudoku9.main_results) -}
+353c27f36115a13b04582107118e1b23
+  main_a4 ::
+    [[Sudoku9.Move]]
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, [[Sudoku9.Move]] #)
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U> -}
+46f47633588b4f2866acc9de1648ea96
+  main_go :: [[Sudoku9.Coordinate]] -> [[Sudoku9.Move]]
+  {- Arity: 1, Strictness: <S,1*U> -}
+7fc01507d345112716eb84a6a49cc552
+  main_results :: [Sudoku9.Move]
+  {- Unfolding: (case Sudoku9.main_a4
+                        Sudoku9.main3
+                        GHC.Prim.realWorld# of ds { (#,#) ipv ipv1 ->
+                 GameLogic.find @ [Sudoku9.Move] ipv1 Sudoku9.p }) -}
+46896e481847fe6734c9811a111584ec
+  main_xs0 :: [Sudoku9.Coordinate]
+  {- Unfolding: (GHC.Enum.eftInt 1 9) -}
+162da483a8e605ba75fd5a0542e5c43f
+  matchClue :: [Sudoku9.Move] -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+1904cf65d335e9a350a71b3e24b4785a
+  movesToPuzzle :: [Sudoku9.Move] -> Sudoku9.Puzzle
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: (\ x2 :: [Sudoku9.Move] ->
+                 Sudoku9.movesToPuzzle_go2
+                   (GHC.List.zip3
+                      @ Sudoku9.Coordinate
+                      @ Sudoku9.Coordinate
+                      @ Sudoku9.Value
+                      Sudoku9.movesToPuzzle_xs
+                      Sudoku9.movesToPuzzle_ys
+                      (Sudoku9.movesToPuzzle_go x2))
+                   (Data.Map.Base.Tip @ Sudoku9.Position @ Sudoku9.Value)) -}
+88f8e5725d482560be52871b708b7aa4
+  movesToPuzzle1 :: ([Sudoku9.Coordinate], [Sudoku9.Coordinate])
+  {- Unfolding: (Sudoku9.movesToPuzzle_go1 1) -}
+440348d1908f2a93d8ff859bbf2c8c2e
+  movesToPuzzle_go :: [[GHC.Types.Int]] -> [GHC.Types.Int]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+4c001db6ccdfff9478bd06795fcb99b4
+  movesToPuzzle_go1 ::
+    GHC.Prim.Int# -> ([Sudoku9.Coordinate], [Sudoku9.Coordinate])
+  {- Arity: 1, Strictness: <L,U> -}
+2198c953e4c141ce0e03540aa2d02c4d
+  movesToPuzzle_go2 ::
+    [(Sudoku9.Coordinate, Sudoku9.Coordinate, Sudoku9.Value)]
+    -> Sudoku9.Puzzle -> Sudoku9.Puzzle
+  {- Arity: 2, Strictness: <S,1*U><S,1*U> -}
+7db699270e3ab7f17641aaadc94cb16c
+  movesToPuzzle_xs :: [Sudoku9.Coordinate]
+  {- Unfolding: (case Sudoku9.movesToPuzzle1 of wild { (,) xs ys ->
+                 xs }) -}
+b58e685876c529068d0abd336efcf38e
+  movesToPuzzle_ys :: [Sudoku9.Coordinate]
+  {- Unfolding: (case Sudoku9.movesToPuzzle1 of wild { (,) xs ys ->
+                 ys }) -}
+4421cf1cc5be30cb9bbde1cc3e3708c0
+  optimalPlay :: [Sudoku9.Move]
+  {- Unfolding: (Sudoku9.optimalPlay1 Sudoku9.p) -}
+44a44024b4d108a907ac3670c014f409
+  optimalPlay1 :: GameLogic.J Sudoku9.R [Sudoku9.Move]
+  {- Unfolding: (GameLogic.bigotimes
+                   @ Sudoku9.Move
+                   @ Sudoku9.R
+                   Sudoku9.epsilons) -}
+6d9fcaa14b9e9985c4527c03b7865891
+  p :: [Sudoku9.Move] -> Sudoku9.R
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ms :: [Sudoku9.Move] ->
+                 case Sudoku9.checkPuzzle (Sudoku9.movesToPuzzle ms) of wild {
+                   GHC.Types.False -> GHC.Types.False
+                   GHC.Types.True -> Sudoku9.matchClue ms }) -}
+7c5e27c2b5147de779e67f64360bc5de
+  pPar :: [Sudoku9.Move] -> [Sudoku9.Move] -> Sudoku9.R
+  {- Arity: 2, Strictness: <L,1*U><L,1*U>,
+     Unfolding: (\ preceding :: [Sudoku9.Move] ms :: [Sudoku9.Move] ->
+                 let {
+                   ms' :: [Sudoku9.Move] = GHC.Base.++ @ [Sudoku9.Value] preceding ms
+                 } in
+                 case Sudoku9.checkPuzzle (Sudoku9.movesToPuzzle ms') of wild {
+                   GHC.Types.False -> GHC.Types.False
+                   GHC.Types.True -> Sudoku9.matchClue ms' }) -}
+4eb83ae9ac5b15dcb6ccfb342f0502f1
+  parEpsilons ::
+    [Sudoku9.Move]
+    -> [[Sudoku9.Move] -> GameLogic.J Sudoku9.R Sudoku9.Move]
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ preceding :: [Sudoku9.Move] ->
+                 case GHC.List.$wlenAcc
+                        @ [Sudoku9.Value]
+                        preceding
+                        0 of ww2 { DEFAULT ->
+                 let {
+                   y :: GHC.Prim.Int# = GHC.Prim.-# 9 ww2
+                 } in
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.<# 0 y) of wild {
+                   GHC.Types.False
+                   -> GHC.Types.[]
+                        @ ([Sudoku9.Move] -> GameLogic.J Sudoku9.R Sudoku9.Move)
+                   GHC.Types.True
+                   -> let {
+                        possibilities1 :: [[Sudoku9.Coordinate]]
+                        = Data.OldList.\\
+                            @ [Sudoku9.Coordinate]
+                            GHC.Classes.$fEq[]_$s$fEq[]
+                            Sudoku9.main4
+                            preceding
+                      } in
+                      let {
+                        x2 :: [Sudoku9.Move] -> GameLogic.J Sudoku9.R Sudoku9.Move
+                          {- Arity: 1, Strictness: <L,1*U>,
+                             Unfolding: InlineRule (1, True, False)
+                                        (\ h :: [[Sudoku9.Coordinate]] ->
+                                         GameLogic.find
+                                           @ [Sudoku9.Coordinate]
+                                           (GameLogic.setMinus
+                                              @ [Sudoku9.Coordinate]
+                                              GHC.Classes.$fOrd[]_$s$fOrd[]
+                                              possibilities1
+                                              h)) -}
+                        = \ h :: [[Sudoku9.Coordinate]] ->
+                          GameLogic.find
+                            @ [Sudoku9.Coordinate]
+                            (GameLogic.setMinus
+                               @ [Sudoku9.Coordinate]
+                               GHC.Classes.$fOrd[]_$s$fOrd[]
+                               possibilities1
+                               h)
+                      } in
+                      let {
+                        lvl6 :: [[Sudoku9.Move] -> GameLogic.J Sudoku9.R Sudoku9.Move]
+                        = GHC.Types.:
+                            @ ([Sudoku9.Move] -> GameLogic.J Sudoku9.R Sudoku9.Move)
+                            x2
+                            (GHC.Types.[]
+                               @ ([Sudoku9.Move] -> GameLogic.J Sudoku9.R Sudoku9.Move))
+                      } in
+                      letrec {
+                        $wxs2 :: GHC.Prim.Int#
+                                 -> [[Sudoku9.Move] -> GameLogic.J Sudoku9.R Sudoku9.Move]
+                          {- Arity: 1, Strictness: <S,1*U>, Inline: [0] -}
+                        = \ ww :: GHC.Prim.Int# ->
+                          case ww of ds1 {
+                            DEFAULT
+                            -> GHC.Types.:
+                                 @ ([Sudoku9.Move] -> GameLogic.J Sudoku9.R Sudoku9.Move)
+                                 x2
+                                 ($wxs2 (GHC.Prim.-# ds1 1))
+                            1 -> lvl6 }
+                      } in
+                      $wxs2 y } }) -}
+ceea70903960b101290a14c8dcd37e82
+  parOptimalPlay :: [Sudoku9.Move] -> [Sudoku9.Move]
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ preceding :: [Sudoku9.Move] ->
+                 GHC.Base.++
+                   @ [Sudoku9.Value]
+                   preceding
+                   (GameLogic.bigotimes
+                      @ Sudoku9.Move
+                      @ Sudoku9.R
+                      (Sudoku9.parEpsilons preceding)
+                      (Sudoku9.pPar preceding))) -}
+1c334c596a6ab8fcfd23e9bf8a014982
+  prettyPrint :: [Sudoku9.Move] -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: (\ ms :: [Sudoku9.Move] ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   Sudoku9.prettyPrint_divider
+                   (case GHC.Base.map
+                           @ [Sudoku9.Value]
+                           @ [GHC.Types.Char]
+                           Sudoku9.prettyPrint1
+                           ms of wild {
+                      [] -> Sudoku9.prettyPrint_divider
+                      : x2 xs1
+                      -> GHC.Base.++
+                           @ GHC.Types.Char
+                           (Data.OldList.intercalate_$spoly_go
+                              @ GHC.Types.Char
+                              x2
+                              (Data.OldList.prependToAll
+                                 @ [GHC.Types.Char]
+                                 Sudoku9.prettyPrint_divider
+                                 xs1))
+                           Sudoku9.prettyPrint_divider })) -}
+d1feb200735238cffcb13f97aca8b3b5
+  prettyPrint1 :: [Sudoku9.Value] -> [GHC.Types.Char]
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: (\ x2 :: [Sudoku9.Value] ->
+                 GHC.CString.unpackAppendCString#
+                   "| "#
+                   (case GHC.Base.map
+                           @ GHC.Types.Int
+                           @ [GHC.Types.Char]
+                           GHC.Show.$fShowInt_$cshow
+                           x2 of wild {
+                      [] -> Sudoku9.prettyPrint3
+                      : x3 xs1
+                      -> GHC.Base.++
+                           @ GHC.Types.Char
+                           (Data.OldList.intercalate_$spoly_go
+                              @ GHC.Types.Char
+                              x3
+                              (Data.OldList.prependToAll
+                                 @ [GHC.Types.Char]
+                                 Sudoku9.prettyPrint2
+                                 xs1))
+                           Sudoku9.prettyPrint3 })) -}
+b78268d22e67782fd12c0b2f6756847a
+  prettyPrint2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# " | "#) -}
+f96938e581388faf9fba49a5a86c8af5
+  prettyPrint3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# " |"#) -}
+86b7f073b0930fa020037c7d49e3a211
+  prettyPrint4 :: [GHC.Types.Char]
+  {- Unfolding: (case Sudoku9.$wxs1 9 of wild {
+                   []
+                   -> GHC.Base.++
+                        @ GHC.Types.Char
+                        (GHC.Types.[] @ GHC.Types.Char)
+                        Sudoku9.prettyPrint5
+                   : ds1 xs
+                   -> GHC.Base.++ @ GHC.Types.Char xs Sudoku9.prettyPrint5 }) -}
+f4776c71553855da941f8449ef629294
+  prettyPrint5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# " \n"#) -}
+cbcbafb2c962049f248beeb59472efd0
+  prettyPrint_divider :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackAppendCString#
+                   " \n\
+                   \ "#
+                   Sudoku9.prettyPrint4) -}
+3c198f43f81c2ac7aeab108ee54fffb2
+  size :: Sudoku9.Coordinate
+  {- HasNoCafRefs, Unfolding: (GHC.Types.I# 9) -}
+fe5b9e29f2994fa614b00725f10ae315
+  solution :: [Sudoku9.Move]
+  {- Unfolding: (GHC.List.reverse1
+                   @ Sudoku9.Move
+                   Sudoku9.solution1
+                   (GHC.Types.[] @ Sudoku9.Move)) -}
+16bff3926ccc595b1376c102eba3e017
+  solution1 :: [Sudoku9.Move]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Move
+                   Sudoku9.solution90
+                   Sudoku9.solution2) -}
+3d93182cb01b20c8d4c0689b3d9c36a5
+  solution10 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution26
+                   Sudoku9.solution11) -}
+3d7846bc480d4523344b514ec257b3db
+  solution11 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution25
+                   Sudoku9.solution12) -}
+37e88d0c041700038e0b847f909e75cb
+  solution12 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution24
+                   Sudoku9.solution13) -}
+30fd8359c01a1686302089ad565874f9
+  solution13 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution23
+                   Sudoku9.solution14) -}
+ed0d285f5335c7ba00ded1ac9d05ffe8
+  solution14 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution22
+                   Sudoku9.solution15) -}
+32bb53e85a29706f67d0a149219bfa85
+  solution15 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution21
+                   Sudoku9.solution16) -}
+a602254d0436a9364dac542821c1e7b9
+  solution16 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution20
+                   Sudoku9.solution17) -}
+5c504327ec269f3a9311d03c4bdc7600
+  solution17 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.size
+                   Sudoku9.solution18) -}
+75dc4868e75708c409837f289efbf085
+  solution18 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution19
+                   (GHC.Types.[] @ Sudoku9.Value)) -}
+91969cfa930b02cbf34b55e27279ddb2
+  solution19 :: GHC.Types.Int
+  {- HasNoCafRefs, Unfolding: (GHC.Types.I# 8) -}
+b5faa45779ec3be745bd887fa49d9877
+  solution2 :: [Sudoku9.Move]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Move
+                   Sudoku9.solution81
+                   Sudoku9.solution3) -}
+79cc184548797c05adfcfb54220193a6
+  solution20 :: GHC.Types.Int
+  {- HasNoCafRefs, Unfolding: (GHC.Types.I# 2) -}
+0068b3551b6b40e087b0b021ca3028a0
+  solution21 :: GHC.Types.Int
+  {- HasNoCafRefs, Unfolding: (GHC.Types.I# 6) -}
+84936925c5115d8c134ab68f7cd97b5d
+  solution22 :: GHC.Types.Int
+  {- HasNoCafRefs, Unfolding: (GHC.Types.I# 7) -}
+d2abaad50f2c428b6252b971c2ebe3cc
+  solution23 :: GHC.Types.Int
+  {- HasNoCafRefs, Unfolding: (GHC.Types.I# 4) -}
+e3fdcb4b13ee000f2c45812261723c10
+  solution24 :: GHC.Types.Int
+  {- HasNoCafRefs, Unfolding: (GHC.Types.I# 5) -}
+7225f71dc9ffbcdc8a85ac81593fd6ac
+  solution25 :: GHC.Types.Int
+  {- HasNoCafRefs, Unfolding: (GHC.Types.I# 3) -}
+37858e22e6ac3ba319cb5c99d54dd676
+  solution26 :: GHC.Types.Int
+  {- HasNoCafRefs, Unfolding: (GHC.Types.I# 1) -}
+5e3eb1edf7be93ff4cf754855b7906c0
+  solution27 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution23
+                   Sudoku9.solution28) -}
+cd1fa74e7805d0c88f35a168717db4cc
+  solution28 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution19
+                   Sudoku9.solution29) -}
+2d1aa0db8f4a3c4c12da198e1c70b962
+  solution29 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution21
+                   Sudoku9.solution30) -}
+d60635135a81d272f8036723441a3f81
+  solution3 :: [Sudoku9.Move]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Move
+                   Sudoku9.solution72
+                   Sudoku9.solution4) -}
+4fcc17f49953ec9c5a8e84b587d6d2ce
+  solution30 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution26
+                   Sudoku9.solution31) -}
+1cfdef6b6864dde7a2c5f3d935a2c449
+  solution31 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution20
+                   Sudoku9.solution32) -}
+3eb62f8ddc941dc7393ee5fda72f7f7d
+  solution32 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.size
+                   Sudoku9.solution33) -}
+8f1cc559896baab01dc252c83c1cdd89
+  solution33 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution24
+                   Sudoku9.solution34) -}
+5731f75062d125f46e6a0d0f9f3cd9f4
+  solution34 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution22
+                   Sudoku9.solution35) -}
+f94200795f4305cfc0cf19e6705fa2e1
+  solution35 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution25
+                   (GHC.Types.[] @ Sudoku9.Value)) -}
+aeb2d6ee4c4b219662c6ee432ed6ba4d
+  solution36 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution20
+                   Sudoku9.solution37) -}
+775d63e4272e1a6cce894b88b5826193
+  solution37 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.size
+                   Sudoku9.solution38) -}
+b36cd482756851b54bbb628c658b9f4b
+  solution38 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution22
+                   Sudoku9.solution39) -}
+a356d6aad9515b5e6db4b0f468845f14
+  solution39 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution25
+                   Sudoku9.solution40) -}
+7ddac78628bf977cda904e5dba6cb1e2
+  solution4 :: [Sudoku9.Move]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Move
+                   Sudoku9.solution63
+                   Sudoku9.solution5) -}
+61028def2c2c232e5a2ecb25c2658bc2
+  solution40 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution24
+                   Sudoku9.solution41) -}
+63b063cab000760b3996d96dd83eaacd
+  solution41 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution19
+                   Sudoku9.solution42) -}
+6da60d83c0ccead5b0daa0500d269e9e
+  solution42 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution26
+                   Sudoku9.solution43) -}
+a58409ceaf7daf6cf93240002438e55d
+  solution43 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution23
+                   Sudoku9.solution44) -}
+ea7f069d61ea22fe8fefdaa8aa8ffc11
+  solution44 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution21
+                   (GHC.Types.[] @ Sudoku9.Value)) -}
+bd193856a0e454f1cd141937e0129155
+  solution45 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution19
+                   Sudoku9.solution46) -}
+d5e6a122c9f4e48ee7dd87117b9f0033
+  solution46 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution21
+                   Sudoku9.solution47) -}
+84cef69eebce3269df0e52ff7d8da88d
+  solution47 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution20
+                   Sudoku9.solution48) -}
+23a0f6ace503f3483652eaf9fa32b741
+  solution48 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution24
+                   Sudoku9.solution49) -}
+65877ccee608fd0a9109486e43b22965
+  solution49 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution23
+                   Sudoku9.solution50) -}
+30f4586e6199465d68d3356fd324daae
+  solution5 :: [Sudoku9.Move]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Move
+                   Sudoku9.solution54
+                   Sudoku9.solution6) -}
+aaa20f0bc2ee206c7dfb7b905ea79fe7
+  solution50 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution22
+                   Sudoku9.solution51) -}
+0800187315d215128d1469518591ca39
+  solution51 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution25
+                   Sudoku9.solution52) -}
+ac52a2f78afdaa7d24c3226dab4994ed
+  solution52 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution26
+                   Sudoku9.solution53) -}
+747bb909fef717022b0cdcbaec81a2aa
+  solution53 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.size
+                   (GHC.Types.[] @ Sudoku9.Value)) -}
+5dd85be27f61faf83f10e53ead9ab78c
+  solution54 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.size
+                   Sudoku9.solution55) -}
+339badb92d044d5225da0cc1dc5abd2a
+  solution55 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution22
+                   Sudoku9.solution56) -}
+257c71ba48673e2c0d4b323dc0a77fc3
+  solution56 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution25
+                   Sudoku9.solution57) -}
+a6178ae29449d6930c4ac6a5b11f7754
+  solution57 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution20
+                   Sudoku9.solution58) -}
+fffaf2feadfe60c783ae1bacdd7670cd
+  solution58 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution21
+                   Sudoku9.solution59) -}
+4cb3b01e8c93059d04e17f0baf4fdb43
+  solution59 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution26
+                   Sudoku9.solution60) -}
+98ef5441fa482b452630570f03ddf053
+  solution6 :: [Sudoku9.Move]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Move
+                   Sudoku9.solution45
+                   Sudoku9.solution7) -}
+a09a8bb04ded5b796a45d469de97cfac
+  solution60 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution19
+                   Sudoku9.solution61) -}
+dca9f24e1af831cf8f8b1bb73ec6eec5
+  solution61 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution24
+                   Sudoku9.solution62) -}
+21d2284b4e460060e555e6bf5815776b
+  solution62 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution23
+                   (GHC.Types.[] @ Sudoku9.Value)) -}
+8fc20401f26e74278f717206f238d828
+  solution63 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution24
+                   Sudoku9.solution64) -}
+1230e6902fb7b3552c5b1bfdb70f7790
+  solution64 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution26
+                   Sudoku9.solution65) -}
+8ffd18431545e1e51fcd00f4e034a49f
+  solution65 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution23
+                   Sudoku9.solution66) -}
+8c952f215aa060c31e8b031c08b6d35c
+  solution66 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution19
+                   Sudoku9.solution67) -}
+c87b87642cd37bdd51ed10144cfb1b9b
+  solution67 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.size
+                   Sudoku9.solution68) -}
+542d910da0a6944a80bd5c1882d964a2
+  solution68 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution25
+                   Sudoku9.solution69) -}
+e80b628a3377a6dd1f9e714e8e466168
+  solution69 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution21
+                   Sudoku9.solution70) -}
+6068cc7bb74a623b18b9d2b1e46840f9
+  solution7 :: [Sudoku9.Move]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Move
+                   Sudoku9.solution36
+                   Sudoku9.solution8) -}
+322d5b51860db1fc69e54673a62a5707
+  solution70 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution20
+                   Sudoku9.solution71) -}
+ad5829e1c80f379319a7ae7f0f3a0a33
+  solution71 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution22
+                   (GHC.Types.[] @ Sudoku9.Value)) -}
+ed5f69856f4a1dba80f75ee6409b8729
+  solution72 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution25
+                   Sudoku9.solution73) -}
+afbca39713868298ef1bbc4cea4a8a31
+  solution73 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution20
+                   Sudoku9.solution74) -}
+f16d984869f77f17a934f52d97f91385
+  solution74 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution19
+                   Sudoku9.solution75) -}
+47534e1273ca84893382171cc8836d0e
+  solution75 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution22
+                   Sudoku9.solution76) -}
+924f6161b88ed359051cb68afd659358
+  solution76 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution26
+                   Sudoku9.solution77) -}
+86addb72373a8704caa8584932c08473
+  solution77 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution23
+                   Sudoku9.solution78) -}
+e5697582d35a475378284efb11b09fa2
+  solution78 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.size
+                   Sudoku9.solution79) -}
+2e989c27f4b0537a3ea2ad4b2728a1d7
+  solution79 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution21
+                   Sudoku9.solution80) -}
+977e241063a45f2f67944025c4a2f9c3
+  solution8 :: [Sudoku9.Move]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Move
+                   Sudoku9.solution27
+                   Sudoku9.solution9) -}
+e01d3150da68ad2768e92b8b1e7234e6
+  solution80 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution24
+                   (GHC.Types.[] @ Sudoku9.Value)) -}
+571922e0c9d972650528b16b0d348886
+  solution81 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution21
+                   Sudoku9.solution82) -}
+d4de2c06b927ebdf2e6e9a0a7ca25eb7
+  solution82 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution23
+                   Sudoku9.solution83) -}
+83092618d2140e7dd77da08c3ef4f37f
+  solution83 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution26
+                   Sudoku9.solution84) -}
+01d39557d874b88442dcf7b56d1ad94c
+  solution84 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.size
+                   Sudoku9.solution85) -}
+b19a938f7caf0bbd04e08496d29ef124
+  solution85 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution25
+                   Sudoku9.solution86) -}
+92ae7e286fcccf07ef6bd5abef20d2eb
+  solution86 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution24
+                   Sudoku9.solution87) -}
+c0ca1036da23111f1b97b5c76f79f5c1
+  solution87 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution22
+                   Sudoku9.solution88) -}
+a2bf05af0367de1f621fd85a58da93fd
+  solution88 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution19
+                   Sudoku9.solution89) -}
+902b8f3241a63bd0e97442280e4c7bb2
+  solution89 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution20
+                   (GHC.Types.[] @ Sudoku9.Value)) -}
+5c0a4bcdcf536d0531de64e926131cff
+  solution9 :: [Sudoku9.Move]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Move
+                   Sudoku9.solution10
+                   (GHC.Types.[] @ Sudoku9.Move)) -}
+bdb38e2197e916ee202f1c4cdf33c87e
+  solution90 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution22
+                   Sudoku9.solution91) -}
+5da2d5afd73e491e2e96882405159423
+  solution91 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution24
+                   Sudoku9.solution92) -}
+bc4b58e37d09647c013f3ad797d78a7d
+  solution92 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.size
+                   Sudoku9.solution93) -}
+035ec0c98a8aa918648ef9e7f481580c
+  solution93 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution21
+                   Sudoku9.solution94) -}
+0a6173d8d268a3ecf21fcca6df65be77
+  solution94 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution19
+                   Sudoku9.solution95) -}
+c0fc43a4a4d765e5e16f89723989da81
+  solution95 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution20
+                   Sudoku9.solution96) -}
+f5120b54627793244fd1a4f8bc34b2ba
+  solution96 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution23
+                   Sudoku9.solution97) -}
+e2b09aa783622c673d41298aa1ef4e21
+  solution97 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution25
+                   Sudoku9.solution98) -}
+99aa6ffc24f262b432c685cc05a4fb3b
+  solution98 :: [Sudoku9.Value]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ Sudoku9.Value
+                   Sudoku9.solution26
+                   (GHC.Types.[] @ Sudoku9.Value)) -}
+21628c030ebe47e48752c98b73b09112
+  valid :: Sudoku9.Puzzle -> Sudoku9.R
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True) Sudoku9.checkPuzzle -}
+"SPEC/Sudoku9 sort @ Value" [ALWAYS] forall $dOrd :: GHC.Classes.Ord
+                                                       Sudoku9.Value
+  Data.OldList.sort @ GHC.Types.Int $dOrd = Sudoku9.$ssort
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

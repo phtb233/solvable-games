@@ -1,0 +1,1311 @@
+
+==================== FINAL INTERFACE ====================
+2016-07-28 16:49:07.896232 UTC
+
+interface main@main:SudokuN 7103
+  interface hash: b62ecec4b8e2eb994e4e5e543f5b2796
+  ABI hash: e39ffc813b2f7042b9511d47b8c1b7fa
+  export-list hash: 305e8c8cc0237684684c580198c9f915
+  orphan hash: b7d721745e9bca70bbaa7f365551cc58
+  flag hash: 544be7a67884f4b6b321b963ecf80260
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  SudokuN.checkPuzzle
+  SudokuN.clues
+  SudokuN.colTest
+  SudokuN.findSolution
+  SudokuN.gridTest
+  SudokuN.main
+  SudokuN.movesToPuzzle
+  SudokuN.p
+  SudokuN.prettyPrint
+  SudokuN.rowTest
+  SudokuN.runTests
+  SudokuN.size
+  SudokuN.valid
+  SudokuN.Coordinate
+  SudokuN.Move
+  SudokuN.Position
+  SudokuN.Possibility
+  SudokuN.Puzzle
+  SudokuN.R
+  SudokuN.Value
+module dependencies: GameLogic
+package dependencies: array-0.5.1.0@array_67iodizgJQIIxYVTp4emlA
+                      base-4.8.2.0 containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU
+                      deepseq-1.4.1.1@deeps_6vMKxt5sPFR0XsbRWvvq59 ghc-prim-0.4.0.0
+                      integer-gmp-1.0.0.0 parallel-3.2.1.0@paral_BEbrIfHgHtmEpYU5TfKWK9
+orphans: base-4.8.2.0:GHC.Base base-4.8.2.0:GHC.Float
+family instance modules: base-4.8.2.0:Control.Applicative
+                         base-4.8.2.0:Data.Either base-4.8.2.0:Data.Functor.Identity
+                         base-4.8.2.0:Data.Monoid base-4.8.2.0:Data.Type.Equality
+                         base-4.8.2.0:Data.Void base-4.8.2.0:GHC.Exts
+                         base-4.8.2.0:GHC.Generics
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Map.Base
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Set.Base
+import  -/  base-4.8.2.0:Control.Exception e9090e246fba030faecf7b81b3e8e320
+import  -/  base-4.8.2.0:Control.Monad 480c5067477275068c9b98be08410df9
+import  -/  base-4.8.2.0:Data.Foldable 2ce969969ad5231eb40bd713f94f05ad
+import  -/  base-4.8.2.0:Data.List 3f0782c8d4bf50eecefcd5ea1798aac8
+import  -/  base-4.8.2.0:Data.Maybe 1cb58de2b04ee3c0c0a7dc9201184aff
+import  -/  base-4.8.2.0:Data.Monoid 85b292b52bfd80ed619cddb767d638d3
+import  -/  base-4.8.2.0:Data.OldList d8fd80b0e14aa085ce6219cd89dad356
+import  -/  base-4.8.2.0:Data.Tuple 012ad951a59a9d85fe1de36a2f012986
+import  -/  base-4.8.2.0:GHC.Base 1db77db5dae73d8c424c85b09fbadb89
+import  -/  base-4.8.2.0:GHC.Enum debc6de3086023a15993ab0cecffb90b
+import  -/  base-4.8.2.0:GHC.Float e532d434ec2447d809887c0fca1d78a5
+import  -/  base-4.8.2.0:GHC.List 0c736920522bbd14b770342776012ab6
+import  -/  base-4.8.2.0:GHC.Num 9f42750c866f5832ca565146bd660c60
+import  -/  base-4.8.2.0:GHC.Real 1281efa9baf803bc7859d7efb89a38b3
+import  -/  base-4.8.2.0:GHC.Show 0e1d8380a8fb0cfb07ebeda3b70cbf38
+import  -/  base-4.8.2.0:Prelude 694dcaf039efe62df1c44834e2dbd2fb
+import  -/  base-4.8.2.0:System.IO 0248c1e850b7ea124cf7a2e1669ebf67
+import  -/  containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Map.Base 61f4bf9a28a6b2eb8805b671ced219c1
+import  -/  containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Map.Strict 1c3e955bd48ee0eecb78cf325060b5fa
+import  -/  ghc-prim-0.4.0.0:GHC.Classes e1f4ff80f7b5262008a595d29986fb18
+import  -/  ghc-prim-0.4.0.0:GHC.Types 6b27fb3fdbd0e3f0925a4496c66513bb
+import  -/  GameLogic 0b53a799af830780d41d4547bedd253d
+  exports: 317b64144625346fcdfb42c1fb88af54
+import  -/  parallel-3.2.1.0@paral_BEbrIfHgHtmEpYU5TfKWK9:Control.Parallel.Strategies e559e49e970aa71559d76fa817ccb0ac
+9a1ab22c65d2b61ccce5a0a462d548e7
+  $s$fMonoidMaybe1 ::
+    GHC.Base.Maybe [SudokuN.Value]
+    -> GHC.Base.Maybe [SudokuN.Value] -> GHC.Base.Maybe [SudokuN.Value]
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ ds :: GHC.Base.Maybe [SudokuN.Value]
+                   m :: GHC.Base.Maybe [SudokuN.Value] ->
+                 case ds of wild {
+                   GHC.Base.Nothing -> m
+                   GHC.Base.Just ipv
+                   -> case m of wild1 {
+                        GHC.Base.Nothing -> wild
+                        GHC.Base.Just ipv1
+                        -> GHC.Base.Just
+                             @ [SudokuN.Value]
+                             (GHC.Base.augment
+                                @ GHC.Types.Int
+                                (\ @ b1
+                                   c1 :: GHC.Types.Int -> b1 -> b1[OneShot]
+                                   n :: b1[OneShot] ->
+                                 GHC.Base.foldr @ GHC.Types.Int @ b1 c1 n ipv)
+                                ipv1) } }) -}
+62b3efc753d372cc3f60ba79d17339ad
+  $sfromList ::
+    [(SudokuN.Position, a)] -> Data.Map.Base.Map SudokuN.Position a
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ @ a1 ds :: [(SudokuN.Position, a1)] ->
+                 case ds of wild {
+                   [] -> Data.Map.Base.Tip @ SudokuN.Position @ a1
+                   : ds1 ds2
+                   -> case ds1 of wild1 { (,) kx x1 ->
+                      case ds2 of wild2 {
+                        []
+                        -> case x1 of x2 { DEFAULT ->
+                           case kx of dt { (,) ipv ipv1 ->
+                           Data.Map.Base.Bin
+                             @ SudokuN.Position
+                             @ a1
+                             1
+                             dt
+                             x2
+                             (Data.Map.Base.Tip @ SudokuN.Position @ a1)
+                             (Data.Map.Base.Tip @ SudokuN.Position @ a1) } }
+                        : ipv ipv1
+                        -> case ipv of wild3 { (,) ky ds3 ->
+                           case kx of ww { (,) ww1 ww2 ->
+                           case ky of ww3 { (,) ww4 ww5 ->
+                           case ww1 of wild4 { GHC.Types.I# x# ->
+                           case ww4 of wild5 { GHC.Types.I# y# ->
+                           case GHC.Prim.tagToEnum#
+                                  @ GHC.Types.Bool
+                                  (GHC.Prim.<# x# y#) of wild6 {
+                             GHC.Types.False
+                             -> case GHC.Prim.tagToEnum#
+                                       @ GHC.Types.Bool
+                                       (GHC.Prim.==# x# y#) of wild7 {
+                                  GHC.Types.False
+                                  -> case x1 of x0 { DEFAULT ->
+                                     SudokuN.$sfromList1
+                                       @ a1
+                                       (Data.Map.Base.Bin
+                                          @ SudokuN.Position
+                                          @ a1
+                                          1
+                                          ww
+                                          x0
+                                          (Data.Map.Base.Tip @ SudokuN.Position @ a1)
+                                          (Data.Map.Base.Tip @ SudokuN.Position @ a1))
+                                       wild2 }
+                                  GHC.Types.True
+                                  -> case ww2 of wild8 { GHC.Types.I# x2 ->
+                                     case ww5 of wild9 { GHC.Types.I# y ->
+                                     case GHC.Prim.tagToEnum#
+                                            @ GHC.Types.Bool
+                                            (GHC.Prim.>=# x2 y) of wild10 {
+                                       GHC.Types.False
+                                       -> case x1 of x0 { DEFAULT ->
+                                          SudokuN.$wpoly_go4
+                                            @ a1
+                                            1
+                                            (Data.Map.Base.Bin
+                                               @ SudokuN.Position
+                                               @ a1
+                                               1
+                                               ww
+                                               x0
+                                               (Data.Map.Base.Tip @ SudokuN.Position @ a1)
+                                               (Data.Map.Base.Tip @ SudokuN.Position @ a1))
+                                            wild2 }
+                                       GHC.Types.True
+                                       -> case x1 of x0 { DEFAULT ->
+                                          SudokuN.$sfromList1
+                                            @ a1
+                                            (Data.Map.Base.Bin
+                                               @ SudokuN.Position
+                                               @ a1
+                                               1
+                                               ww
+                                               x0
+                                               (Data.Map.Base.Tip @ SudokuN.Position @ a1)
+                                               (Data.Map.Base.Tip @ SudokuN.Position @ a1))
+                                            wild2 } } } } }
+                             GHC.Types.True
+                             -> case x1 of x0 { DEFAULT ->
+                                SudokuN.$wpoly_go4
+                                  @ a1
+                                  1
+                                  (Data.Map.Base.Bin
+                                     @ SudokuN.Position
+                                     @ a1
+                                     1
+                                     ww
+                                     x0
+                                     (Data.Map.Base.Tip @ SudokuN.Position @ a1)
+                                     (Data.Map.Base.Tip @ SudokuN.Position @ a1))
+                                  wild2 } } } } } } } } } }) -}
+612eabe905027f11da7448ccec4573c2
+  $sfromList1 ::
+    Data.Map.Base.Map SudokuN.Position a1
+    -> [(SudokuN.Position, a1)]
+    -> Data.Map.Base.Map SudokuN.Position a1
+  {- Arity: 2, Strictness: <S,1*U><S,1*U> -}
+c064e359b0e7b8c7c82f1017abcdbff6
+  $ssort :: [SudokuN.Value] -> [SudokuN.Value]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ eta :: [SudokuN.Value] ->
+                 Data.OldList.sortBy @ SudokuN.Value GHC.Classes.compareInt eta) -}
+6c821acfea66bd69c72ff3d1b1baedfc
+  $w$sgo4 ::
+    SudokuN.Coordinate
+    -> SudokuN.Coordinate
+    -> a1
+    -> Data.Map.Base.Map SudokuN.Position a1
+    -> Data.Map.Base.Map SudokuN.Position a1
+  {- Arity: 4, Strictness: <L,U(U)><L,U(U)><S,1*U><S,1*U>,
+     Inline: [0] -}
+cdcf87c43ae8d26c7141f3c57f1e6687
+  $wpoly_go10 ::
+    SudokuN.Coordinate
+    -> SudokuN.Coordinate
+    -> Data.Map.Base.Map (SudokuN.Coordinate, SudokuN.Coordinate) a
+    -> GHC.Base.Maybe a
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,U(U)><L,U(U)><S,1*U>,
+     Inline: [0] -}
+eaa6cd67bf98fdaaa0ac14c06f8e4b9a
+  $wpoly_go4 ::
+    GHC.Prim.Int#
+    -> Data.Map.Base.Map SudokuN.Position a
+    -> [(SudokuN.Position, a)]
+    -> Data.Map.Base.Map SudokuN.Position a
+  {- Arity: 3, Strictness: <L,U><S,1*U><S,1*U>, Inline: [0] -}
+b4961b1c91601e73f0c47d65450892bc
+  $wxs :: GHC.Prim.Int# -> [GHC.Types.Char]
+  {- Arity: 1, Strictness: <S,1*U>, Inline: [0] -}
+7826c1e47ac8ca6ee3db07a25ae7bd96
+  type Coordinate = GHC.Types.Int
+a3324f7707597ec8a7e818677e10393b
+  type Move = [SudokuN.Value]
+f7b97b2a51f38d2f9c2d5164ce5c30e7
+  type Position = (SudokuN.Coordinate, SudokuN.Coordinate)
+a16960241c5a09d95155260e61e49dc0
+  type Possibility =
+    Data.Map.Base.Map SudokuN.Position (GHC.Base.Maybe [SudokuN.Value])
+f95961369f38ff205bc01545e7536903
+  type Puzzle = Data.Map.Base.Map SudokuN.Position SudokuN.Value
+de06386926d5ffc5997685d1d650c730
+  type R = GHC.Types.Bool
+b60674564bb1facc7340cf4846d2c2b6
+  type Value = GHC.Types.Int
+40796f8c99c432b6bef2253f601da381
+  checkPuzzle :: SudokuN.Puzzle -> GHC.Types.Bool
+  {- Arity: 1, Strictness: <L,U> -}
+c9d9bcdfc44be19ee39aaa1b150ea63b
+  clues :: [[GHC.Base.Maybe GHC.Types.Int]]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ [GHC.Base.Maybe GHC.Types.Int]
+                   SudokuN.clues92
+                   SudokuN.clues1) -}
+9c54459535ff21c223d2fdef24c8d38f
+  clues1 :: [[GHC.Base.Maybe GHC.Types.Int]]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ [GHC.Base.Maybe GHC.Types.Int]
+                   SudokuN.clues84
+                   SudokuN.clues2) -}
+c512f4994c5a4a7958d8d097dc9a375b
+  clues10 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues11) -}
+3151b43352bb99d060d1c1b5f45071c9
+  clues100 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   SudokuN.clues24
+                   (GHC.Types.[] @ (GHC.Base.Maybe GHC.Types.Int))) -}
+855f1f036417c46c3d32b88b8fa2a14c
+  clues11 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   SudokuN.clues22
+                   SudokuN.clues12) -}
+d9451e9bef4b97c4d768b062d9938af2
+  clues12 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues13) -}
+16f91962769d811584ed079650bd70c8
+  clues13 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues14) -}
+c3f4e53d9fbeadd3547bc8175a3bb318
+  clues14 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues15) -}
+fc5cf068b9db36b79dacd7d9190acd6e
+  clues15 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   SudokuN.clues20
+                   SudokuN.clues16) -}
+f705739a6fae0f2a31ae872a869c1f15
+  clues16 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   SudokuN.clues18
+                   SudokuN.clues17) -}
+ba609715b98a3c1511038068f9cf636f
+  clues17 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   (GHC.Types.[] @ (GHC.Base.Maybe GHC.Types.Int))) -}
+f8af6015339dafd5c1bff692a8b5ef69
+  clues18 :: GHC.Base.Maybe GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Base.Just @ GHC.Types.Int SudokuN.clues19) -}
+0cca1f6760bc80f9f31ae6818719eab2
+  clues19 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 4) -}
+f21377a3909203127465d1da013f00a0
+  clues2 :: [[GHC.Base.Maybe GHC.Types.Int]]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ [GHC.Base.Maybe GHC.Types.Int]
+                   SudokuN.clues77
+                   SudokuN.clues3) -}
+4b0238a4c8047eb353f8c428ccf23df1
+  clues20 :: GHC.Base.Maybe GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Base.Just @ GHC.Types.Int SudokuN.clues21) -}
+5779ed193b556ca569926143cadbdd74
+  clues21 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 3) -}
+2b90db61534c9516434f380912ede403
+  clues22 :: GHC.Base.Maybe GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Base.Just @ GHC.Types.Int SudokuN.clues23) -}
+590cf04ac928d927cef2dcc2a8fe08c5
+  clues23 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 5) -}
+14ae4b2f606f7227c332d519dffabf56
+  clues24 :: GHC.Base.Maybe GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Base.Just @ GHC.Types.Int SudokuN.size) -}
+f999c0485680da59cf3e5d0bf5fc6c61
+  clues25 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues26) -}
+96f8b3a9bdcb01d8b03f48fe65f7e2d4
+  clues26 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   SudokuN.clues37
+                   SudokuN.clues27) -}
+1e8bbaba24e4c9759412e74956856eff
+  clues27 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues28) -}
+2d83ff4a616d4b2ce9478b5f3c170d02
+  clues28 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   SudokuN.clues20
+                   SudokuN.clues29) -}
+be1e04dc315489e355c2e6b5ebd1b626
+  clues29 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues30) -}
+7119f167a0a6287ed8fe855f2751cbe1
+  clues3 :: [[GHC.Base.Maybe GHC.Types.Int]]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ [GHC.Base.Maybe GHC.Types.Int]
+                   SudokuN.clues69
+                   SudokuN.clues4) -}
+12261175e12a85ad0989dbd66b7094b0
+  clues30 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   SudokuN.clues35
+                   SudokuN.clues31) -}
+9eddbfce768517c4aa1cdeaa8eb7e38a
+  clues31 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues32) -}
+ddd65d912f38bc6fe4d8388a554c688a
+  clues32 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   SudokuN.clues33
+                   SudokuN.clues17) -}
+493f7c4b3cc76c770c594f9ddb6011db
+  clues33 :: GHC.Base.Maybe GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Base.Just @ GHC.Types.Int SudokuN.clues34) -}
+d36c1562fd813e2b444f2ffb72305040
+  clues34 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 6) -}
+90fa3178729692183b1a95aee525deef
+  clues35 :: GHC.Base.Maybe GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Base.Just @ GHC.Types.Int SudokuN.clues36) -}
+0a0033bf874d6625b7973268bc63e5b3
+  clues36 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 1) -}
+003f0a7d2a1b8272ef8248f9a09c817c
+  clues37 :: GHC.Base.Maybe GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Base.Just @ GHC.Types.Int SudokuN.clues38) -}
+2330f760b1131deb922768569a2bd4bf
+  clues38 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 2) -}
+03d12de1fb2d8ec3d8eb8adc0f27012d
+  clues39 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues40) -}
+4fb389783764e958c1c143e6af52a88f
+  clues4 :: [[GHC.Base.Maybe GHC.Types.Int]]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ [GHC.Base.Maybe GHC.Types.Int]
+                   SudokuN.clues58
+                   SudokuN.clues5) -}
+079b3942f1ef6f4a588bbc51afe612e7
+  clues40 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues41) -}
+b1044359d63924be692ad93be390bb7c
+  clues41 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues42) -}
+8dfe827e3bb4341269fef14d79f01ad7
+  clues42 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues43) -}
+fd5847ddefe0ceb2bab7dcb58166e9e4
+  clues43 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues44) -}
+6a0b818ec595e024f4dad0c3e026da34
+  clues44 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues45) -}
+a1cd21f66e1312f4213e1acaeab1e870
+  clues45 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   SudokuN.clues48
+                   SudokuN.clues46) -}
+082ba6168ad895aad726955563ebc54c
+  clues46 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues47) -}
+7114a019fc2a202803be2cf485f7502c
+  clues47 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   SudokuN.clues35
+                   (GHC.Types.[] @ (GHC.Base.Maybe GHC.Types.Int))) -}
+8566f664dc4621180be2d525cd1c28ea
+  clues48 :: GHC.Base.Maybe GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Base.Just @ GHC.Types.Int SudokuN.clues49) -}
+d79b68654d880d92ecbe690e230db637
+  clues49 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 7) -}
+b92a08cd10fef75fb4b823a59d459f8c
+  clues5 :: [[GHC.Base.Maybe GHC.Types.Int]]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ [GHC.Base.Maybe GHC.Types.Int]
+                   SudokuN.clues50
+                   SudokuN.clues6) -}
+8bfa3596cc55468f8e059808cdc90c97
+  clues50 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues51) -}
+4f8e303ce310bcc96f007c61709b1db9
+  clues51 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues52) -}
+6f497d7273151248f2665aba01e1d35d
+  clues52 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   SudokuN.clues20
+                   SudokuN.clues53) -}
+8c372d7be864b8774bb74076ba926d85
+  clues53 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues54) -}
+13e4df7e642628a6115c7a9ad0711e50
+  clues54 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   SudokuN.clues24
+                   SudokuN.clues55) -}
+c407b0505d4eafdadfe38fc859fe4dea
+  clues55 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues56) -}
+ecd3fb8597522300b51bd5e38fb82525
+  clues56 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues57) -}
+739fd77a7e968ced407e9e6d32aeec0d
+  clues57 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   SudokuN.clues22
+                   SudokuN.clues17) -}
+84da6f86915a97fd15b5881361edac9b
+  clues58 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   SudokuN.clues35
+                   SudokuN.clues59) -}
+ca31c17ddcee810e907ba527878f0c49
+  clues59 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues60) -}
+9ee435533991c3754c8da1a8682aaec5
+  clues6 :: [[GHC.Base.Maybe GHC.Types.Int]]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ [GHC.Base.Maybe GHC.Types.Int]
+                   SudokuN.clues39
+                   SudokuN.clues7) -}
+f10e582617f9bdb12d1c99526b440312
+  clues60 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues61) -}
+409bcc18e5b5f16249563d91b74312cc
+  clues61 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   SudokuN.clues22
+                   SudokuN.clues62) -}
+63365a3aea105e8cdb8c8b19384714d2
+  clues62 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   SudokuN.clues33
+                   SudokuN.clues63) -}
+6a16eb5e6c496401f26accec791b3538
+  clues63 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   SudokuN.clues20
+                   SudokuN.clues64) -}
+930e8444506d71c74707497732376a1e
+  clues64 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues65) -}
+18f87bff6fa45cefbf51d4e66182b7e2
+  clues65 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues66) -}
+90ab4f572c4631e10f5b88d35e3401f5
+  clues66 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   SudokuN.clues67
+                   (GHC.Types.[] @ (GHC.Base.Maybe GHC.Types.Int))) -}
+5d72f936ed24d9e2820d769c18daebef
+  clues67 :: GHC.Base.Maybe GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Base.Just @ GHC.Types.Int SudokuN.clues68) -}
+28c4c1bebf7f51cfd81e0f1ffd147275
+  clues68 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 8) -}
+fedc87ba7414a2b51ad826bb307b09e4
+  clues69 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues70) -}
+d2cc236f240839c5453bd9af50f94c38
+  clues7 :: [[GHC.Base.Maybe GHC.Types.Int]]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ [GHC.Base.Maybe GHC.Types.Int]
+                   SudokuN.clues25
+                   SudokuN.clues8) -}
+7ef11599d230b6e8a3a8596a3f3f1bef
+  clues70 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   SudokuN.clues33
+                   SudokuN.clues71) -}
+f32479d0f8826252ad0341b966c8adfc
+  clues71 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues72) -}
+fef46ca7c6edc76f2d7081c000c48db1
+  clues72 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues73) -}
+505d58ab8508a6e8bd6a295ace6f93ee
+  clues73 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   SudokuN.clues67
+                   SudokuN.clues74) -}
+2d2b966b26bf9fe7b51052125f8dcaa7
+  clues74 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues75) -}
+b06fe3fa2f3a09c08fea9e5a08ca6b3b
+  clues75 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   SudokuN.clues35
+                   SudokuN.clues76) -}
+eb757f705aa9473bd28608ef2756dacf
+  clues76 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues17) -}
+77f62adb84963b779791adde83a31b4b
+  clues77 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   SudokuN.clues37
+                   SudokuN.clues78) -}
+686a52a6bd1f31b8676e74d4b3099b98
+  clues78 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues79) -}
+ce3498e485fa488607e53da0b5a4a294
+  clues79 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   SudokuN.clues18
+                   SudokuN.clues80) -}
+cc2496b5ba49e4d88bc433388f393306
+  clues8 :: [[GHC.Base.Maybe GHC.Types.Int]]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ [GHC.Base.Maybe GHC.Types.Int]
+                   SudokuN.clues9
+                   (GHC.Types.[] @ [GHC.Base.Maybe GHC.Types.Int])) -}
+e1daa26bd9c555258f88857b4d2424dd
+  clues80 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues81) -}
+ccbb8069c6ec3ab9693b746e64fe50a9
+  clues81 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues82) -}
+25b7dcb6660431bf90295082e074db60
+  clues82 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues83) -}
+9dae348885f4b6e00f17fe409f9f3e5a
+  clues83 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues76) -}
+d557793a5aee6d5f06be4278f2fb445a
+  clues84 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues85) -}
+7688a8b8e79350f87b0aba73e1440edc
+  clues85 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   SudokuN.clues22
+                   SudokuN.clues86) -}
+98db8af58ca02605fd722ed9ab0526c5
+  clues86 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues87) -}
+d830331b5d308bd165c2389a4cfa7130
+  clues87 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   SudokuN.clues33
+                   SudokuN.clues88) -}
+832f6305e4aad1ffbd99c0a05d4f6390
+  clues88 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues89) -}
+020149cd100e4d5e461e9b0cc2043067
+  clues89 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   SudokuN.clues48
+                   SudokuN.clues90) -}
+06758f72d1cd74df5e7df017242e1291
+  clues9 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   SudokuN.clues24
+                   SudokuN.clues10) -}
+458af9c451976b022863752bdbf859a8
+  clues90 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues91) -}
+77b341d0f6230bbb5d6bca57296952c2
+  clues91 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   SudokuN.clues35
+                   SudokuN.clues17) -}
+78b753f5d20652f52fe425e23de03834
+  clues92 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues93) -}
+800d909d7768bdc6cbdfa543c6e78fc9
+  clues93 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   SudokuN.clues48
+                   SudokuN.clues94) -}
+3aab898f0c81f3e58859858b990fb2d0
+  clues94 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   SudokuN.clues35
+                   SudokuN.clues95) -}
+fb4d999c820bc0567cdb5e9e042b3e89
+  clues95 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues96) -}
+f86811aadd9bad3a407169330c77cac1
+  clues96 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues97) -}
+70c2b85c51a02f87c220dfbda14f0812
+  clues97 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues98) -}
+ea7071f06dd884684a91d9a235857628
+  clues98 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   SudokuN.clues22
+                   SudokuN.clues99) -}
+123fdb746a419efd4f8c2e7ca2db2df5
+  clues99 :: [GHC.Base.Maybe GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   SudokuN.clues100) -}
+f84bf62462c28de6cf84fe5bba8a94f4
+  colTest :: [[SudokuN.Move]] -> [[SudokuN.Move]]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ x1 :: [[SudokuN.Move]] ->
+                 Data.OldList.transpose
+                   @ SudokuN.Move
+                   (SudokuN.rowTest (Data.OldList.transpose @ SudokuN.Move x1))) -}
+cf9a847f5a02761596bdf91171ff293f
+  findSolution :: [[SudokuN.Move]]
+  {- Unfolding: (case SudokuN.findSolution1 of ds { (,,,,,,,,) a1 b1 c1 d1 e1 f1 g1 h1 i1 ->
+                 SudokuN.findSolution_go a1 }) -}
+5b01a283509c03efb26b06033c638ae5
+  findSolution1 ::
+    ([SudokuN.Move],
+     [SudokuN.Move],
+     [SudokuN.Move],
+     [SudokuN.Move],
+     [SudokuN.Move],
+     [SudokuN.Move],
+     [SudokuN.Move],
+     [SudokuN.Move],
+     [SudokuN.Move])
+  {- Unfolding: (case SudokuN.findSolution_go2
+                        SudokuN.findSolution3 of wild {
+                   [] -> SudokuN.findSolution2 GHC.Prim.void#
+                   : a1 ds
+                   -> case ds of wild1 {
+                        [] -> SudokuN.findSolution2 GHC.Prim.void#
+                        : b1 ds1
+                        -> case ds1 of wild2 {
+                             [] -> SudokuN.findSolution2 GHC.Prim.void#
+                             : c1 ds2
+                             -> case ds2 of wild3 {
+                                  [] -> SudokuN.findSolution2 GHC.Prim.void#
+                                  : d1 ds3
+                                  -> case ds3 of wild4 {
+                                       [] -> SudokuN.findSolution2 GHC.Prim.void#
+                                       : e1 ds4
+                                       -> case ds4 of wild5 {
+                                            [] -> SudokuN.findSolution2 GHC.Prim.void#
+                                            : f1 ds5
+                                            -> case ds5 of wild6 {
+                                                 [] -> SudokuN.findSolution2 GHC.Prim.void#
+                                                 : g1 ds6
+                                                 -> case ds6 of wild7 {
+                                                      [] -> SudokuN.findSolution2 GHC.Prim.void#
+                                                      : h1 ds7
+                                                      -> case ds7 of wild8 {
+                                                           []
+                                                           -> SudokuN.findSolution2 GHC.Prim.void#
+                                                           : i1 ds8
+                                                           -> case ds8 of wild9 {
+                                                                []
+                                                                -> (a1,
+                                                                    b1,
+                                                                    c1,
+                                                                    d1,
+                                                                    e1,
+                                                                    f1,
+                                                                    g1,
+                                                                    h1,
+                                                                    i1)
+                                                                : ipv ipv1
+                                                                -> SudokuN.findSolution2
+                                                                     GHC.Prim.void# } } } } } } } } } }) -}
+e3d5c527198882935631a43ef0736b7d
+  findSolution10 :: [[SudokuN.Value]]
+  {- Unfolding: (GHC.Base.map
+                   @ [GHC.Base.Maybe GHC.Types.Int]
+                   @ [SudokuN.Value]
+                   SudokuN.findSolution12
+                   SudokuN.findSolution11) -}
+8106f45c26d3a9c34466df0682cca333
+  findSolution11 :: [[GHC.Base.Maybe GHC.Types.Int]]
+  {- Unfolding: (Data.OldList.transpose_$stranspose
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   SudokuN.clues92
+                   SudokuN.clues1) -}
+adb224529c5a4bb08203a8ca3c8193d9
+  findSolution12 :: [GHC.Base.Maybe GHC.Types.Int] -> [GHC.Types.Int]
+  {- Arity: 1,
+     Unfolding: (\ x1 :: [GHC.Base.Maybe GHC.Types.Int] ->
+                 Data.OldList.\\
+                   @ GHC.Types.Int
+                   GHC.Classes.$fEqInt
+                   SudokuN.findSolution13
+                   (Data.Maybe.catMaybes1 @ GHC.Types.Int x1)) -}
+cfcfaf968ef1cdb729872eaa18712412
+  findSolution13 :: [GHC.Types.Int]
+  {- Unfolding: (GHC.Enum.eftInt 1 9) -}
+951452afbb5f9ea5cae2cc8fa0e65ce7
+  findSolution14 :: [[GHC.Base.Maybe [SudokuN.Value]]]
+  {- Unfolding: (Data.OldList.transpose
+                   @ (GHC.Base.Maybe [SudokuN.Value])
+                   SudokuN.findSolution15) -}
+393bd1ff16414b9e4e2d7fd1b37a7a9d
+  findSolution15 :: [[GHC.Base.Maybe SudokuN.Move]]
+  {- Unfolding: (GHC.List.zipWith
+                   @ [GHC.Base.Maybe GHC.Types.Int]
+                   @ [SudokuN.Value]
+                   @ [GHC.Base.Maybe SudokuN.Move]
+                   SudokuN.findSolution17
+                   SudokuN.clues
+                   SudokuN.findSolution16) -}
+8e8b523df48cfc9029f26b8624f726f5
+  findSolution16 :: [[SudokuN.Value]]
+  {- Unfolding: (GHC.Base.map
+                   @ [GHC.Base.Maybe GHC.Types.Int]
+                   @ [SudokuN.Value]
+                   SudokuN.findSolution12
+                   SudokuN.clues) -}
+c4eee088603462a2208a89dad3331a6b
+  findSolution17 ::
+    [GHC.Base.Maybe GHC.Types.Int]
+    -> SudokuN.Move -> [GHC.Base.Maybe SudokuN.Move]
+  {- Arity: 2, HasNoCafRefs,
+     Unfolding: (\ tc :: [GHC.Base.Maybe GHC.Types.Int]
+                   rc :: SudokuN.Move[OneShot] ->
+                 GHC.Base.map
+                   @ (GHC.Base.Maybe GHC.Types.Int)
+                   @ (GHC.Base.Maybe SudokuN.Move)
+                   (\ mb :: GHC.Base.Maybe GHC.Types.Int ->
+                    case mb of wild {
+                      GHC.Base.Nothing -> GHC.Base.Just @ SudokuN.Move rc
+                      GHC.Base.Just ipv -> GHC.Base.Nothing @ SudokuN.Move })
+                   tc) -}
+d53e772c5530429b23dd64a71cf93218
+  findSolution18 ::
+    [GHC.Base.Maybe [SudokuN.Value]]
+    -> [SudokuN.Value] -> [GHC.Base.Maybe [SudokuN.Value]]
+  {- Arity: 2, HasNoCafRefs,
+     Unfolding: (\ pr :: [GHC.Base.Maybe [SudokuN.Value]]
+                   cc :: [SudokuN.Value][OneShot] ->
+                 GHC.Base.map
+                   @ (GHC.Base.Maybe [SudokuN.Value])
+                   @ (GHC.Base.Maybe [SudokuN.Value])
+                   (\ ds :: GHC.Base.Maybe [SudokuN.Value] ->
+                    case ds of wild {
+                      GHC.Base.Nothing -> GHC.Base.Nothing @ [SudokuN.Value]
+                      GHC.Base.Just x1
+                      -> GHC.Base.Just
+                           @ [SudokuN.Value]
+                           (Data.OldList.intersectBy
+                              @ SudokuN.Value
+                              GHC.Classes.eqInt
+                              x1
+                              cc) })
+                   pr) -}
+5c921ff58e71ca621b88610c81836bef
+  findSolution2 ::
+    GHC.Prim.Void#
+    -> ([SudokuN.Move],
+        [SudokuN.Move],
+        [SudokuN.Move],
+        [SudokuN.Move],
+        [SudokuN.Move],
+        [SudokuN.Move],
+        [SudokuN.Move],
+        [SudokuN.Move],
+        [SudokuN.Move])
+  {- Arity: 1, Strictness: <B,A>b -}
+1cf9baa2f766f5e8f7b0fcd897bf8efa
+  findSolution3 :: [[SudokuN.Move]]
+  {- Unfolding: (SudokuN.runTests SudokuN.findSolution4) -}
+64a2ea9516ea5403d4036aab0f9e97e1
+  findSolution4 :: [[SudokuN.Move]]
+  {- Unfolding: (SudokuN.findSolution_go1
+                   SudokuN.findSolution8
+                   SudokuN.findSolution5) -}
+1430a249729b298f7c068f1107e53ae5
+  findSolution5 :: [[GHC.Base.Maybe SudokuN.Move]]
+  {- Unfolding: (GHC.Base.map
+                   @ [GHC.Base.Maybe SudokuN.Value]
+                   @ [GHC.Base.Maybe SudokuN.Move]
+                   SudokuN.findSolution6
+                   SudokuN.clues) -}
+549b7ea6673a135618c904cae4b33f48
+  findSolution6 ::
+    [GHC.Base.Maybe SudokuN.Value] -> [GHC.Base.Maybe SudokuN.Move]
+  {- Arity: 1, HasNoCafRefs,
+     Unfolding: (GHC.Base.map
+                   @ (GHC.Base.Maybe SudokuN.Value)
+                   @ (GHC.Base.Maybe SudokuN.Move)
+                   SudokuN.findSolution7) -}
+c895d265ea08d17120e378471fb2af60
+  findSolution7 ::
+    GHC.Base.Maybe SudokuN.Value -> GHC.Base.Maybe SudokuN.Move
+  {- Arity: 1, HasNoCafRefs,
+     Unfolding: (\ ds :: GHC.Base.Maybe SudokuN.Value ->
+                 case ds of wild {
+                   GHC.Base.Nothing -> GHC.Base.Nothing @ SudokuN.Move
+                   GHC.Base.Just x1
+                   -> GHC.Base.Just
+                        @ SudokuN.Move
+                        (GHC.Types.:
+                           @ SudokuN.Value
+                           x1
+                           (GHC.Types.[] @ SudokuN.Value)) }) -}
+44e13aec93fb8c560975ebf10b409c4b
+  findSolution8 :: [[GHC.Base.Maybe [SudokuN.Value]]]
+  {- Unfolding: (Data.OldList.transpose
+                   @ (GHC.Base.Maybe [SudokuN.Value])
+                   SudokuN.findSolution9) -}
+18914516644c7ae5e9bd55b0a23298ae
+  findSolution9 :: [[GHC.Base.Maybe [SudokuN.Value]]]
+  {- Unfolding: (GHC.List.zipWith
+                   @ [GHC.Base.Maybe [SudokuN.Value]]
+                   @ [SudokuN.Value]
+                   @ [GHC.Base.Maybe [SudokuN.Value]]
+                   SudokuN.findSolution18
+                   SudokuN.findSolution14
+                   SudokuN.findSolution10) -}
+a9c2b311bf18a204b8764027c3f37d17
+  findSolution_go :: [SudokuN.Move] -> [[SudokuN.Move]]
+  {- Arity: 1, Strictness: <S,1*U> -}
+c7007a595686d0befb5bf1230a97491a
+  findSolution_go1 ::
+    [[GHC.Base.Maybe SudokuN.Move]]
+    -> [[GHC.Base.Maybe SudokuN.Move]] -> [[SudokuN.Move]]
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,1*U> -}
+68c8497788f5b939e9d710efa972dabe
+  findSolution_go2 :: [[SudokuN.Move]] -> [[SudokuN.Move]]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+342067a4e1657a5b2af022b47d96ee12
+  gridTest :: [[SudokuN.Move]] -> [[SudokuN.Move]]
+  {- Arity: 1, Strictness: <S,1*U> -}
+86f3168fe44a38ec23e0be188b063208
+  main :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True)
+                SudokuN.main1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
+8e0ef2fa90ecde13986bd44921165242
+  main1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: (\ eta :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 case Control.Parallel.Strategies.parList1
+                        @ (GHC.Base.Maybe [SudokuN.Move])
+                        SudokuN.main_xs of x1 { DEFAULT ->
+                 case (GHC.Magic.lazy
+                         @ (Control.Parallel.Strategies.Eval
+                              [GHC.Base.Maybe [SudokuN.Move]])
+                         SudokuN.main3
+                           `cast`
+                         (Sym (Control.Parallel.Strategies.NTCo:Eval[0]
+                                   <[GHC.Base.Maybe [SudokuN.Move]]>_R)))
+                        `cast`
+                      (Control.Parallel.Strategies.NTCo:Eval[0]
+                           <[GHC.Base.Maybe [SudokuN.Move]]>_R)
+                        GHC.Prim.realWorld# of ds { (#,#) ipv ipv1 ->
+                 SudokuN.main2
+                   (Data.Maybe.catMaybes1 @ [SudokuN.Move] ipv1)
+                   eta } }) -}
+ae18e03c1d276221c0a0ea3532ebc358
+  main2 ::
+    [[SudokuN.Move]]
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 2, Strictness: <S,1*U><L,U> -}
+22e7456c3d9962a827104ee202325449
+  main3 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          [GHC.Base.Maybe [SudokuN.Move]] #)
+  {- Arity: 1,
+     Unfolding: (\ s :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 (# s, SudokuN.main_xs #)) -}
+926bcdde646c45f87723fd366974c02c
+  main4 :: [SudokuN.Move] -> GHC.Base.Maybe [SudokuN.Move]
+  {- Arity: 1,
+     Unfolding: (\ moves :: [SudokuN.Move] ->
+                 case SudokuN.checkPuzzle (SudokuN.movesToPuzzle moves) of wild {
+                   GHC.Types.False -> GHC.Base.Nothing @ [SudokuN.Move]
+                   GHC.Types.True -> GHC.Base.Just @ [SudokuN.Move] moves }) -}
+4c71591b423298cc9dce04078c62a51f
+  main_xs :: [GHC.Base.Maybe [SudokuN.Move]]
+  {- Unfolding: (GHC.Base.map
+                   @ [SudokuN.Move]
+                   @ (GHC.Base.Maybe [SudokuN.Move])
+                   SudokuN.main4
+                   SudokuN.findSolution) -}
+c581ed2b6c82840669bdb4cae2e5e85c
+  movesToPuzzle :: [SudokuN.Move] -> SudokuN.Puzzle
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: (\ x1 :: [SudokuN.Move] ->
+                 SudokuN.$sfromList
+                   @ GHC.Types.Int
+                   (GHC.List.zipWith
+                      @ (SudokuN.Coordinate, SudokuN.Coordinate)
+                      @ GHC.Types.Int
+                      @ (SudokuN.Position, SudokuN.Value)
+                      (GHC.Tuple.(,) @ SudokuN.Position @ SudokuN.Value)
+                      SudokuN.movesToPuzzle_coords
+                      (SudokuN.movesToPuzzle_go x1))) -}
+60786a3083429cebc4587c6700418cbe
+  movesToPuzzle_coords :: [(SudokuN.Coordinate, SudokuN.Coordinate)]
+  {- Unfolding: (SudokuN.movesToPuzzle_go1 1) -}
+011431614bba698960cc1c14ebcd0326
+  movesToPuzzle_go :: [[GHC.Types.Int]] -> [GHC.Types.Int]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+873ac90e43dc29389a1ecea24f8e0b97
+  movesToPuzzle_go1 ::
+    GHC.Prim.Int# -> [(SudokuN.Coordinate, SudokuN.Coordinate)]
+  {- Arity: 1, Strictness: <L,U> -}
+65f32e61e7f833c6b3b7c138b331c223
+  p :: [SudokuN.Move] -> SudokuN.R
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ms :: [SudokuN.Move] ->
+                 SudokuN.checkPuzzle (SudokuN.movesToPuzzle ms)) -}
+055594887c990632fd649f244021c8bb
+  prettyPrint :: [SudokuN.Move] -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: (\ ms :: [SudokuN.Move] ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   SudokuN.prettyPrint_divider
+                   (case GHC.Base.map
+                           @ [SudokuN.Value]
+                           @ [GHC.Types.Char]
+                           SudokuN.prettyPrint1
+                           ms of wild {
+                      [] -> SudokuN.prettyPrint_divider
+                      : x1 xs1
+                      -> GHC.Base.++
+                           @ GHC.Types.Char
+                           (Data.OldList.intercalate_$spoly_go
+                              @ GHC.Types.Char
+                              x1
+                              (Data.OldList.prependToAll
+                                 @ [GHC.Types.Char]
+                                 SudokuN.prettyPrint_divider
+                                 xs1))
+                           SudokuN.prettyPrint_divider })) -}
+933b698c693e38affe40f0b65e320103
+  prettyPrint1 :: [SudokuN.Value] -> [GHC.Types.Char]
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: (\ x1 :: [SudokuN.Value] ->
+                 GHC.CString.unpackAppendCString#
+                   "| "#
+                   (case GHC.Base.map
+                           @ GHC.Types.Int
+                           @ [GHC.Types.Char]
+                           GHC.Show.$fShowInt_$cshow
+                           x1 of wild {
+                      [] -> SudokuN.prettyPrint3
+                      : x2 xs1
+                      -> GHC.Base.++
+                           @ GHC.Types.Char
+                           (Data.OldList.intercalate_$spoly_go
+                              @ GHC.Types.Char
+                              x2
+                              (Data.OldList.prependToAll
+                                 @ [GHC.Types.Char]
+                                 SudokuN.prettyPrint2
+                                 xs1))
+                           SudokuN.prettyPrint3 })) -}
+e15c03bbb7682e2b4c80a8e2760ac452
+  prettyPrint2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# " | "#) -}
+840f7b28ec745aab797e9449c67bebc7
+  prettyPrint3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# " |"#) -}
+2feeeeae5a79ed99c85022c00fefcfab
+  prettyPrint4 :: [GHC.Types.Char]
+  {- Unfolding: (case SudokuN.$wxs 9 of wild {
+                   []
+                   -> GHC.Base.++
+                        @ GHC.Types.Char
+                        (GHC.Types.[] @ GHC.Types.Char)
+                        SudokuN.prettyPrint5
+                   : ds1 xs
+                   -> GHC.Base.++ @ GHC.Types.Char xs SudokuN.prettyPrint5 }) -}
+e8e1997003cfb7a645e307124528a2b5
+  prettyPrint5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# " \n"#) -}
+bac51a1564071256d44b606fbfd67e03
+  prettyPrint_divider :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackAppendCString#
+                   " \n\
+                   \ "#
+                   SudokuN.prettyPrint4) -}
+b4876ed3417391588c1f56c4c563ee56
+  rowTest :: [[SudokuN.Move]] -> [[SudokuN.Move]]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: (\ ls :: [[SudokuN.Move]] -> SudokuN.rowTest_go ls) -}
+cdc7a9554318483fa8246de3f786f4bf
+  rowTest_go :: [[SudokuN.Move]] -> [[SudokuN.Move]]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+ece56b0671b7bc5956050046b710a5d3
+  runTests :: [[SudokuN.Move]] -> [[SudokuN.Move]]
+  {- Arity: 1, Strictness: <S,U> -}
+bd7141eabdbd59537fa7d6b2f2406e5f
+  size :: SudokuN.Coordinate
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 9) -}
+c6df2a3d5d53bdb202a854eff08ff1b4
+  valid :: SudokuN.Puzzle -> SudokuN.R
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True) SudokuN.checkPuzzle -}
+"SPEC/SudokuN fromList @ Position _" [ALWAYS] forall @ a1
+                                                     $dOrd :: GHC.Classes.Ord SudokuN.Position
+  Data.Map.Strict.fromList @ (SudokuN.Coordinate, SudokuN.Coordinate)
+                           @ a1
+                           $dOrd
+  = SudokuN.$sfromList @ a1
+"SPEC/SudokuN sort @ Value" [ALWAYS] forall $dOrd :: GHC.Classes.Ord
+                                                       SudokuN.Value
+  Data.OldList.sort @ GHC.Types.Int $dOrd = SudokuN.$ssort
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

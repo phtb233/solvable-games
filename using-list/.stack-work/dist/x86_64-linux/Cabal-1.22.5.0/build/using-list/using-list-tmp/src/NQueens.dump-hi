@@ -1,0 +1,417 @@
+
+==================== FINAL INTERFACE ====================
+2016-07-28 16:59:44.474014 UTC
+
+interface main@main:NQueens 7103
+  interface hash: 48059a548741675683ae6ed8877f5389
+  ABI hash: 79d521d5f03c1552dec2e4cfb1f2e87e
+  export-list hash: 0be0056c1da6aabb08d309ca3c264d99
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 1ba42ae73d0b95f43952688546ccbfaa
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  NQueens.attacks
+  NQueens.epsilons
+  NQueens.main
+  NQueens.optimalOutcome
+  NQueens.optimalPlay
+  NQueens.p
+  NQueens.pPar
+  NQueens.parEpsilons
+  NQueens.parMain
+  NQueens.parOptimalPlay
+  NQueens.parOptimalStrategy
+  NQueens.size
+  NQueens.valid
+  NQueens.Coordinate
+  NQueens.Move
+  NQueens.Position
+  NQueens.R
+module dependencies: GameLogic
+package dependencies: array-0.5.1.0@array_67iodizgJQIIxYVTp4emlA
+                      base-4.8.2.0 containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU
+                      deepseq-1.4.1.1@deeps_6vMKxt5sPFR0XsbRWvvq59 ghc-prim-0.4.0.0
+                      integer-gmp-1.0.0.0 parallel-3.2.1.0@paral_BEbrIfHgHtmEpYU5TfKWK9
+orphans: base-4.8.2.0:GHC.Base base-4.8.2.0:GHC.Float
+family instance modules: base-4.8.2.0:Control.Applicative
+                         base-4.8.2.0:Data.Either base-4.8.2.0:Data.Functor.Identity
+                         base-4.8.2.0:Data.Monoid base-4.8.2.0:Data.Type.Equality
+                         base-4.8.2.0:Data.Void base-4.8.2.0:GHC.Exts
+                         base-4.8.2.0:GHC.Generics
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Map.Base
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Set.Base
+import  -/  base-4.8.2.0:Data.Foldable 2ce969969ad5231eb40bd713f94f05ad
+import  -/  base-4.8.2.0:Data.List 3f0782c8d4bf50eecefcd5ea1798aac8
+import  -/  base-4.8.2.0:Data.OldList d8fd80b0e14aa085ce6219cd89dad356
+import  -/  base-4.8.2.0:GHC.Base 1db77db5dae73d8c424c85b09fbadb89
+import  -/  base-4.8.2.0:GHC.List 0c736920522bbd14b770342776012ab6
+import  -/  base-4.8.2.0:GHC.Num 9f42750c866f5832ca565146bd660c60
+import  -/  base-4.8.2.0:GHC.Show 0e1d8380a8fb0cfb07ebeda3b70cbf38
+import  -/  base-4.8.2.0:Prelude 694dcaf039efe62df1c44834e2dbd2fb
+import  -/  base-4.8.2.0:System.Environment ba6e36000c8274703cf7786fbe8d0f6c
+import  -/  base-4.8.2.0:System.IO 0248c1e850b7ea124cf7a2e1669ebf67
+import  -/  ghc-prim-0.4.0.0:GHC.Classes e1f4ff80f7b5262008a595d29986fb18
+import  -/  ghc-prim-0.4.0.0:GHC.Types 6b27fb3fdbd0e3f0925a4496c66513bb
+import  -/  GameLogic 0b53a799af830780d41d4547bedd253d
+  exports: 317b64144625346fcdfb42c1fb88af54
+  J d7de4bb8c2cf07d476f757e42c973f23
+  bigotimes 0390703f8b24ec89a7aaa580f2c54eac
+  find 19473f3b700cd7a01ba9465996d293bf
+  setMinus 4ad413d40cc9382bca94a4a68753d099
+import  -/  parallel-3.2.1.0@paral_BEbrIfHgHtmEpYU5TfKWK9:Control.Parallel.Strategies e559e49e970aa71559d76fa817ccb0ac
+57674047b893f542fd3750ac00379d7b
+  $wattacks ::
+    GHC.Prim.Int#
+    -> NQueens.Coordinate
+    -> GHC.Prim.Int#
+    -> NQueens.Coordinate
+    -> GHC.Types.Bool
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,U><L,1*U(U)><L,U><L,1*U(U)>, Inline: [0],
+     Unfolding: (\ ww :: GHC.Prim.Int#
+                   ww1 :: NQueens.Coordinate
+                   ww2 :: GHC.Prim.Int#
+                   ww3 :: NQueens.Coordinate ->
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.==# ww ww2) of wild {
+                   GHC.Types.False
+                   -> case ww1 of wild1 { GHC.Types.I# x1 ->
+                      case ww3 of wild2 { GHC.Types.I# y ->
+                      case GHC.Prim.tagToEnum#
+                             @ GHC.Types.Bool
+                             (GHC.Prim.==# x1 y) of wild3 {
+                        GHC.Types.False
+                        -> let {
+                             x2 :: GHC.Prim.Int# = GHC.Prim.-# ww ww2
+                           } in
+                           case GHC.Prim.tagToEnum#
+                                  @ GHC.Types.Bool
+                                  (GHC.Prim.>=# x2 0) of wild4 {
+                             GHC.Types.False
+                             -> let {
+                                  x3 :: GHC.Prim.Int# = GHC.Prim.-# x1 y
+                                } in
+                                case GHC.Prim.tagToEnum#
+                                       @ GHC.Types.Bool
+                                       (GHC.Prim.>=# x3 0) of wild5 {
+                                  GHC.Types.False
+                                  -> GHC.Prim.tagToEnum#
+                                       @ GHC.Types.Bool
+                                       (GHC.Prim.==#
+                                          (GHC.Prim.negateInt# x2)
+                                          (GHC.Prim.negateInt# x3))
+                                  GHC.Types.True
+                                  -> GHC.Prim.tagToEnum#
+                                       @ GHC.Types.Bool
+                                       (GHC.Prim.==# (GHC.Prim.negateInt# x2) x3) }
+                             GHC.Types.True
+                             -> let {
+                                  x3 :: GHC.Prim.Int# = GHC.Prim.-# x1 y
+                                } in
+                                case GHC.Prim.tagToEnum#
+                                       @ GHC.Types.Bool
+                                       (GHC.Prim.>=# x3 0) of wild5 {
+                                  GHC.Types.False
+                                  -> GHC.Prim.tagToEnum#
+                                       @ GHC.Types.Bool
+                                       (GHC.Prim.==# x2 (GHC.Prim.negateInt# x3))
+                                  GHC.Types.True
+                                  -> GHC.Prim.tagToEnum# @ GHC.Types.Bool (GHC.Prim.==# x2 x3) } }
+                        GHC.Types.True -> GHC.Types.True } } }
+                   GHC.Types.True -> GHC.Types.True }) -}
+c12ab79c9894e2f51428f54960e18b0e
+  $wxs ::
+    GHC.Prim.Int#
+    -> (# [NQueens.Move] -> GameLogic.J NQueens.R NQueens.Move,
+          [[NQueens.Move] -> GameLogic.J NQueens.R NQueens.Move] #)
+  {- Arity: 1, Strictness: <S,1*U>, Inline: [0] -}
+6360fd98c33d9a14efbc3170b7495b0f
+  type Coordinate = GHC.Types.Int
+9fe4cdbb6c2441ee681f21bedcd42fdf
+  type Move = NQueens.Coordinate
+2e23dd7b8a4f80cc5bbf7b7db3171f3c
+  type Position = (NQueens.Coordinate, NQueens.Coordinate)
+8a535939c039ae2f894925015d6d790c
+  type R = GHC.Types.Bool
+c2b1fa7a4415710547700f1b8c1efd6e
+  attacks :: NQueens.Position -> NQueens.Position -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(SL),1*U(1*U(U),1*U(U))><S(SL),1*U(1*U(U),1*U(U))>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: NQueens.Position w1 :: NQueens.Position ->
+                 case w of ww { (,) ww1 ww2 ->
+                 case ww1 of ww3 { GHC.Types.I# ww4 ->
+                 case w1 of ww5 { (,) ww6 ww7 ->
+                 case ww6 of ww8 { GHC.Types.I# ww9 ->
+                 NQueens.$wattacks ww4 ww2 ww9 ww7 } } } }) -}
+74e9c8dc9747ed7c82a3ea2601555e35
+  epsilons :: [[NQueens.Move] -> GameLogic.J NQueens.R NQueens.Move]
+  {- Unfolding: (case NQueens.$wxs 8 of ww { (#,#) ww1 ww2 ->
+                 GHC.Types.:
+                   @ ([NQueens.Move] -> GameLogic.J NQueens.R NQueens.Move)
+                   ww1
+                   ww2 }) -}
+21922352c34b6acb637370365543a4ee
+  main :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True)
+                NQueens.main1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
+8bcdb755363a83da0fbfd8a63ae92458
+  main1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: (\ eta :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 case NQueens.main_a4
+                        NQueens.main9
+                        GHC.Prim.realWorld# of ds { (#,#) ipv ipv1 ->
+                 case GHC.List.filter @ [NQueens.Move] NQueens.p ipv1 of wild {
+                   []
+                   -> GHC.IO.Handle.Text.hPutStr2
+                        GHC.IO.Handle.FD.stdout
+                        NQueens.main6
+                        GHC.Types.True
+                        eta
+                   : ds1 ds2
+                   -> case GHC.IO.Handle.Text.hPutStr2
+                             GHC.IO.Handle.FD.stdout
+                             (GHC.CString.unpackAppendCString#
+                                "There's "#
+                                (case GHC.List.$wlenAcc @ [NQueens.Move] wild 0 of ww2 { DEFAULT ->
+                                 case GHC.Show.$wshowSignedInt
+                                        0
+                                        ww2
+                                        (GHC.Types.[] @ GHC.Types.Char) of ww4 { (#,#) ww5 ww6 ->
+                                 GHC.Base.++
+                                   @ GHC.Types.Char
+                                   (GHC.Types.: @ GHC.Types.Char ww5 ww6)
+                                   NQueens.main3 } }))
+                             GHC.Types.True
+                             eta of ds4 { (#,#) ipv2 ipv3 ->
+                      NQueens.main2 wild ipv2 } } }) -}
+1e8b1211634627694eeb70df4abba034
+  main2 ::
+    [[NQueens.Move]]
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 2, Strictness: <S,1*U><L,U> -}
+3d9f53d32bbb578975426ea40cd40b46
+  main3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackAppendCString#
+                   " solutions for "#
+                   NQueens.main4) -}
+fbff0684275e637a782c2ea9283bf610
+  main4 :: [GHC.Types.Char]
+  {- Unfolding: (case GHC.Show.$wshowSignedInt
+                        0
+                        8
+                        (GHC.Types.[] @ GHC.Types.Char) of ww4 { (#,#) ww5 ww6 ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   (GHC.Types.: @ GHC.Types.Char ww5 ww6)
+                   NQueens.main5 }) -}
+923ace2b22c9d21b45d2349a7e05809f
+  main5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "-Queens : "#) -}
+88ea17459a11ddd870b27f364e282af9
+  main6 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackAppendCString#
+                   "There are no solutions for "#
+                   NQueens.main7) -}
+9c6f604bf81b87558bb06012d7a688cf
+  main7 :: [GHC.Types.Char]
+  {- Unfolding: (case GHC.Show.$wshowSignedInt
+                        0
+                        8
+                        (GHC.Types.[] @ GHC.Types.Char) of ww4 { (#,#) ww5 ww6 ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   (GHC.Types.: @ GHC.Types.Char ww5 ww6)
+                   NQueens.main8 }) -}
+26f7653d4a1c588c83bb45f2051b6baa
+  main8 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "-Queens"#) -}
+7f7d90e2b9c1012a5f824cc97362597b
+  main9 :: [[NQueens.Move]]
+  {- Unfolding: (NQueens.main_go 0) -}
+1685473825266deb6aa48b32661cd090
+  main_a4 ::
+    [[NQueens.Move]]
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, [[NQueens.Move]] #)
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U> -}
+84625c217e2137748899ed1b13297b69
+  main_go :: GHC.Prim.Int# -> [[NQueens.Move]]
+  {- Arity: 1, Strictness: <L,U> -}
+e3352db956a6b637cf7c064104a2d9cc
+  optimalOutcome :: NQueens.R
+  {- Unfolding: (NQueens.valid NQueens.optimalOutcome1) -}
+abb14fa0092d1942dc8504840423bdff
+  optimalOutcome1 :: [(GHC.Types.Int, GHC.Types.Int)]
+  {- Unfolding: (GHC.List.zip
+                   @ GHC.Types.Int
+                   @ GHC.Types.Int
+                   NQueens.optimalPlay
+                   NQueens.p1) -}
+e0e18f4c1e83becc6aecde8149c4219a
+  optimalPlay :: [NQueens.Move]
+  {- Unfolding: (NQueens.optimalPlay1 NQueens.p) -}
+e4c99241d74c386918c7f48e40fa14b8
+  optimalPlay1 :: GameLogic.J NQueens.R [NQueens.Move]
+  {- Unfolding: (GameLogic.bigotimes
+                   @ NQueens.Move
+                   @ NQueens.R
+                   NQueens.epsilons) -}
+1fad13ec90f73c31b48f6c4c1544893b
+  p :: [NQueens.Move] -> NQueens.R
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ms :: [NQueens.Move] ->
+                 NQueens.valid
+                   (GHC.Base.build
+                      @ (GHC.Types.Int, GHC.Types.Int)
+                      (\ @ b1
+                         c :: (GHC.Types.Int, GHC.Types.Int) -> b1 -> b1[OneShot]
+                         n :: b1[OneShot] ->
+                       GHC.List.foldr2
+                         @ GHC.Types.Int
+                         @ GHC.Types.Int
+                         @ b1
+                         (GHC.List.zipFB @ GHC.Types.Int @ GHC.Types.Int @ b1 @ b1 c)
+                         n
+                         ms
+                         NQueens.p1))) -}
+155d0c84c5250ac242d1dba682780f5a
+  p1 :: [GHC.Types.Int]
+  {- Unfolding: (GHC.Enum.eftInt 0 7) -}
+b658bc0085c9c63dcab382daa2c81d22
+  pPar :: [NQueens.Move] -> [NQueens.Move] -> NQueens.R
+  {- Arity: 2, Strictness: <S,1*U><L,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ preceding :: [NQueens.Move] eta :: [NQueens.Move] ->
+                 NQueens.valid
+                   (GHC.Base.build
+                      @ (GHC.Types.Int, GHC.Types.Int)
+                      (\ @ b1
+                         c :: (GHC.Types.Int, GHC.Types.Int) -> b1 -> b1[OneShot]
+                         n :: b1[OneShot] ->
+                       GHC.List.foldr2
+                         @ GHC.Types.Int
+                         @ GHC.Types.Int
+                         @ b1
+                         (GHC.List.zipFB @ GHC.Types.Int @ GHC.Types.Int @ b1 @ b1 c)
+                         n
+                         (GHC.Base.augment
+                            @ GHC.Types.Int
+                            (\ @ b c1 :: GHC.Types.Int -> b -> b[OneShot] n1 :: b[OneShot] ->
+                             GHC.Base.foldr @ GHC.Types.Int @ b c1 n1 preceding)
+                            eta)
+                         NQueens.p1))) -}
+a868006e2617722c5bb67907b21400a0
+  parEpsilons ::
+    [NQueens.Move]
+    -> [[NQueens.Move] -> GameLogic.J NQueens.R NQueens.Move]
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ preceding :: [NQueens.Move] ->
+                 case GHC.List.$wlenAcc
+                        @ GHC.Types.Int
+                        preceding
+                        0 of ww2 { DEFAULT ->
+                 let {
+                   y :: GHC.Prim.Int# = GHC.Prim.-# 8 ww2
+                 } in
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.<# 0 y) of wild {
+                   GHC.Types.False
+                   -> GHC.Types.[]
+                        @ ([NQueens.Move] -> GameLogic.J NQueens.R NQueens.Move)
+                   GHC.Types.True
+                   -> let {
+                        poolOfMoves :: [GHC.Types.Int]
+                        = Data.OldList.\\
+                            @ GHC.Types.Int
+                            GHC.Classes.$fEqInt
+                            NQueens.p1
+                            preceding
+                      } in
+                      let {
+                        x1 :: [NQueens.Move] -> GameLogic.J NQueens.R NQueens.Move
+                          {- Arity: 1, Strictness: <L,1*U>,
+                             Unfolding: InlineRule (1, True, False)
+                                        (\ h :: [GHC.Types.Int] ->
+                                         GameLogic.find
+                                           @ GHC.Types.Int
+                                           (GameLogic.epsilons_go h poolOfMoves)) -}
+                        = \ h :: [GHC.Types.Int] ->
+                          GameLogic.find
+                            @ GHC.Types.Int
+                            (GameLogic.epsilons_go h poolOfMoves)
+                      } in
+                      let {
+                        lvl :: [[NQueens.Move] -> GameLogic.J NQueens.R NQueens.Move]
+                        = GHC.Types.:
+                            @ ([NQueens.Move] -> GameLogic.J NQueens.R NQueens.Move)
+                            x1
+                            (GHC.Types.[]
+                               @ ([NQueens.Move] -> GameLogic.J NQueens.R NQueens.Move))
+                      } in
+                      letrec {
+                        $wxs1 :: GHC.Prim.Int#
+                                 -> [[NQueens.Move] -> GameLogic.J NQueens.R NQueens.Move]
+                          {- Arity: 1, Strictness: <S,1*U>, Inline: [0] -}
+                        = \ ww :: GHC.Prim.Int# ->
+                          case ww of ds1 {
+                            DEFAULT
+                            -> GHC.Types.:
+                                 @ ([NQueens.Move] -> GameLogic.J NQueens.R NQueens.Move)
+                                 x1
+                                 ($wxs1 (GHC.Prim.-# ds1 1))
+                            1 -> lvl }
+                      } in
+                      $wxs1 y } }) -}
+e34b4b29fb24271a3b019b42d17d7d8f
+  parMain :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True)
+                NQueens.main1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
+2f04cb5a9c59d7364655e17b144eb2fa
+  parOptimalPlay :: [NQueens.Move] -> [NQueens.Move]
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ preceding :: [NQueens.Move] ->
+                 GHC.Base.++
+                   @ GHC.Types.Int
+                   preceding
+                   (GameLogic.bigotimes
+                      @ NQueens.Move
+                      @ NQueens.R
+                      (NQueens.parEpsilons preceding)
+                      (NQueens.pPar preceding))) -}
+6312b4da36c1c5be8f13faa451dbbf9a
+  parOptimalStrategy :: [NQueens.Move] -> [NQueens.Move]
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ preceding :: [NQueens.Move] ->
+                 GameLogic.bigotimes
+                   @ NQueens.Move
+                   @ NQueens.R
+                   (NQueens.parEpsilons preceding)
+                   (NQueens.pPar preceding)) -}
+338672139b2ec93f30f7f7657075d08d
+  size :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 8) -}
+0920d2ba559ed382fea6611da793ad97
+  valid :: [NQueens.Position] -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

@@ -1,0 +1,286 @@
+
+==================== FINAL INTERFACE ====================
+2016-07-28 16:38:07.873779 UTC
+
+interface main@main:GameLogic 7103
+  interface hash: 10d6cd3f0227428d8e65647ff9267150
+  ABI hash: 0b53a799af830780d41d4547bedd253d
+  export-list hash: 317b64144625346fcdfb42c1fb88af54
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 1ba42ae73d0b95f43952688546ccbfaa
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  GameLogic.arginf
+  GameLogic.argsup
+  GameLogic.bigotimes
+  GameLogic.contained
+  GameLogic.delete
+  GameLogic.epsilons
+  GameLogic.find
+  GameLogic.insert
+  GameLogic.optimalStrategy
+  GameLogic.otimes
+  GameLogic.overline
+  GameLogic.p
+  GameLogic.setMinus
+  GameLogic.someContained
+  GameLogic.J
+  GameLogic.K
+  GameLogic.Move
+  GameLogic.R
+module dependencies:
+package dependencies: base-4.8.2.0 ghc-prim-0.4.0.0
+                      integer-gmp-1.0.0.0
+orphans: base-4.8.2.0:GHC.Base base-4.8.2.0:GHC.Float
+family instance modules: base-4.8.2.0:Control.Applicative
+                         base-4.8.2.0:Data.Either base-4.8.2.0:Data.Monoid
+                         base-4.8.2.0:Data.Type.Equality base-4.8.2.0:GHC.Generics
+import  -/  base-4.8.2.0:Data.Foldable 2ce969969ad5231eb40bd713f94f05ad
+import  -/  base-4.8.2.0:Debug.Trace 6660afb6094d69397ea084364da8f950
+import  -/  base-4.8.2.0:GHC.Base 1db77db5dae73d8c424c85b09fbadb89
+import  -/  base-4.8.2.0:GHC.List 0c736920522bbd14b770342776012ab6
+import  -/  base-4.8.2.0:Prelude 694dcaf039efe62df1c44834e2dbd2fb
+import  -/  ghc-prim-0.4.0.0:GHC.Classes e1f4ff80f7b5262008a595d29986fb18
+6659f710d1ad399914d564d3bf9c18f3
+  $wotimes ::
+    GameLogic.J r x
+    -> (x -> GameLogic.J r [x]) -> ([x] -> r) -> (# x, [x] #)
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,1*C1(U)><L,C(C1(U))><L,C(U)>, Inline: [0],
+     Unfolding: (\ @ r
+                   @ x
+                   w :: GameLogic.J r x
+                   w1 :: x -> GameLogic.J r [x]
+                   w2 :: [x] -> r ->
+                 let {
+                   a0 :: x
+                   = w (\ x0 :: x ->
+                        w2
+                          (GHC.Types.:
+                             @ x
+                             x0
+                             (w1 x0 (\ x1 :: [x] -> w2 (GHC.Types.: @ x x0 x1)))))
+                 } in
+                 (# a0, w1 a0 (\ x1 :: [x] -> w2 (GHC.Types.: @ x a0 x1)) #)) -}
+e53aacbdb7fbc1ab3ccb7754a1f98f9a
+  $wunsafeDrop :: GHC.Prim.Int# -> [a1] -> [a1]
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U><S,1*U>,
+     Inline: [0] -}
+d7de4bb8c2cf07d476f757e42c973f23
+  type J r x = (x -> r) -> x
+3db304cb9fc7289fc3d35e2a66e23de6
+  type K r x = (x -> r) -> r
+47f48838aed79a3ba0805100c760a440
+  type Move = GHC.Types.Int
+a3b40a6c759aa6c0eb781f19fa173527
+  type R = GHC.Types.Int
+6448a2634243deffcacaba082e5fe765
+  arginf :: [x] -> GameLogic.J GHC.Types.Int x
+  {- Arity: 2, Strictness: <S,1*U><L,C(U(U))>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ x xs :: [x] p1 :: x -> GHC.Types.Int ->
+                 GameLogic.argsup
+                   @ x
+                   xs
+                   (\ x1 :: x ->
+                    case p1 x1 of wild { GHC.Types.I# x2 ->
+                    GHC.Types.I# (GHC.Prim.negateInt# x2) })) -}
+9b4c5776011bd1723817c8e55e621728
+  argsup :: [x] -> GameLogic.J GHC.Types.Int x
+  {- Arity: 2, Strictness: <S,1*U><L,C(U(1*U))>,
+     Unfolding: (\ @ x ds :: [x] p1 :: x -> GHC.Types.Int ->
+                 case ds of wild {
+                   [] -> GameLogic.argsup2 @ x
+                   : x1 xs
+                   -> case p1 x1 of ww { GHC.Types.I# ww1 ->
+                      letrec {
+                        $wf :: [x] -> x -> GHC.Prim.Int# -> x
+                          {- Arity: 3, Strictness: <L,1*U><L,U><S,1*U>, Inline: [0] -}
+                        = \ w :: [x] w1 :: x ww2 :: GHC.Prim.Int# ->
+                          case ww2 of ds1 {
+                            DEFAULT
+                            -> case w of wild1 {
+                                 [] -> w1
+                                 : x2 xs1
+                                 -> case ds1 of ds2 {
+                                      DEFAULT -> GameLogic.argsup1 @ x
+                                      (-1)
+                                      -> case p1 x2 of ww3 { GHC.Types.I# ww4 -> $wf xs1 x2 ww4 }
+                                      0
+                                      -> letrec {
+                                           g :: [x] -> x {- Arity: 1, Strictness: <S,1*U> -}
+                                           = \ ds3 :: [x] ->
+                                             case ds3 of wild2 {
+                                               [] -> w1
+                                               : x3 xs2
+                                               -> case p1 x3 of wild3 { GHC.Types.I# x4 ->
+                                                  case x4 of wild4 { DEFAULT -> g xs2 1 -> x3 } } }
+                                         } in
+                                         g wild1 } }
+                            1 -> w1 }
+                      } in
+                      $wf xs x1 ww1 } }) -}
+82b5846871618e10bd842772fdab6c5b
+  argsup1 :: x
+  {- Strictness: b -}
+71c9c051d778ab8f351fc51e2245627f
+  argsup2 :: x
+  {- Unfolding: (\ @ x ->
+                 Debug.Trace.trace @ x GameLogic.argsup3 (GHC.Err.undefined @ x)) -}
+0eb9e90f3ca7ba831288451f47e0539f
+  argsup3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   "Error: an empty list was passed to argsup"#) -}
+0390703f8b24ec89a7aaa580f2c54eac
+  bigotimes :: [[x] -> GameLogic.J r x] -> GameLogic.J r [x]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+d3ce28d6f34202b7ce13b3322a468b40
+  contained :: GHC.Classes.Ord x => [x] -> [x] -> GHC.Types.Bool
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,U(U(C(C1(U)),A),A,A,A,C(C1(U)),A,A,A)><S,1*U><L,1*U> -}
+4cda89dd02365c7f17a302cebe78eda0
+  delete :: GHC.Classes.Ord x => x -> [x] -> [x]
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,U(U(C(C1(U)),A),A,C(C1(U)),A,A,A,A,A)><L,U><S,1*U> -}
+2502de4f5754251ba7bf6d5919cf1395
+  delete_$sdelete ::
+    GameLogic.Move -> [GameLogic.Move] -> [GameLogic.Move]
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U(U)><S,1*U> -}
+6dfc3b1abe86665e1a0b035e82868550
+  epsilons ::
+    [[GameLogic.Move] -> GameLogic.J GameLogic.R GameLogic.Move]
+  {- Unfolding: (GHC.List.$wunsafeTake
+                   @ ([GameLogic.Move] -> GameLogic.J GameLogic.R GameLogic.Move)
+                   9
+                   GameLogic.epsilons_all) -}
+90fe3ddff7389da0d279155001ef9287
+  epsilons1 ::
+    [[GameLogic.Move] -> GameLogic.J GHC.Types.Int GameLogic.Move]
+  {- Strictness: m2 -}
+191aaf187410d0105f92c35f520dddb2
+  epsilons2 ::
+    [GameLogic.Move] -> GameLogic.J GHC.Types.Int GameLogic.Move
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ h :: [GameLogic.Move] ->
+                 GameLogic.argsup
+                   @ GameLogic.Move
+                   (GameLogic.epsilons_$ssetMinus GameLogic.epsilons3 h)) -}
+69540697e6d96d59df608462ecd48401
+  epsilons3 :: [GHC.Types.Int]
+  {- Unfolding: (GHC.Enum.eftInt 0 8) -}
+c82d1506d25b7b17e7175adbe99f4648
+  epsilons_$ssetMinus ::
+    [GameLogic.Move] -> [GameLogic.Move] -> [GameLogic.Move]
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: (\ eta :: [GameLogic.Move] eta1 :: [GameLogic.Move] ->
+                 GameLogic.epsilons_go eta1 eta) -}
+97556f36d9876697490424c78ee21c02
+  epsilons_all ::
+    [[GameLogic.Move] -> GameLogic.J GHC.Types.Int GameLogic.Move]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ ([GameLogic.Move] -> GameLogic.J GHC.Types.Int GameLogic.Move)
+                   GameLogic.epsilons2
+                   GameLogic.epsilons1) -}
+4c6173d7c4708704b236a34411cbec13
+  epsilons_go ::
+    [GameLogic.Move] -> [GameLogic.Move] -> [GameLogic.Move]
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U> -}
+19473f3b700cd7a01ba9465996d293bf
+  find :: [x] -> GameLogic.J GHC.Types.Bool x
+  {- Arity: 2, Strictness: <S,1*U><L,C(U)> -}
+127de5c120d6cfc3c7aead26d662d1c1
+  insert :: GHC.Classes.Ord x => x -> [x] -> [x]
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,U(U(C(C1(U)),A),A,C(C1(U)),A,A,A,A,A)><L,U><S,1*U> -}
+eafacb1a5cb546bbd85af3fd5d6e8906
+  optimalStrategy :: [GameLogic.Move] -> GameLogic.Move
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ as :: [GameLogic.Move] ->
+                 case GHC.List.$wlenAcc @ GHC.Types.Int as 0 of ww2 { DEFAULT ->
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.<=# ww2 0) of wild1 {
+                   GHC.Types.False
+                   -> case GameLogic.bigotimes
+                             @ GameLogic.Move
+                             @ GameLogic.R
+                             (GameLogic.$wunsafeDrop
+                                @ ([GameLogic.Move] -> GameLogic.J GameLogic.R GameLogic.Move)
+                                ww2
+                                GameLogic.epsilons)
+                             GameLogic.p of wild {
+                        [] -> GHC.List.badHead @ GameLogic.Move : x ds1 -> x }
+                   GHC.Types.True
+                   -> case GameLogic.optimalStrategy1 of wild {
+                        [] -> GHC.List.badHead @ GameLogic.Move : x ds1 -> x } } }) -}
+26755ee804e92c50b2e418d859d6a7fa
+  optimalStrategy1 :: [GameLogic.Move]
+  {- Unfolding: (GameLogic.optimalStrategy2 GameLogic.p) -}
+e4a0cee5df855225827372566b38727a
+  optimalStrategy2 :: GameLogic.J GameLogic.R [GameLogic.Move]
+  {- Unfolding: (GameLogic.bigotimes
+                   @ GameLogic.Move
+                   @ GameLogic.R
+                   GameLogic.epsilons) -}
+b76e90615c7f00cc90166ac35a352681
+  otimes ::
+    GameLogic.J r x -> (x -> GameLogic.J r [x]) -> GameLogic.J r [x]
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,1*C1(U)><L,C(C1(U))><L,C(U)>m2, Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ @ r
+                   @ x
+                   w :: GameLogic.J r x
+                   w1 :: x -> GameLogic.J r [x]
+                   w2 :: [x] -> r ->
+                 case GameLogic.$wotimes @ r @ x w w1 w2 of ww { (#,#) ww1 ww2 ->
+                 GHC.Types.: @ x ww1 ww2 }) -}
+fa0ba5f40aae9b118e130a2d2d253ade
+  overline :: GameLogic.J r x -> GameLogic.K r x
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*C1(U)><C(S),U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ r @ x e :: GameLogic.J r x p1 :: x -> r -> p1 (e p1)) -}
+4baa03b8233054c188c7ae9e754387ad
+  p :: [GameLogic.Move] -> GameLogic.R
+  {- Arity: 1, Strictness: <B,A>b,
+     Unfolding: InlineRule (1, True, True)
+                (\ ms :: [GameLogic.Move] -> GHC.Err.undefined @ GameLogic.R) -}
+4ad413d40cc9382bca94a4a68753d099
+  setMinus :: GHC.Classes.Ord x => [x] -> [x] -> [x]
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,U(U(C(C1(U)),A),A,C(C1(U)),A,A,A,A,A)><S,1*U><S,1*U>,
+     Unfolding: (\ @ x
+                   $dOrd :: GHC.Classes.Ord x
+                   eta :: [x]
+                   eta1 :: [x] ->
+                 letrec {
+                   go :: [x] -> [x] -> [x] {- Arity: 2, Strictness: <S,1*U><S,1*U> -}
+                   = \ ds :: [x] eta2 :: [x] ->
+                     case ds of wild {
+                       [] -> eta2 : y ys -> go ys (GameLogic.delete @ x $dOrd y eta2) }
+                 } in
+                 go eta1 eta) -}
+2d4251e5651e271f753e7d182703707e
+  someContained ::
+    GHC.Classes.Ord x => [[x]] -> [x] -> GHC.Types.Bool
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,U(U(C(C1(U)),A),A,A,A,C(C1(U)),A,A,A)><S,1*U><L,1*U> -}
+"SPEC delete @ Move" [ALWAYS] forall $dOrd :: GHC.Classes.Ord
+                                                GameLogic.Move
+  GameLogic.delete @ GHC.Types.Int $dOrd = GameLogic.delete_$sdelete
+"SPEC setMinus @ Move" [ALWAYS] forall $dOrd :: GHC.Classes.Ord
+                                                  GameLogic.Move
+  GameLogic.setMinus @ GHC.Types.Int $dOrd
+  = GameLogic.epsilons_$ssetMinus
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

@@ -1,0 +1,83 @@
+
+==================== FINAL INTERFACE ====================
+2016-07-28 17:18:41.216172 UTC
+
+interface main@main:Main 7103
+  interface hash: 31246efef605eda666cf454b02c03bfc
+  ABI hash: 4d70d5eaf078ea6bf79bddaabcb62bd7
+  export-list hash: 1a2c93ba4a4b933a62f5d37a883e5fda
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 51d44cdd266a5b60399eff72b98767aa
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Main.main
+module dependencies: Buchstabensalat ConnectN Futoshiki GameLogic
+                     InshiNoHeya NQueens Nonograms Sudoku4 Sudoku6 Sudoku9 TicTacToe
+package dependencies: array-0.5.1.0@array_67iodizgJQIIxYVTp4emlA
+                      base-4.8.2.0 containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU
+                      deepseq-1.4.1.1@deeps_6vMKxt5sPFR0XsbRWvvq59 ghc-prim-0.4.0.0
+                      integer-gmp-1.0.0.0 parallel-3.2.1.0@paral_BEbrIfHgHtmEpYU5TfKWK9
+                      random-1.1@rando_9Kgekc9yEaLHLNUuw6paWL
+                      time-1.5.0.1@time_FTheb6LSxyX1UABIbBXRfn
+orphans: base-4.8.2.0:GHC.Base base-4.8.2.0:GHC.Float
+         time-1.5.0.1@time_FTheb6LSxyX1UABIbBXRfn:Data.Time.Calendar.Gregorian
+         time-1.5.0.1@time_FTheb6LSxyX1UABIbBXRfn:Data.Time.Format.Parse
+         time-1.5.0.1@time_FTheb6LSxyX1UABIbBXRfn:Data.Time.LocalTime.LocalTime
+family instance modules: base-4.8.2.0:Control.Applicative
+                         base-4.8.2.0:Data.Either base-4.8.2.0:Data.Functor.Identity
+                         base-4.8.2.0:Data.Monoid base-4.8.2.0:Data.Type.Equality
+                         base-4.8.2.0:Data.Void base-4.8.2.0:GHC.Exts
+                         base-4.8.2.0:GHC.Generics
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Map.Base
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Set.Base
+import  -/  base-4.8.2.0:Control.Exception e9090e246fba030faecf7b81b3e8e320
+import  -/  base-4.8.2.0:Control.Monad 480c5067477275068c9b98be08410df9
+import  -/  base-4.8.2.0:Prelude 694dcaf039efe62df1c44834e2dbd2fb
+import  -/  ghc-prim-0.4.0.0:GHC.Types 6b27fb3fdbd0e3f0925a4496c66513bb
+import  -/  Buchstabensalat 32ba96229e0caf42864712a66543dcef
+  exports: 5b9981a2a51415b52ccff9ce49653365
+import  -/  ConnectN e73c9a5d0d75d7c0c8ad67cb95a33de2
+  exports: 0a3d4a613aebca4b8e3b133289a92166
+import  -/  Futoshiki 86e5ba0e8f0241c11b6e3df6782a0493
+  exports: e99d6623c339d389a63936bf71ceeda7
+import  -/  GameLogic 0b53a799af830780d41d4547bedd253d
+  exports: 317b64144625346fcdfb42c1fb88af54
+import  -/  InshiNoHeya db9810054ba6911789c673064978cf3c
+  exports: eae13dc9132efafe4b13e868357ea9d1
+import  -/  NQueens 79d521d5f03c1552dec2e4cfb1f2e87e
+  exports: 0be0056c1da6aabb08d309ca3c264d99
+import  -/  Nonograms a7a61488f1ceda331c521d3e3e0940a9
+  exports: dffdedfaa9ee569f7fe76f4965066cb2
+  main 78a21568dcdb7f39d9a0731cf469f874
+import  -/  Sudoku4 7ceee451ee23e8c8a1fb0b5f59a80e8c
+  exports: 5dcc3c3038c6bad8c415716dc48949cf
+import  -/  Sudoku6 0d62d3c41d42ea42e0f98e8206278f76
+  exports: f1b1414900393de4b630dada01fa8713
+import  -/  Sudoku9 eca93bb133db913803e06c32132784fb
+  exports: 2bdc99618ceb71bf15a65dd87f949764
+import  -/  TicTacToe 2c68a03c6d5772436e8bb1e1a8c4ce5b
+  exports: 4abbe1b851f7c15fb3ea4a7fd2b3bdca
+import  -/  random-1.1@rando_9Kgekc9yEaLHLNUuw6paWL:System.Random 103ad55b56caf6eb812c579b8e1813b0
+c6b18f6f99a1efcb81eaeebcd6628b61
+  main :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Nonograms.main1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
+257819ae4746f477ffd05975860e73f1
+  main1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1,
+     Unfolding: (GHC.TopHandler.runMainIO1
+                   @ ()
+                   Nonograms.main1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R))) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+
