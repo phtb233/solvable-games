@@ -9,8 +9,9 @@ Solved in parallel:
   * NQueens
 
 Computed sequentially:
-  * Futoshiki
-  * Nonograms
-  * Buchstabensalat
-  * Inshi no Heya
+  * [Futoshiki](https://en.wikipedia.org/wiki/Futoshiki)
+  * [Nonograms](https://en.wikipedia.org/wiki/Nonogram)
+  * [Buchstabensalat](https://en.wikipedia.org/wiki/Buchstabensalat_(logic_puzzle))
+  * [Inshi no Heya](https://en.wikipedia.org/wiki/Inshi_no_heya)
 
+The selection monad itself is contained in the module 'GameLogic'.
