@@ -9,9 +9,11 @@ Solved in parallel:
   * NQueens
 
 Computed sequentially:
-  * [Futoshiki](https://en.wikipedia.org/wiki/Futoshiki)
-  * [Nonograms](https://en.wikipedia.org/wiki/Nonogram)
-  * [Buchstabensalat](https://en.wikipedia.org/wiki/Buchstabensalat_(logic_puzzle))
-  * [Inshi no Heya](https://en.wikipedia.org/wiki/Inshi_no_heya)
+  * Futoshiki
+  * Nonograms
+  * Buchstabensalat
+  * Inshi no Heya
+  * Nim (SubtractionGame)
+  * River Crossing Problem
 
 The selection monad itself is contained in the module 'GameLogic'.
