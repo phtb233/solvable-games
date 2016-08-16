@@ -38,25 +38,27 @@ For the 6x6 puzzle:
 size = 6
 
 main :: IO ()
-main = do
-        -- Narrow possible initial plays to those that match the clues.
-       let matchClue' [4,_,5,_,_,_] = True
-           matchClue' _             = False
-           -- Even with this many filled in answers, it wont terminate.
-           testing = [[6,2,1,4,3,5],[3,5,6,2,4,1],[1,4,2,6,5,3]] 
-           -- Almost all of the puzzle must be filled in.
-           allPossibleStarts :: [[Move]]
-           allPossibleStarts = 
-            (map (:[]) $ filter matchClue' $ permutations [1..size])
-            -- Find the optimal plays of every possible starting move, in
-            -- parallel.
-           results :: [Move]
-           results = (flip GL.find p) $ 
-                 parMap rdeepseq parOptimalPlay allPossibleStarts
-       if not . p $ results
-             then putStrLn "Couldn't solve this puzzle."
-             else putStrLn . prettyPrint $ results
-       return ()
+main = do putStrLn $ prettyPrint optimalPlay
+       {-
+        - -- Narrow possible initial plays to those that match the clues.
+        -let matchClue' [4,_,5,_,_,_] = True
+        -    matchClue' _             = False
+        -    -- Even with this many filled in answers, it wont terminate.
+        -    testing = [[6,2,1,4,3,5],[3,5,6,2,4,1],[1,4,2,6,5,3]] 
+        -    -- Almost all of the puzzle must be filled in.
+        -    allPossibleStarts :: [[Move]]
+        -    allPossibleStarts = 
+        -     (map (:[]) $ filter matchClue' $ permutations [1..size])
+        -     -- Find the optimal plays of every possible starting move, in
+        -     -- parallel.
+        -    results :: [Move]
+        -    results = (flip GL.find p) $ 
+        -          parMap rdeepseq parOptimalPlay allPossibleStarts
+        -if not . p $ results
+        -      then putStrLn "Couldn't solve this puzzle."
+        -      else putStrLn . prettyPrint $ results
+        -return ()
+        -}
  
 
 -- Change a set of rows of values to a map. 
@@ -98,7 +100,7 @@ checkPuzzle p =
               y  <- [1..2]
               let x'' = x + (pred x' * 3)
                   y'' = y + (pred y' * 2)
-              return $ fromMaybe undefined $ M.lookup (x'',y'') p
+              return $ p M.! (x'',y'')
 
 valid :: Puzzle -> R
 valid = checkPuzzle
@@ -138,7 +140,7 @@ epsilons = replicate size epsilon
            || (u == 3 && v == 5 && w == 6 && x == 2 && y == 4 && z == 1)
            || (u == 1 && v == 4 && w == 2 && x == 6 && y == 5 && z == 3)
            || (u == 2 && v == 6 && w == 3 && x == 5 && y == 1 && z == 4)
-           || (u == 5 && x == 3 && z == 6)
+           || (u == 5 && w == 4 && x == 3)
 
 parEpsilons :: [Move] -> [[Move] -> GL.J R Move]
 parEpsilons preceding = replicate (size - length preceding) epsilon

@@ -1,5 +1,5 @@
 module TicTacToe where
-import qualified GameLogic as GL
+import qualified Logic.GameLogic as GL
 import Data.List ((\\))
 import Control.Parallel.Strategies (parMap, rdeepseq)
 

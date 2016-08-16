@@ -37,20 +37,22 @@ size = 4
 -- The parallelism does have an effect, but the puzzle is too small to
 -- benefit from it.
 main :: IO ()
-main = do
-        let matchClue' [_,2, _,1] = True
-            matchClue' _          = False
-            allPossibleStarts :: [[Move]]
-            allPossibleStarts = 
-                map (:[]) $ filter matchClue' $ permutations [1..size]
-            -- Find optimal plays for all starting moves that match the top
-            -- row of the puzzle, using parallelism.
-        let results :: [Move]
-            results = (flip GL.find p) $ 
-                    parMap rdeepseq parOptimalPlay allPossibleStarts
-        if not . p $ results
-            then putStrLn "I couldn't solve this puzzle."
-            else putStrLn . prettyPrint $ results
+main = do putStrLn $ prettyPrint optimalPlay
+        {-
+         -let matchClue' [_,2, _,1] = True
+         -    matchClue' _          = False
+         -    allPossibleStarts :: [[Move]]
+         -    allPossibleStarts = 
+         -        map (:[]) $ filter matchClue' $ permutations [1..size]
+         -    -- Find optimal plays for all starting moves that match the top
+         -    -- row of the puzzle, using parallelism.
+         -let results :: [Move]
+         -    results = (flip GL.find p) $ 
+         -            parMap rdeepseq parOptimalPlay allPossibleStarts
+         -if not . p $ results
+         -    then putStrLn "I couldn't solve this puzzle."
+         -    else putStrLn . prettyPrint $ results
+         -}
 
 -- Change a set of rows of values to a set of tuples, including their
 -- x and y positions (from bottom left of the grid to top right).
@@ -91,7 +93,7 @@ checkPuzzle p =
               y  <- [1..root]
               let x'' = x + (pred x' * root)
                   y'' = y + (pred y' * root)
-              return $ fromMaybe undefined $ M.lookup (x'',y'') p
+              return $ p M.! (x'',y'')
 
 valid :: Puzzle -> R
 valid = checkPuzzle

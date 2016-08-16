@@ -11,4 +11,4 @@ import Control.Monad
 import Control.Exception
 
 main :: IO ()
-main = S4.main
+main = S6.main

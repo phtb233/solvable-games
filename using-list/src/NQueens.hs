@@ -1,5 +1,5 @@
 module NQueens where
-import qualified GameLogic as GL
+import qualified Logic.GameLogic as GL
 import Data.List ((\\))
 import System.Environment
 import Control.Parallel.Strategies (parMap, rdeepseq)
@@ -52,15 +52,15 @@ parEpsilons preceding = replicate size' epsilon
 
 parMain :: IO ()
 parMain = do
-        let allPossibleStarts = map (:[]) [0..size-1]
-            results = parMap rdeepseq parOptimalPlay allPossibleStarts
-            optimalMoves = filter p results
-        if null optimalMoves
-            then putStrLn $ "There are no solutions for " ++
-                                      show size ++ "-Queens"
-            else do putStrLn $ "There's " ++ (show $ length optimalMoves) ++
-                              " solutions for " ++ show size ++ "-Queens : "
-                    mapM_ (putStrLn . show) optimalMoves
+    let allPossibleStarts = map (:[]) [0..size-1]
+        results = parMap rdeepseq parOptimalPlay allPossibleStarts
+        optimalMoves = filter p results
+    if null optimalMoves
+        then putStrLn $ "There are no solutions for " ++
+                                    show size ++ "-Queens"
+        else do putStrLn $ "There's " ++ (show $ length optimalMoves) ++
+                            " solutions for " ++ show size ++ "-Queens : "
+                mapM_ (putStrLn . show) optimalMoves
 
 main :: IO ()
 main = parMain

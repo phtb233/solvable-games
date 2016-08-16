@@ -1,5 +1,5 @@
 module Futoshiki where
-import qualified GameLogic as GL
+import qualified Logic.GameLogic as GL
 import Data.List (sort, find, permutations, intercalate)
 import Data.Maybe (fromMaybe)
 

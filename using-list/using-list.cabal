@@ -1,6 +1,6 @@
 name:                using-list
 version:             0.1.0.0
-synopsis:            Simple project template from stack
+synopsis:            Implementations of sequential games using Selection Monad.
 description:         Please see README.md
 homepage:            https://github.com/phtb233/using-list#readme
 license:             BSD3
@@ -19,19 +19,23 @@ executable using-list
                         "-with-rtsopts=-N -ls -s"
   other-modules:       
                        ConnectN
-                     , Sudoku4
-                     , GameLogic
-                     , Sudoku6
-                     , Sudoku9
+                     , Sudoku
                      , NQueens
                      , TicTacToe
                      , Buchstabensalat
                      , Nonograms
                      , Futoshiki
                      , InshiNoHeya
+                     , NimPencils
+                     , FoxGooseBeans
+                     , ParSudoku.Sudoku4
+                     , ParSudoku.Sudoku6
+                     , Logic.GameLogic
+                     , Logic.Utils
   default-language:    Haskell2010
   build-depends:       base >= 4.7 && < 5
                      , parallel
                      , containers
                      , deepseq
                      , random
+                     , arithmoi

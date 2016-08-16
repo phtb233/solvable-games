@@ -1,11 +1,13 @@
 module InshiNoHeya where
-import qualified GameLogic as GL
+import qualified Logic.GameLogic as GL
+import qualified Logic.Utils as UL
 import Data.List (sort, intercalate, permutations, find)
 import Data.Maybe (fromMaybe)
 
 {-
 - Another Sudoku variant. Same rules, but the numbers in each room must
-- have a product of the superscript number in the top left of each room.
+- have a product of the superscript number in the top left.
+- Doesn't terminate.
 
 For the 5x5 puzzle:
 
@@ -31,16 +33,14 @@ type Coordinate = Int
 type Position   = (Coordinate, Coordinate, Value)
 type Puzzle     = [Position]
 
+size = 5
+
 -- Contains data about a room contents, and what their product should be.
 data Room = Room [(Coordinate, Coordinate)] Product deriving (Eq, Show)
 
 movesToPuzzle :: [Move] -> Puzzle
 movesToPuzzle = zip3 xs ys . concat
-    where coords = do
-                   y <- [1..5]
-                   x <- [1..5]
-                   return (x, y)
-          (xs, ys) = unzip coords
+    where (xs,ys) = unzip [(x, y) | y <- [1..size],  x <- [1..size]]
 
 -- Check the rows and columns to make sure they enumerate the full range of
 -- numbers [1..5].
@@ -48,8 +48,7 @@ checkPuzzle :: Puzzle -> Bool
 checkPuzzle xs =
         all (== allChars) (map sort rows) &&
         all (== allChars) (map sort cols)
-    where size = 5
-          rows, cols :: [[Value]]
+    where rows, cols :: [[Value]]
           rows = do 
               y <- [1..size]
               let ls = filter (\(_,y',_) -> y' == y) xs
@@ -58,7 +57,7 @@ checkPuzzle xs =
               x <- [1..size]
               let ls = filter (\(x',_,_) -> x' == x) xs
               return $ map (\(_,_,c) -> c) ls
-          allChars = [1..5]
+          allChars = [1..size]
 
 getValue :: (Coordinate, Coordinate) -> Puzzle -> Value
 getValue _ []          = undefined
@@ -100,9 +99,9 @@ optimalPlay :: [Move]
 optimalPlay = GL.bigotimes epsilons p
 
 epsilons :: [[Move] -> GL.J R Move]
-epsilons = replicate 5 epsilon
+epsilons = replicate size epsilon
    where epsilon h = GL.find (possibilities `GL.setMinus` h)
-         possibilities = permutations [1..5]
+         possibilities = sort $ permutations [1..size]
 
 main = putStrLn $ prettyPrint optimalPlay
 
@@ -115,5 +114,4 @@ prettyPrint ms =
         (map ( (\s -> "| " ++ s ++ " |") . intercalate " | " . 
         -- Turn each number into a string
         map  show )  ms ) ++ divider
-    where divider = " \n " ++ unwords (replicate n "———") ++  " \n"
-          n = 5
+    where divider = " \n " ++ unwords (replicate size "———") ++  " \n"

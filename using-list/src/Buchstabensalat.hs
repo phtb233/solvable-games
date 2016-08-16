@@ -1,5 +1,5 @@
 module Buchstabensalat where
-import qualified GameLogic as GL
+import qualified Logic.GameLogic as GL
 import Data.Maybe (isJust, catMaybes, fromMaybe, fromJust)
 import Data.List (sort, transpose, permutations, intercalate)
 import Control.Monad (guard)
@@ -34,15 +34,16 @@ type Coordinate = Int
 type Position = (Coordinate, Coordinate, Maybe Char)
 type Puzzle  = [Position]
 
+width = 4
+height = 4
+start = 'A'
+finish = 'C'
+
 -- Take a full list of moves and turn them into a list of coordinates and
 -- values.
 movesToPuzzle :: [Move] -> Puzzle
 movesToPuzzle = zip3 xs ys . concat
-    where coords = do
-                   y <- [1..4]
-                   x <- [1..4]
-                   return (x, y)
-          (xs, ys) = unzip coords
+    where (xs, ys) = unzip [(x, y) | y <- [1..height], x <- [1..width]]
 
 -- Check that each row and column contains a single instance from the range
 -- of letters ['A'..'C']
@@ -60,7 +61,7 @@ checkPuzzle xs =
               x <- [1..size]
               let ls = filter (\(x',_,_) -> x' == x) xs
               return $ map (\(_,_,c) -> c) ls
-          allChars = (Nothing:) $ map Just ['A'..'C']
+          allChars = (Nothing:) $ map Just [start..finish]
 
 -- The clues given outside of the puzzle.
 clues :: [Move]
@@ -102,10 +103,10 @@ optimalPlay :: [Move]
 optimalPlay = GL.bigotimes epsilons p
 
 epsilons :: [[Move] -> GL.J R Move]
-epsilons = replicate n epsilon
-    where epsilon h = GL.find (possibilities `GL.setMinus` h)
-          n = 4
-          possibilities = permutations $ (Nothing:) $ map Just ['A'..'C']
+epsilons = replicate height epsilon
+    where epsilon _ = GL.find possibilities
+          possibilities = permutations $ (Nothing:) $ 
+                            map Just [start..finish]
 
 p :: [Move] -> R
 p ms = valid (movesToPuzzle ms) && matchClue clues ms
@@ -116,20 +117,20 @@ main = putStrLn $ prettyPrint clues optimalPlay
 -- Human readable representation of a given solution and clues.
 prettyPrint :: [Move] -> [Move] -> String
 prettyPrint [l,r,t,b] ms = 
-        let ms' :: [( Maybe Char, Move, Maybe Char)]
-            ms' = zip3 l ms r
-            divider :: String
-            divider = " \n    " ++ unwords (replicate 4 "―――") ++ " \n"
-            eachCell :: Move -> String
-            eachCell = (\s -> " | " ++ s ++ " |") . 
-                         intercalate " | "  . map ((: []) . fromMaybe ' ')
-            eachSide :: String -> Maybe Char -> String
-            eachSide s =  (++) s . (: []) . fromMaybe ' '
-        in
-          "  " ++ concatMap (eachSide "   ") t 
-          ++ "    " ++ divider 
-          ++ intercalate divider 
-           (map (\(left, move, right) -> 
-                eachSide " " left ++ eachCell move ++ eachSide " " right) ms') 
-          ++ "    " ++ divider
-          ++ "  " ++ concatMap (eachSide "   ") b 
+    let ms' :: [( Maybe Char, Move, Maybe Char)]
+        ms' = zip3 l ms r
+        divider :: String
+        divider = " \n    " ++ unwords (replicate width "―――") ++ " \n"
+        eachCell :: Move -> String
+        eachCell = (\s -> " | " ++ s ++ " |") . 
+                        intercalate " | "  . map ((: []) . fromMaybe ' ')
+        eachSide :: String -> Maybe Char -> String
+        eachSide s =  (++) s . (: []) . fromMaybe ' '
+    in
+        "  " ++ concatMap (eachSide "   ") t 
+        ++ "    " ++ divider 
+        ++ intercalate divider 
+        (map (\(left, move, right) -> 
+            eachSide " " left ++ eachCell move ++ eachSide " " right) ms') 
+        ++ "    " ++ divider
+        ++ "  " ++ concatMap (eachSide "   ") b 
