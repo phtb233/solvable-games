@@ -1,0 +1,674 @@
+
+==================== FINAL INTERFACE ====================
+2016-08-20 20:52:32.566862 UTC
+
+interface main@main:Logic.Utils 7103
+  interface hash: a5cd2e1092eb19dbf4256079ce3b025e
+  ABI hash: 4b6cfc81861a0e9cb6b9d1c0337694b4
+  export-list hash: 6f05d3fc84eb066a695d3535eebd5624
+  orphan hash: 66d702e355ae1645a7ec937e2b67ead6
+  flag hash: dc2edb525f06ee6f0446ce66902b708e
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Logic.Utils.checkPuzzle
+  Logic.Utils.chunks
+  Logic.Utils.cross
+  Logic.Utils.movesToPuzzle
+  Logic.Utils.peers
+  Logic.Utils.prettyPrint
+  Logic.Utils.squares
+  Logic.Utils.unitlist
+  Logic.Utils.units
+  Logic.Utils.Coordinate
+  Logic.Utils.Move
+  Logic.Utils.Puzzle
+  Logic.Utils.Unit
+  Logic.Utils.Value
+module dependencies:
+package dependencies: arithmoi-0.4.2.0@arith_FAxqgFQd9xLHklfP2QDenN
+                      array-0.5.1.0@array_67iodizgJQIIxYVTp4emlA base-4.8.2.0
+                      containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU
+                      deepseq-1.4.1.1@deeps_6vMKxt5sPFR0XsbRWvvq59 ghc-prim-0.4.0.0
+                      integer-gmp-1.0.0.0
+orphans: base-4.8.2.0:GHC.Base base-4.8.2.0:GHC.Float
+family instance modules: base-4.8.2.0:Control.Applicative
+                         base-4.8.2.0:Data.Either base-4.8.2.0:Data.Functor.Identity
+                         base-4.8.2.0:Data.Monoid base-4.8.2.0:Data.Type.Equality
+                         base-4.8.2.0:Data.Void base-4.8.2.0:GHC.Exts
+                         base-4.8.2.0:GHC.Generics
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Map.Base
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Set.Base
+import  -/  arithmoi-0.4.2.0@arith_FAxqgFQd9xLHklfP2QDenN:Math.NumberTheory.Powers.Squares 7535cfb3c7cfe4ebd724f32a752f2208
+import  -/  base-4.8.2.0:Data.Foldable 2ce969969ad5231eb40bd713f94f05ad
+import  -/  base-4.8.2.0:Data.List 3f0782c8d4bf50eecefcd5ea1798aac8
+import  -/  base-4.8.2.0:Data.OldList d8fd80b0e14aa085ce6219cd89dad356
+import  -/  base-4.8.2.0:GHC.Base 1db77db5dae73d8c424c85b09fbadb89
+import  -/  base-4.8.2.0:GHC.List 0c736920522bbd14b770342776012ab6
+import  -/  base-4.8.2.0:GHC.Show 0e1d8380a8fb0cfb07ebeda3b70cbf38
+import  -/  base-4.8.2.0:Prelude 694dcaf039efe62df1c44834e2dbd2fb
+import  -/  containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Map 1800ccac43fd924c376b60eac12f4d04
+import  -/  containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Map.Base 61f4bf9a28a6b2eb8805b671ced219c1
+import  -/  containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Map.Strict 1c3e955bd48ee0eecb78cf325060b5fa
+import  -/  ghc-prim-0.4.0.0:GHC.Classes e1f4ff80f7b5262008a595d29986fb18
+08918ce24e67634c0449f158819f977e
+  $s!1 ::
+    Logic.Utils.Coordinate
+    -> Data.Map.Base.Map Logic.Utils.Coordinate a -> a
+  {- Arity: 2, Strictness: <S(SL),1*U(U(U),U(U))><S,1*U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a
+                   w :: Logic.Utils.Coordinate
+                   w1 :: Data.Map.Base.Map Logic.Utils.Coordinate a ->
+                 case w of ww { (,) ww1 ww2 ->
+                 case ww1 of ww3 { GHC.Types.I# ww4 ->
+                 Logic.Utils.$wpoly_go10 @ a ww4 ww2 w1 } }) -}
+603544521536722cd4c72ddaeb7eeb9e
+  $sfromList ::
+    [((GHC.Types.Int, GHC.Types.Int), a)]
+    -> Data.Map.Base.Map (GHC.Types.Int, GHC.Types.Int) a
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ @ a ds :: [((GHC.Types.Int, GHC.Types.Int), a)] ->
+                 case ds of wild {
+                   [] -> Data.Map.Base.Tip @ (GHC.Types.Int, GHC.Types.Int) @ a
+                   : ds1 ds2
+                   -> case ds1 of wild1 { (,) kx x ->
+                      case ds2 of wild2 {
+                        []
+                        -> case kx of dt { (,) ipv ipv1 ->
+                           Data.Map.Base.Bin
+                             @ (GHC.Types.Int, GHC.Types.Int)
+                             @ a
+                             1
+                             dt
+                             x
+                             (Data.Map.Base.Tip @ (GHC.Types.Int, GHC.Types.Int) @ a)
+                             (Data.Map.Base.Tip @ (GHC.Types.Int, GHC.Types.Int) @ a) }
+                        : ipv ipv1
+                        -> case ipv of wild3 { (,) ky ds3 ->
+                           case kx of ww { (,) ww1 ww2 ->
+                           case ky of ww3 { (,) ww4 ww5 ->
+                           case ww1 of wild4 { GHC.Types.I# x# ->
+                           case ww4 of wild5 { GHC.Types.I# y# ->
+                           case GHC.Prim.tagToEnum#
+                                  @ GHC.Types.Bool
+                                  (GHC.Prim.<# x# y#) of wild6 {
+                             GHC.Types.False
+                             -> case GHC.Prim.tagToEnum#
+                                       @ GHC.Types.Bool
+                                       (GHC.Prim.==# x# y#) of wild7 {
+                                  GHC.Types.False
+                                  -> Logic.Utils.$sfromList1
+                                       @ a
+                                       (Data.Map.Base.Bin
+                                          @ (GHC.Types.Int, GHC.Types.Int)
+                                          @ a
+                                          1
+                                          ww
+                                          x
+                                          (Data.Map.Base.Tip @ (GHC.Types.Int, GHC.Types.Int) @ a)
+                                          (Data.Map.Base.Tip @ (GHC.Types.Int, GHC.Types.Int) @ a))
+                                       wild2
+                                  GHC.Types.True
+                                  -> case ww2 of wild8 { GHC.Types.I# x1 ->
+                                     case ww5 of wild9 { GHC.Types.I# y ->
+                                     case GHC.Prim.tagToEnum#
+                                            @ GHC.Types.Bool
+                                            (GHC.Prim.>=# x1 y) of wild10 {
+                                       GHC.Types.False
+                                       -> Logic.Utils.$wpoly_go1
+                                            @ a
+                                            1
+                                            (Data.Map.Base.Bin
+                                               @ (GHC.Types.Int, GHC.Types.Int)
+                                               @ a
+                                               1
+                                               ww
+                                               x
+                                               (Data.Map.Base.Tip
+                                                  @ (GHC.Types.Int, GHC.Types.Int)
+                                                  @ a)
+                                               (Data.Map.Base.Tip
+                                                  @ (GHC.Types.Int, GHC.Types.Int)
+                                                  @ a))
+                                            wild2
+                                       GHC.Types.True
+                                       -> Logic.Utils.$sfromList1
+                                            @ a
+                                            (Data.Map.Base.Bin
+                                               @ (GHC.Types.Int, GHC.Types.Int)
+                                               @ a
+                                               1
+                                               ww
+                                               x
+                                               (Data.Map.Base.Tip
+                                                  @ (GHC.Types.Int, GHC.Types.Int)
+                                                  @ a)
+                                               (Data.Map.Base.Tip
+                                                  @ (GHC.Types.Int, GHC.Types.Int)
+                                                  @ a))
+                                            wild2 } } } }
+                             GHC.Types.True
+                             -> Logic.Utils.$wpoly_go1
+                                  @ a
+                                  1
+                                  (Data.Map.Base.Bin
+                                     @ (GHC.Types.Int, GHC.Types.Int)
+                                     @ a
+                                     1
+                                     ww
+                                     x
+                                     (Data.Map.Base.Tip @ (GHC.Types.Int, GHC.Types.Int) @ a)
+                                     (Data.Map.Base.Tip @ (GHC.Types.Int, GHC.Types.Int) @ a))
+                                  wild2 } } } } } } } } }) -}
+1bbeee3a76cff9ec46c69b4e00ee81f2
+  $sfromList1 ::
+    Data.Map.Base.Map (GHC.Types.Int, GHC.Types.Int) a1
+    -> [((GHC.Types.Int, GHC.Types.Int), a1)]
+    -> Data.Map.Base.Map (GHC.Types.Int, GHC.Types.Int) a1
+  {- Arity: 2, Strictness: <S,1*U><S,1*U> -}
+745a2d4d2ef0ea1688c1f205e00ca98b
+  $w$sgo10 ::
+    GHC.Types.Int
+    -> GHC.Types.Int
+    -> a1
+    -> Data.Map.Base.Map (GHC.Types.Int, GHC.Types.Int) a1
+    -> Data.Map.Base.Map (GHC.Types.Int, GHC.Types.Int) a1
+  {- Arity: 4, Strictness: <L,U(U)><L,U(U)><L,U><S,1*U>,
+     Inline: [0] -}
+ffaac27af9986dfcef5ee8f2d3e8161b
+  $wcheckPuzzle ::
+    GHC.Types.Int
+    -> GHC.Prim.Int#
+    -> GHC.Types.Bool
+    -> [Logic.Utils.Move]
+    -> GHC.Types.Bool
+  {- Arity: 4, Strictness: <L,U(U)><L,U><L,1*U><L,1*U>, Inline: [0],
+     Unfolding: (\ w :: GHC.Types.Int
+                   ww :: GHC.Prim.Int#
+                   w1 :: GHC.Types.Bool
+                   w2 :: [Logic.Utils.Move] ->
+                 let {
+                   peers' :: Data.Map.Base.Map Logic.Utils.Coordinate Logic.Utils.Unit
+                   = Logic.Utils.$wpeers w ww w1
+                 } in
+                 let {
+                   puzzle :: Logic.Utils.Puzzle = Logic.Utils.$wmovesToPuzzle w ww w2
+                 } in
+                 let {
+                   lvl8 :: Logic.Utils.Coordinate -> Logic.Utils.Value
+                     {- Arity: 1, Strictness: <S(SL),1*U(U(U),U(U))>,
+                        Unfolding: InlineRule (1, True, False)
+                                   (\ pos :: Logic.Utils.Coordinate ->
+                                    Logic.Utils.$s!1 @ GHC.Types.Int pos puzzle) -}
+                   = \ pos :: Logic.Utils.Coordinate ->
+                     Logic.Utils.$s!1 @ GHC.Types.Int pos puzzle
+                 } in
+                 letrec {
+                   go :: [Logic.Utils.Coordinate] -> [GHC.Types.Bool]
+                     {- Arity: 1, Strictness: <S,1*U> -}
+                   = \ ds :: [Logic.Utils.Coordinate] ->
+                     case ds of wild {
+                       [] -> GHC.Types.[] @ GHC.Types.Bool
+                       : y ys
+                       -> GHC.Types.:
+                            @ GHC.Types.Bool
+                            (case y of ww1 { (,) ww2 ww3 ->
+                             case ww2 of ww4 { GHC.Types.I# ww5 ->
+                             let {
+                               ds1 :: Logic.Utils.Value
+                               = Logic.Utils.$wpoly_go10 @ GHC.Types.Int ww5 ww3 puzzle
+                             } in
+                             letrec {
+                               go1 :: [Logic.Utils.Value] -> Data.Monoid.Any
+                                 {- Arity: 1, Strictness: <S,1*U> -}
+                               = \ ds2 :: [Logic.Utils.Value] ->
+                                 case ds2 of wild1 {
+                                   [] -> GHC.Types.False `cast` (Sym (Data.Monoid.NTCo:Any[0]))
+                                   : y1 ys1
+                                   -> case y1 of wild2 { GHC.Types.I# x ->
+                                      case ds1 of wild3 { GHC.Types.I# y2 ->
+                                      case GHC.Prim.tagToEnum#
+                                             @ GHC.Types.Bool
+                                             (GHC.Prim.==# x y2) of wild4 {
+                                        GHC.Types.False -> go1 ys1
+                                        GHC.Types.True
+                                        -> GHC.Types.True
+                                             `cast`
+                                           (Sym (Data.Monoid.NTCo:Any[0])) } } } }
+                             } in
+                             (go1
+                                (GHC.Base.map
+                                   @ (GHC.Types.Int, GHC.Types.Int)
+                                   @ GHC.Types.Int
+                                   lvl8
+                                   (Logic.Utils.$wpoly_go10
+                                      @ [Logic.Utils.Coordinate]
+                                      ww5
+                                      ww3
+                                      peers')))
+                               `cast`
+                             (Data.Monoid.NTCo:Any[0]) } })
+                            (go ys) }
+                 } in
+                 case (Logic.Utils.checkPuzzle_go (go (Logic.Utils.$wsquares w ww)))
+                        `cast`
+                      (Data.Monoid.NTCo:Any[0]) of wild {
+                   GHC.Types.False -> GHC.Types.True
+                   GHC.Types.True -> GHC.Types.False }) -}
+bb25cc6a9e2421cb547a7936eaaa71be
+  $wmovesToPuzzle ::
+    GHC.Types.Int
+    -> GHC.Prim.Int#
+    -> [Logic.Utils.Move]
+    -> Data.Map.Base.Map (GHC.Types.Int, GHC.Types.Int) GHC.Types.Int
+  {- Arity: 3, Strictness: <L,1*U(U)><L,U><L,1*U>, Inline: [0],
+     Unfolding: (\ w :: GHC.Types.Int
+                   ww :: GHC.Prim.Int#
+                   w1 :: [Logic.Utils.Move] ->
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.># 1 ww) of wild {
+                   GHC.Types.False
+                   -> case w of wild1 { GHC.Types.I# y ->
+                      let {
+                        lvl8 :: [GHC.Types.Int] = GHC.Enum.eftInt 1 y
+                      } in
+                      letrec {
+                        go :: GHC.Prim.Int#
+                              -> [GHC.Types.Int]
+                              -> [((GHC.Types.Int, GHC.Types.Int), GHC.Types.Int)]
+                          {- Arity: 2, Strictness: <L,U><L,1*U> -}
+                        = \ x :: GHC.Prim.Int# eta :: [GHC.Types.Int] ->
+                          let {
+                            ds :: GHC.Types.Int {- Strictness: m -} = GHC.Types.I# x
+                          } in
+                          let {
+                            lvl9 :: GHC.Types.Bool
+                            = GHC.Prim.tagToEnum# @ GHC.Types.Bool (GHC.Prim.==# x ww)
+                          } in
+                          letrec {
+                            go1 :: [GHC.Types.Int]
+                                   -> [GHC.Types.Int]
+                                   -> [((GHC.Types.Int, GHC.Types.Int), GHC.Types.Int)]
+                              {- Arity: 2, Strictness: <S,1*U><L,1*U> -}
+                            = \ ds1 :: [GHC.Types.Int] eta1 :: [GHC.Types.Int] ->
+                              case ds1 of wild2 {
+                                []
+                                -> case lvl9 of wild3 {
+                                     GHC.Types.False -> go (GHC.Prim.+# x 1) eta1
+                                     GHC.Types.True
+                                     -> GHC.Types.[]
+                                          @ ((GHC.Types.Int, GHC.Types.Int), GHC.Types.Int) }
+                                : y1 ys
+                                -> case eta1 of wild3 {
+                                     []
+                                     -> GHC.Types.[]
+                                          @ ((GHC.Types.Int, GHC.Types.Int), GHC.Types.Int)
+                                     : y2 ys1
+                                     -> GHC.Types.:
+                                          @ ((GHC.Types.Int, GHC.Types.Int), GHC.Types.Int)
+                                          ((y1, ds), y2)
+                                          (go1 ys ys1) } }
+                          } in
+                          go1 lvl8 eta
+                      } in
+                      Logic.Utils.$sfromList
+                        @ GHC.Types.Int
+                        (go 1 (Logic.Utils.checkPuzzle_go1 w1)) }
+                   GHC.Types.True -> Logic.Utils.checkPuzzle1 }) -}
+ea9494e9b27aed5ae06fd80a17019ead
+  $wpeers ::
+    GHC.Types.Int
+    -> GHC.Prim.Int#
+    -> GHC.Types.Bool
+    -> Data.Map.Base.Map
+         (GHC.Types.Int, GHC.Types.Int) [Logic.Utils.Coordinate]
+  {- Arity: 3, Strictness: <L,U(U)><L,U><L,1*U>, Inline: [0],
+     Unfolding: (\ w :: GHC.Types.Int
+                   ww :: GHC.Prim.Int#
+                   w1 :: GHC.Types.Bool ->
+                 let {
+                   lvl8 :: Data.Map.Base.Map Logic.Utils.Coordinate [Logic.Utils.Unit]
+                   = Logic.Utils.$wunits w ww w1
+                 } in
+                 letrec {
+                   go :: [Logic.Utils.Coordinate]
+                         -> [(Logic.Utils.Coordinate, Logic.Utils.Unit)]
+                     {- Arity: 1, Strictness: <S,1*U> -}
+                   = \ ds :: [Logic.Utils.Coordinate] ->
+                     case ds of wild {
+                       [] -> GHC.Types.[] @ (Logic.Utils.Coordinate, Logic.Utils.Unit)
+                       : y ys
+                       -> GHC.Types.:
+                            @ (Logic.Utils.Coordinate, Logic.Utils.Unit)
+                            (y,
+                             Data.OldList.deleteBy
+                               @ Logic.Utils.Coordinate
+                               Logic.Utils.checkPuzzle2
+                               y
+                               (Data.OldList.nubBy
+                                  @ Logic.Utils.Coordinate
+                                  Logic.Utils.checkPuzzle2
+                                  (Logic.Utils.checkPuzzle_go2
+                                     (Logic.Utils.$s!1 @ [[Logic.Utils.Coordinate]] y lvl8))))
+                            (go ys) }
+                 } in
+                 Logic.Utils.$sfromList
+                   @ [Logic.Utils.Coordinate]
+                   (go (Logic.Utils.$wsquares w ww))) -}
+07736611256bc3ac21af63b8313d5861
+  $wpoly_go1 ::
+    GHC.Prim.Int#
+    -> Data.Map.Base.Map (GHC.Types.Int, GHC.Types.Int) a
+    -> [((GHC.Types.Int, GHC.Types.Int), a)]
+    -> Data.Map.Base.Map (GHC.Types.Int, GHC.Types.Int) a
+  {- Arity: 3, Strictness: <L,U><S,1*U><S,1*U>, Inline: [0] -}
+d42988a325612be8e371202fbfe050e0
+  $wpoly_go10 ::
+    GHC.Prim.Int#
+    -> GHC.Types.Int -> Data.Map.Base.Map Logic.Utils.Coordinate a -> a
+  {- Arity: 3, Strictness: <L,U><L,U(U)><S,1*U>, Inline: [0] -}
+3bea1a14a2ce1c8b04d129f2706b8649
+  $wsquares ::
+    GHC.Types.Int -> GHC.Prim.Int# -> [Logic.Utils.Coordinate]
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U(U)><L,U>,
+     Inline: [0],
+     Unfolding: (\ w :: GHC.Types.Int ww :: GHC.Prim.Int# ->
+                 Logic.Utils.cross
+                   (GHC.Enum.eftInt 1 ww)
+                   (case w of wild1 { GHC.Types.I# y -> GHC.Enum.eftInt 1 y })) -}
+4cc18aeee1c534435ba700e8be1a24ef
+  $wunitlist ::
+    GHC.Prim.Int#
+    -> GHC.Types.Int -> GHC.Types.Bool -> [[Logic.Utils.Coordinate]]
+  {- Arity: 3, Strictness: <L,U><L,U(U)><L,1*U>, Inline: [0] -}
+b207edda3d7128799998db09228b1169
+  $wunits ::
+    GHC.Types.Int
+    -> GHC.Prim.Int#
+    -> GHC.Types.Bool
+    -> Data.Map.Base.Map
+         (GHC.Types.Int, GHC.Types.Int) [Logic.Utils.Unit]
+  {- Arity: 3, Strictness: <L,U(U)><L,U><L,1*U>, Inline: [0],
+     Unfolding: (\ w :: GHC.Types.Int
+                   ww :: GHC.Prim.Int#
+                   w1 :: GHC.Types.Bool ->
+                 let {
+                   lvl8 :: [Logic.Utils.Unit]
+                   = case w of ww1 { GHC.Types.I# ww2 ->
+                     Logic.Utils.$wunitlist ww2 (GHC.Types.I# ww) w1 }
+                 } in
+                 letrec {
+                   go :: [Logic.Utils.Coordinate]
+                         -> [(Logic.Utils.Coordinate, [Logic.Utils.Unit])]
+                     {- Arity: 1, Strictness: <S,1*U> -}
+                   = \ ds :: [Logic.Utils.Coordinate] ->
+                     case ds of wild {
+                       [] -> GHC.Types.[] @ (Logic.Utils.Coordinate, [Logic.Utils.Unit])
+                       : y ys
+                       -> GHC.Types.:
+                            @ (Logic.Utils.Coordinate, [Logic.Utils.Unit])
+                            (y,
+                             letrec {
+                               go1 :: [Logic.Utils.Unit] -> [Logic.Utils.Unit]
+                                 {- Arity: 1, Strictness: <S,1*U> -}
+                               = \ ds1 :: [Logic.Utils.Unit] ->
+                                 case ds1 of wild1 {
+                                   [] -> GHC.Types.[] @ Logic.Utils.Unit
+                                   : y1 ys1
+                                   -> case GHC.List.elem
+                                             @ Logic.Utils.Coordinate
+                                             GHC.Arr.$fIx(,)_$s$fEq(,)
+                                             y
+                                             y1 of wild2 {
+                                        GHC.Types.False -> go1 ys1
+                                        GHC.Types.True
+                                        -> GHC.Types.: @ Logic.Utils.Unit y1 (go1 ys1) } }
+                             } in
+                             go1 lvl8)
+                            (go ys) }
+                 } in
+                 Logic.Utils.$sfromList
+                   @ [Logic.Utils.Unit]
+                   (go (Logic.Utils.$wsquares w ww))) -}
+260631951f181338b75ae7e40d832da7
+  $wxs :: GHC.Prim.Int# -> [GHC.Types.Char]
+  {- Arity: 1, Strictness: <S,1*U>, Inline: [0] -}
+fced476bbdcf17b0a8af2fd37f3b75c8
+  type Coordinate = (GHC.Types.Int, GHC.Types.Int)
+0c2972a9ab8edf518ecdf3e674027b24
+  type Move = [GHC.Types.Int]
+d831e2cea3dc6892942e65163c6ac653
+  type Puzzle =
+    Data.Map.Base.Map Logic.Utils.Coordinate Logic.Utils.Value
+bd0d575cbf8dd31d0d08d01577704f1a
+  type Unit = [Logic.Utils.Coordinate]
+1bdd267595aab2fe3d8ffb5ce7a795bb
+  type Value = GHC.Types.Int
+aff386f2225df46fae5e508089a581aa
+  checkPuzzle ::
+    GHC.Types.Int
+    -> GHC.Types.Int
+    -> GHC.Types.Bool
+    -> [Logic.Utils.Move]
+    -> GHC.Types.Bool
+  {- Arity: 4, Strictness: <L,U(U)><S,U(U)><L,1*U><L,1*U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (4, True, False)
+                (\ w :: GHC.Types.Int
+                   w1 :: GHC.Types.Int
+                   w2 :: GHC.Types.Bool
+                   w3 :: [Logic.Utils.Move] ->
+                 case w1 of ww { GHC.Types.I# ww1 ->
+                 Logic.Utils.$wcheckPuzzle w ww1 w2 w3 }) -}
+826e8fe4d9bead66aaa94206be9ed32e
+  checkPuzzle1 ::
+    Data.Map.Base.Map (GHC.Types.Int, GHC.Types.Int) GHC.Types.Int
+  {- Unfolding: (Logic.Utils.$sfromList
+                   @ GHC.Types.Int
+                   (GHC.Types.[]
+                      @ ((GHC.Types.Int, GHC.Types.Int), GHC.Types.Int))) -}
+f7d5912fb7ff2fce2bbd43163622077e
+  checkPuzzle2 ::
+    (GHC.Types.Int, GHC.Types.Int)
+    -> (GHC.Types.Int, GHC.Types.Int) -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs,
+     Unfolding: (\ w2 :: (GHC.Types.Int, GHC.Types.Int)
+                   w3 :: (GHC.Types.Int, GHC.Types.Int)[OneShot] ->
+                 case w2 of ww { (,) ww1 ww2 ->
+                 case w3 of ww3 { (,) ww4 ww5 ->
+                 case ww1 of wild { GHC.Types.I# x ->
+                 case ww4 of wild1 { GHC.Types.I# y ->
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.==# x y) of wild2 {
+                   GHC.Types.False -> GHC.Types.False
+                   GHC.Types.True -> GHC.Classes.eqInt ww2 ww5 } } } } }) -}
+7832a36f7ab3361af52fd3228309f8f6
+  checkPuzzle_go :: [GHC.Types.Bool] -> Data.Monoid.Any
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+aaec873d7f40c5008d6d9aea06436781
+  checkPuzzle_go1 :: [[GHC.Types.Int]] -> [GHC.Types.Int]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+a158ac01a313054be94bcca6af94713d
+  checkPuzzle_go2 ::
+    [[(GHC.Types.Int, GHC.Types.Int)]]
+    -> [(GHC.Types.Int, GHC.Types.Int)]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+352ce2c3ba813da3eaa9fb61711c4727
+  chunks :: GHC.Types.Int -> [a] -> [[a]]
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U(U)><S,1*U> -}
+3cb1c7221d4a726bd0a384a1064e6947
+  cross ::
+    [GHC.Types.Int] -> [GHC.Types.Int] -> [Logic.Utils.Coordinate]
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U>,
+     Unfolding: (\ a :: [GHC.Types.Int] b :: [GHC.Types.Int] ->
+                 letrec {
+                   go :: [GHC.Types.Int] -> [Logic.Utils.Coordinate]
+                     {- Arity: 1, Strictness: <S,1*U> -}
+                   = \ ds :: [GHC.Types.Int] ->
+                     case ds of wild {
+                       [] -> GHC.Types.[] @ Logic.Utils.Coordinate
+                       : y ys
+                       -> let {
+                            z :: [Logic.Utils.Coordinate] = go ys
+                          } in
+                          letrec {
+                            go1 :: [GHC.Types.Int] -> [Logic.Utils.Coordinate]
+                              {- Arity: 1, Strictness: <S,1*U> -}
+                            = \ ds1 :: [GHC.Types.Int] ->
+                              case ds1 of wild1 {
+                                [] -> z
+                                : y1 ys1
+                                -> GHC.Types.: @ Logic.Utils.Coordinate (y, y1) (go1 ys1) }
+                          } in
+                          go1 b }
+                 } in
+                 go a) -}
+a335e8fc15be1bafdb8a1ecc32ae0568
+  movesToPuzzle ::
+    GHC.Types.Int
+    -> GHC.Types.Int -> [Logic.Utils.Move] -> Logic.Utils.Puzzle
+  {- Arity: 3, Strictness: <L,1*U(U)><S,1*U(U)><L,1*U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ w :: GHC.Types.Int
+                   w1 :: GHC.Types.Int
+                   w2 :: [Logic.Utils.Move] ->
+                 case w1 of ww { GHC.Types.I# ww1 ->
+                 Logic.Utils.$wmovesToPuzzle w ww1 w2 }) -}
+d229ab09f2dcf315ded7980e31250604
+  peers ::
+    GHC.Types.Int
+    -> GHC.Types.Int
+    -> GHC.Types.Bool
+    -> Data.Map.Base.Map Logic.Utils.Coordinate Logic.Utils.Unit
+  {- Arity: 3, Strictness: <L,U(U)><S,U(U)><L,1*U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ w :: GHC.Types.Int w1 :: GHC.Types.Int w2 :: GHC.Types.Bool ->
+                 case w1 of ww { GHC.Types.I# ww1 ->
+                 Logic.Utils.$wpeers w ww1 w2 }) -}
+998a465caab100fca40c5ef4e218f02c
+  prettyPrint ::
+    GHC.Types.Int -> [Logic.Utils.Move] -> GHC.Base.String
+  {- Arity: 2, Strictness: <L,1*U(U)><L,1*U>,
+     Unfolding: (\ size :: GHC.Types.Int ms :: [Logic.Utils.Move] ->
+                 let {
+                   divider :: [GHC.Types.Char]
+                   = GHC.CString.unpackAppendCString#
+                       " \n\
+                       \ "#
+                       (case size of wild1 { GHC.Types.I# y ->
+                        case GHC.Prim.tagToEnum#
+                               @ GHC.Types.Bool
+                               (GHC.Prim.<# 0 y) of wild {
+                          GHC.Types.False -> Logic.Utils.prettyPrint5
+                          GHC.Types.True
+                          -> case Logic.Utils.$wxs y of wild2 {
+                               [] -> Logic.Utils.prettyPrint5
+                               : ds1 xs
+                               -> GHC.Base.++ @ GHC.Types.Char xs Logic.Utils.prettyPrint4 } } })
+                 } in
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   divider
+                   (case GHC.Base.map
+                           @ [GHC.Types.Int]
+                           @ [GHC.Types.Char]
+                           Logic.Utils.prettyPrint1
+                           ms of wild {
+                      [] -> divider
+                      : x xs1
+                      -> GHC.Base.++
+                           @ GHC.Types.Char
+                           (Data.OldList.intercalate_$spoly_go
+                              @ GHC.Types.Char
+                              x
+                              (Data.OldList.prependToAll @ [GHC.Types.Char] divider xs1))
+                           divider })) -}
+b54136cb68159cc04f15d2c89af63963
+  prettyPrint1 :: [GHC.Types.Int] -> [GHC.Types.Char]
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: (\ x :: [GHC.Types.Int] ->
+                 GHC.CString.unpackAppendCString#
+                   "| "#
+                   (case GHC.Base.map
+                           @ GHC.Types.Int
+                           @ [GHC.Types.Char]
+                           GHC.Show.$fShowInt_$cshow
+                           x of wild {
+                      [] -> Logic.Utils.prettyPrint3
+                      : x1 xs1
+                      -> GHC.Base.++
+                           @ GHC.Types.Char
+                           (Data.OldList.intercalate_$spoly_go
+                              @ GHC.Types.Char
+                              x1
+                              (Data.OldList.prependToAll
+                                 @ [GHC.Types.Char]
+                                 Logic.Utils.prettyPrint2
+                                 xs1))
+                           Logic.Utils.prettyPrint3 })) -}
+428054f3f1625e268a42d803a2be2237
+  prettyPrint2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# " | "#) -}
+66beb090f09f838f2c5a8b2b4e605478
+  prettyPrint3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# " |"#) -}
+48640bb2402d37eeeb565a81cacea3d8
+  prettyPrint4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# " \n"#) -}
+358c23bb3ec3e2db5a08d54b4a71b61d
+  prettyPrint5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.Base.++
+                   @ GHC.Types.Char
+                   (GHC.Types.[] @ GHC.Types.Char)
+                   Logic.Utils.prettyPrint4) -}
+3449c7664f4a58bb342f9b867b3efeaf
+  squares ::
+    GHC.Types.Int -> GHC.Types.Int -> [Logic.Utils.Coordinate]
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U(U)><S,1*U(U)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: GHC.Types.Int w1 :: GHC.Types.Int ->
+                 case w1 of ww { GHC.Types.I# ww1 ->
+                 Logic.Utils.$wsquares w ww1 }) -}
+df1be7a0e5dde77e5e221a45d366acf2
+  unitlist ::
+    GHC.Types.Int
+    -> GHC.Types.Int -> GHC.Types.Bool -> [Logic.Utils.Unit]
+  {- Arity: 3, Strictness: <S,U(U)><L,U(U)><L,1*U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ w :: GHC.Types.Int w1 :: GHC.Types.Int w2 :: GHC.Types.Bool ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 Logic.Utils.$wunitlist ww1 w1 w2 }) -}
+b7e17078e4577510727cd8bfa170ae81
+  units ::
+    GHC.Types.Int
+    -> GHC.Types.Int
+    -> GHC.Types.Bool
+    -> Data.Map.Base.Map Logic.Utils.Coordinate [Logic.Utils.Unit]
+  {- Arity: 3, Strictness: <L,U(U)><S,U(U)><L,1*U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ w :: GHC.Types.Int w1 :: GHC.Types.Int w2 :: GHC.Types.Bool ->
+                 case w1 of ww { GHC.Types.I# ww1 ->
+                 Logic.Utils.$wunits w ww1 w2 }) -}
+"SPEC/Logic.Utils fromList @ (Int, Int) _" [ALWAYS] forall @ a
+                                                           $dOrd :: GHC.Classes.Ord
+                                                                      (GHC.Types.Int, GHC.Types.Int)
+  Data.Map.Base.fromList @ (GHC.Types.Int, GHC.Types.Int) @ a $dOrd
+  = Logic.Utils.$sfromList @ a
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

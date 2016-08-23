@@ -1,0 +1,615 @@
+
+==================== FINAL INTERFACE ====================
+2016-08-21 12:19:41.215447 UTC
+
+interface main@main:NimPencils 7103
+  interface hash: 1a9f46460df553f7ec82e8d6c04fe71e
+  ABI hash: fd35df9c9baa28bed2f0a243e32e8f6e
+  export-list hash: 932aa76cffc7091865d82e5170593dac
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 00e643ad7ce35edfdec2c9358b896e07
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  NimPencils.epsilons
+  NimPencils.getOptimalStuff
+  NimPencils.main
+  NimPencils.nextMove
+  NimPencils.optimalPlay
+  NimPencils.outcome
+  NimPencils.p
+  NimPencils.pPar
+  NimPencils.parEpsilons
+  NimPencils.parOptimalPlay
+  NimPencils.pencilsConstant
+  NimPencils.playMatch
+  NimPencils.shortenOutcome
+  NimPencils.takeTurn
+  NimPencils.value
+  NimPencils.wins
+  NimPencils.Move
+  NimPencils.Pencils
+  NimPencils.Player{NimPencils.O NimPencils.X}
+  NimPencils.R
+module dependencies: Logic.GameLogic
+package dependencies: array-0.5.1.0@array_67iodizgJQIIxYVTp4emlA
+                      base-4.8.2.0 containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU
+                      deepseq-1.4.1.1@deeps_6vMKxt5sPFR0XsbRWvvq59 ghc-prim-0.4.0.0
+                      integer-gmp-1.0.0.0 parallel-3.2.1.0@paral_BEbrIfHgHtmEpYU5TfKWK9
+orphans: base-4.8.2.0:GHC.Base base-4.8.2.0:GHC.Float
+family instance modules: base-4.8.2.0:Control.Applicative
+                         base-4.8.2.0:Data.Either base-4.8.2.0:Data.Functor.Identity
+                         base-4.8.2.0:Data.Monoid base-4.8.2.0:Data.Type.Equality
+                         base-4.8.2.0:Data.Void base-4.8.2.0:GHC.Exts
+                         base-4.8.2.0:GHC.Generics
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Map.Base
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Set.Base
+import  -/  base-4.8.2.0:Control.Monad 480c5067477275068c9b98be08410df9
+import  -/  base-4.8.2.0:Data.Foldable 2ce969969ad5231eb40bd713f94f05ad
+import  -/  base-4.8.2.0:Data.Functor 5c701b0af1708f0192a25dfe14ce6274
+import  -/  base-4.8.2.0:Data.List 3f0782c8d4bf50eecefcd5ea1798aac8
+import  -/  base-4.8.2.0:Data.OldList d8fd80b0e14aa085ce6219cd89dad356
+import  -/  base-4.8.2.0:Debug.Trace 6660afb6094d69397ea084364da8f950
+import  -/  base-4.8.2.0:GHC.Base 1db77db5dae73d8c424c85b09fbadb89
+import  -/  base-4.8.2.0:GHC.List 0c736920522bbd14b770342776012ab6
+import  -/  base-4.8.2.0:GHC.Num 9f42750c866f5832ca565146bd660c60
+import  -/  base-4.8.2.0:GHC.Real 1281efa9baf803bc7859d7efb89a38b3
+import  -/  base-4.8.2.0:GHC.Show 0e1d8380a8fb0cfb07ebeda3b70cbf38
+import  -/  base-4.8.2.0:Prelude 694dcaf039efe62df1c44834e2dbd2fb
+import  -/  base-4.8.2.0:System.IO 0248c1e850b7ea124cf7a2e1669ebf67
+import  -/  base-4.8.2.0:Text.Read ef0ef92fb7358ae94bab089940adfd2a
+import  -/  ghc-prim-0.4.0.0:GHC.Classes e1f4ff80f7b5262008a595d29986fb18
+import  -/  ghc-prim-0.4.0.0:GHC.Types 6b27fb3fdbd0e3f0925a4496c66513bb
+import  -/  Logic.GameLogic 26d44f799309be9333aa831cc195f912
+  exports: 02a96d8251ab1656b811a49d270bd213
+  J e62c617d76644dc2a111453607a27a3f
+  arginf 96ecd49dd950b5b804860583045f1907
+  argsup 51152ae523909382c51faca10fd8c2ff
+  bigotimes 344a9cb8123787eadef3d179968b7b85
+import  -/  parallel-3.2.1.0@paral_BEbrIfHgHtmEpYU5TfKWK9:Control.Parallel.Strategies e559e49e970aa71559d76fa817ccb0ac
+c43f7321a64f7d01ad3c973015b00122
+  $fEqPlayer :: GHC.Classes.Eq NimPencils.Player
+  DFunId[0]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ NimPencils.Player
+                  NimPencils.$fEqPlayer_$c==
+                  NimPencils.$fEqPlayer_$c/= -}
+c43f7321a64f7d01ad3c973015b00122
+  $fEqPlayer_$c/= ::
+    NimPencils.Player -> NimPencils.Player -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ a5 :: NimPencils.Player b :: NimPencils.Player ->
+                 case a5 of wild {
+                   NimPencils.X
+                   -> case b of wild1 {
+                        NimPencils.X -> GHC.Types.False NimPencils.O -> GHC.Types.True }
+                   NimPencils.O
+                   -> case b of wild1 {
+                        NimPencils.X -> GHC.Types.True
+                        NimPencils.O -> GHC.Types.False } }) -}
+c43f7321a64f7d01ad3c973015b00122
+  $fEqPlayer_$c== ::
+    NimPencils.Player -> NimPencils.Player -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ ds :: NimPencils.Player ds1 :: NimPencils.Player ->
+                 case ds of wild {
+                   NimPencils.X
+                   -> case ds1 of wild1 {
+                        NimPencils.X -> GHC.Types.True NimPencils.O -> GHC.Types.False }
+                   NimPencils.O
+                   -> case ds1 of wild1 {
+                        NimPencils.X -> GHC.Types.False
+                        NimPencils.O -> GHC.Types.True } }) -}
+c43f7321a64f7d01ad3c973015b00122
+  $fShowPlayer :: GHC.Show.Show NimPencils.Player
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ NimPencils.Player
+                  NimPencils.$fShowPlayer_$cshowsPrec
+                  NimPencils.$fShowPlayer_$cshow
+                  NimPencils.$fShowPlayer_$cshowList -}
+c43f7321a64f7d01ad3c973015b00122
+  $fShowPlayer1 :: NimPencils.Player -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S,1*U><L,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ ds :: NimPencils.Player eta :: GHC.Base.String ->
+                 case ds of wild {
+                   NimPencils.X
+                   -> GHC.Base.augment
+                        @ GHC.Types.Char
+                        (\ @ b c :: GHC.Types.Char -> b -> b[OneShot] n :: b[OneShot] ->
+                         GHC.Base.foldr @ GHC.Types.Char @ b c n NimPencils.$fShowPlayer3)
+                        eta
+                   NimPencils.O
+                   -> GHC.Base.augment
+                        @ GHC.Types.Char
+                        (\ @ b c :: GHC.Types.Char -> b -> b[OneShot] n :: b[OneShot] ->
+                         GHC.Base.foldr @ GHC.Types.Char @ b c n NimPencils.$fShowPlayer2)
+                        eta }) -}
+79aa5555c04219cd5b990a0aecfef071
+  $fShowPlayer2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "O"#) -}
+0a76104eb9f08ca7c31e25fb0e689527
+  $fShowPlayer3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "X"#) -}
+c43f7321a64f7d01ad3c973015b00122
+  $fShowPlayer_$cshow :: NimPencils.Player -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ x :: NimPencils.Player ->
+                 case x of wild {
+                   NimPencils.X -> NimPencils.$fShowPlayer3
+                   NimPencils.O -> NimPencils.$fShowPlayer2 }) -}
+c43f7321a64f7d01ad3c973015b00122
+  $fShowPlayer_$cshowList :: [NimPencils.Player] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ NimPencils.Player
+                   NimPencils.$fShowPlayer1) -}
+c43f7321a64f7d01ad3c973015b00122
+  $fShowPlayer_$cshowsPrec ::
+    GHC.Types.Int -> NimPencils.Player -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,A><S,1*U><L,1*U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ ds :: GHC.Types.Int
+                   ds1 :: NimPencils.Player
+                   eta :: GHC.Base.String ->
+                 case ds1 of wild {
+                   NimPencils.X
+                   -> GHC.Base.augment
+                        @ GHC.Types.Char
+                        (\ @ b c :: GHC.Types.Char -> b -> b[OneShot] n :: b[OneShot] ->
+                         GHC.Base.foldr @ GHC.Types.Char @ b c n NimPencils.$fShowPlayer3)
+                        eta
+                   NimPencils.O
+                   -> GHC.Base.augment
+                        @ GHC.Types.Char
+                        (\ @ b c :: GHC.Types.Char -> b -> b[OneShot] n :: b[OneShot] ->
+                         GHC.Base.foldr @ GHC.Types.Char @ b c n NimPencils.$fShowPlayer2)
+                        eta }) -}
+e4402bdcf33f455f29d1c180d02b9d14
+  $wa ::
+    [NimPencils.Move]
+    -> NimPencils.Player
+    -> GHC.Prim.Int#
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 4, Strictness: <L,U><S,U><L,U><L,U>, Inline: [0] -}
+296251e2404d39d87819e0de6a24367c
+  $woutcome ::
+    NimPencils.Player
+    -> [NimPencils.Move]
+    -> NimPencils.Pencils
+    -> (# NimPencils.Player, NimPencils.Pencils #)
+  {- Arity: 3, Strictness: <L,U><S,1*U><L,U(U)>, Inline: [0] -}
+cb4f5ebe1f428dfee7683eb5efa20097
+  $wp :: [NimPencils.Move] -> GHC.Prim.Int#
+  {- Arity: 1, Strictness: <S,1*U>, Inline: [0],
+     Unfolding: (\ w :: [NimPencils.Move] ->
+                 case NimPencils.$woutcome
+                        NimPencils.X
+                        w
+                        NimPencils.pencilsConstant of ww { (#,#) ww1 ww2 ->
+                 case ww2 of ww3 { GHC.Types.I# ww4 ->
+                 NimPencils.$wvalue ww1 ww4 } }) -}
+74f2909f7dceb5c4acbb1cdffe886920
+  $wunsafeDrop :: GHC.Prim.Int# -> [a1] -> [a1]
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U><S,1*U>,
+     Inline: [0] -}
+c1f530aef9a85f4b38c2832c60d71f2c
+  $wvalue :: NimPencils.Player -> GHC.Prim.Int# -> GHC.Prim.Int#
+  {- Arity: 2, Strictness: <S,1*U><L,U>, Inline: [0],
+     Unfolding: (\ w :: NimPencils.Player ww :: GHC.Prim.Int# ->
+                 case w of wild {
+                   NimPencils.X
+                   -> case GHC.Prim.tagToEnum#
+                             @ GHC.Types.Bool
+                             (GHC.Prim.<=# ww 0) of wild1 {
+                        GHC.Types.False
+                        -> case GHC.Prim.tagToEnum#
+                                  @ GHC.Types.Bool
+                                  (GHC.Prim.<=# ww 3) of wild2 {
+                             GHC.Types.False -> 0 GHC.Types.True -> 1 }
+                        GHC.Types.True -> case NimPencils.p1 ret_ty GHC.Prim.Int# of {} }
+                   NimPencils.O
+                   -> case GHC.Prim.tagToEnum#
+                             @ GHC.Types.Bool
+                             (GHC.Prim.<=# ww 0) of wild1 {
+                        GHC.Types.False
+                        -> case GHC.Prim.tagToEnum#
+                                  @ GHC.Types.Bool
+                                  (GHC.Prim.<=# ww 3) of wild2 {
+                             GHC.Types.False -> 0 GHC.Types.True -> (-1) }
+                        GHC.Types.True
+                        -> case NimPencils.p1 ret_ty GHC.Prim.Int# of {} } }) -}
+a1d5c075f6efc1993b9fd69144342f3a
+  type Move = GHC.Types.Int
+1a267871c9609dbca584690373b749ea
+  type Pencils = GHC.Types.Int
+c43f7321a64f7d01ad3c973015b00122
+  data Player = X | O
+    Promotable
+3c6a086b7b71d73efb12b18caefb126a
+  type R = GHC.Types.Int
+b4e6f9427b4233010eeac3d0a8fbdeab
+  epsilons ::
+    [[NimPencils.Move]
+     -> Logic.GameLogic.J NimPencils.R NimPencils.Move]
+  {- Unfolding: (GHC.List.$wunsafeTake
+                   @ ([NimPencils.Move]
+                      -> Logic.GameLogic.J NimPencils.R NimPencils.Move)
+                   18
+                   NimPencils.epsilons_all) -}
+268fa64f74ed47665a8cd7c3336d7a0c
+  epsilons1 ::
+    [[NimPencils.Move]
+     -> Logic.GameLogic.J GHC.Types.Int NimPencils.Move]
+  {- Strictness: m2 -}
+c1ca09ffe4f011eaaa81b8f42b107530
+  epsilons2 ::
+    [NimPencils.Move]
+    -> Logic.GameLogic.J GHC.Types.Int NimPencils.Move
+  {- Arity: 2, Strictness: <L,A>,
+     Unfolding: InlineRule (1, True, True)
+                (\ ds :: [NimPencils.Move]
+                   eta :: NimPencils.Move -> GHC.Types.Int ->
+                 NimPencils.epsilons3 eta) -}
+fb80231d69ddde90ebade09bcec109a0
+  epsilons3 :: Logic.GameLogic.J GHC.Types.Int NimPencils.Move
+  {- Arity: 1,
+     Unfolding: (Logic.GameLogic.argsup
+                   @ NimPencils.Move
+                   NimPencils.epsilons4) -}
+cf27ca7f458027c28f4509edd4e3d074
+  epsilons4 :: [NimPencils.Move]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ NimPencils.Move
+                   NimPencils.epsilons9
+                   NimPencils.epsilons5) -}
+ac2824e5e7f9bd073a5a07a69769921e
+  epsilons5 :: [NimPencils.Move]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ NimPencils.Move
+                   NimPencils.epsilons8
+                   NimPencils.epsilons6) -}
+358a1379ebfa0250402985b20b9bcd60
+  epsilons6 :: [NimPencils.Move]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ NimPencils.Move
+                   NimPencils.epsilons7
+                   (GHC.Types.[] @ NimPencils.Move)) -}
+b228ee55fa5087f08e72c828e24a71ef
+  epsilons7 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 3) -}
+c288bc537faa3838c6bc37de1cc5ec97
+  epsilons8 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 2) -}
+0bdfaef5e49aa120d0143308831257aa
+  epsilons9 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 1) -}
+c13cda7ddf10697c1fb025b3109481dc
+  epsilons_all ::
+    [[NimPencils.Move]
+     -> Logic.GameLogic.J GHC.Types.Int NimPencils.Move]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ ([NimPencils.Move]
+                      -> Logic.GameLogic.J GHC.Types.Int NimPencils.Move)
+                   NimPencils.epsilons2
+                   NimPencils.epsilons1) -}
+4f9c4dfb07bd2092e94a946e98bb5487
+  getOptimalStuff :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True)
+                NimPencils.getOptimalStuff1
+                  `cast`
+                (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
+f24ec474bac3e10ce96ffb6d1fda0c97
+  getOptimalStuff1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: (\ s :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 case GHC.IO.Handle.Text.hPutStr2
+                        GHC.IO.Handle.FD.stdout
+                        NimPencils.getOptimalStuff4
+                        GHC.Types.True
+                        s of ds1 { (#,#) ipv ipv1 ->
+                 GHC.IO.Handle.Text.hPutStr2
+                   GHC.IO.Handle.FD.stdout
+                   NimPencils.getOptimalStuff2
+                   GHC.Types.True
+                   ipv }) -}
+22df396edbe90a26ad8303e591e9083e
+  getOptimalStuff2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackAppendCString#
+                   "The optimalOutcome = "#
+                   NimPencils.getOptimalStuff3) -}
+3b652386c11aa412645cf4ddb25ea14f
+  getOptimalStuff3 :: [GHC.Types.Char]
+  {- Unfolding: (case NimPencils.$wp
+                        NimPencils.optimalPlay of ww { DEFAULT ->
+                 case GHC.Show.$wshowSignedInt
+                        0
+                        ww
+                        (GHC.Types.[] @ GHC.Types.Char) of ww4 { (#,#) ww5 ww6 ->
+                 GHC.Types.: @ GHC.Types.Char ww5 ww6 } }) -}
+682c5c351b14f95ff262defb1e22a3ec
+  getOptimalStuff4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackAppendCString#
+                   "The optimal play = "#
+                   NimPencils.getOptimalStuff5) -}
+1986dc6d331e79343da47bfbb2630869
+  getOptimalStuff5 :: [GHC.Types.Char]
+  {- Unfolding: (case NimPencils.getOptimalStuff_shorten
+                        NimPencils.optimalPlay
+                        NimPencils.pencilsConstant of wild {
+                   []
+                   -> GHC.CString.unpackAppendCString#
+                        "[]"#
+                        (GHC.Types.[] @ GHC.Types.Char)
+                   : x xs
+                   -> GHC.Types.:
+                        @ GHC.Types.Char
+                        GHC.Show.showList__3
+                        (case x of ww { GHC.Types.I# ww1 ->
+                         case GHC.Show.$wshowSignedInt
+                                0
+                                ww1
+                                (NimPencils.getOptimalStuff_showl xs) of ww2 { (#,#) ww3 ww4 ->
+                         GHC.Types.: @ GHC.Types.Char ww3 ww4 } }) }) -}
+708909b7f5ceb35f050a8514c6e96404
+  getOptimalStuff_shorten ::
+    [NimPencils.Move] -> NimPencils.Move -> [NimPencils.Move]
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,1*U(U)> -}
+b8de28d4b82436ddcbf13cdaf3102ab0
+  getOptimalStuff_showl :: [GHC.Types.Int] -> [GHC.Types.Char]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+baa40429e43aef2edc57fb565c39febe
+  main :: GHC.Types.IO b
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True)
+                NimPencils.main1
+                  `cast`
+                (forall b. Sym (GHC.Types.NTCo:IO[0] <b>_R)) -}
+1afef1d6b6b76cd7b87ca8cd7d55b5ca
+  main1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, b #)
+  {- Arity: 1, Strictness: <L,U> -}
+d4d96ffb3e6d3cf39df632086860fb56
+  nextMove :: [NimPencils.Move] -> NimPencils.Move
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ played :: [NimPencils.Move] ->
+                 case GHC.List.$wlenAcc @ GHC.Types.Int played 0 of ww2 { DEFAULT ->
+                 case NimPencils.nextMove_a4
+                        (GHC.Base.map
+                           @ GHC.Types.Int
+                           @ [NimPencils.Move]
+                           (\ x :: GHC.Types.Int ->
+                            NimPencils.parOptimalPlay
+                              (GHC.Base.++
+                                 @ GHC.Types.Int
+                                 played
+                                 (GHC.Types.:
+                                    @ NimPencils.Move
+                                    x
+                                    (GHC.Types.[] @ NimPencils.Move))))
+                           NimPencils.nextMove2)
+                        GHC.Prim.realWorld# of ds { (#,#) ipv ipv1 ->
+                 case GHC.Prim.remInt# ww2 2 of wild1 {
+                   DEFAULT
+                   -> case Data.OldList.\\
+                             @ NimPencils.Move
+                             GHC.Classes.$fEqInt
+                             (Logic.GameLogic.argsup
+                                @ [NimPencils.Move]
+                                ipv1
+                                NimPencils.nextMove1)
+                             played of wild {
+                        [] -> GHC.List.badHead @ NimPencils.Move : x ds1 -> x }
+                   0
+                   -> case Data.OldList.\\
+                             @ NimPencils.Move
+                             GHC.Classes.$fEqInt
+                             (Logic.GameLogic.argsup @ [NimPencils.Move] ipv1 NimPencils.p)
+                             played of wild {
+                        [] -> GHC.List.badHead @ NimPencils.Move : x ds1 -> x } } } }) -}
+5ad8127a6e5ca725cc42e0d0d162bea9
+  nextMove1 :: [NimPencils.Move] -> GHC.Types.Int
+  {- Arity: 1,
+     Unfolding: (\ x1 :: [NimPencils.Move] ->
+                 case NimPencils.$wp x1 of ww { DEFAULT ->
+                 GHC.Types.I# (GHC.Prim.negateInt# ww) }) -}
+b635b4f1be7c208ba61680a6b94cc114
+  nextMove2 :: [GHC.Types.Int]
+  {- Unfolding: (GHC.Enum.eftInt 1 3) -}
+178b1679163d65401203cdadaa02a47a
+  nextMove_a4 ::
+    [[NimPencils.Move]]
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, [[NimPencils.Move]] #)
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U> -}
+b2810c8758b8335cafa4eae92fca70bc
+  optimalPlay :: [NimPencils.Move]
+  {- Unfolding: (NimPencils.optimalPlay1 NimPencils.p) -}
+613014a44bd84fe978603c49f50dca91
+  optimalPlay1 :: Logic.GameLogic.J NimPencils.R [NimPencils.Move]
+  {- Unfolding: (Logic.GameLogic.bigotimes
+                   @ NimPencils.Move
+                   @ NimPencils.R
+                   NimPencils.epsilons) -}
+3df4c952885c38b9fcae8094b33d57d4
+  outcome ::
+    NimPencils.Player
+    -> [NimPencils.Move]
+    -> NimPencils.Pencils
+    -> (NimPencils.Player, NimPencils.Pencils)
+  {- Arity: 3, Strictness: <L,U><S,1*U><L,U(U)>m, Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ w :: NimPencils.Player
+                   w1 :: [NimPencils.Move]
+                   w2 :: NimPencils.Pencils ->
+                 case NimPencils.$woutcome w w1 w2 of ww { (#,#) ww1 ww2 ->
+                 (ww1, ww2) }) -}
+e946099e546b9b58c686009e33ad2e9f
+  p :: [NimPencils.Move] -> NimPencils.R
+  {- Arity: 1, Strictness: <S,1*U>m, Inline: INLINE[0],
+     Unfolding: InlineRule (1, True, False)
+                (\ w :: [NimPencils.Move] ->
+                 case NimPencils.$wp w of ww { DEFAULT -> GHC.Types.I# ww }) -}
+a33697af7439d3b882da8b9029015573
+  p1 :: GHC.Types.Bool
+  {- Strictness: b -}
+1ad96b53af68a1d1d26fcd7cd13fc086
+  pPar :: [NimPencils.Move] -> [NimPencils.Move] -> NimPencils.R
+  {- Arity: 2, Strictness: <S,1*U><L,1*U>m,
+     Unfolding: InlineRule (2, True, False)
+                (\ preceding :: [NimPencils.Move] ms :: [NimPencils.Move] ->
+                 NimPencils.p
+                   (GHC.Base.augment
+                      @ GHC.Types.Int
+                      (\ @ b c :: GHC.Types.Int -> b -> b[OneShot] n :: b[OneShot] ->
+                       GHC.Base.foldr @ GHC.Types.Int @ b c n preceding)
+                      ms)) -}
+603472e9758329f0f3eb073e571b0f86
+  parEpsilons ::
+    [NimPencils.Move]
+    -> [[NimPencils.Move]
+        -> Logic.GameLogic.J NimPencils.R NimPencils.Move]
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ preceding :: [NimPencils.Move] ->
+                 case GHC.List.$wlenAcc
+                        @ GHC.Types.Int
+                        preceding
+                        0 of ww2 { DEFAULT ->
+                 let {
+                   y :: GHC.Prim.Int# = GHC.Prim.-# 18 ww2
+                 } in
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.<# 0 y) of wild {
+                   GHC.Types.False
+                   -> GHC.Types.[]
+                        @ ([NimPencils.Move]
+                           -> Logic.GameLogic.J NimPencils.R NimPencils.Move)
+                   GHC.Types.True
+                   -> case GHC.Prim.tagToEnum#
+                             @ GHC.Types.Bool
+                             (GHC.Prim.<=# ww2 0) of wild1 {
+                        GHC.Types.False
+                        -> GHC.List.$wunsafeTake
+                             @ ([NimPencils.Move]
+                                -> Logic.GameLogic.J NimPencils.R NimPencils.Move)
+                             y
+                             (NimPencils.$wunsafeDrop
+                                @ ([NimPencils.Move]
+                                   -> Logic.GameLogic.J GHC.Types.Int NimPencils.Move)
+                                ww2
+                                NimPencils.parEpsilons_all)
+                        GHC.Types.True
+                        -> GHC.List.$wunsafeTake
+                             @ ([NimPencils.Move]
+                                -> Logic.GameLogic.J NimPencils.R NimPencils.Move)
+                             y
+                             NimPencils.parEpsilons_all } } }) -}
+05907865f056f480874514a4325467b5
+  parEpsilons1 ::
+    [[NimPencils.Move]
+     -> Logic.GameLogic.J GHC.Types.Int NimPencils.Move]
+  {- Strictness: m2 -}
+7eb4ed28ccea1b5c74951f3c98e39d1e
+  parEpsilons_all ::
+    [[NimPencils.Move]
+     -> Logic.GameLogic.J GHC.Types.Int NimPencils.Move]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ ([NimPencils.Move]
+                      -> Logic.GameLogic.J GHC.Types.Int NimPencils.Move)
+                   NimPencils.epsilons2
+                   NimPencils.parEpsilons1) -}
+62ef49557437347f9f4553b5f4fbf763
+  parOptimalPlay :: [NimPencils.Move] -> [NimPencils.Move]
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ moves :: [NimPencils.Move] ->
+                 GHC.Base.++
+                   @ GHC.Types.Int
+                   moves
+                   (Logic.GameLogic.bigotimes
+                      @ NimPencils.Move
+                      @ NimPencils.R
+                      (NimPencils.parEpsilons moves)
+                      (NimPencils.pPar moves))) -}
+5c60ae831731dff3b9a418848e340799
+  pencilsConstant :: NimPencils.Move
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 21) -}
+8de256773bd254a06b1f460bb825dc6b
+  playMatch :: GHC.Types.IO ()
+  {- Arity: 1,
+     Unfolding: InlineRule (0, True, True)
+                NimPencils.playMatch1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
+d66e617243dc11e2b67e82ebe43b374b
+  playMatch1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1,
+     Unfolding: (\ w :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 NimPencils.$wa
+                   (GHC.Types.[] @ NimPencils.Move)
+                   NimPencils.X
+                   21
+                   w) -}
+412b30f4eba32a3469a4e487c7715a37
+  shortenOutcome :: [NimPencils.Move] -> [NimPencils.Move]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ moves :: [NimPencils.Move] ->
+                 NimPencils.getOptimalStuff_shorten
+                   moves
+                   NimPencils.pencilsConstant) -}
+4a033ee9b4ad44bf3faeb069384c24d7
+  takeTurn ::
+    NimPencils.Move -> NimPencils.Pencils -> NimPencils.Pencils
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U(U)><S,1*U(U)>m,
+     Unfolding: InlineRule (2, True, True)
+                (\ m :: NimPencils.Move pencils :: NimPencils.Pencils ->
+                 GHC.Num.$fNumInt_$c- pencils m) -}
+35976a786e82718bd4ef14b4bb5450e5
+  value :: NimPencils.Player -> NimPencils.Pencils -> NimPencils.R
+  {- Arity: 2, Strictness: <S,1*U><S,1*U(U)>m, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: NimPencils.Player w1 :: NimPencils.Pencils ->
+                 case w1 of ww { GHC.Types.I# ww1 ->
+                 case NimPencils.$wvalue w ww1 of ww2 { DEFAULT ->
+                 GHC.Types.I# ww2 } }) -}
+7f9dcd626e6256495d3f30b686f6232e
+  wins :: NimPencils.Pencils -> GHC.Types.Bool
+  {- Arity: 1, Strictness: <S,1*U(U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ p2 :: NimPencils.Pencils ->
+                 case p2 of wild { GHC.Types.I# x ->
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.<=# x 0) of wild1 {
+                   GHC.Types.False
+                   -> GHC.Prim.tagToEnum# @ GHC.Types.Bool (GHC.Prim.<=# x 3)
+                   GHC.Types.True -> NimPencils.p1 } }) -}
+instance GHC.Classes.Eq [NimPencils.Player] = NimPencils.$fEqPlayer
+instance GHC.Show.Show [NimPencils.Player]
+  = NimPencils.$fShowPlayer
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

@@ -1,0 +1,90 @@
+
+==================== FINAL INTERFACE ====================
+2016-08-21 14:59:11.290498 UTC
+
+interface main@main:Main 7103
+  interface hash: 6fb98f53c072a7d13fdd73adf3e797b6
+  ABI hash: 4c0e1c79fddc745e3ff5a6d1ae27a6c1
+  export-list hash: 530d6205723034b619d505c5a6ea4978
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 079e1e29e8c90d1d1c9c99175b4f0a90
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Main.main
+module dependencies: Buchstabensalat ConnectN FoxGooseBeans
+                     Futoshiki InshiNoHeya Logic.GameLogic Logic.Utils NQueens
+                     NimPencils Nonograms ParSudoku.Sudoku4 ParSudoku.Sudoku6 Sudoku
+                     TicTacToe
+package dependencies: arithmoi-0.4.2.0@arith_FAxqgFQd9xLHklfP2QDenN
+                      array-0.5.1.0@array_67iodizgJQIIxYVTp4emlA base-4.8.2.0
+                      containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU
+                      deepseq-1.4.1.1@deeps_6vMKxt5sPFR0XsbRWvvq59 ghc-prim-0.4.0.0
+                      integer-gmp-1.0.0.0 parallel-3.2.1.0@paral_BEbrIfHgHtmEpYU5TfKWK9
+                      random-1.1@rando_9Kgekc9yEaLHLNUuw6paWL
+                      time-1.5.0.1@time_FTheb6LSxyX1UABIbBXRfn
+orphans: base-4.8.2.0:GHC.Base base-4.8.2.0:GHC.Float
+         time-1.5.0.1@time_FTheb6LSxyX1UABIbBXRfn:Data.Time.Calendar.Gregorian
+         time-1.5.0.1@time_FTheb6LSxyX1UABIbBXRfn:Data.Time.Format.Parse
+         time-1.5.0.1@time_FTheb6LSxyX1UABIbBXRfn:Data.Time.LocalTime.LocalTime
+family instance modules: base-4.8.2.0:Control.Applicative
+                         base-4.8.2.0:Data.Either base-4.8.2.0:Data.Functor.Identity
+                         base-4.8.2.0:Data.Monoid base-4.8.2.0:Data.Type.Equality
+                         base-4.8.2.0:Data.Void base-4.8.2.0:GHC.Exts
+                         base-4.8.2.0:GHC.Generics
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Map.Base
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Set.Base
+import  -/  base-4.8.2.0:Control.Exception e9090e246fba030faecf7b81b3e8e320
+import  -/  base-4.8.2.0:Control.Monad 480c5067477275068c9b98be08410df9
+import  -/  base-4.8.2.0:Prelude 694dcaf039efe62df1c44834e2dbd2fb
+import  -/  ghc-prim-0.4.0.0:GHC.Types 6b27fb3fdbd0e3f0925a4496c66513bb
+import  -/  Buchstabensalat e33ec2e7a7a5d43aa75ca6f6a0efa816
+  exports: 3b90d5110a0d7b9e676387dc10025c62
+import  -/  ConnectN c4e9cd9eb630caf1f7947359c077e89e
+  exports: 145f91ddd8079978bb5c605680ad2170
+import  -/  FoxGooseBeans 6a36a40e2566276774c65376d68a0743
+  exports: d1e4775ff6c9de9dcaf05b662a505f2d
+import  -/  Futoshiki 8e5a682e848ba6c416fe7eed2ff07004
+  exports: 1bb2b32e3994a1c059da388bb01caadf
+import  -/  InshiNoHeya bf436990ad763bcaf2cc84e69c13c544
+  exports: be04783ebf312e86922ad128743a6d42
+import  -/  Logic.GameLogic 26d44f799309be9333aa831cc195f912
+  exports: 02a96d8251ab1656b811a49d270bd213
+import  -/  NQueens 8270c3d2e61e8e682a820fb72fdabc47
+  exports: 0be0056c1da6aabb08d309ca3c264d99
+import  -/  NimPencils fd35df9c9baa28bed2f0a243e32e8f6e
+  exports: 932aa76cffc7091865d82e5170593dac
+import  -/  Nonograms 3e54d7e151d8fbe6795ee01c28d477d9
+  exports: 005e894c1ad50b75379ff4a1245ba0ee
+import  -/  ParSudoku.Sudoku4 4b9ea4dca8d686f7ba3c41e124b6ef14
+  exports: da6291cc7e06d14c14ca62a135feb0d3
+import  -/  ParSudoku.Sudoku6 f8ce2ef4d4a34e04ee03a22236d0c83c
+  exports: ab2ca4c9c24025747ad6338211298292
+import  -/  Sudoku 6fb5b292516e8a19c7affb6dd85575cb
+  exports: 33b6b05ee100b44be4fd1070b867800b
+  main a38dbd23211bfa3f7bd2139101bb771e
+import  -/  TicTacToe 7dc5fdb758e267c75bd03f76d8551315
+  exports: 4abbe1b851f7c15fb3ea4a7fd2b3bdca
+import  -/  random-1.1@rando_9Kgekc9yEaLHLNUuw6paWL:System.Random 103ad55b56caf6eb812c579b8e1813b0
+fbb1185fa647611cc08da21e8aad641f
+  main :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Sudoku.main1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
+7e2becea0994538037622e7f5c5c2327
+  main1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1,
+     Unfolding: (GHC.TopHandler.runMainIO1
+                   @ ()
+                   Sudoku.main1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R))) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

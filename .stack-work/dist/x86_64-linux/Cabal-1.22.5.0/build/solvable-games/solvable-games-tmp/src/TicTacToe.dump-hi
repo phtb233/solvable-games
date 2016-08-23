@@ -1,0 +1,805 @@
+
+==================== FINAL INTERFACE ====================
+2016-08-17 17:35:29.574931 UTC
+
+interface main@main:TicTacToe 7103
+  interface hash: 56d575a7ea1ba9acd126a4ad69eacb17
+  ABI hash: 7dc5fdb758e267c75bd03f76d8551315
+  export-list hash: 4abbe1b851f7c15fb3ea4a7fd2b3bdca
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 00e643ad7ce35edfdec2c9358b896e07
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  TicTacToe.getOptimalPlay
+  TicTacToe.main
+  TicTacToe.nextMove
+  TicTacToe.optimalOutcome
+  TicTacToe.optimalPlay
+  TicTacToe.outcome
+  TicTacToe.p
+  TicTacToe.pPar
+  TicTacToe.parEpsilons
+  TicTacToe.parOptimalPlay
+  TicTacToe.parOptimalStrategy
+  TicTacToe.playMatch
+  TicTacToe.value
+  TicTacToe.wins
+  TicTacToe.Board
+  TicTacToe.Move
+  TicTacToe.Player{TicTacToe.O TicTacToe.X}
+  TicTacToe.R
+module dependencies: Logic.GameLogic
+package dependencies: array-0.5.1.0@array_67iodizgJQIIxYVTp4emlA
+                      base-4.8.2.0 containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU
+                      deepseq-1.4.1.1@deeps_6vMKxt5sPFR0XsbRWvvq59 ghc-prim-0.4.0.0
+                      integer-gmp-1.0.0.0 parallel-3.2.1.0@paral_BEbrIfHgHtmEpYU5TfKWK9
+orphans: base-4.8.2.0:GHC.Base base-4.8.2.0:GHC.Float
+family instance modules: base-4.8.2.0:Control.Applicative
+                         base-4.8.2.0:Data.Either base-4.8.2.0:Data.Functor.Identity
+                         base-4.8.2.0:Data.Monoid base-4.8.2.0:Data.Type.Equality
+                         base-4.8.2.0:Data.Void base-4.8.2.0:GHC.Exts
+                         base-4.8.2.0:GHC.Generics
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Map.Base
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Set.Base
+import  -/  base-4.8.2.0:Data.Foldable 2ce969969ad5231eb40bd713f94f05ad
+import  -/  base-4.8.2.0:Data.List 3f0782c8d4bf50eecefcd5ea1798aac8
+import  -/  base-4.8.2.0:Data.OldList d8fd80b0e14aa085ce6219cd89dad356
+import  -/  base-4.8.2.0:Data.Tuple 012ad951a59a9d85fe1de36a2f012986
+import  -/  base-4.8.2.0:GHC.Base 1db77db5dae73d8c424c85b09fbadb89
+import  -/  base-4.8.2.0:GHC.List 0c736920522bbd14b770342776012ab6
+import  -/  base-4.8.2.0:GHC.Num 9f42750c866f5832ca565146bd660c60
+import  -/  base-4.8.2.0:GHC.Real 1281efa9baf803bc7859d7efb89a38b3
+import  -/  base-4.8.2.0:GHC.Show 0e1d8380a8fb0cfb07ebeda3b70cbf38
+import  -/  base-4.8.2.0:Prelude 694dcaf039efe62df1c44834e2dbd2fb
+import  -/  base-4.8.2.0:System.IO 0248c1e850b7ea124cf7a2e1669ebf67
+import  -/  base-4.8.2.0:Text.Read ef0ef92fb7358ae94bab089940adfd2a
+import  -/  ghc-prim-0.4.0.0:GHC.Classes e1f4ff80f7b5262008a595d29986fb18
+import  -/  ghc-prim-0.4.0.0:GHC.Types 6b27fb3fdbd0e3f0925a4496c66513bb
+import  -/  Logic.GameLogic 26d44f799309be9333aa831cc195f912
+  exports: 02a96d8251ab1656b811a49d270bd213
+  J e62c617d76644dc2a111453607a27a3f
+  arginf 96ecd49dd950b5b804860583045f1907
+  argsup 51152ae523909382c51faca10fd8c2ff
+  bigotimes 344a9cb8123787eadef3d179968b7b85
+  epsilons f210fa862d86af28c155e511c268e914
+  insert 0cfdfdd3d2ff70032cf6b226600ea84b
+  setMinus 9e687f4ea98fa5bb19d6b1054c1ce9b4
+  someContained e04c4963b9555c72c15aa43b5daeb0f1
+import  -/  parallel-3.2.1.0@paral_BEbrIfHgHtmEpYU5TfKWK9:Control.Parallel.Strategies e559e49e970aa71559d76fa817ccb0ac
+946f8ce622db59ace0d198b104275128
+  $fEqPlayer :: GHC.Classes.Eq TicTacToe.Player
+  DFunId[0]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ TicTacToe.Player
+                  TicTacToe.$fEqPlayer_$c==
+                  TicTacToe.$fEqPlayer_$c/= -}
+946f8ce622db59ace0d198b104275128
+  $fEqPlayer_$c/= ::
+    TicTacToe.Player -> TicTacToe.Player -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ a2 :: TicTacToe.Player b :: TicTacToe.Player ->
+                 case a2 of wild {
+                   TicTacToe.X
+                   -> case b of wild1 {
+                        TicTacToe.X -> GHC.Types.False TicTacToe.O -> GHC.Types.True }
+                   TicTacToe.O
+                   -> case b of wild1 {
+                        TicTacToe.X -> GHC.Types.True
+                        TicTacToe.O -> GHC.Types.False } }) -}
+946f8ce622db59ace0d198b104275128
+  $fEqPlayer_$c== ::
+    TicTacToe.Player -> TicTacToe.Player -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ ds :: TicTacToe.Player ds1 :: TicTacToe.Player ->
+                 case ds of wild {
+                   TicTacToe.X
+                   -> case ds1 of wild1 {
+                        TicTacToe.X -> GHC.Types.True TicTacToe.O -> GHC.Types.False }
+                   TicTacToe.O
+                   -> case ds1 of wild1 {
+                        TicTacToe.X -> GHC.Types.False
+                        TicTacToe.O -> GHC.Types.True } }) -}
+946f8ce622db59ace0d198b104275128
+  $fShowPlayer :: GHC.Show.Show TicTacToe.Player
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ TicTacToe.Player
+                  TicTacToe.$fShowPlayer_$cshowsPrec
+                  TicTacToe.$fShowPlayer_$cshow
+                  TicTacToe.$fShowPlayer_$cshowList -}
+946f8ce622db59ace0d198b104275128
+  $fShowPlayer1 :: TicTacToe.Player -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S,1*U><L,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ ds :: TicTacToe.Player eta :: GHC.Base.String ->
+                 case ds of wild {
+                   TicTacToe.X
+                   -> GHC.Base.augment
+                        @ GHC.Types.Char
+                        (\ @ b c :: GHC.Types.Char -> b -> b[OneShot] n :: b[OneShot] ->
+                         GHC.Base.foldr @ GHC.Types.Char @ b c n TicTacToe.$fShowPlayer3)
+                        eta
+                   TicTacToe.O
+                   -> GHC.Base.augment
+                        @ GHC.Types.Char
+                        (\ @ b c :: GHC.Types.Char -> b -> b[OneShot] n :: b[OneShot] ->
+                         GHC.Base.foldr @ GHC.Types.Char @ b c n TicTacToe.$fShowPlayer2)
+                        eta }) -}
+21b30c227493eb1bc90ce2fa94d3439e
+  $fShowPlayer2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "O"#) -}
+00b3ee05181cf0e71a628871404866ef
+  $fShowPlayer3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "X"#) -}
+946f8ce622db59ace0d198b104275128
+  $fShowPlayer_$cshow :: TicTacToe.Player -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ x :: TicTacToe.Player ->
+                 case x of wild {
+                   TicTacToe.X -> TicTacToe.$fShowPlayer3
+                   TicTacToe.O -> TicTacToe.$fShowPlayer2 }) -}
+946f8ce622db59ace0d198b104275128
+  $fShowPlayer_$cshowList :: [TicTacToe.Player] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ TicTacToe.Player
+                   TicTacToe.$fShowPlayer1) -}
+946f8ce622db59ace0d198b104275128
+  $fShowPlayer_$cshowsPrec ::
+    GHC.Types.Int -> TicTacToe.Player -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,A><S,1*U><L,1*U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ ds :: GHC.Types.Int
+                   ds1 :: TicTacToe.Player
+                   eta :: GHC.Base.String ->
+                 case ds1 of wild {
+                   TicTacToe.X
+                   -> GHC.Base.augment
+                        @ GHC.Types.Char
+                        (\ @ b c :: GHC.Types.Char -> b -> b[OneShot] n :: b[OneShot] ->
+                         GHC.Base.foldr @ GHC.Types.Char @ b c n TicTacToe.$fShowPlayer3)
+                        eta
+                   TicTacToe.O
+                   -> GHC.Base.augment
+                        @ GHC.Types.Char
+                        (\ @ b c :: GHC.Types.Char -> b -> b[OneShot] n :: b[OneShot] ->
+                         GHC.Base.foldr @ GHC.Types.Char @ b c n TicTacToe.$fShowPlayer2)
+                        eta }) -}
+9ea32590d3db167d89165ed48f1adca3
+  $wa ::
+    [TicTacToe.Move]
+    -> TicTacToe.Player
+    -> [TicTacToe.Move]
+    -> [TicTacToe.Move]
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 5, Strictness: <L,U><L,1*U><L,U><L,U><L,U>,
+     Inline: [0] -}
+36c06bb04c1b3737cf35a8101e78b62b
+  $wgo :: GHC.Prim.Int# -> (# [TicTacToe.Move], [[TicTacToe.Move]] #)
+  {- Arity: 1, Strictness: <L,U>, Inline: [0] -}
+797fd18bd228e78f6096a67cf8cf4fb0
+  $woutcome ::
+    TicTacToe.Player
+    -> [TicTacToe.Move]
+    -> [TicTacToe.Move]
+    -> [TicTacToe.Move]
+    -> (# [TicTacToe.Move], [TicTacToe.Move] #)
+  {- Arity: 4, HasNoCafRefs, Strictness: <L,1*U><S,1*U><L,U><L,U>,
+     Inline: [0] -}
+f18be53a188976499b22962993c08c2a
+  $wunsafeDrop :: GHC.Prim.Int# -> [a1] -> [a1]
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U><S,1*U>,
+     Inline: [0] -}
+c216fa2e4c036e63b69d03f0eabc5e56
+  $wvalue :: [TicTacToe.Move] -> [TicTacToe.Move] -> GHC.Prim.Int#
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U><L,1*U>, Inline: [0],
+     Unfolding: (\ ww :: [TicTacToe.Move] ww1 :: [TicTacToe.Move] ->
+                 case Logic.GameLogic.someContained
+                        @ TicTacToe.Move
+                        GHC.Classes.$fOrdInt
+                        TicTacToe.getOptimalPlay4
+                        ww of wild {
+                   GHC.Types.False
+                   -> case Logic.GameLogic.someContained
+                             @ TicTacToe.Move
+                             GHC.Classes.$fOrdInt
+                             TicTacToe.getOptimalPlay4
+                             ww1 of wild1 {
+                        GHC.Types.False -> 0 GHC.Types.True -> (-1) }
+                   GHC.Types.True -> 1 }) -}
+21574c4ef887994bfc2b1a10f9a15569
+  type Board = ([TicTacToe.Move], [TicTacToe.Move])
+a38d17af029a66adab0e8cd8ef76d8cd
+  type Move = GHC.Types.Int
+946f8ce622db59ace0d198b104275128
+  data Player = X | O
+    Promotable
+fd672c7b44e1224f9ad99f1bda574379
+  type R = GHC.Types.Int
+b9fbc900051b5fae6a63f1b230dfa585
+  getOptimalPlay :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True)
+                TicTacToe.getOptimalPlay1
+                  `cast`
+                (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
+ccf93fd2288dab044877ba6c06eba58e
+  getOptimalPlay1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: (\ s :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 case GHC.IO.Handle.Text.hPutStr2
+                        GHC.IO.Handle.FD.stdout
+                        TicTacToe.getOptimalPlay42
+                        GHC.Types.True
+                        s of ds1 { (#,#) ipv ipv1 ->
+                 GHC.IO.Handle.Text.hPutStr2
+                   GHC.IO.Handle.FD.stdout
+                   TicTacToe.getOptimalPlay2
+                   GHC.Types.True
+                   ipv }) -}
+3eb0a0d153bdf0db41ab332dcdd68fd9
+  getOptimalPlay10 :: [[TicTacToe.Move]]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ [TicTacToe.Move]
+                   TicTacToe.getOptimalPlay18
+                   TicTacToe.getOptimalPlay11) -}
+92f967fd438996eb2e887f8429250ab8
+  getOptimalPlay11 :: [[TicTacToe.Move]]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ [TicTacToe.Move]
+                   TicTacToe.getOptimalPlay12
+                   (GHC.Types.[] @ [TicTacToe.Move])) -}
+80ba34936440a77a0b76891e3c83eaab
+  getOptimalPlay12 :: [TicTacToe.Move]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ TicTacToe.Move
+                   TicTacToe.getOptimalPlay17
+                   TicTacToe.getOptimalPlay13) -}
+cd28c58975915ba86ed35ff0182c9918
+  getOptimalPlay13 :: [TicTacToe.Move]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ TicTacToe.Move
+                   TicTacToe.getOptimalPlay16
+                   TicTacToe.getOptimalPlay14) -}
+bc61967fc8cccfabe380163434b7dcc3
+  getOptimalPlay14 :: [TicTacToe.Move]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ TicTacToe.Move
+                   TicTacToe.getOptimalPlay15
+                   (GHC.Types.[] @ TicTacToe.Move)) -}
+1c3940258615921ae3a984303f497a1c
+  getOptimalPlay15 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 6) -}
+3276862ec8c9291098d79dd374c86b18
+  getOptimalPlay16 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 4) -}
+50914ac981001b7bd530708eeb648c00
+  getOptimalPlay17 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 2) -}
+4fbe59447e5540ae935612531aa547a4
+  getOptimalPlay18 :: [TicTacToe.Move]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ TicTacToe.Move
+                   TicTacToe.getOptimalPlay22
+                   TicTacToe.getOptimalPlay19) -}
+d8cc9a0a2e5ceae7fe1f64725a7ae2e6
+  getOptimalPlay19 :: [TicTacToe.Move]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ TicTacToe.Move
+                   TicTacToe.getOptimalPlay16
+                   TicTacToe.getOptimalPlay20) -}
+083d596275727e6c7c38d275f686a1f9
+  getOptimalPlay2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackAppendCString#
+                   "The optimal outcome is : "#
+                   TicTacToe.getOptimalPlay3) -}
+456e27b9f52a089a3a655904ffd871b3
+  getOptimalPlay20 :: [TicTacToe.Move]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ TicTacToe.Move
+                   TicTacToe.getOptimalPlay21
+                   (GHC.Types.[] @ TicTacToe.Move)) -}
+9c3f8ccc7c4bf8640ab81fc9de09de75
+  getOptimalPlay21 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 8) -}
+1a14b80bb6eb3699551ea0014b08b29f
+  getOptimalPlay22 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0) -}
+c9f2c6df592dd722bef979a4cf4cc76b
+  getOptimalPlay23 :: [TicTacToe.Move]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ TicTacToe.Move
+                   TicTacToe.getOptimalPlay17
+                   TicTacToe.getOptimalPlay24) -}
+5516c0284d7922111df9d25d96d23969
+  getOptimalPlay24 :: [TicTacToe.Move]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ TicTacToe.Move
+                   TicTacToe.getOptimalPlay25
+                   TicTacToe.getOptimalPlay20) -}
+eae18b0a9f35577d1e490d1f1d2455fd
+  getOptimalPlay25 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 5) -}
+67223c1c465db1424de698064430f1ad
+  getOptimalPlay26 :: [TicTacToe.Move]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ TicTacToe.Move
+                   TicTacToe.getOptimalPlay30
+                   TicTacToe.getOptimalPlay27) -}
+4a727cc859fde73478d64dad07d81ad8
+  getOptimalPlay27 :: [TicTacToe.Move]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ TicTacToe.Move
+                   TicTacToe.getOptimalPlay16
+                   TicTacToe.getOptimalPlay28) -}
+8987f7daac90dc911ba6770f4ef8b7fc
+  getOptimalPlay28 :: [TicTacToe.Move]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ TicTacToe.Move
+                   TicTacToe.getOptimalPlay29
+                   (GHC.Types.[] @ TicTacToe.Move)) -}
+90bc34406b01f5d8f7ae53e824bf893c
+  getOptimalPlay29 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 7) -}
+0ef88cb577264004a1c8b7d8ca7fd924
+  getOptimalPlay3 :: [GHC.Types.Char]
+  {- Unfolding: (case TicTacToe.$woutcome
+                        TicTacToe.X
+                        TicTacToe.getOptimalPlay_optimalMoves
+                        (GHC.Types.[] @ TicTacToe.Move)
+                        (GHC.Types.[] @ TicTacToe.Move) of ww { (#,#) ww1 ww2 ->
+                 case TicTacToe.$wvalue ww1 ww2 of ww3 {
+                   DEFAULT
+                   -> case TicTacToe.$wvalue ww1 ww2 of ww4 {
+                        DEFAULT -> GHC.CString.unpackCString# "x loses"#
+                        0 -> GHC.CString.unpackCString# "a draw"# }
+                   1 -> GHC.CString.unpackCString# "x wins"# } }) -}
+e20df59d3d935de5f9fdc59172fb101d
+  getOptimalPlay30 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 1) -}
+d5b9c31ded18618490471869eb391095
+  getOptimalPlay31 :: [TicTacToe.Move]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ TicTacToe.Move
+                   TicTacToe.getOptimalPlay22
+                   TicTacToe.getOptimalPlay32) -}
+5d26b7a3e5a1c9ea83984a456627d45d
+  getOptimalPlay32 :: [TicTacToe.Move]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ TicTacToe.Move
+                   TicTacToe.getOptimalPlay33
+                   TicTacToe.getOptimalPlay14) -}
+2d10c1b3f3461c60d960ef6fdeb45d56
+  getOptimalPlay33 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 3) -}
+4620e3760cb2e1ecf8011b51761c9467
+  getOptimalPlay34 :: [TicTacToe.Move]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ TicTacToe.Move
+                   TicTacToe.getOptimalPlay15
+                   TicTacToe.getOptimalPlay35) -}
+dce315101f7ffcccce3c6eaed281d686
+  getOptimalPlay35 :: [TicTacToe.Move]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ TicTacToe.Move
+                   TicTacToe.getOptimalPlay29
+                   TicTacToe.getOptimalPlay20) -}
+4561a5e095b7e4e3cd228ae7d87d2ae9
+  getOptimalPlay36 :: [TicTacToe.Move]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ TicTacToe.Move
+                   TicTacToe.getOptimalPlay33
+                   TicTacToe.getOptimalPlay37) -}
+d2eb85b210f474ce0dc1ac37fb6858db
+  getOptimalPlay37 :: [TicTacToe.Move]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ TicTacToe.Move
+                   TicTacToe.getOptimalPlay16
+                   TicTacToe.getOptimalPlay38) -}
+5b21fda700a596c1e0a8d87688381177
+  getOptimalPlay38 :: [TicTacToe.Move]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ TicTacToe.Move
+                   TicTacToe.getOptimalPlay25
+                   (GHC.Types.[] @ TicTacToe.Move)) -}
+4b24fd62b948129c50b28c3b1ee8f257
+  getOptimalPlay39 :: [TicTacToe.Move]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ TicTacToe.Move
+                   TicTacToe.getOptimalPlay22
+                   TicTacToe.getOptimalPlay40) -}
+72c23635f1b539ffe2429ea5eefa8854
+  getOptimalPlay4 :: [[TicTacToe.Move]]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ [TicTacToe.Move]
+                   TicTacToe.getOptimalPlay39
+                   TicTacToe.getOptimalPlay5) -}
+c9cfdbd003e9bb182bdf0bccc1fb0d51
+  getOptimalPlay40 :: [TicTacToe.Move]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ TicTacToe.Move
+                   TicTacToe.getOptimalPlay30
+                   TicTacToe.getOptimalPlay41) -}
+ca608b30d49eacd6a25524f527891009
+  getOptimalPlay41 :: [TicTacToe.Move]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ TicTacToe.Move
+                   TicTacToe.getOptimalPlay17
+                   (GHC.Types.[] @ TicTacToe.Move)) -}
+3a63eba89088fe13172edccec875a82c
+  getOptimalPlay42 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackAppendCString#
+                   "The optimal moves are : "#
+                   TicTacToe.getOptimalPlay43) -}
+5d68bd72640525fcab9afa674e16f9eb
+  getOptimalPlay43 :: GHC.Base.String
+  {- Unfolding: (GHC.Show.showList__
+                   @ GHC.Types.Int
+                   GHC.Show.shows7
+                   TicTacToe.getOptimalPlay_optimalMoves
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+a78992edee8ac127037d559d9d51c02f
+  getOptimalPlay5 :: [[TicTacToe.Move]]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ [TicTacToe.Move]
+                   TicTacToe.getOptimalPlay36
+                   TicTacToe.getOptimalPlay6) -}
+6166a6c7096bff96588190af8eb730cc
+  getOptimalPlay6 :: [[TicTacToe.Move]]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ [TicTacToe.Move]
+                   TicTacToe.getOptimalPlay34
+                   TicTacToe.getOptimalPlay7) -}
+e429c400e4500bc176c118b83fc516bf
+  getOptimalPlay7 :: [[TicTacToe.Move]]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ [TicTacToe.Move]
+                   TicTacToe.getOptimalPlay31
+                   TicTacToe.getOptimalPlay8) -}
+650c5b16e6743b2410aaab274afe96de
+  getOptimalPlay8 :: [[TicTacToe.Move]]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ [TicTacToe.Move]
+                   TicTacToe.getOptimalPlay26
+                   TicTacToe.getOptimalPlay9) -}
+3fc457f414910c00bfa952b3754ce21f
+  getOptimalPlay9 :: [[TicTacToe.Move]]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ [TicTacToe.Move]
+                   TicTacToe.getOptimalPlay23
+                   TicTacToe.getOptimalPlay10) -}
+b2e55fa5bbb47d8d80a24a3899161b37
+  getOptimalPlay_a4 ::
+    [[TicTacToe.Move]]
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, [[TicTacToe.Move]] #)
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U> -}
+dab30da2131ac98daa2ceed09bc40867
+  getOptimalPlay_optimalMoves :: [TicTacToe.Move]
+  {- Unfolding: (case TicTacToe.$wgo 0 of ww { (#,#) ww1 ww2 ->
+                 case TicTacToe.getOptimalPlay_a4
+                        (GHC.Types.: @ [TicTacToe.Move] ww1 ww2)
+                        GHC.Prim.realWorld# of ds { (#,#) ipv ipv1 ->
+                 Logic.GameLogic.argsup @ [TicTacToe.Move] ipv1 TicTacToe.p } }) -}
+73f37ec1bf0941fff7fa6341fe5945e0
+  main :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True)
+                TicTacToe.getOptimalPlay1
+                  `cast`
+                (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
+03b0191964c58fcb89b1ccdd6ea12349
+  nextMove :: [TicTacToe.Move] -> TicTacToe.Move
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ played :: [TicTacToe.Move] ->
+                 case GHC.List.$wlenAcc @ GHC.Types.Int played 0 of ww2 { DEFAULT ->
+                 case TicTacToe.nextMove_a4
+                        (GHC.Base.map
+                           @ GHC.Types.Int
+                           @ [TicTacToe.Move]
+                           (\ x :: GHC.Types.Int ->
+                            TicTacToe.parOptimalPlay
+                              (GHC.Base.++
+                                 @ GHC.Types.Int
+                                 played
+                                 (GHC.Types.: @ TicTacToe.Move x (GHC.Types.[] @ TicTacToe.Move))))
+                           (Data.OldList.\\
+                              @ TicTacToe.Move
+                              GHC.Classes.$fEqInt
+                              TicTacToe.nextMove2
+                              played))
+                        GHC.Prim.realWorld# of ds { (#,#) ipv ipv1 ->
+                 case GHC.Prim.remInt# ww2 2 of wild1 {
+                   DEFAULT
+                   -> case Data.OldList.\\
+                             @ TicTacToe.Move
+                             GHC.Classes.$fEqInt
+                             (Logic.GameLogic.argsup
+                                @ [TicTacToe.Move]
+                                ipv1
+                                TicTacToe.nextMove1)
+                             played of wild {
+                        [] -> GHC.List.badHead @ TicTacToe.Move : x ds1 -> x }
+                   0
+                   -> case Data.OldList.\\
+                             @ TicTacToe.Move
+                             GHC.Classes.$fEqInt
+                             (Logic.GameLogic.argsup @ [TicTacToe.Move] ipv1 TicTacToe.p)
+                             played of wild {
+                        [] -> GHC.List.badHead @ TicTacToe.Move : x ds1 -> x } } } }) -}
+5ca611497ba0ee3c405eae1b08df656e
+  nextMove1 :: [TicTacToe.Move] -> GHC.Types.Int
+  {- Arity: 1, HasNoCafRefs,
+     Unfolding: (\ x1 :: [TicTacToe.Move] ->
+                 case TicTacToe.$woutcome
+                        TicTacToe.X
+                        x1
+                        (GHC.Types.[] @ TicTacToe.Move)
+                        (GHC.Types.[] @ TicTacToe.Move) of ww { (#,#) ww1 ww2 ->
+                 case TicTacToe.$wvalue ww1 ww2 of ww3 { DEFAULT ->
+                 GHC.Types.I# (GHC.Prim.negateInt# ww3) } }) -}
+1ea46aef97267ec678733a9f26e123d0
+  nextMove2 :: [GHC.Types.Int]
+  {- Unfolding: (GHC.Enum.eftInt 0 8) -}
+5b520ea96c585280bf9181dfaf1bcf3c
+  nextMove_a4 ::
+    [[TicTacToe.Move]]
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, [[TicTacToe.Move]] #)
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U> -}
+3eaec2e311f9aefe88e5ba78e86bf21d
+  optimalOutcome :: TicTacToe.R
+  {- Unfolding: (case TicTacToe.$woutcome
+                        TicTacToe.X
+                        TicTacToe.optimalPlay
+                        (GHC.Types.[] @ TicTacToe.Move)
+                        (GHC.Types.[] @ TicTacToe.Move) of ww { (#,#) ww1 ww2 ->
+                 case TicTacToe.$wvalue ww1 ww2 of ww3 { DEFAULT ->
+                 GHC.Types.I# ww3 } }) -}
+8f0b52e1f8c08854c92d1458f0f8d129
+  optimalPlay :: [TicTacToe.Move]
+  {- Unfolding: (TicTacToe.optimalPlay1 TicTacToe.p) -}
+9a14c71b6cb51027d7b91900a60e8097
+  optimalPlay1 ::
+    Logic.GameLogic.J Logic.GameLogic.R [TicTacToe.Move]
+  {- Unfolding: (Logic.GameLogic.bigotimes
+                   @ TicTacToe.Move
+                   @ Logic.GameLogic.R
+                   Logic.GameLogic.epsilons) -}
+efb3e2ca934c1245482feb56784dd6c3
+  outcome ::
+    TicTacToe.Player
+    -> [TicTacToe.Move] -> TicTacToe.Board -> TicTacToe.Board
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,1*U><S,1*U><S,1*U(U,U)>m,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ w :: TicTacToe.Player
+                   w1 :: [TicTacToe.Move]
+                   w2 :: TicTacToe.Board ->
+                 case w2 of ww { (,) ww1 ww2 ->
+                 case TicTacToe.$woutcome w w1 ww1 ww2 of ww3 { (#,#) ww4 ww5 ->
+                 (ww4, ww5) } }) -}
+b196de02d0f119bdaaed0075edd0f177
+  p :: [TicTacToe.Move] -> TicTacToe.R
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ ms :: [TicTacToe.Move] ->
+                 TicTacToe.value (TicTacToe.outcome TicTacToe.X ms TicTacToe.p1)) -}
+af3eaa9dfc5cd303254e52ec3b6a2e53
+  p1 :: ([TicTacToe.Move], [TicTacToe.Move])
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((GHC.Types.[] @ TicTacToe.Move,
+                  GHC.Types.[] @ TicTacToe.Move)) -}
+eba25e4488c69c1501e798747129d11e
+  pPar :: [TicTacToe.Move] -> [TicTacToe.Move] -> TicTacToe.R
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,1*U>m,
+     Unfolding: InlineRule (2, True, False)
+                (\ preceding :: [TicTacToe.Move] ms :: [TicTacToe.Move] ->
+                 TicTacToe.value
+                   (TicTacToe.outcome
+                      TicTacToe.X
+                      (GHC.Base.augment
+                         @ GHC.Types.Int
+                         (\ @ b c :: GHC.Types.Int -> b -> b[OneShot] n :: b[OneShot] ->
+                          GHC.Base.foldr @ GHC.Types.Int @ b c n preceding)
+                         ms)
+                      TicTacToe.p1)) -}
+bd0f417b773fdd4b7bce027aaa90568c
+  parEpsilons ::
+    [TicTacToe.Move]
+    -> [[TicTacToe.Move]
+        -> Logic.GameLogic.J TicTacToe.R TicTacToe.Move]
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ preceding :: [TicTacToe.Move] ->
+                 case GHC.List.$wlenAcc
+                        @ GHC.Types.Int
+                        preceding
+                        0 of ww2 { DEFAULT ->
+                 let {
+                   y :: GHC.Prim.Int# = GHC.Prim.-# 9 ww2
+                 } in
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.<# 0 y) of wild {
+                   GHC.Types.False
+                   -> GHC.Types.[]
+                        @ ([TicTacToe.Move]
+                           -> Logic.GameLogic.J TicTacToe.R TicTacToe.Move)
+                   GHC.Types.True
+                   -> let {
+                        poolOfMoves :: [TicTacToe.Move]
+                        = Data.OldList.\\
+                            @ TicTacToe.Move
+                            GHC.Classes.$fEqInt
+                            TicTacToe.nextMove2
+                            preceding
+                      } in
+                      let {
+                        epsilonO :: [TicTacToe.Move]
+                                    -> Logic.GameLogic.J GHC.Types.Int TicTacToe.Move
+                          {- Arity: 1, Strictness: <L,1*U> -}
+                        = \ h :: [TicTacToe.Move] ->
+                          let {
+                            xs :: [TicTacToe.Move] = Logic.GameLogic.epsilons_go h poolOfMoves
+                          } in
+                          \ p2 :: TicTacToe.Move -> GHC.Types.Int ->
+                          Logic.GameLogic.argsup
+                            @ TicTacToe.Move
+                            xs
+                            (\ x1 :: TicTacToe.Move ->
+                             case p2 x1 of wild1 { GHC.Types.I# x2 ->
+                             GHC.Types.I# (GHC.Prim.negateInt# x2) })
+                      } in
+                      let {
+                        epsilonX :: [TicTacToe.Move]
+                                    -> Logic.GameLogic.J GHC.Types.Int TicTacToe.Move
+                          {- Arity: 1, Strictness: <L,1*U>,
+                             Unfolding: InlineRule (1, True, False)
+                                        (\ h :: [TicTacToe.Move] ->
+                                         Logic.GameLogic.argsup
+                                           @ TicTacToe.Move
+                                           (Logic.GameLogic.epsilons_go h poolOfMoves)) -}
+                        = \ h :: [TicTacToe.Move] ->
+                          Logic.GameLogic.argsup
+                            @ TicTacToe.Move
+                            (Logic.GameLogic.epsilons_go h poolOfMoves)
+                      } in
+                      letrec {
+                        all :: [[TicTacToe.Move]
+                                -> Logic.GameLogic.J GHC.Types.Int TicTacToe.Move]
+                        = GHC.Types.:
+                            @ ([TicTacToe.Move]
+                               -> Logic.GameLogic.J GHC.Types.Int TicTacToe.Move)
+                            epsilonX
+                            a2
+                        a2 :: [[TicTacToe.Move]
+                               -> Logic.GameLogic.J GHC.Types.Int TicTacToe.Move]
+                        = GHC.Types.:
+                            @ ([TicTacToe.Move]
+                               -> Logic.GameLogic.J GHC.Types.Int TicTacToe.Move)
+                            epsilonO
+                            all
+                      } in
+                      case GHC.Prim.tagToEnum#
+                             @ GHC.Types.Bool
+                             (GHC.Prim.<=# ww2 0) of wild1 {
+                        GHC.Types.False
+                        -> GHC.List.$wunsafeTake
+                             @ ([TicTacToe.Move]
+                                -> Logic.GameLogic.J TicTacToe.R TicTacToe.Move)
+                             y
+                             (TicTacToe.$wunsafeDrop
+                                @ ([TicTacToe.Move]
+                                   -> Logic.GameLogic.J GHC.Types.Int TicTacToe.Move)
+                                ww2
+                                all)
+                        GHC.Types.True
+                        -> GHC.List.$wunsafeTake
+                             @ ([TicTacToe.Move]
+                                -> Logic.GameLogic.J TicTacToe.R TicTacToe.Move)
+                             y
+                             all } } }) -}
+8860618550869f7199e8dbac06a20797
+  parOptimalPlay :: [TicTacToe.Move] -> [TicTacToe.Move]
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ moves :: [TicTacToe.Move] ->
+                 GHC.Base.++
+                   @ GHC.Types.Int
+                   moves
+                   (Logic.GameLogic.bigotimes
+                      @ TicTacToe.Move
+                      @ TicTacToe.R
+                      (TicTacToe.parEpsilons moves)
+                      (TicTacToe.pPar moves))) -}
+14596ca3101c6b0184419e2eb137a5c5
+  parOptimalStrategy :: [TicTacToe.Move] -> [TicTacToe.Move]
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ moves :: [TicTacToe.Move] ->
+                 Logic.GameLogic.bigotimes
+                   @ TicTacToe.Move
+                   @ TicTacToe.R
+                   (TicTacToe.parEpsilons moves)
+                   (TicTacToe.pPar moves)) -}
+19de12740ad4d78e20b07d8f2d88266d
+  playMatch :: GHC.Types.IO ()
+  {- Arity: 1,
+     Unfolding: InlineRule (0, True, True)
+                TicTacToe.playMatch1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
+977ce0d0fe8cd71dcd1f6a65f620c8d8
+  playMatch1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1,
+     Unfolding: (\ w :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 TicTacToe.$wa
+                   (GHC.Types.[] @ TicTacToe.Move)
+                   TicTacToe.X
+                   (GHC.Types.[] @ TicTacToe.Move)
+                   (GHC.Types.[] @ TicTacToe.Move)
+                   w) -}
+9150bc12875a50d26a9382aa83adf544
+  value :: TicTacToe.Board -> TicTacToe.R
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U(1*U,1*U)>m,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (1, True, False)
+                (\ w :: TicTacToe.Board ->
+                 case w of ww { (,) ww1 ww2 ->
+                 case TicTacToe.$wvalue ww1 ww2 of ww3 { DEFAULT ->
+                 GHC.Types.I# ww3 } }) -}
+43e539f863230f3544daeb34a77893b5
+  wins :: [TicTacToe.Move] -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs,
+     Unfolding: (Logic.GameLogic.someContained
+                   @ TicTacToe.Move
+                   GHC.Classes.$fOrdInt
+                   TicTacToe.getOptimalPlay4) -}
+instance GHC.Classes.Eq [TicTacToe.Player] = TicTacToe.$fEqPlayer
+instance GHC.Show.Show [TicTacToe.Player] = TicTacToe.$fShowPlayer
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

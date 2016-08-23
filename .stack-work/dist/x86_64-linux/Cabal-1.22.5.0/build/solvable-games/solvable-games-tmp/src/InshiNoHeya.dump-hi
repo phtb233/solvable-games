@@ -1,0 +1,1061 @@
+
+==================== FINAL INTERFACE ====================
+2016-08-20 20:52:34.237315 UTC
+
+interface main@main:InshiNoHeya 7103
+  interface hash: bacdef47a5f0d6ab32b339b05d06cd59
+  ABI hash: bf436990ad763bcaf2cc84e69c13c544
+  export-list hash: be04783ebf312e86922ad128743a6d42
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 00e643ad7ce35edfdec2c9358b896e07
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  InshiNoHeya.checkProduct
+  InshiNoHeya.checkPuzzle
+  InshiNoHeya.currentRoom
+  InshiNoHeya.epsilons
+  InshiNoHeya.fiveByFive
+  InshiNoHeya.fourByFour
+  InshiNoHeya.main
+  InshiNoHeya.movesToPuzzle
+  InshiNoHeya.optimalPlay
+  InshiNoHeya.p
+  InshiNoHeya.prettyPrint
+  InshiNoHeya.size
+  InshiNoHeya.Coordinate
+  InshiNoHeya.Move
+  InshiNoHeya.Product
+  InshiNoHeya.Puzzle
+  InshiNoHeya.R
+  InshiNoHeya.Room{InshiNoHeya.Room}
+  InshiNoHeya.Value
+module dependencies: Logic.GameLogic Logic.Utils
+package dependencies: arithmoi-0.4.2.0@arith_FAxqgFQd9xLHklfP2QDenN
+                      array-0.5.1.0@array_67iodizgJQIIxYVTp4emlA base-4.8.2.0
+                      containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU
+                      deepseq-1.4.1.1@deeps_6vMKxt5sPFR0XsbRWvvq59 ghc-prim-0.4.0.0
+                      integer-gmp-1.0.0.0
+orphans: base-4.8.2.0:GHC.Base base-4.8.2.0:GHC.Float
+family instance modules: base-4.8.2.0:Control.Applicative
+                         base-4.8.2.0:Data.Either base-4.8.2.0:Data.Functor.Identity
+                         base-4.8.2.0:Data.Monoid base-4.8.2.0:Data.Type.Equality
+                         base-4.8.2.0:Data.Void base-4.8.2.0:GHC.Exts
+                         base-4.8.2.0:GHC.Generics
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Map.Base
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Set.Base
+import  -/  base-4.8.2.0:Data.Foldable 2ce969969ad5231eb40bd713f94f05ad
+import  -/  base-4.8.2.0:Data.List 3f0782c8d4bf50eecefcd5ea1798aac8
+import  -/  base-4.8.2.0:Data.Maybe 1cb58de2b04ee3c0c0a7dc9201184aff
+import  -/  base-4.8.2.0:Data.OldList d8fd80b0e14aa085ce6219cd89dad356
+import  -/  base-4.8.2.0:GHC.Base 1db77db5dae73d8c424c85b09fbadb89
+import  -/  base-4.8.2.0:GHC.List 0c736920522bbd14b770342776012ab6
+import  -/  base-4.8.2.0:GHC.Show 0e1d8380a8fb0cfb07ebeda3b70cbf38
+import  -/  base-4.8.2.0:Prelude 694dcaf039efe62df1c44834e2dbd2fb
+import  -/  base-4.8.2.0:System.IO 0248c1e850b7ea124cf7a2e1669ebf67
+import  -/  containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Map 1800ccac43fd924c376b60eac12f4d04
+import  -/  containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Map.Base 61f4bf9a28a6b2eb8805b671ced219c1
+import  -/  containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Map.Strict 1c3e955bd48ee0eecb78cf325060b5fa
+import  -/  ghc-prim-0.4.0.0:GHC.Classes e1f4ff80f7b5262008a595d29986fb18
+import  -/  Logic.GameLogic 26d44f799309be9333aa831cc195f912
+  exports: 02a96d8251ab1656b811a49d270bd213
+  J e62c617d76644dc2a111453607a27a3f
+  bigotimes 344a9cb8123787eadef3d179968b7b85
+  find 33d0a3fefbb5a1953b62f96514263af8
+  setMinus 9e687f4ea98fa5bb19d6b1054c1ce9b4
+import  -/  Logic.Utils 4b6cfc81861a0e9cb6b9d1c0337694b4
+  exports: 6f05d3fc84eb066a695d3535eebd5624
+  checkPuzzle aff386f2225df46fae5e508089a581aa
+  movesToPuzzle a335e8fc15be1bafdb8a1ecc32ae0568
+  prettyPrint 998a465caab100fca40c5ef4e218f02c
+58d38905930bf1eabc7817d7c7519cd5
+  $fEqRoom :: GHC.Classes.Eq InshiNoHeya.Room
+  DFunId[0]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ InshiNoHeya.Room
+                  InshiNoHeya.$fEqRoom_$c==
+                  InshiNoHeya.$fEqRoom_$c/= -}
+58d38905930bf1eabc7817d7c7519cd5
+  $fEqRoom_$c/= ::
+    InshiNoHeya.Room -> InshiNoHeya.Room -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(SL),1*U(1*U,1*U(U))><S(SL),1*U(1*U,1*U(U))>,
+     Unfolding: InlineRule (2, True, False)
+                (\ a :: InshiNoHeya.Room b :: InshiNoHeya.Room ->
+                 case InshiNoHeya.$fEqRoom_$c== a b of wild {
+                   GHC.Types.False -> GHC.Types.True
+                   GHC.Types.True -> GHC.Types.False }) -}
+58d38905930bf1eabc7817d7c7519cd5
+  $fEqRoom_$c== ::
+    InshiNoHeya.Room -> InshiNoHeya.Room -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(SL),1*U(1*U,1*U(U))><S(SL),1*U(1*U,1*U(U))>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: InshiNoHeya.Room w1 :: InshiNoHeya.Room ->
+                 case w of ww { InshiNoHeya.Room ww1 ww2 ->
+                 case w1 of ww3 { InshiNoHeya.Room ww4 ww5 ->
+                 InshiNoHeya.$w$c== ww1 ww2 ww4 ww5 } }) -}
+58d38905930bf1eabc7817d7c7519cd5
+  $fShowRoom :: GHC.Show.Show InshiNoHeya.Room
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ InshiNoHeya.Room
+                  InshiNoHeya.$fShowRoom_$cshowsPrec
+                  InshiNoHeya.$fShowRoom_$cshow
+                  InshiNoHeya.$fShowRoom_$cshowList -}
+58d38905930bf1eabc7817d7c7519cd5
+  $fShowRoom1 :: InshiNoHeya.Room -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (\ w :: InshiNoHeya.Room w1 :: GHC.Base.String ->
+                 case w of ww { InshiNoHeya.Room ww1 ww2 ->
+                 InshiNoHeya.$w$cshowsPrec 0 ww1 ww2 w1 }) -}
+a636d475bdb50b87865fe943c69ecbe2
+  $fShowRoom2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Room "#) -}
+8da6941d8fec8fee555ce5b45a174133
+  $fShowRoom3 ::
+    (GHC.Types.Int, GHC.Types.Int)
+    -> GHC.Base.String -> [GHC.Types.Char]
+  {- Arity: 2, HasNoCafRefs,
+     Unfolding: (\ w3 :: (GHC.Types.Int, GHC.Types.Int)
+                   w4 :: GHC.Base.String[OneShot] ->
+                 case w3 of ww { (,) ww1 ww2 ->
+                 GHC.Types.:
+                   @ GHC.Types.Char
+                   GHC.Show.shows9
+                   (case ww1 of ww4 { GHC.Types.I# ww3 ->
+                    case GHC.Show.$wshowSignedInt
+                           0
+                           ww3
+                           (GHC.Types.:
+                              @ GHC.Types.Char
+                              GHC.Show.showList__1
+                              (GHC.Show.$fShow(,)_$sgo
+                                 (\ w2 :: GHC.Base.String ->
+                                  case ww2 of ww5 { GHC.Types.I# ww6 ->
+                                  case GHC.Show.$wshowSignedInt 0 ww6 w2 of ww7 { (#,#) ww8 ww9 ->
+                                  GHC.Types.: @ GHC.Types.Char ww8 ww9 } })
+                                 (GHC.Types.[] @ GHC.Show.ShowS)
+                                 (GHC.Types.:
+                                    @ GHC.Types.Char
+                                    GHC.Show.shows8
+                                    w4))) of ww5 { (#,#) ww6 ww7 ->
+                    GHC.Types.: @ GHC.Types.Char ww6 ww7 } }) }) -}
+58d38905930bf1eabc7817d7c7519cd5
+  $fShowRoom_$cshow :: InshiNoHeya.Room -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U(1*U,1*U(U))>,
+     Unfolding: InlineRule (1, True, False)
+                (\ x1 :: InshiNoHeya.Room ->
+                 InshiNoHeya.$fShowRoom_$cshowsPrec
+                   GHC.Show.shows18
+                   x1
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+58d38905930bf1eabc7817d7c7519cd5
+  $fShowRoom_$cshowList :: [InshiNoHeya.Room] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ InshiNoHeya.Room
+                   InshiNoHeya.$fShowRoom1) -}
+58d38905930bf1eabc7817d7c7519cd5
+  $fShowRoom_$cshowsPrec ::
+    GHC.Types.Int -> InshiNoHeya.Room -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <S,1*U(U)><S,1*U(1*U,1*U(U))><L,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ w :: GHC.Types.Int
+                   w1 :: InshiNoHeya.Room
+                   w2 :: GHC.Base.String ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 case w1 of ww2 { InshiNoHeya.Room ww3 ww4 ->
+                 InshiNoHeya.$w$cshowsPrec ww1 ww3 ww4 w2 } }) -}
+7cd5927e3a83b2c96d56b1ab1cbb46e6
+  $w$c== ::
+    [InshiNoHeya.Coordinate]
+    -> InshiNoHeya.Product
+    -> [InshiNoHeya.Coordinate]
+    -> InshiNoHeya.Product
+    -> GHC.Types.Bool
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <S,1*U><L,1*U(U)><S,1*U><L,1*U(U)>, Inline: [0],
+     Unfolding: (\ ww :: [InshiNoHeya.Coordinate]
+                   ww1 :: InshiNoHeya.Product
+                   ww2 :: [InshiNoHeya.Coordinate]
+                   ww3 :: InshiNoHeya.Product ->
+                 case GHC.Classes.$fEq[]_$c==
+                        @ (GHC.Types.Int, GHC.Types.Int)
+                        GHC.Arr.$fIx(,)_$s$fEq(,)
+                        ww
+                        ww2 of wild {
+                   GHC.Types.False -> GHC.Types.False
+                   GHC.Types.True -> GHC.Classes.eqInt ww1 ww3 }) -}
+e7fd7d7e34342616b1425c6dde69b3ee
+  $w$cshowsPrec ::
+    GHC.Prim.Int#
+    -> [InshiNoHeya.Coordinate]
+    -> InshiNoHeya.Product
+    -> GHC.Base.String
+    -> GHC.Base.String
+  {- Arity: 4, Strictness: <L,U><L,1*U><L,1*U(U)><L,U>, Inline: [0],
+     Unfolding: (\ ww :: GHC.Prim.Int#
+                   ww1 :: [InshiNoHeya.Coordinate]
+                   ww2 :: InshiNoHeya.Product
+                   w :: GHC.Base.String ->
+                 let {
+                   g :: GHC.Base.String -> GHC.Base.String
+                     {- Arity: 1, Strictness: <L,U> -}
+                   = \ x1 :: GHC.Base.String[OneShot] ->
+                     GHC.Show.showList__
+                       @ (GHC.Types.Int, GHC.Types.Int)
+                       InshiNoHeya.$fShowRoom3
+                       ww1
+                       (GHC.Types.:
+                          @ GHC.Types.Char
+                          GHC.Show.showSpace1
+                          (case ww2 of ww3 { GHC.Types.I# ww4 ->
+                           case GHC.Show.$wshowSignedInt 11 ww4 x1 of ww5 { (#,#) ww6 ww7 ->
+                           GHC.Types.: @ GHC.Types.Char ww6 ww7 } }))
+                 } in
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.>=# ww 11) of wild {
+                   GHC.Types.False
+                   -> GHC.Base.++ @ GHC.Types.Char InshiNoHeya.$fShowRoom2 (g w)
+                   GHC.Types.True
+                   -> GHC.Types.:
+                        @ GHC.Types.Char
+                        GHC.Show.shows9
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           InshiNoHeya.$fShowRoom2
+                           (g (GHC.Types.: @ GHC.Types.Char GHC.Show.shows8 w))) }) -}
+472b8ebd504319c5af808006c33c608e
+  $wpoly_go10 ::
+    GHC.Prim.Int#
+    -> GHC.Types.Int -> Data.Map.Base.Map InshiNoHeya.Coordinate a -> a
+  {- Arity: 3, Strictness: <L,U><L,U(U)><S,1*U>, Inline: [0] -}
+2a4978c8e965e91752cccff52516a347
+  $wxs ::
+    GHC.Prim.Int#
+    -> (# [InshiNoHeya.Move]
+          -> Logic.GameLogic.J InshiNoHeya.R InshiNoHeya.Move,
+          [[InshiNoHeya.Move]
+           -> Logic.GameLogic.J InshiNoHeya.R InshiNoHeya.Move] #)
+  {- Arity: 1, Strictness: <S,1*U>, Inline: [0] -}
+5eb4cbd4603c0a9c900e85ab3b6eec62
+  type Coordinate = (GHC.Types.Int, GHC.Types.Int)
+d47fd6fa4f586a78341dfe923dc3d2c0
+  type Move = [InshiNoHeya.Value]
+f25fb2e830436fe16ce4ec452263ea06
+  type Product = GHC.Types.Int
+140de5881448cdf2f6316554f6f649fd
+  type Puzzle =
+    Data.Map.Base.Map InshiNoHeya.Coordinate InshiNoHeya.Value
+348f68e10e23cfcf3b14f26c9f248879
+  type R = GHC.Types.Bool
+58d38905930bf1eabc7817d7c7519cd5
+  data Room = Room [InshiNoHeya.Coordinate] InshiNoHeya.Product
+a7eadb9c120d1f31c36ce87db669eee0
+  type Value = GHC.Types.Int
+218f4168bc948cb09f835995b221db79
+  checkProduct ::
+    [InshiNoHeya.Room] -> InshiNoHeya.Puzzle -> GHC.Types.Bool
+  {- Arity: 2, Strictness: <S,1*U><L,U>,
+     Unfolding: (\ rs :: [InshiNoHeya.Room] ps :: InshiNoHeya.Puzzle ->
+                 letrec {
+                   $wgo :: [(GHC.Types.Int, GHC.Types.Int)]
+                           -> GHC.Prim.Int# -> GHC.Prim.Int#
+                     {- Arity: 2, Strictness: <S,1*U><L,U>, Inline: [0] -}
+                   = \ w :: [(GHC.Types.Int, GHC.Types.Int)] ww :: GHC.Prim.Int# ->
+                     case w of wild {
+                       [] -> ww
+                       : y ys
+                       -> case y of ww1 { (,) ww2 ww3 ->
+                          case ww2 of ww4 { GHC.Types.I# ww5 ->
+                          case InshiNoHeya.$wpoly_go10
+                                 @ GHC.Types.Int
+                                 ww5
+                                 ww3
+                                 ps of wild1 { GHC.Types.I# y1 ->
+                          $wgo ys (GHC.Prim.*# ww y1) } } } }
+                 } in
+                 letrec {
+                   go :: [InshiNoHeya.Room] -> GHC.Types.Bool -> GHC.Types.Bool
+                     {- Arity: 2, Strictness: <S,1*U><S,1*U> -}
+                   = \ ds :: [InshiNoHeya.Room] eta :: GHC.Types.Bool ->
+                     case ds of wild {
+                       [] -> eta
+                       : y ys
+                       -> case y of wild1 { InshiNoHeya.Room cs prod ->
+                          case eta of wild2 {
+                            GHC.Types.False -> go ys GHC.Types.False
+                            GHC.Types.True
+                            -> case $wgo cs 1 of ww { DEFAULT ->
+                               case prod of wild3 { GHC.Types.I# y1 ->
+                               go
+                                 ys
+                                 (GHC.Prim.tagToEnum#
+                                    @ GHC.Types.Bool
+                                    (GHC.Prim.==# ww y1)) } } } } }
+                 } in
+                 go rs GHC.Types.True) -}
+c687a98f1c5a16520fddcd085fff974d
+  checkPuzzle :: [Logic.Utils.Move] -> GHC.Types.Bool
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ w3 :: [Logic.Utils.Move] ->
+                 Logic.Utils.$wcheckPuzzle
+                   InshiNoHeya.checkPuzzle1
+                   4
+                   GHC.Types.False
+                   w3) -}
+77be9bee1a1837ebf614c31e5471b343
+  checkPuzzle1 :: GHC.Types.Int
+  {- Strictness: m, Unfolding: (InshiNoHeya.size) -}
+0caa17629d2a10f3d9dbdc499d405a29
+  currentRoom :: [InshiNoHeya.Room]
+  {- Strictness: m2,
+     Unfolding: InlineRule (0, True, True) InshiNoHeya.fourByFour -}
+ea77dcc0e710e08215d17edbd90596ee
+  epsilons ::
+    [[InshiNoHeya.Move]
+     -> Logic.GameLogic.J InshiNoHeya.R InshiNoHeya.Move]
+  {- Unfolding: (case InshiNoHeya.$wxs 4 of ww { (#,#) ww1 ww2 ->
+                 GHC.Types.:
+                   @ ([InshiNoHeya.Move]
+                      -> Logic.GameLogic.J InshiNoHeya.R InshiNoHeya.Move)
+                   ww1
+                   ww2 }) -}
+3aa11e965880ca3671823d906f783f93
+  fiveByFive :: [InshiNoHeya.Room]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Room
+                   InshiNoHeya.fiveByFive55
+                   InshiNoHeya.fiveByFive1) -}
+443ced8e6bd9a31c0a447169a63b53be
+  fiveByFive1 :: [InshiNoHeya.Room]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Room
+                   InshiNoHeya.fiveByFive52
+                   InshiNoHeya.fiveByFive2) -}
+08c4431377016b1396574c00c9a2f497
+  fiveByFive10 :: [InshiNoHeya.Room]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Room
+                   InshiNoHeya.fiveByFive19
+                   InshiNoHeya.fiveByFive11) -}
+15d5dc260e6125a16cea0b3aff56e6a6
+  fiveByFive11 :: [InshiNoHeya.Room]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Room
+                   InshiNoHeya.fiveByFive12
+                   (GHC.Types.[] @ InshiNoHeya.Room)) -}
+0ac87af9a490cac2bf457c409ebf38c9
+  fiveByFive12 :: InshiNoHeya.Room
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (InshiNoHeya.Room
+                   InshiNoHeya.fiveByFive14
+                   InshiNoHeya.fiveByFive13) -}
+d93668e81bd4ceb548d3702321c4a4af
+  fiveByFive13 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 10) -}
+ec543de2d0ad232f88ca18fcd213d8cd
+  fiveByFive14 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fiveByFive18
+                   InshiNoHeya.fiveByFive15) -}
+7bdb81389f61d80da14f3891e797c370
+  fiveByFive15 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fiveByFive16
+                   (GHC.Types.[] @ InshiNoHeya.Coordinate)) -}
+b2ff0f0d3ea85221d2cea37c852c80cf
+  fiveByFive16 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((InshiNoHeya.fiveByFive17,
+                  InshiNoHeya.fiveByFive17)) -}
+e0cf620609bfb4e5076d6a1e2d81b3e0
+  fiveByFive17 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 5) -}
+6cddf047ff6af1e5738bef1a9e5c1ad2
+  fiveByFive18 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((InshiNoHeya.size, InshiNoHeya.fiveByFive17)) -}
+abc005a34b46470f080d42dd21599b04
+  fiveByFive19 :: InshiNoHeya.Room
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (InshiNoHeya.Room
+                   InshiNoHeya.fiveByFive21
+                   InshiNoHeya.fiveByFive20) -}
+6855111bf8d5e799ff3843af4dc9d0fa
+  fiveByFive2 :: [InshiNoHeya.Room]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Room
+                   InshiNoHeya.fiveByFive50
+                   InshiNoHeya.fiveByFive3) -}
+4bd7419c2358bd6692a830d40611b6ec
+  fiveByFive20 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 15) -}
+a199c014451e1cba05c9f7c1a9adcd5d
+  fiveByFive21 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fourByFour10
+                   InshiNoHeya.fiveByFive22) -}
+e93cff9ef0b4b72161021227aef4180c
+  fiveByFive22 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fiveByFive23
+                   (GHC.Types.[] @ InshiNoHeya.Coordinate)) -}
+d91c5b76fb7a777f3567fe2532d6317c
+  fiveByFive23 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((InshiNoHeya.fiveByFive17, InshiNoHeya.size)) -}
+50ef72124781a75078397d657c262ed2
+  fiveByFive24 :: InshiNoHeya.Room
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (InshiNoHeya.Room
+                   InshiNoHeya.fiveByFive25
+                   InshiNoHeya.fourByFour35) -}
+734890f1cd32e73419442fa595c95727
+  fiveByFive25 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fiveByFive26
+                   (GHC.Types.[] @ InshiNoHeya.Coordinate)) -}
+4e0173fd5171d6e90fb0bb623c11c0b6
+  fiveByFive26 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((InshiNoHeya.fourByFour18,
+                  InshiNoHeya.fiveByFive17)) -}
+5ac62b69a20a9bba43d0c062a02ca03d
+  fiveByFive27 :: InshiNoHeya.Room
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (InshiNoHeya.Room
+                   InshiNoHeya.fiveByFive28
+                   InshiNoHeya.size) -}
+cfc50197af5ae294f757b5f4c07e9fbf
+  fiveByFive28 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fourByFour34
+                   InshiNoHeya.fiveByFive29) -}
+ff12712aa0122f69b2c5c0ae8833b568
+  fiveByFive29 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fiveByFive30
+                   (GHC.Types.[] @ InshiNoHeya.Coordinate)) -}
+26f1098e8d6947c33b67f83422a7b801
+  fiveByFive3 :: [InshiNoHeya.Room]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Room
+                   InshiNoHeya.fiveByFive43
+                   InshiNoHeya.fiveByFive4) -}
+86d64ea1d8dd907157a831fdc7b18e32
+  fiveByFive30 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((InshiNoHeya.fourByFour35,
+                  InshiNoHeya.fiveByFive17)) -}
+372dc27120f69b681cffcb5341288b1e
+  fiveByFive31 :: InshiNoHeya.Room
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (InshiNoHeya.Room
+                   InshiNoHeya.fiveByFive32
+                   InshiNoHeya.fourByFour12) -}
+9032992096b96bd17f3c2362ab8b8b70
+  fiveByFive32 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fourByFour23
+                   InshiNoHeya.fiveByFive33) -}
+76a4c795e0da54abd5d8559a981a5917
+  fiveByFive33 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fourByFour15
+                   InshiNoHeya.fiveByFive34) -}
+59e77d5232113cd76643f7c2b054446f
+  fiveByFive34 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fiveByFive35
+                   (GHC.Types.[] @ InshiNoHeya.Coordinate)) -}
+2f4dd281891b51b1e6515646c7396f62
+  fiveByFive35 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((InshiNoHeya.fourByFour16,
+                  InshiNoHeya.fiveByFive17)) -}
+c6b8405082c5e5fadc38e49ef24681df
+  fiveByFive36 :: InshiNoHeya.Room
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (InshiNoHeya.Room
+                   InshiNoHeya.fiveByFive37
+                   InshiNoHeya.fiveByFive13) -}
+f4dab23698260bb8e458964eedc9f0ca
+  fiveByFive37 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fourByFour36
+                   InshiNoHeya.fourByFour26) -}
+63239c80f6989eaa446ed6fdb3f342f8
+  fiveByFive38 :: InshiNoHeya.Room
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (InshiNoHeya.Room
+                   InshiNoHeya.fiveByFive39
+                   InshiNoHeya.fourByFour49) -}
+dfd43df10a914a0a1309a455d354d114
+  fiveByFive39 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fourByFour41
+                   InshiNoHeya.fourByFour21) -}
+a5a97e936e114c62522126fc11857742
+  fiveByFive4 :: [InshiNoHeya.Room]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Room
+                   InshiNoHeya.fiveByFive40
+                   InshiNoHeya.fiveByFive5) -}
+5e9dbea825746503e97918cb89e17568
+  fiveByFive40 :: InshiNoHeya.Room
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (InshiNoHeya.Room
+                   InshiNoHeya.fiveByFive42
+                   InshiNoHeya.fiveByFive41) -}
+a59cbfd9d4e431b992321d34705c3dc5
+  fiveByFive41 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 20) -}
+5ab6ef3634b23703d8258e7279f76ba1
+  fiveByFive42 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fourByFour28
+                   InshiNoHeya.fourByFour45) -}
+05efbe1f16a7abb3885a540898206b4c
+  fiveByFive43 :: InshiNoHeya.Room
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (InshiNoHeya.Room
+                   InshiNoHeya.fiveByFive44
+                   InshiNoHeya.fourByFour30) -}
+454cc7a4718c09c05758b6ccac682b81
+  fiveByFive44 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fiveByFive49
+                   InshiNoHeya.fiveByFive45) -}
+d9058a040e2b72a8929f7bd8c47f9be6
+  fiveByFive45 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fiveByFive48
+                   InshiNoHeya.fiveByFive46) -}
+1b528c33c51ec4fbec83bf246c33c22d
+  fiveByFive46 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fiveByFive47
+                   (GHC.Types.[] @ InshiNoHeya.Coordinate)) -}
+8e6d0d2eaa2b7134a5e80cae52ccc184
+  fiveByFive47 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((InshiNoHeya.fiveByFive17,
+                  InshiNoHeya.fourByFour16)) -}
+5ab02be0b53e6e917c83d5371ac00911
+  fiveByFive48 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((InshiNoHeya.fiveByFive17,
+                  InshiNoHeya.fourByFour18)) -}
+259a49fb3b08e0e1f300aef8d76d3f1e
+  fiveByFive49 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((InshiNoHeya.fiveByFive17,
+                  InshiNoHeya.fourByFour35)) -}
+7f4ec6c54973212ea797864542b624e3
+  fiveByFive5 :: [InshiNoHeya.Room]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Room
+                   InshiNoHeya.fiveByFive38
+                   InshiNoHeya.fiveByFive6) -}
+c8394d7f55e08c15d42a1745be8b8c88
+  fiveByFive50 :: InshiNoHeya.Room
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (InshiNoHeya.Room
+                   InshiNoHeya.fiveByFive51
+                   InshiNoHeya.fourByFour35) -}
+2ed1507f6a785b33764b5bac903d9671
+  fiveByFive51 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fourByFour42
+                   (GHC.Types.[] @ InshiNoHeya.Coordinate)) -}
+0d7895194c69968764bfa510592a9517
+  fiveByFive52 :: InshiNoHeya.Room
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (InshiNoHeya.Room
+                   InshiNoHeya.fiveByFive53
+                   InshiNoHeya.fiveByFive20) -}
+7eaabae436b6fecd2f73ac47d492c908
+  fiveByFive53 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fourByFour52
+                   InshiNoHeya.fiveByFive54) -}
+dbe6d527b83081ab81f4532570599f5f
+  fiveByFive54 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fourByFour47
+                   (GHC.Types.[] @ InshiNoHeya.Coordinate)) -}
+823f35590df82f5cd869cb9727402c45
+  fiveByFive55 :: InshiNoHeya.Room
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (InshiNoHeya.Room
+                   InshiNoHeya.fiveByFive56
+                   InshiNoHeya.fourByFour12) -}
+04ca1a8c583a1e367e2477d91653ade2
+  fiveByFive56 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fourByFour53
+                   InshiNoHeya.fiveByFive57) -}
+1d2911ae933613deaf6e38d6aec882c3
+  fiveByFive57 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fourByFour37
+                   (GHC.Types.[] @ InshiNoHeya.Coordinate)) -}
+26f577efa6db1201cac071c2b64b26da
+  fiveByFive6 :: [InshiNoHeya.Room]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Room
+                   InshiNoHeya.fiveByFive36
+                   InshiNoHeya.fiveByFive7) -}
+8cb56ab8c253603279e55f70169d24eb
+  fiveByFive7 :: [InshiNoHeya.Room]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Room
+                   InshiNoHeya.fiveByFive31
+                   InshiNoHeya.fiveByFive8) -}
+36ff971822a3d8f0ce0cece664b0605b
+  fiveByFive8 :: [InshiNoHeya.Room]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Room
+                   InshiNoHeya.fiveByFive27
+                   InshiNoHeya.fiveByFive9) -}
+4f1d3c180bf6550469bfda8925f0a8f0
+  fiveByFive9 :: [InshiNoHeya.Room]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Room
+                   InshiNoHeya.fiveByFive24
+                   InshiNoHeya.fiveByFive10) -}
+fe9d4bd865f5138b8cbbbdef04999d5c
+  fourByFour :: [InshiNoHeya.Room]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Room
+                   InshiNoHeya.fourByFour48
+                   InshiNoHeya.fourByFour1) -}
+711c754def350eb458df53220228c586
+  fourByFour1 :: [InshiNoHeya.Room]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Room
+                   InshiNoHeya.fourByFour43
+                   InshiNoHeya.fourByFour2) -}
+b36464691de03a160cc3526d76cbce37
+  fourByFour10 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((InshiNoHeya.size, InshiNoHeya.size)) -}
+e609526b95f0f449f08ed7967a92a483
+  fourByFour11 :: InshiNoHeya.Room
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (InshiNoHeya.Room
+                   InshiNoHeya.fourByFour13
+                   InshiNoHeya.fourByFour12) -}
+6398bec1adb91c3d22da425f0a74402f
+  fourByFour12 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 6) -}
+806137400b68df32ac14cd14cd640bcd
+  fourByFour13 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fourByFour17
+                   InshiNoHeya.fourByFour14) -}
+dbca967fa91767d69fd928107b54aed3
+  fourByFour14 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fourByFour15
+                   (GHC.Types.[] @ InshiNoHeya.Coordinate)) -}
+fb286a2a51110f62735b10fca4aec044
+  fourByFour15 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((InshiNoHeya.fourByFour16, InshiNoHeya.size)) -}
+4547381916237fbde121a1c0f60a1239
+  fourByFour16 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 3) -}
+dc75f2c38973123272e2f30c30362fd0
+  fourByFour17 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((InshiNoHeya.fourByFour18, InshiNoHeya.size)) -}
+5b59dce02b45480ef9d0337e5125be15
+  fourByFour18 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 2) -}
+9144698d87d152c47776c7c175b05dbc
+  fourByFour19 :: InshiNoHeya.Room
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (InshiNoHeya.Room
+                   InshiNoHeya.fourByFour20
+                   InshiNoHeya.fourByFour18) -}
+71e7575d78037282b6c9eae3dcea0339
+  fourByFour2 :: [InshiNoHeya.Room]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Room
+                   InshiNoHeya.fourByFour38
+                   InshiNoHeya.fourByFour3) -}
+28ce4794513e134797e7b542ab2bbaf8
+  fourByFour20 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fourByFour23
+                   InshiNoHeya.fourByFour21) -}
+faff57b8961074fd4880ac728feefc6b
+  fourByFour21 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fourByFour22
+                   (GHC.Types.[] @ InshiNoHeya.Coordinate)) -}
+b96d3e209d988c382bbc33bbe95473e4
+  fourByFour22 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((InshiNoHeya.size, InshiNoHeya.fourByFour16)) -}
+c8693bbe58ca3e9d333d023c8c6e47a4
+  fourByFour23 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((InshiNoHeya.fourByFour16,
+                  InshiNoHeya.fourByFour16)) -}
+33188a4d01e0c3b47c7fa1b58ac91e6f
+  fourByFour24 :: InshiNoHeya.Room
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (InshiNoHeya.Room
+                   InshiNoHeya.fourByFour25
+                   InshiNoHeya.fourByFour16) -}
+1c65ab3329465e99382355903f3e63ab
+  fourByFour25 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fourByFour28
+                   InshiNoHeya.fourByFour26) -}
+da11badd58e2af55c13bf8f9ae64917d
+  fourByFour26 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fourByFour27
+                   (GHC.Types.[] @ InshiNoHeya.Coordinate)) -}
+b7c58a5611dd84d5f9f51dc746b0ddfe
+  fourByFour27 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((InshiNoHeya.fourByFour18,
+                  InshiNoHeya.fourByFour16)) -}
+6e23a9c772f57af73a90c1f5e9914ebb
+  fourByFour28 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((InshiNoHeya.fourByFour18,
+                  InshiNoHeya.fourByFour18)) -}
+2d95d1cf9fef4bedf739bfa4e835b35e
+  fourByFour29 :: InshiNoHeya.Room
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (InshiNoHeya.Room
+                   InshiNoHeya.fourByFour31
+                   InshiNoHeya.fourByFour30) -}
+372fb2b1eb311699bff2f7bdbe7b4fb9
+  fourByFour3 :: [InshiNoHeya.Room]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Room
+                   InshiNoHeya.fourByFour29
+                   InshiNoHeya.fourByFour4) -}
+198d631c89c15fda2dbeba964a997d8c
+  fourByFour30 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 12) -}
+6b2c8b0be8814bc71108cb7329f6caf9
+  fourByFour31 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fourByFour37
+                   InshiNoHeya.fourByFour32) -}
+e19c96c98751ce6706cfdd74aca6659b
+  fourByFour32 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fourByFour36
+                   InshiNoHeya.fourByFour33) -}
+fb1eb67019fb1c304ff09bcfc710d6dc
+  fourByFour33 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fourByFour34
+                   (GHC.Types.[] @ InshiNoHeya.Coordinate)) -}
+b55fedb09f9de5e5f3a6955431d284e2
+  fourByFour34 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((InshiNoHeya.fourByFour35, InshiNoHeya.size)) -}
+2bcbb4c989ad0a4177b8bd7bab78a6a2
+  fourByFour35 :: InshiNoHeya.Value
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 1) -}
+48887e349e62d1098d4cc4f81a946447
+  fourByFour36 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((InshiNoHeya.fourByFour35,
+                  InshiNoHeya.fourByFour16)) -}
+af0ada62cbafe9bb450893ca267b1a6b
+  fourByFour37 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((InshiNoHeya.fourByFour35,
+                  InshiNoHeya.fourByFour18)) -}
+ef028f7c6c7b897f9030677a95e88758
+  fourByFour38 :: InshiNoHeya.Room
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (InshiNoHeya.Room
+                   InshiNoHeya.fourByFour39
+                   InshiNoHeya.fourByFour12) -}
+fee0788cbc7aa7f53495b14173b5bfac
+  fourByFour39 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fourByFour42
+                   InshiNoHeya.fourByFour40) -}
+83c00dd8227296bd2f09ac9bf1d98e4f
+  fourByFour4 :: [InshiNoHeya.Room]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Room
+                   InshiNoHeya.fourByFour24
+                   InshiNoHeya.fourByFour5) -}
+067377071ed41ad6cb0bc2cd6739baaf
+  fourByFour40 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fourByFour41
+                   (GHC.Types.[] @ InshiNoHeya.Coordinate)) -}
+0e38885744e5d7c0778ce73451b99061
+  fourByFour41 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((InshiNoHeya.size, InshiNoHeya.fourByFour18)) -}
+b95c76ab74d0fc0a845edf1455fbde3f
+  fourByFour42 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((InshiNoHeya.size, InshiNoHeya.fourByFour35)) -}
+68e5cc6dee76e0d2b0623c8d330ae428
+  fourByFour43 :: InshiNoHeya.Room
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (InshiNoHeya.Room
+                   InshiNoHeya.fourByFour44
+                   InshiNoHeya.size) -}
+9dd2bd81b66b260bf3bfd8eaa1cbc8d8
+  fourByFour44 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fourByFour47
+                   InshiNoHeya.fourByFour45) -}
+658103f0fbd05adc780eea5a2ae26117
+  fourByFour45 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fourByFour46
+                   (GHC.Types.[] @ InshiNoHeya.Coordinate)) -}
+5ef890999e38b89da6138bddee416874
+  fourByFour46 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((InshiNoHeya.fourByFour16,
+                  InshiNoHeya.fourByFour18)) -}
+afa910e484be312a63e9c616d14249ea
+  fourByFour47 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((InshiNoHeya.fourByFour16,
+                  InshiNoHeya.fourByFour35)) -}
+05cd45bf2878751bd492e5e0d605d2b8
+  fourByFour48 :: InshiNoHeya.Room
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (InshiNoHeya.Room
+                   InshiNoHeya.fourByFour50
+                   InshiNoHeya.fourByFour49) -}
+d3d2ce8a61ba6703d326f663dc7677b2
+  fourByFour49 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 8) -}
+7b70cb98ea43b95ed735d0f45ef5db66
+  fourByFour5 :: [InshiNoHeya.Room]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Room
+                   InshiNoHeya.fourByFour19
+                   InshiNoHeya.fourByFour6) -}
+45b677f5a6d5fca6249094d69cfc5b2f
+  fourByFour50 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fourByFour53
+                   InshiNoHeya.fourByFour51) -}
+a759bbf53126b6bd065cbc4d4244f228
+  fourByFour51 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fourByFour52
+                   (GHC.Types.[] @ InshiNoHeya.Coordinate)) -}
+f9929d833796f37dc62e3a990f81b492
+  fourByFour52 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((InshiNoHeya.fourByFour18,
+                  InshiNoHeya.fourByFour35)) -}
+d8e9d84f1b2d8a24afb8f0b6651a3664
+  fourByFour53 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((InshiNoHeya.fourByFour35,
+                  InshiNoHeya.fourByFour35)) -}
+f237287004c8fc0962d0994623f2b642
+  fourByFour6 :: [InshiNoHeya.Room]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Room
+                   InshiNoHeya.fourByFour11
+                   InshiNoHeya.fourByFour7) -}
+cccd6c9ce7b60cecac23dc9226e15a4c
+  fourByFour7 :: [InshiNoHeya.Room]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Room
+                   InshiNoHeya.fourByFour8
+                   (GHC.Types.[] @ InshiNoHeya.Room)) -}
+3020ce24a96dc9a2bc3cdec59046e6fc
+  fourByFour8 :: InshiNoHeya.Room
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (InshiNoHeya.Room
+                   InshiNoHeya.fourByFour9
+                   InshiNoHeya.size) -}
+627796cbb36c5255665fae7f727c2e92
+  fourByFour9 :: [InshiNoHeya.Coordinate]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ InshiNoHeya.Coordinate
+                   InshiNoHeya.fourByFour10
+                   (GHC.Types.[] @ InshiNoHeya.Coordinate)) -}
+13b42b7caf1ee9ef30b351b516aeef1c
+  main :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True)
+                InshiNoHeya.main1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
+c43bdf32ec9f3f8dec5a4133048ede2e
+  main1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ eta :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 GHC.IO.Handle.Text.hPutStr2
+                   GHC.IO.Handle.FD.stdout
+                   (Logic.Utils.prettyPrint
+                      InshiNoHeya.checkPuzzle1
+                      InshiNoHeya.optimalPlay)
+                   GHC.Types.True
+                   eta) -}
+da3b0affb233ce1b1e2751fed22b59b5
+  movesToPuzzle :: [Logic.Utils.Move] -> Logic.Utils.Puzzle
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ w2 :: [Logic.Utils.Move] ->
+                 Logic.Utils.$wmovesToPuzzle InshiNoHeya.checkPuzzle1 4 w2) -}
+dbe862925288026bb3b37e7b29136a57
+  optimalPlay :: [InshiNoHeya.Move]
+  {- Unfolding: (InshiNoHeya.optimalPlay1 InshiNoHeya.p) -}
+d39b06fbabc724b016271927ff18044a
+  optimalPlay1 :: Logic.GameLogic.J InshiNoHeya.R [InshiNoHeya.Move]
+  {- Unfolding: (Logic.GameLogic.bigotimes
+                   @ InshiNoHeya.Move
+                   @ InshiNoHeya.R
+                   InshiNoHeya.epsilons) -}
+11b76ed27ae22c6bfcb8df10f9ba1e96
+  p :: [InshiNoHeya.Move] -> InshiNoHeya.R
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: (\ ms :: [InshiNoHeya.Move] ->
+                 case Logic.Utils.$wcheckPuzzle
+                        InshiNoHeya.size
+                        4
+                        GHC.Types.False
+                        ms of wild {
+                   GHC.Types.False -> GHC.Types.False
+                   GHC.Types.True
+                   -> InshiNoHeya.checkProduct
+                        InshiNoHeya.fourByFour
+                        (Logic.Utils.$wmovesToPuzzle InshiNoHeya.size 4 ms) }) -}
+0c2a021765e91f14c4cc935e15de5371
+  prettyPrint :: [Logic.Utils.Move] -> GHC.Base.String
+  {- Arity: 1,
+     Unfolding: (Logic.Utils.prettyPrint InshiNoHeya.size) -}
+5d2c9b55273953658a8e078ea02255b1
+  size :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 4) -}
+instance GHC.Classes.Eq [InshiNoHeya.Room] = InshiNoHeya.$fEqRoom
+instance GHC.Show.Show [InshiNoHeya.Room] = InshiNoHeya.$fShowRoom
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+
