@@ -16,4 +16,5 @@ Computed sequentially:
   * Nim (SubtractionGame)
   * River Crossing Problem
 
-The selection monad itself is contained in the module 'GameLogic'.
+The selection monad itself is contained in the module 'GameLogic'. 
+[Stack](https://docs.haskellstack.org/en/stable/README/) is recommended for building and executing this code.
