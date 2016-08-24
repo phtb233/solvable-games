@@ -16,8 +16,9 @@ data Goods = Fox | Goose | Beans deriving (Show, Eq, Ord)
 -- One good can be moved to the right bank, and another good can be brought
 -- back to the left during each turn. To win, the player must move all
 -- goods from the left bank to the right. However the Fox cannot be left
--- with the Goose, nor the Goose with the Beans or the player loses.
+-- with the Goose, nor the Goose with the Beans otherwise the player loses.
 
+-- Move goods as requested. If not possible then do nothing.
 transferGoods:: Maybe Goods -> Banks -> Banks
 transferGoods Nothing b = b          
 transferGoods good b@(thisSide, thatSide) 
@@ -45,12 +46,7 @@ shortenOutcome moves = shorten moves ((Just Fox, Just Goose, Just Beans),
                 b'        = swap $ transferGoods rm $ swap moveRight
             in  if b == b' then shorten ms b else m : shorten ms b'
 
--- winning moves, for testing.
-moves = [(Just Goose, Nothing),
-         (Just Fox, Just Goose),
-         (Just Beans, Nothing), 
-         (Just Goose, Nothing)]
-
+-- Convert list of Moves to the resultant Banks from performing said moves.
 movesToBanks :: [Move] -> Banks
 movesToBanks moves = mtb moves ((Just Fox, Just Goose, Just Beans), 
                                 (Nothing, Nothing, Nothing))
@@ -66,6 +62,7 @@ movesToBanks moves = mtb moves ((Just Fox, Just Goose, Just Beans),
                              then moveLeft
                              else mtb ms moveLeft
                         
+-- Check if a Good exists on a Side.
 isOn :: Maybe Goods -> Side -> Bool
 isOn g (a,b,c) = g == a || g == b || g == c
 
@@ -92,6 +89,7 @@ addGood    _            s       = s
 p :: [Move] -> R
 p ms = wins $ movesToBanks ms
 
+-- 4 is the least amount of turns it takes to win.
 epsilons :: [[Move] -> GL.J R Move]
 epsilons = replicate 10 epsilons'
     where epsilons' _ = GL.find poolOfMoves
@@ -106,4 +104,3 @@ main = do putStrLn "\nOptimal play : "
           mapM_ (putStrLn . show) optimalPlay
           putStrLn "\nShortened play : "
           mapM_ (putStrLn . show) (shortenOutcome optimalPlay)
-

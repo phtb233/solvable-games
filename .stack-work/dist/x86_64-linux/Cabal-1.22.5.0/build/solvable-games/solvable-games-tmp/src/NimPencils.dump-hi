@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2016-08-21 12:19:41.215447 UTC
+2016-08-24 17:04:43.03113 UTC
 
 interface main@main:NimPencils 7103
-  interface hash: 1a9f46460df553f7ec82e8d6c04fe71e
-  ABI hash: fd35df9c9baa28bed2f0a243e32e8f6e
-  export-list hash: 932aa76cffc7091865d82e5170593dac
+  interface hash: aa20cfd5b9b66d35ad03a113fddfc79a
+  ABI hash: 0ca447b5054b7e4777f3bb4a8003fbd7
+  export-list hash: 4ecc3746044ce11b5935a509bb4918ae
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 00e643ad7ce35edfdec2c9358b896e07
   sig of: Nothing
@@ -13,6 +13,7 @@ interface main@main:NimPencils 7103
   where
 exports:
   NimPencils.epsilons
+  NimPencils.gameLoop
   NimPencils.getOptimalStuff
   NimPencils.main
   NimPencils.nextMove
@@ -305,6 +306,16 @@ c13cda7ddf10697c1fb025b3109481dc
                       -> Logic.GameLogic.J GHC.Types.Int NimPencils.Move)
                    NimPencils.epsilons2
                    NimPencils.epsilons1) -}
+56ec2b34da69ad2aa8e31a2ccd1f5549
+  gameLoop :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True)
+                NimPencils.gameLoop1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
+f92a8f3540c7415bdc3b7aa56c0d0e57
+  gameLoop1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <L,U> -}
 4f9c4dfb07bd2092e94a946e98bb5487
   getOptimalStuff :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <L,U>,
@@ -373,18 +384,11 @@ f24ec474bac3e10ce96ffb6d1fda0c97
 b8de28d4b82436ddcbf13cdaf3102ab0
   getOptimalStuff_showl :: [GHC.Types.Int] -> [GHC.Types.Char]
   {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
-baa40429e43aef2edc57fb565c39febe
-  main :: GHC.Types.IO b
+256eba933307869a47d6fb9eaaef03a0
+  main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <L,U>,
      Unfolding: InlineRule (0, True, True)
-                NimPencils.main1
-                  `cast`
-                (forall b. Sym (GHC.Types.NTCo:IO[0] <b>_R)) -}
-1afef1d6b6b76cd7b87ca8cd7d55b5ca
-  main1 ::
-    GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, b #)
-  {- Arity: 1, Strictness: <L,U> -}
+                NimPencils.gameLoop1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
 d4d96ffb3e6d3cf39df632086860fb56
   nextMove :: [NimPencils.Move] -> NimPencils.Move
   {- Arity: 1, Strictness: <S,U>,

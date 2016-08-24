@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2016-08-17 17:35:27.213213 UTC
+2016-08-24 17:04:45.963577 UTC
 
 interface main@main:Nonograms 7103
-  interface hash: 5acf2b5afc7f72592474327ba19ce754
-  ABI hash: 3e54d7e151d8fbe6795ee01c28d477d9
-  export-list hash: 005e894c1ad50b75379ff4a1245ba0ee
+  interface hash: 1d566fc5337e7088fa59dc0225fd3691
+  ABI hash: fc62f40074a3d67cc30f197ae5f9ed79
+  export-list hash: 5dbf8b51a6ee2883bf99264adc1f0b94
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 00e643ad7ce35edfdec2c9358b896e07
   sig of: Nothing
@@ -30,12 +30,13 @@ exports:
   Nonograms.tenByTen
   Nonograms.width
   Nonograms.Clue{Nonograms.Cont Nonograms.Seg Nonograms.getCont Nonograms.getSeg}
-  Nonograms.Coordinate
   Nonograms.Move
   Nonograms.Position
   Nonograms.Puzzle
   Nonograms.R
   Nonograms.Value
+  Nonograms.X
+  Nonograms.Y
 module dependencies: Logic.GameLogic
 package dependencies: base-4.8.2.0 ghc-prim-0.4.0.0
                       integer-gmp-1.0.0.0
@@ -184,20 +185,21 @@ ec522dba860d55216a99cc1e2b3d47ff
 bd77a1885219bbcb28685f22913118ce
   data Clue
     = Cont {getCont :: GHC.Types.Int} | Seg {getSeg :: [GHC.Types.Int]}
-36f337c82816d899f9f502f01fc2fa9e
-  type Coordinate = GHC.Types.Int
 66b5803141577dbb0a5af2806d65cfbe
   type Move = [Nonograms.Value]
-f9cfd32dd4a712e831e18872504cdb2c
-  type Position =
-    (Nonograms.Coordinate, Nonograms.Coordinate, Nonograms.Value)
-285a20c6602d189a244b43542ff3cb75
+ec5745f795e9623b8bdce72446727f6c
+  type Position = (Nonograms.X, Nonograms.Y, Nonograms.Value)
+05ccde569692264f856bed28a825ee68
   type Puzzle = [Nonograms.Position]
 3af2a42f40f59be5804ddafebb161814
   type R = GHC.Types.Bool
 ee324fdb8eff95aee3d2376deb2efa43
   type Value = GHC.Types.Bool
-21be9d38ee227c9da40f56fc161ad66a
+c5e28e50a768dd6206b6a4dfac22762a
+  type X = GHC.Types.Int
+fc69ce5ba4c10d0966deec47d3b74e05
+  type Y = GHC.Types.Int
+9e9480e90c10bb7e42d91505fb8fcc54
   clues :: [[Nonograms.Clue]]
   {- Strictness: m2,
      Unfolding: InlineRule (0, True, True) Nonograms.fiveByFive -}
@@ -210,14 +212,14 @@ ee324fdb8eff95aee3d2376deb2efa43
                       -> Logic.GameLogic.J Nonograms.R Nonograms.Move)
                    ww1
                    ww2 }) -}
-7d1e1c50985fbfea6cc7ef22dbc0400f
+ca70fdf83b769b32ea8d7ddb92108e5b
   fiveByFive :: [[Nonograms.Clue]]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ [Nonograms.Clue]
                    Nonograms.fiveByFive17
                    Nonograms.fiveByFive1) -}
-7753ad1d6ae5688c67164adbccca16ce
+ee38d17966bfe5a9bfd9e33f7d4e566a
   fiveByFive1 :: [[Nonograms.Clue]]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
@@ -277,7 +279,7 @@ f9539f40627600e7f7f6baed052ce6e8
                    @ Nonograms.Clue
                    Nonograms.fiveByFive24
                    Nonograms.fiveByFive20) -}
-17e28615f1b88abda22eb7ab73b9a979
+ab799154f93292b62ef26f360acf7576
   fiveByFive2 :: [Nonograms.Clue]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
@@ -323,35 +325,35 @@ ed1b3026da195255eaccfcca4e8b891d
                    @ GHC.Types.Int
                    Nonograms.fiveByFive11
                    (GHC.Types.[] @ GHC.Types.Int)) -}
-eaca78549476441d523837ca9e5f2638
+0a6879605a9b80dfd64b18c1a837fe37
   fiveByFive3 :: [Nonograms.Clue]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Nonograms.Clue
                    Nonograms.fiveByFive12
                    Nonograms.fiveByFive4) -}
-eb715e828b613be8fb7086c540697741
+555a128b47942e0b206bc144e53c94d7
   fiveByFive4 :: [Nonograms.Clue]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Nonograms.Clue
                    Nonograms.fiveByFive10
                    Nonograms.fiveByFive5) -}
-e1fb4dd3f32de6451604d64f8231cb91
+f19315a67649aae7a30116ef55115e4b
   fiveByFive5 :: [Nonograms.Clue]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Nonograms.Clue
                    Nonograms.fiveByFive8
                    Nonograms.fiveByFive6) -}
-00f61dcc6cf08e23d0dac58e10bd8acf
+a4810e79b617b69e5dcb6b26fe4d580a
   fiveByFive6 :: [Nonograms.Clue]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Nonograms.Clue
                    Nonograms.fiveByFive7
                    (GHC.Types.[] @ Nonograms.Clue)) -}
-81b34e76e44513303737dd61faec77b5
+39a11ddc9254ed6eac0ea96669285856
   fiveByFive7 :: Nonograms.Clue
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (Nonograms.Cont Nonograms.width) -}
@@ -362,14 +364,14 @@ ec1394fd62a917339912305a724e69d6
 d0b7fdd1ba7681fd2c1a195b25738ee8
   fiveByFive9 :: GHC.Types.Int
   {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 4) -}
-0cc272ec32e513327b11037c06fbbfd5
+15ea88d3138f7d016122ea7bccbfb504
   fiveByTen :: [[Nonograms.Clue]]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ [Nonograms.Clue]
                    Nonograms.fiveByTen22
                    Nonograms.fiveByTen1) -}
-ac2319f123ca3b832a568bc7ff165e97
+053e5f74035fa8443f5279bdedd832b9
   fiveByTen1 :: [[Nonograms.Clue]]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
@@ -415,18 +417,18 @@ ef6fb37a00828c22af7940825db0198c
                    @ GHC.Types.Int
                    Nonograms.fiveByFive23
                    (GHC.Types.[] @ GHC.Types.Int)) -}
-d1c37d61d5a362151419baedfeead74a
+c9cfca3090e0ab594ff2e7ce186b92cd
   fiveByTen16 :: Nonograms.Clue
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (Nonograms.Seg Nonograms.fiveByTen17) -}
-8416985175214e0ca474a0505bd425d0
+1e9ca7a23ade74d162172c4c95dc50b8
   fiveByTen17 :: [GHC.Types.Int]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ GHC.Types.Int
                    Nonograms.fiveByFive13
                    Nonograms.fiveByTen18) -}
-57111e0bea68fbbcfc5a3c9158e9f535
+f6174f7cf45c6f7daff18bcc2dac9978
   fiveByTen18 :: [GHC.Types.Int]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
@@ -437,7 +439,7 @@ d1c37d61d5a362151419baedfeead74a
   fiveByTen19 :: Nonograms.Clue
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (Nonograms.Seg Nonograms.fiveByTen20) -}
-92c0b6bafe32e26657da6a9c713de863
+93a89042daa1d26004623692eec10aea
   fiveByTen2 :: [Nonograms.Clue]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
@@ -458,49 +460,49 @@ e7f4e9465836ac57ee71ca338195e7f9
                    @ GHC.Types.Int
                    Nonograms.fiveByFive13
                    Nonograms.fiveByTen15) -}
-8f1647ecaf2377b1b5ff9df480b5d5c8
+d2bedd103e82a7176f266d3b0980361a
   fiveByTen22 :: [Nonograms.Clue]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Nonograms.Clue
                    Nonograms.fiveByFive8
                    Nonograms.fiveByTen23) -}
-53d974b5e1e9530c11458a533985f2a3
+990f049525d54d54839a3ffd1cbb0f56
   fiveByTen23 :: [Nonograms.Clue]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Nonograms.Clue
                    Nonograms.fiveByFive14
                    Nonograms.fiveByTen24) -}
-e0f8f168b8d88a561a4a97a16da0fd07
+2d6083425c5083e987dadd2ffea58a52
   fiveByTen24 :: [Nonograms.Clue]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Nonograms.Clue
                    Nonograms.fiveByFive14
                    Nonograms.fiveByTen25) -}
-1e215343bd497f8c6b45a0cc6d68deeb
+6c094fd9bb1168a168895572701d6a72
   fiveByTen25 :: [Nonograms.Clue]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Nonograms.Clue
                    Nonograms.fiveByFive12
                    Nonograms.fiveByTen26) -}
-74b2b30132e5e2773d1bd051db969a71
+5fc6a69334f16f3d8123472bafe67c3e
   fiveByTen26 :: [Nonograms.Clue]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Nonograms.Clue
                    Nonograms.fiveByTen34
                    Nonograms.fiveByTen27) -}
-24dbe138d67ecc61ce0430c2b3bed9f1
+9c6346bdafcca00d3c1dd51fbfdc8113
   fiveByTen27 :: [Nonograms.Clue]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Nonograms.Clue
                    Nonograms.fiveByTen33
                    Nonograms.fiveByTen28) -}
-fa5d5de5d63f7caa8f4dbd498b36b8f7
+0ed4b9cf63e7d19695c2ea11086f0f0d
   fiveByTen28 :: [Nonograms.Clue]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
@@ -514,7 +516,7 @@ c0d1b96c19707311c2bd3c7ea921e9a2
                    @ Nonograms.Clue
                    Nonograms.fiveByTen32
                    Nonograms.fiveByTen30) -}
-5607d3aeadaefe9a3080c2d6955439f6
+2a83e1b7245d57ff1ec2b6f3698d7d52
   fiveByTen3 :: [Nonograms.Clue]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
@@ -610,15 +612,15 @@ dfdd76481a9864cff52650f12c634fb7
 a6fb0ac7dce7d3acbc99a4677d25b645
   getSeg1 :: [GHC.Types.Int]
   {- Strictness: b -}
-d9a769db7205643ad4eb086f013013e7
-  height :: Nonograms.Coordinate
+8906ca7c67fc237dcd4c37e64082df4c
+  height :: Nonograms.Y
   {- Strictness: m, Unfolding: (Nonograms.width) -}
-58f6a574644af39d4b3e28a760bcd83d
+1aeaf9be0c460f8a7b4f905a27232877
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <L,U>,
      Unfolding: InlineRule (0, True, True)
                 Nonograms.main1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
-3bbd328b34506972684d728f686203b3
+ea4ed45ef54fdf287da8c5f26e98d542
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -634,17 +636,17 @@ d9a769db7205643ad4eb086f013013e7
                    Nonograms.main2
                    GHC.Types.True
                    ipv }) -}
-fb96bb50877f75c99f8d38c36abd185f
+1cf8c8afcf2cfeac09cd125e1a9c54fb
   main2 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackAppendCString#
                    "Solvable : "#
                    Nonograms.main3) -}
-2cac88a11930ebb0a12aae02e3337560
+127ae21c4fe6c6bbecd01c2cb581e43a
   main3 :: [GHC.Types.Char]
   {- Unfolding: (case Nonograms.optimalOutcome of wild {
                    GHC.Types.False -> GHC.Show.shows17
                    GHC.Types.True -> GHC.Show.shows16 }) -}
-41adb99ebf8acd96932768fe64c4910d
+99824c864f1ca5708203e8fec0c1fe11
   main4 :: GHC.Base.String
   {- Unfolding: (Nonograms.prettyPrint
                    Nonograms.fiveByFive
@@ -755,39 +757,38 @@ e728a4c402a1a44da43e9a109d9ab785
                 (\ @ a5 w :: [a5] w1 :: GHC.Types.Int ->
                  case w1 of ww { GHC.Types.I# ww1 ->
                  Nonograms.$wmaybeAt @ a5 w ww1 }) -}
-b90ed1d5805a2d305caa53308e554665
+33b1276f75926f14e7fc23b6bdfc223e
   movesToPuzzle :: [Nonograms.Move] -> Nonograms.Puzzle
   {- Arity: 1, Strictness: <L,1*U>,
      Unfolding: InlineRule (1, True, False)
                 (\ x1 :: [Nonograms.Move] ->
                  GHC.List.zip3
-                   @ Nonograms.Coordinate
-                   @ Nonograms.Coordinate
+                   @ Nonograms.X
+                   @ Nonograms.Y
                    @ Nonograms.Value
                    Nonograms.movesToPuzzle_xs
                    Nonograms.movesToPuzzle_ys
                    (Control.Parallel.Strategies.$sconcat @ GHC.Types.Bool x1)) -}
-474a6113ba0e2b2a0d33060e84e5e9b6
-  movesToPuzzle1 :: ([Nonograms.Coordinate], [Nonograms.Coordinate])
+ad48ca2a4ad5673deac0f0be12492976
+  movesToPuzzle1 :: ([Nonograms.X], [Nonograms.Y])
   {- Unfolding: (Nonograms.movesToPuzzle_go 1) -}
-65d866a46ff5298573c0c21ba77fa022
-  movesToPuzzle_go ::
-    GHC.Prim.Int# -> ([Nonograms.Coordinate], [Nonograms.Coordinate])
+2faf7bb9a42cc92a6ed2ae05782725ac
+  movesToPuzzle_go :: GHC.Prim.Int# -> ([Nonograms.X], [Nonograms.Y])
   {- Arity: 1, Strictness: <L,U> -}
-a9de4566258dba7576e1f4712797515d
-  movesToPuzzle_xs :: [Nonograms.Coordinate]
+ecb8f7bd7be33a14b8df7f40deaf6e0e
+  movesToPuzzle_xs :: [Nonograms.X]
   {- Unfolding: (case Nonograms.movesToPuzzle1 of wild { (,) xs ys ->
                  xs }) -}
-f541a6c74d50166ead8fa90b2858cdf6
-  movesToPuzzle_ys :: [Nonograms.Coordinate]
+9282e4fb41eca4067d7249b18b066f2f
+  movesToPuzzle_ys :: [Nonograms.Y]
   {- Unfolding: (case Nonograms.movesToPuzzle1 of wild { (,) xs ys ->
                  ys }) -}
-dd647e1b57f89700ed00f638f9370e9f
+6d4c5f8857f5d0f1bc6ef738570f5027
   optimalOutcome :: Nonograms.R
   {- Unfolding: (Nonograms.matchClues
                    Nonograms.fiveByFive
                    Nonograms.optimalPlay) -}
-ba80cd0a1c807f83f37b006f42377e37
+d0e45e14aaa00feb8df122fdefccb7aa
   optimalPlay :: [Nonograms.Move]
   {- Unfolding: (Nonograms.optimalPlay1 Nonograms.p) -}
 050d211294d1ccbbf87f957ab81d34d4
@@ -796,7 +797,7 @@ ba80cd0a1c807f83f37b006f42377e37
                    @ Nonograms.Move
                    @ Nonograms.R
                    Nonograms.epsilons) -}
-bd1fd07edb224654a9854204f734a479
+34fb03f78ec4b524154d0a1c4082912f
   p :: [Nonograms.Move] -> Nonograms.R
   {- Arity: 1,
      Unfolding: (Nonograms.matchClues Nonograms.fiveByFive) -}
@@ -804,14 +805,14 @@ bd1fd07edb224654a9854204f734a479
   prettyPrint ::
     [[Nonograms.Clue]] -> [Nonograms.Move] -> GHC.Base.String
   {- Arity: 2, Strictness: <S,1*U><L,U> -}
-8f4a3de3686ab26bd017d5a1e856887d
+29232e984582db8108a46f6573a82f37
   tenByTen :: [[Nonograms.Clue]]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ [Nonograms.Clue]
                    Nonograms.tenByTen25
                    Nonograms.tenByTen1) -}
-434f9634256f6e9177bbb61324be29a3
+78da937dad74379c227d5d6b3c450475
   tenByTen1 :: [[Nonograms.Clue]]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
@@ -872,7 +873,7 @@ a9254074b9f404058c263aa51ccd84b7
   tenByTen19 :: Nonograms.Clue
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (Nonograms.Seg Nonograms.tenByTen20) -}
-daac60ff91cb1a71c235a91e03afaf9a
+9776703b70ea8b5f4dde7cf3bce1ef79
   tenByTen2 :: [Nonograms.Clue]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
@@ -886,11 +887,11 @@ daac60ff91cb1a71c235a91e03afaf9a
                    @ GHC.Types.Int
                    Nonograms.fiveByFive11
                    Nonograms.fiveByTen15) -}
-7cf5ed3a3fa5c2499765349f1e5abe51
+66b6dc96aa7eb7022fc6de2dbe9d4806
   tenByTen21 :: Nonograms.Clue
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (Nonograms.Seg Nonograms.tenByTen22) -}
-9d08a02fa4cb67f1df8da946804d5d34
+7f33053b9ccc7b28889d3861b8e9f3e3
   tenByTen22 :: [GHC.Types.Int]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
@@ -908,14 +909,14 @@ e3dffcff3711503214b2a204c40faddc
                    @ GHC.Types.Int
                    Nonograms.tenByTen15
                    Nonograms.fiveByFive16) -}
-01044d910394f522bdf734223f00c268
+45d3ed81480437b5ba3887b2222bdfea
   tenByTen25 :: [Nonograms.Clue]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Nonograms.Clue
                    Nonograms.tenByTen44
                    Nonograms.tenByTen26) -}
-efc85a69746c3b7e05ee9eb23953e187
+8e3c941aaf94b51eb64334c24a3fed7c
   tenByTen26 :: [Nonograms.Clue]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
@@ -943,7 +944,7 @@ b39d349a1860fdbe1dd28b426887c270
                    @ Nonograms.Clue
                    Nonograms.tenByTen14
                    Nonograms.tenByTen30) -}
-70e8b6a30f01d4454c9ba78f38fc5518
+c8d1cf44979248aebfdb910cdb68caad
   tenByTen3 :: [Nonograms.Clue]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
@@ -1014,7 +1015,7 @@ daffc394c136ce76f8f76240f47fce5b
                    @ GHC.Types.Int
                    Nonograms.fiveByFive13
                    Nonograms.tenByTen40) -}
-e84f938a9f30a9e29a447134c3dd81e5
+69013ab80b25304b0ceacd0f7871a3d9
   tenByTen4 :: [Nonograms.Clue]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
@@ -1032,11 +1033,11 @@ e84f938a9f30a9e29a447134c3dd81e5
   tenByTen41 :: Nonograms.Clue
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (Nonograms.Seg Nonograms.tenByTen37) -}
-882f921524dbc36cff043a5b4e74e1b7
+5cd01fca1b506b92764f7f5a21c05077
   tenByTen42 :: Nonograms.Clue
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (Nonograms.Seg Nonograms.tenByTen43) -}
-9fc23b9b59a8013a47b053f4d8eae527
+f08421058f6eae87baf60d50fc03035c
   tenByTen43 :: [GHC.Types.Int]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
@@ -1054,28 +1055,28 @@ a6b8b2d2e757c5531e9715026e349da1
                    @ GHC.Types.Int
                    Nonograms.fiveByFive9
                    Nonograms.fiveByFive16) -}
-4f5a644eb6c45a79ac53ee0fa80f8734
+0add7c0de0c71ebbb08d3df850542bd9
   tenByTen5 :: [Nonograms.Clue]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Nonograms.Clue
                    Nonograms.tenByTen19
                    Nonograms.tenByTen6) -}
-705e09ec276a2e426a0c38e62135b85d
+510610e05d04b0ad466dc345ad63ea5e
   tenByTen6 :: [Nonograms.Clue]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Nonograms.Clue
                    Nonograms.tenByTen16
                    Nonograms.tenByTen7) -}
-d9384c19e336f2b9c6868de28ac1ac3a
+0a96748230396627665d703b2a6939d3
   tenByTen7 :: [Nonograms.Clue]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Nonograms.Clue
                    Nonograms.tenByTen14
                    Nonograms.tenByTen8) -}
-016c5e89a1c6f07d119bbf80993827b2
+f00d7f0515236702b089d70ac0aaa87d
   tenByTen8 :: [Nonograms.Clue]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
@@ -1089,8 +1090,8 @@ c9e7ec721bb1707103e53e32ee1a030b
                    @ Nonograms.Clue
                    Nonograms.fiveByFive12
                    Nonograms.tenByTen10) -}
-556c872cfa733a96459e0e62047bee65
-  width :: Nonograms.Coordinate
+8f5d67a40ee7d1b56082518d0d3ca2b6
+  width :: Nonograms.X
   {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 5) -}
 instance GHC.Classes.Eq [Nonograms.Clue] = Nonograms.$fEqClue
 instance GHC.Show.Show [Nonograms.Clue] = Nonograms.$fShowClue

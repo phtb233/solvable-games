@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2016-08-21 14:59:11.290498 UTC
+2016-08-24 17:08:31.16241 UTC
 
 interface main@main:Main 7103
-  interface hash: 6fb98f53c072a7d13fdd73adf3e797b6
-  ABI hash: 4c0e1c79fddc745e3ff5a6d1ae27a6c1
+  interface hash: 062cb489e658bf320e0c14599e7450b2
+  ABI hash: 1c51a63de61cd6a55e237f1f677f2865
   export-list hash: 530d6205723034b619d505c5a6ea4978
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 079e1e29e8c90d1d1c9c99175b4f0a90
@@ -39,12 +39,12 @@ import  -/  base-4.8.2.0:Control.Exception e9090e246fba030faecf7b81b3e8e320
 import  -/  base-4.8.2.0:Control.Monad 480c5067477275068c9b98be08410df9
 import  -/  base-4.8.2.0:Prelude 694dcaf039efe62df1c44834e2dbd2fb
 import  -/  ghc-prim-0.4.0.0:GHC.Types 6b27fb3fdbd0e3f0925a4496c66513bb
-import  -/  Buchstabensalat e33ec2e7a7a5d43aa75ca6f6a0efa816
-  exports: 3b90d5110a0d7b9e676387dc10025c62
-import  -/  ConnectN c4e9cd9eb630caf1f7947359c077e89e
-  exports: 145f91ddd8079978bb5c605680ad2170
-import  -/  FoxGooseBeans 6a36a40e2566276774c65376d68a0743
-  exports: d1e4775ff6c9de9dcaf05b662a505f2d
+import  -/  Buchstabensalat 594e9acdb019eb4d0573de8082ade06f
+  exports: 029bf765254fcce26abb3c734a80c3fe
+import  -/  ConnectN ff448b6a6a5cc1877637a18dbc6976c7
+  exports: 08de2402677dbcd8948970f0b72e10ae
+import  -/  FoxGooseBeans 9876752e60ffb14b51713afbfc9d73d5
+  exports: bbee0c38f0f849db6b2b5f02183c6d01
 import  -/  Futoshiki 8e5a682e848ba6c416fe7eed2ff07004
   exports: 1bb2b32e3994a1c059da388bb01caadf
 import  -/  InshiNoHeya bf436990ad763bcaf2cc84e69c13c544
@@ -53,33 +53,37 @@ import  -/  Logic.GameLogic 26d44f799309be9333aa831cc195f912
   exports: 02a96d8251ab1656b811a49d270bd213
 import  -/  NQueens 8270c3d2e61e8e682a820fb72fdabc47
   exports: 0be0056c1da6aabb08d309ca3c264d99
-import  -/  NimPencils fd35df9c9baa28bed2f0a243e32e8f6e
-  exports: 932aa76cffc7091865d82e5170593dac
-import  -/  Nonograms 3e54d7e151d8fbe6795ee01c28d477d9
-  exports: 005e894c1ad50b75379ff4a1245ba0ee
+import  -/  NimPencils 0ca447b5054b7e4777f3bb4a8003fbd7
+  exports: 4ecc3746044ce11b5935a509bb4918ae
+import  -/  Nonograms fc62f40074a3d67cc30f197ae5f9ed79
+  exports: 5dbf8b51a6ee2883bf99264adc1f0b94
 import  -/  ParSudoku.Sudoku4 4b9ea4dca8d686f7ba3c41e124b6ef14
   exports: da6291cc7e06d14c14ca62a135feb0d3
-import  -/  ParSudoku.Sudoku6 f8ce2ef4d4a34e04ee03a22236d0c83c
+import  -/  ParSudoku.Sudoku6 1de5e27c9b443bcf817f7677c84e9122
   exports: ab2ca4c9c24025747ad6338211298292
+  main 15077d44406d52acc8aa8f1a7773d60a
 import  -/  Sudoku 6fb5b292516e8a19c7affb6dd85575cb
   exports: 33b6b05ee100b44be4fd1070b867800b
-  main a38dbd23211bfa3f7bd2139101bb771e
 import  -/  TicTacToe 7dc5fdb758e267c75bd03f76d8551315
   exports: 4abbe1b851f7c15fb3ea4a7fd2b3bdca
 import  -/  random-1.1@rando_9Kgekc9yEaLHLNUuw6paWL:System.Random 103ad55b56caf6eb812c579b8e1813b0
-fbb1185fa647611cc08da21e8aad641f
+26580f93f7ec3ab27ae7a787339e8f48
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <L,U>,
      Unfolding: InlineRule (0, True, True)
-                Sudoku.main1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
-7e2becea0994538037622e7f5c5c2327
+                ParSudoku.Sudoku6.main1
+                  `cast`
+                (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
+db90ae92fd5b72d6d5431f86f4a5480d
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
   {- Arity: 1,
      Unfolding: (GHC.TopHandler.runMainIO1
                    @ ()
-                   Sudoku.main1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R))) -}
+                   ParSudoku.Sudoku6.main1
+                     `cast`
+                   (Sym (GHC.Types.NTCo:IO[0] <()>_R))) -}
 vectorised variables:
 vectorised tycons:
 vectorised reused tycons:

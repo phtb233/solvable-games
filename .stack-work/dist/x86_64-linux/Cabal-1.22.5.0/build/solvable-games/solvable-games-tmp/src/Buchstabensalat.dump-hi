@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2016-08-20 12:39:30.161525 UTC
+2016-08-24 17:04:45.198751 UTC
 
 interface main@main:Buchstabensalat 7103
-  interface hash: e5eb5c4dc803f45b4e7537b511f63bbf
-  ABI hash: e33ec2e7a7a5d43aa75ca6f6a0efa816
-  export-list hash: 3b90d5110a0d7b9e676387dc10025c62
+  interface hash: a78802d7b613af69d4b7b6c58af32a06
+  ABI hash: 594e9acdb019eb4d0573de8082ade06f
+  export-list hash: 029bf765254fcce26abb3c734a80c3fe
   orphan hash: f85ccdf0634d4a3e45bfa2a91971f6d6
   flag hash: 00e643ad7ce35edfdec2c9358b896e07
   sig of: Nothing
@@ -26,7 +26,6 @@ exports:
   Buchstabensalat.start
   Buchstabensalat.valid
   Buchstabensalat.width
-  Buchstabensalat.Coordinate
   Buchstabensalat.Move
   Buchstabensalat.Position
   Buchstabensalat.Puzzle
@@ -165,43 +164,38 @@ f770f83902d8b449e767264ba08f9b89
 26be3dcd24b511a89a6b70710812c831
   $wxs1 :: GHC.Prim.Int# -> [GHC.Types.Char]
   {- Arity: 1, Strictness: <S,1*U>, Inline: [0] -}
-777c32e1d0df35f20c5ad96e6bcacf8f
-  type Coordinate = GHC.Types.Int
 787c9504a390acd70a402c506ad34e98
   type Move = [Buchstabensalat.Value]
-9212f0b95fbcbdaca5222547d4b6bf50
+ac46fa3aa1e142a1efb9f4fb4c155c68
   type Position =
-    (Buchstabensalat.Coordinate,
-     Buchstabensalat.Coordinate,
-     GHC.Base.Maybe GHC.Types.Char)
-82964e22ad10a3afb7f65f0e4fbcfe60
+    (GHC.Types.Int, GHC.Types.Int, GHC.Base.Maybe GHC.Types.Char)
+a6f7183ff67d59d5b6309adb42da527d
   type Puzzle = [Buchstabensalat.Position]
 5518e264f8bae043011bf87867e2515c
   type R = GHC.Types.Bool
 a38c5bfa9601b801c361600a5945cd36
   type Value = GHC.Base.Maybe GHC.Types.Char
-c2d1db8e6463bbbdc4efa41b79609636
+dcf941365efa81fc98f7cb5fcd22841d
   checkPuzzle :: Buchstabensalat.Puzzle -> GHC.Types.Bool
   {- Arity: 1, Strictness: <L,U>,
      Unfolding: (\ xs :: Buchstabensalat.Puzzle ->
                  letrec {
-                   go2 :: [Buchstabensalat.Coordinate]
-                          -> [[GHC.Base.Maybe GHC.Types.Char]]
+                   go2 :: [GHC.Types.Int] -> [[GHC.Base.Maybe GHC.Types.Char]]
                      {- Arity: 1, Strictness: <S,1*U> -}
-                   = \ ds :: [Buchstabensalat.Coordinate] ->
+                   = \ ds :: [GHC.Types.Int] ->
                      case ds of wild {
                        [] -> GHC.Types.[] @ [GHC.Base.Maybe GHC.Types.Char]
                        : y ys
                        -> GHC.Types.:
                             @ [GHC.Base.Maybe GHC.Types.Char]
                             (letrec {
-                               go3 :: [(Buchstabensalat.Coordinate,
-                                        Buchstabensalat.Coordinate,
+                               go3 :: [(GHC.Types.Int,
+                                        GHC.Types.Int,
                                         GHC.Base.Maybe GHC.Types.Char)]
                                       -> [GHC.Base.Maybe GHC.Types.Char]
                                  {- Arity: 1, Strictness: <S,1*U> -}
-                               = \ ds1 :: [(Buchstabensalat.Coordinate,
-                                            Buchstabensalat.Coordinate,
+                               = \ ds1 :: [(GHC.Types.Int,
+                                            GHC.Types.Int,
                                             GHC.Base.Maybe GHC.Types.Char)] ->
                                  case ds1 of wild1 {
                                    [] -> GHC.Types.[] @ (GHC.Base.Maybe GHC.Types.Char)
@@ -232,23 +226,22 @@ c2d1db8e6463bbbdc4efa41b79609636
                    GHC.Types.False -> GHC.Types.False
                    GHC.Types.True
                    -> letrec {
-                        go3 :: [Buchstabensalat.Coordinate]
-                               -> [[GHC.Base.Maybe GHC.Types.Char]]
+                        go3 :: [GHC.Types.Int] -> [[GHC.Base.Maybe GHC.Types.Char]]
                           {- Arity: 1, Strictness: <S,1*U> -}
-                        = \ ds :: [Buchstabensalat.Coordinate] ->
+                        = \ ds :: [GHC.Types.Int] ->
                           case ds of wild1 {
                             [] -> GHC.Types.[] @ [GHC.Base.Maybe GHC.Types.Char]
                             : y ys
                             -> GHC.Types.:
                                  @ [GHC.Base.Maybe GHC.Types.Char]
                                  (letrec {
-                                    go4 :: [(Buchstabensalat.Coordinate,
-                                             Buchstabensalat.Coordinate,
+                                    go4 :: [(GHC.Types.Int,
+                                             GHC.Types.Int,
                                              GHC.Base.Maybe GHC.Types.Char)]
                                            -> [GHC.Base.Maybe GHC.Types.Char]
                                       {- Arity: 1, Strictness: <S,1*U> -}
-                                    = \ ds1 :: [(Buchstabensalat.Coordinate,
-                                                 Buchstabensalat.Coordinate,
+                                    = \ ds1 :: [(GHC.Types.Int,
+                                                 GHC.Types.Int,
                                                  GHC.Base.Maybe GHC.Types.Char)] ->
                                       case ds1 of wild2 {
                                         [] -> GHC.Types.[] @ (GHC.Base.Maybe GHC.Types.Char)
@@ -442,12 +435,12 @@ d3580a880eb3abb7fbd36e688c9344ce
 4bc02b88b8f25d54971837de40405695
   height :: GHC.Types.Int
   {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 4) -}
-a7aaa55f2dc5f8e2bc28828dc501d59f
+d19393cbca6fba6baa6ae0f5966a9451
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <L,U>,
      Unfolding: InlineRule (0, True, True)
                 Buchstabensalat.main1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
-84054ddfa8b36852d707ca9acd407743
+1b4b5f82cb09151fa0104b8083aa32f0
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -586,36 +579,36 @@ a1e8e08c343df390f17adab0de66c110
 020f42ca68b40fed5118f58e80e467a7
   matchClue_go6 :: [GHC.Types.Bool] -> Data.Monoid.All
   {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
-6dae73883368979e82ece73adea633f2
+f8730dfc4fef1663c6fce132e3ef5c16
   movesToPuzzle :: [Buchstabensalat.Move] -> Buchstabensalat.Puzzle
   {- Arity: 1, Strictness: <L,1*U>,
      Unfolding: InlineRule (1, True, False)
                 (\ x2 :: [Buchstabensalat.Move] ->
                  GHC.List.zip3
-                   @ Buchstabensalat.Coordinate
-                   @ Buchstabensalat.Coordinate
+                   @ GHC.Types.Int
+                   @ GHC.Types.Int
                    @ (GHC.Base.Maybe GHC.Types.Char)
                    Buchstabensalat.movesToPuzzle_xs
                    Buchstabensalat.movesToPuzzle_ys
                    (Control.Parallel.Strategies.$sconcat
                       @ (GHC.Base.Maybe GHC.Types.Char)
                       x2)) -}
-88d892dbccb6b26ce2b9e4eceb3ef6d4
-  movesToPuzzle1 :: ([Buchstabensalat.Coordinate], [GHC.Types.Int])
+15a24d132421f3559e375a4a5d9a7103
+  movesToPuzzle1 :: ([GHC.Types.Int], [GHC.Types.Int])
   {- Unfolding: (Buchstabensalat.movesToPuzzle_go 1) -}
-392ec7d2b819867df8c593efddb07f64
+dec338f4a8982243b65cc53c2e11efee
   movesToPuzzle_go ::
-    GHC.Prim.Int# -> ([Buchstabensalat.Coordinate], [GHC.Types.Int])
+    GHC.Prim.Int# -> ([GHC.Types.Int], [GHC.Types.Int])
   {- Arity: 1, Strictness: <L,U> -}
-19f8daacaa4d2967829ad977e51f5cb3
-  movesToPuzzle_xs :: [Buchstabensalat.Coordinate]
+2dab2c584c969f294eca002aa3ca12d7
+  movesToPuzzle_xs :: [GHC.Types.Int]
   {- Unfolding: (case Buchstabensalat.movesToPuzzle1 of wild { (,) xs ys ->
                  xs }) -}
-9add1bae48ca227390f896c4497c3de3
+2b9c40234bd4acadf755c8504ef4c9eb
   movesToPuzzle_ys :: [GHC.Types.Int]
   {- Unfolding: (case Buchstabensalat.movesToPuzzle1 of wild { (,) xs ys ->
                  ys }) -}
-4c390ec19dd5afd7a7b3ff7123c74561
+b1cc7329f8d61c4116652681df33034f
   optimalPlay :: [Buchstabensalat.Move]
   {- Unfolding: (Buchstabensalat.optimalPlay1 Buchstabensalat.p) -}
 a31a8c76a60ca17a1c1b215550e93dbb
@@ -625,7 +618,7 @@ a31a8c76a60ca17a1c1b215550e93dbb
                    @ Buchstabensalat.Move
                    @ Buchstabensalat.R
                    Buchstabensalat.epsilons) -}
-69b77e4ebf24dd40d3b44376b2314885
+ad38a8635c15149d47740889469745bc
   p :: [Buchstabensalat.Move] -> Buchstabensalat.R
   {- Arity: 1, Strictness: <L,U>,
      Unfolding: (\ ms :: [Buchstabensalat.Move] ->
@@ -790,13 +783,13 @@ e44eba9a2713da90c8b7b71649619818
 dacb998fbe105765400097dc5f6c3351
   start :: GHC.Types.Char
   {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.C# 'A') -}
-783e5dc779bb817dfebc8f6ea97533ae
+3e97b4ae68edf18210641612d937fafa
   valid :: Buchstabensalat.Puzzle -> Buchstabensalat.R
   {- Arity: 1, Strictness: <L,U>,
      Unfolding: InlineRule (0, True, True)
                 Buchstabensalat.checkPuzzle -}
-89dab08bbd9d6cc6244959e18f3ab7b3
-  width :: Buchstabensalat.Coordinate
+1fb9bffde5688a4fb9fb5722ce1b5523
+  width :: GHC.Types.Int
   {- Strictness: m, Unfolding: (Buchstabensalat.height) -}
 "SPEC/Buchstabensalat $fEqMaybe @ Char" [ALWAYS] forall $dEq :: GHC.Classes.Eq
                                                                   GHC.Types.Char

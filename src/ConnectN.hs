@@ -8,11 +8,19 @@ import Control.Parallel.Strategies
 import Control.DeepSeq (force, deepseq, NFData)
 import Control.Exception (evaluate)
 
-type R = Int
-type Move = Int  
-type Coordinate = Int
-type Position = (Coordinate, Coordinate, Player)
-type Board    = [Position]
+{-
+- Supports an arbitrarily sized grid. Typical Connect 4 settings are:
+- width         = 7
+- height        = 6
+- winningAmount = 4
+-}
+
+type R          = Int
+type Move       = Int  
+type X          = Int
+type Y          = Int
+type Position   = (X, Y, Player)
+type Board      = [Position]
 
 width, height, winningAmount :: Int
 height =        3
@@ -35,11 +43,12 @@ movesToBoard :: [Move] -> Board
 movesToBoard moves = foldl func [] pandm 
     where pandm = zip players moves 
           func b (p,m) | m > width || m < 1   = error "Move outta bounds."
-                       | wins X b || wins O b = b
+                       | wins X b  || wins O b = b
                        | otherwise            = takeTurn p m b
           players :: [Player] -- Alternating turns of X and O 
           players = X : O : players
 
+-- Find the outcome from a board state.
 value :: Board -> R
 value b 
    | wins X b  = 1
@@ -47,28 +56,28 @@ value b
    | otherwise = 0
 
 -- Check the board vertically, horizontally and diagonally to see if the 
--- player has matched 3 in a row.
+-- player has won.
 wins :: Player -> Board -> Bool
 wins p b = or v || or h || or d
-    -- Very verbose and clumsy check for a match of 3 in a row vertically,
+    -- Very verbose and clumsy check for a match vertically,
     -- horizontally, and diagonally.
     where v, h :: [Bool]
           winningPlay   = replicate winningAmount p
           -- Get all this player's moves.
           actualPlays = filter (\(_,_,p') -> p' == p) b
           v = do  
-              -- Check each column for a vertical match of 3 in a row. 
+              -- Check each column for a vertical match. 
               x <- [1..width]
               let section = map (\(_,_,p') -> p') $ 
                     filter (\(x',_,_) -> x' == x) b
               return $ GL.contained winningPlay section
           h = do
-              -- Check each row for a horizontal match of 3 in a row.
+              -- Check each row for a horizontal match.
               y <- [1..height]
               let section = filter (\(_,y',_) -> y' == y) actualPlays
               return $ length section == winningAmount
               -- Combine the result of checking the left and right
-              -- for diagonal matches of 3 in a row.
+              -- for diagonal matches.
           d :: [Bool]
           -- Check both diagonals for matches. ld = descending to the left
           -- corner (/), rd = descending to the right (\)
@@ -82,6 +91,8 @@ wins p b = or v || or h || or d
                 return $ GL.contained winningPlay ld ||
                          GL.contained winningPlay rd
 
+-- Attempt at a more efficient check for winning game boards. Checks the
+-- neighbours of the most recently played pieces.
 {-
  -wins :: Player -> Board -> Position -> Bool
  -wins p board play = any (>= pred winningAmount) 
@@ -124,6 +135,7 @@ parEpsilons preceding = take (length poolOfMoves) all'
           poolOfMoves = sort ((concat $ replicate height [1..width]) 
                             \\ preceding)
 
+-- Find an optimal play prefixed with a set of moves.
 parOptimalPlay :: [Move] -> [Move]
 parOptimalPlay moves = 
     let result = GL.bigotimes (parEpsilons moves) (pPar moves)
@@ -136,6 +148,7 @@ epsilons = take (length poolOfMoves) all
           epsilonO h = GL.arginf (poolOfMoves `GL.setMinus` h)
           poolOfMoves = sort $ concat $ replicate height [1..width]
 
+-- Uses argmax functions to parallelize the evaluation of optimal moves.
 epsilons' :: [[Move] -> GL.J R Move]
 epsilons' = take (length poolOfMoves) all'
     where all   = epsilonX : epsilonO : all
@@ -156,22 +169,22 @@ optimalOutcome = p optimalPlay
 prettyPrint :: Board -> String
 prettyPrint b =
         -- Populate a list of filled/empty spaces for the connect 4 grid.
-    let rows :: [[(Coordinate, Coordinate, Maybe Player)]]
+    let rows :: [[(X, Y, Maybe Player)]]
         rows = do 
                 y <- [1..height]
                 -- A list of empty spaces we'll combine with the filled ones
-                let emptySpaces :: [(Coordinate, Coordinate, Maybe a)]
+                let emptySpaces :: [(X, Y, Maybe a)]
                     emptySpaces = zip3 [1..width] (repeat y) (repeat Nothing)
                 return $ sortBy order $ flip (unionBy isBlank) emptySpaces $ 
                     map (\(a,b,c) -> (a,b,Just c)) $
                     filter (\(_,y',_) -> y' == y) b
         -- If second tuple contains Nothing, return True.
-        isBlank :: (Coordinate, Coordinate, Maybe Player) ->
-                    (Coordinate, Coordinate, Maybe Player) -> Bool
+        isBlank ::  (X, Y, Maybe Player) ->
+                    (X, Y, Maybe Player) -> Bool
         isBlank (x,y,m) (x',y',m') = x == x' && y == y' && isNothing m'
         -- Organize rows by their x coordinate.
-        order :: (Coordinate, Coordinate, Maybe Player) ->
-                  (Coordinate, Coordinate, Maybe Player) -> Ordering
+        order ::  (X, Y, Maybe Player) ->
+                  (X, Y, Maybe Player) -> Ordering
         order (x,_,_) (x',_,_) = compare x x'
         line :: String
         line = "\n" ++ concat ( replicate width " ―――") ++ "\n"
@@ -179,8 +192,10 @@ prettyPrint b =
         intercalate line $ map ( (\s -> "  " ++ s) . intercalate " | " . 
             map (\(_,_,p) -> maybe " " show p)) (reverse rows)
 
-foo :: IO ()
-foo = do 
+-- Determines optimal play by considering possible initial moves in
+-- parallel.
+parShowOptimalPlay :: IO ()
+parShowOptimalPlay = do 
     let allPossibleStarts = (map (:[]) [1..width])
         results = parMap rdeepseq parOptimalPlay allPossibleStarts
         {-results = map parOptimalPlay allPossibleStarts-}
@@ -193,12 +208,13 @@ foo = do
             " on a " ++ show width ++ "x" ++ show height ++ " grid;"
     putStrLn $ "X " ++ message ++ "s : " ++ show optimalMoves
 
-fizz :: IO ()
-fizz = print optimalPlay
+-- Determines optimal play sequentially.
+showOptimalPlay :: IO ()
+showOptimalPlay = print optimalPlay
 
-main = fizz
+main = parOptimalPlay
 
--- Generic argmax with parallel map (P. Oliva)
+-- Generic argmax with parallel map, offered by supervisor (P. Oliva).
 argmax :: (NFData a, Ord a) => [a] -> (a -> Int) -> [a]
 argmax [] _ = error "argmax : Empty set passed to argmax"
 argmax d p = [ x | (v, x) <- graph, v == (fst . last $ graph) ]

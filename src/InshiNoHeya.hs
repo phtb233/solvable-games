@@ -97,5 +97,3 @@ epsilons = replicate size epsilon
          possibilities = sort $ permutations [1..size]
 
 main = putStrLn $ prettyPrint optimalPlay
-
--- Display puzzles in a human readable format.

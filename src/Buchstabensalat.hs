@@ -28,12 +28,11 @@ import Control.Monad (guard)
                  C 
  -}
 
-type Value = Maybe Char
-type Move = [Value]
-type R = Bool
-type Coordinate = Int
-type Position = (Coordinate, Coordinate, Maybe Char)
-type Puzzle  = [Position]
+type Value    = Maybe Char
+type Move     = [Value]
+type R        = Bool
+type Position = (Int, Int, Maybe Char)
+type Puzzle   = [Position]
 
 width = 4
 height = 4
@@ -52,14 +51,13 @@ checkPuzzle :: Puzzle -> Bool
 checkPuzzle xs =
         all (== allChars) (map sort rows) &&
         all (== allChars) (map sort cols)
-    where size = 4 -- 4x4 Grid 
-          rows, cols :: [[Value]]
+    where rows, cols :: [[Value]]
           rows = do 
-              y <- [1..size]
+              y <- [1..height]
               let ls = filter (\(_,y',_) -> y' == y) xs
               return $ map (\(_,_,c) -> c) ls
           cols = do -- Get every column in the puzzle 
-              x <- [1..size]
+              x <- [1..width]
               let ls = filter (\(x',_,_) -> x' == x) xs
               return $ map (\(_,_,c) -> c) ls
           allChars = (Nothing:) $ map Just [start..finish]
@@ -77,17 +75,17 @@ matchClue :: [Move] -> [Move] -> Bool
 matchClue [l,r,t,b] moves = and left && and right && and top && and bottom
     where left, right, top, bottom :: [Bool]
           rows, cols :: [String]
-          l',r',t',b' :: [(Maybe Char, Char)] -- (clue, move) 
-          -- Whether clues and moves match.
-          check :: [(Maybe Char, Char)] -> [Bool] 
           -- Values in each row, from left to right. The head == left side.
           rows = transpose $ map catMaybes moves
           -- Values in each column. 
           cols = transpose $ map catMaybes $ transpose moves
+          l',r',t',b' :: [(Maybe Char, Char)] -- (clue, move) 
           l'   = zip l $ head rows
           r'   = zip r $ last rows
           t'   = zip t $ head cols
           b'   = zip b $ last cols
+          -- Whether clues and moves match.
+          check :: [(Maybe Char, Char)] -> [Bool] 
           check ls = do
                  (clue, value) <- ls
                  guard (isJust clue) -- If there's no clue, stop. 

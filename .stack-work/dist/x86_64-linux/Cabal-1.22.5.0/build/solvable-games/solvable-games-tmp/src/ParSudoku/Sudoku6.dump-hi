@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2016-08-17 17:35:23.598607 UTC
+2016-08-24 17:08:30.95897 UTC
 
 interface main@main:ParSudoku.Sudoku6 7103
-  interface hash: 940e9c85717edce2cdffcca0648271ed
-  ABI hash: f8ce2ef4d4a34e04ee03a22236d0c83c
+  interface hash: 4f6d403e33f7fc6a291aa07636cb63b9
+  ABI hash: 1de5e27c9b443bcf817f7677c84e9122
   export-list hash: ab2ca4c9c24025747ad6338211298292
   orphan hash: 14f4ca5cb81c03a6a720611183d7efb1
   flag hash: cb8859aa7bb46caeb670a3e9ec6ccfae
@@ -117,25 +117,103 @@ d9dba081c4a3cf82d297a43bfcdcbbb3
                       -> Logic.GameLogic.J ParSudoku.Sudoku6.R ParSudoku.Sudoku6.Move)
                    ww1
                    ww2 }) -}
-0d20ab6f9fe989c684b852db2c2a22b5
+15077d44406d52acc8aa8f1a7773d60a
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <L,U>,
      Unfolding: InlineRule (0, True, True)
                 ParSudoku.Sudoku6.main1
                   `cast`
                 (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
-9b2e8cbedf653587264061b63eeaf24d
+f96b162bfbf09944c16d961bfef40154
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
   {- Arity: 1, Strictness: <L,U>,
-     Unfolding: InlineRule (1, True, False)
-                (\ eta :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
-                 GHC.IO.Handle.Text.hPutStr2
-                   GHC.IO.Handle.FD.stdout
-                   (ParSudoku.Sudoku6.prettyPrint ParSudoku.Sudoku6.optimalPlay)
+     Unfolding: (\ s :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 case ParSudoku.Sudoku6.checkPuzzle
+                        ParSudoku.Sudoku6.main7 of wild {
+                   GHC.Types.False
+                   -> case GHC.IO.Handle.Text.hPutStr2
+                             GHC.IO.Handle.FD.stdout
+                             ParSudoku.Sudoku6.main6
+                             GHC.Types.True
+                             s of ds1 { (#,#) ipv ipv1 ->
+                      (# ipv, GHC.Tuple.() #) }
                    GHC.Types.True
-                   eta) -}
+                   -> case ParSudoku.Sudoku6.matchClue
+                             ParSudoku.Sudoku6.main_results of wild1 {
+                        GHC.Types.False
+                        -> case GHC.IO.Handle.Text.hPutStr2
+                                  GHC.IO.Handle.FD.stdout
+                                  ParSudoku.Sudoku6.main6
+                                  GHC.Types.True
+                                  s of ds1 { (#,#) ipv ipv1 ->
+                           (# ipv, GHC.Tuple.() #) }
+                        GHC.Types.True
+                        -> case GHC.IO.Handle.Text.hPutStr2
+                                  GHC.IO.Handle.FD.stdout
+                                  ParSudoku.Sudoku6.main2
+                                  GHC.Types.True
+                                  s of ds1 { (#,#) ipv ipv1 ->
+                           (# ipv, GHC.Tuple.() #) } } }) -}
+4da58c3025fb2bc9ffe9da9b966ac938
+  main2 :: GHC.Base.String
+  {- Unfolding: (ParSudoku.Sudoku6.prettyPrint
+                   ParSudoku.Sudoku6.main_results) -}
+4cbcec0fa19420679234bb5c69283aeb
+  main3 :: [[ParSudoku.Sudoku6.Move]]
+  {- Unfolding: (ParSudoku.Sudoku6.main_go
+                   ParSudoku.Sudoku6.main4) -}
+cf0a47f089e9fff8177c1a121d8bc73d
+  main4 :: [[ParSudoku.Sudoku6.Coordinate]]
+  {- Unfolding: (GHC.Types.:
+                   @ [ParSudoku.Sudoku6.Coordinate]
+                   ParSudoku.Sudoku6.main_xs0
+                   ParSudoku.Sudoku6.main5) -}
+1b856cbc3e36dfc06f8faa26522b18b3
+  main5 :: [[ParSudoku.Sudoku6.Coordinate]]
+  {- Unfolding: (Data.OldList.permutations1
+                   @ ParSudoku.Sudoku6.Coordinate
+                   ParSudoku.Sudoku6.main_xs0
+                   (GHC.Types.[] @ ParSudoku.Sudoku6.Coordinate)) -}
+b2ffa758eb0c72fa8375fd8f9c0e1c29
+  main6 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   "Couldn't solve this puzzle."#) -}
+d54eec0ae5b53e1ab1481ae537116c86
+  main7 :: ParSudoku.Sudoku6.Puzzle
+  {- Unfolding: (GHC.List.zip3
+                   @ ParSudoku.Sudoku6.Coordinate
+                   @ ParSudoku.Sudoku6.Coordinate
+                   @ ParSudoku.Sudoku6.Value
+                   ParSudoku.Sudoku6.movesToPuzzle_xs
+                   ParSudoku.Sudoku6.movesToPuzzle_ys
+                   (Control.Parallel.Strategies.$sconcat
+                      @ GHC.Types.Int
+                      ParSudoku.Sudoku6.main_results)) -}
+0ea8bd5d9c59871c38523899f7452b96
+  main_a4 ::
+    [[ParSudoku.Sudoku6.Move]]
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          [[ParSudoku.Sudoku6.Move]] #)
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U> -}
+06d88ddb0227001fe2c5fd56dcccebc3
+  main_go ::
+    [[ParSudoku.Sudoku6.Coordinate]] -> [[ParSudoku.Sudoku6.Move]]
+  {- Arity: 1, Strictness: <S,1*U> -}
+923c035a82f0bd16f0489538da848c6d
+  main_results :: [ParSudoku.Sudoku6.Move]
+  {- Unfolding: (case ParSudoku.Sudoku6.main_a4
+                        ParSudoku.Sudoku6.main3
+                        GHC.Prim.realWorld# of ds { (#,#) ipv ipv1 ->
+                 Logic.GameLogic.find
+                   @ [ParSudoku.Sudoku6.Move]
+                   ipv1
+                   ParSudoku.Sudoku6.p }) -}
+ef9a110ee8b2cef3a43337801cd94c8f
+  main_xs0 :: [ParSudoku.Sudoku6.Coordinate]
+  {- Unfolding: (GHC.Enum.eftInt 1 6) -}
 e062978bde918fac584222e4c871cc72
   matchClue :: [ParSudoku.Sudoku6.Move] -> GHC.Types.Bool
   {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
@@ -204,7 +282,7 @@ d57df0c1842b525c690b5a8ea546bb28
                         (ParSudoku.Sudoku6.movesToPuzzle ms') of wild {
                    GHC.Types.False -> GHC.Types.False
                    GHC.Types.True -> ParSudoku.Sudoku6.matchClue ms' }) -}
-12702b969593bbc70831ac548453083d
+ad2954d36c2e865856524e92143c060e
   parEpsilons ::
     [ParSudoku.Sudoku6.Move]
     -> [[ParSudoku.Sudoku6.Move]
@@ -231,7 +309,7 @@ d57df0c1842b525c690b5a8ea546bb28
                         = Data.OldList.\\
                             @ [ParSudoku.Sudoku6.Coordinate]
                             GHC.Classes.$fEq[]_$s$fEq[]
-                            ParSudoku.Sudoku6.parEpsilons1
+                            ParSudoku.Sudoku6.main4
                             preceding
                       } in
                       let {
@@ -257,7 +335,7 @@ d57df0c1842b525c690b5a8ea546bb28
                                h)
                       } in
                       let {
-                        lvl8 :: [[ParSudoku.Sudoku6.Move]
+                        lvl7 :: [[ParSudoku.Sudoku6.Move]
                                  -> Logic.GameLogic.J ParSudoku.Sudoku6.R ParSudoku.Sudoku6.Move]
                         = GHC.Types.:
                             @ ([ParSudoku.Sudoku6.Move]
@@ -281,25 +359,10 @@ d57df0c1842b525c690b5a8ea546bb28
                                     -> Logic.GameLogic.J ParSudoku.Sudoku6.R ParSudoku.Sudoku6.Move)
                                  x2
                                  ($wxs2 (GHC.Prim.-# ds1 1))
-                            1 -> lvl8 }
+                            1 -> lvl7 }
                       } in
                       $wxs2 y } }) -}
-91bce3d46643b5765dbb57c7876bec69
-  parEpsilons1 :: [[ParSudoku.Sudoku6.Coordinate]]
-  {- Unfolding: (GHC.Types.:
-                   @ [ParSudoku.Sudoku6.Coordinate]
-                   ParSudoku.Sudoku6.parEpsilons_xs0
-                   ParSudoku.Sudoku6.parEpsilons2) -}
-d7ac2901e45778f16b656f3cc1daf96d
-  parEpsilons2 :: [[ParSudoku.Sudoku6.Coordinate]]
-  {- Unfolding: (Data.OldList.permutations1
-                   @ ParSudoku.Sudoku6.Coordinate
-                   ParSudoku.Sudoku6.parEpsilons_xs0
-                   (GHC.Types.[] @ ParSudoku.Sudoku6.Coordinate)) -}
-520f99538a37c9ff88e568a48041c30e
-  parEpsilons_xs0 :: [ParSudoku.Sudoku6.Coordinate]
-  {- Unfolding: (GHC.Enum.eftInt 1 6) -}
-17d051642bdfab7605c8cbe3dd9a8b52
+a14074275c5e6634e952d39e7d23c8c0
   parOptimalPlay ::
     [ParSudoku.Sudoku6.Move] -> [ParSudoku.Sudoku6.Move]
   {- Arity: 1, Strictness: <S,U>,

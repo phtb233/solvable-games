@@ -37,27 +37,25 @@ For the 6x6 puzzle:
 size = 6
 
 main :: IO ()
-main = putStrLn $ prettyPrint optimalPlay
-       {-
-        - -- Narrow possible initial plays to those that match the clues.
-        -let matchClue' [4,_,5,_,_,_] = True
-        -    matchClue' _             = False
-        -    -- Even with this many filled in answers, it wont terminate.
-        -    testing = [[6,2,1,4,3,5],[3,5,6,2,4,1],[1,4,2,6,5,3]] 
-        -    -- Almost all of the puzzle must be filled in.
-        -    allPossibleStarts :: [[Move]]
-        -    allPossibleStarts = 
-        -     (map (:[]) $ filter matchClue' $ permutations [1..size])
-        -     -- Find the optimal plays of every possible starting move, in
-        -     -- parallel.
-        -    results :: [Move]
-        -    results = (flip GL.find p) $ 
-        -          parMap rdeepseq parOptimalPlay allPossibleStarts
-        -if not . p $ results
-        -      then putStrLn "Couldn't solve this puzzle."
-        -      else putStrLn . prettyPrint $ results
-        -return ()
-        -}
+main = do
+        -- Narrow possible initial plays to those that match the clues.
+       let matchClue' [4,_,5,_,_,_] = True
+           matchClue' _             = False
+           -- Even with this many filled in answers, it wont terminate.
+           testing = [[6,2,1,4,3,5],[3,5,6,2,4,1],[1,4,2,6,5,3]] 
+           -- Almost all of the puzzle must be filled in.
+           allPossibleStarts :: [[Move]]
+           allPossibleStarts = 
+            (map (:[]) $ filter matchClue' $ permutations [1..size])
+            -- Find the optimal plays of every possible starting move, in
+            -- parallel.
+           results :: [Move]
+           results = (flip GL.find p) $ 
+                 parMap rdeepseq parOptimalPlay allPossibleStarts
+       if not . p $ results
+            then putStrLn "Couldn't solve this puzzle."
+            else putStrLn . prettyPrint $ results
+       return ()
 
 -- Change a set of rows of values to a map. 
 movesToPuzzle :: [Move] -> Puzzle

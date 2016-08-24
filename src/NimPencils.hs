@@ -7,9 +7,8 @@ import Control.Monad
 import Control.Parallel.Strategies
 
 -- The player that takes the last set of pencils wins.
--- Conversely, the player that reduces the set of pencils to 3 or less
--- without taking the last one loses.
--- Each player can take between 1 and 3 pencils per turn.
+-- Conversely, the player that reduces the set of pencils to between 3 and
+-- 1 loses.  Each player can take between 1 and 3 pencils per turn.
 -- The game starts with <pencilsConstant> pencils.
 
 type R       = Int
@@ -27,15 +26,15 @@ takeTurn m pencils = pencils - m
 shortenOutcome :: [Move] -> [Move]
 shortenOutcome moves = shorten moves pencilsConstant
     where shorten [] _ = []
-          shorten (m:ms) p = if p > 3
-                                then m : shorten ms (p - m)
-                                else []
+          shorten (m:ms) p = if p > 3 then m : shorten ms (p - m) else []
 
 wins :: Pencils -> Bool
 wins p | p <= 0 = error "Out of bounds" 
        | p <= 3 = True 
        | otherwise = False
 
+-- Play the game, returning the winning player and the number of pencils
+-- remaining.
 outcome :: Player -> [Move] -> Pencils -> (Player, Pencils)
 outcome player [] pencils = (player, pencils)
 outcome player (m:ms) pencils
@@ -44,6 +43,7 @@ outcome player (m:ms) pencils
     where pencils'    = takeTurn m pencils
           otherPlayer = if player == X then O else X
 
+-- Who won, from player X's perspective.
 value :: Player -> Pencils -> R
 value player pencils
     | player == X && wins pencils = 1
@@ -67,9 +67,9 @@ parEpsilons preceding = take ((pencilsConstant - 3) - length preceding) all'
 parOptimalPlay :: [Move] -> [Move]
 parOptimalPlay moves = moves ++ parOptimalStrategy moves
     where parOptimalStrategy :: [Move] -> [Move]
-          parOptimalStrategy m = GL.bigotimes (parEpsilons m)
-                                              (pPar m)
+          parOptimalStrategy m = GL.bigotimes (parEpsilons m) (pPar m)
 
+-- Find the next optimal move to play.
 nextMove :: [Move] -> Move
 nextMove played = 
         let possiblePlays = map ((++) played . (:[])) [1..3]
@@ -82,7 +82,7 @@ nextMove played =
             owins ms = GL.arginf ms p
         in optimalMove
 
--- Play against AI opponent.
+-- Play against an AI opponent.
 playMatch :: IO ()
 playMatch = do
     let showHistory history = putStrLn (flip replicate '|' $ 
@@ -138,4 +138,8 @@ getOptimalStuff =
     do putStrLn $ "The optimal play = " ++ show (shortenOutcome optimalPlay)
        putStrLn $ "The optimalOutcome = " ++ show (p optimalPlay)
 
-main = forever $ do { playMatch ; putStrLn "\nNew match\n" }
+-- Start a game loop, terminated by CTRL-C.
+gameLoop :: IO ()
+gameLoop = forever $ do { playMatch ; putStrLn "\nNew match\n" }
+
+main = gameLoop

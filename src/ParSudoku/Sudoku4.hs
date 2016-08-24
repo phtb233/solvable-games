@@ -9,6 +9,8 @@ import Debug.Trace(traceShow)
 import Data.Monoid ((<>))
 import Control.Monad (guard)
 
+-- A parallel version of the Sudoku solver. 
+
 type R          = Bool
 type Value      = Int                             -- A number in a square. 
 type Move       = [Value]                         -- A row in the puzzle.
@@ -37,29 +39,25 @@ size = 4
 -- benefit from it.
 main :: IO ()
 main = do
-        let matchClue' [_,2, _,1] = True
-            matchClue' _          = False
-            allPossibleStarts :: [[Move]]
-            allPossibleStarts = 
-                map (:[]) $ filter matchClue' $ permutations [1..size]
-            -- Find optimal plays for all starting moves that match the top
-            -- row of the puzzle, using parallelism.
-        let results :: [Move]
-            results = (flip GL.find p) $ 
-                    parMap rdeepseq parOptimalPlay allPossibleStarts
-        if not . p $ results
-            then putStrLn "I couldn't solve this puzzle."
-            else putStrLn . prettyPrint $ results
+    let matchClue' [_,2, _,1] = True
+        matchClue' _          = False
+        allPossibleStarts :: [[Move]]
+        allPossibleStarts = 
+            map (:[]) $ filter matchClue' $ permutations [1..size]
+        -- Find optimal plays for all starting moves that match the top
+        -- row of the puzzle, using parallelism.
+    let results :: [Move]
+        results = (flip GL.find p) $ 
+                parMap rdeepseq parOptimalPlay allPossibleStarts
+    if not . p $ results
+        then putStrLn "I couldn't solve this puzzle."
+        else putStrLn . prettyPrint $ results
 
 -- Change a set of rows of values to a set of tuples, including their
 -- x and y positions (from bottom left of the grid to top right).
 movesToPuzzle :: [Move] -> Puzzle
 movesToPuzzle = zip3 xs ys . concat
-    where coords = do
-                   y <- [1..size]
-                   x <- [1..size]
-                   return (x, y)
-          (xs, ys) = unzip coords
+    where (xs, ys) = unzip $ do y <- [1..size]; x <- [1..size]; return (x, y)
 
 -- Filter is slow O(n), need better technique.
 checkPuzzle :: Puzzle -> Bool

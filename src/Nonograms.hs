@@ -39,8 +39,9 @@ For the 5x10 puzzle:
 type R          = Bool
 type Value      = Bool
 type Move       = [Value]
-type Coordinate = Int
-type Position   = (Coordinate, Coordinate, Value)
+type X          = Int
+type Y          = Int
+type Position   = (X, Y, Value)
 type Puzzle     = [Position]
 
 width  = 5
@@ -49,7 +50,7 @@ clues :: [[Clue]]
 clues  = fiveByFive
 
 -- Represents the clues that surround the puzzle, which indicate the number
--- of cells in that row/column that should be marked True. The first value
+-- of cells in that row/column that should be marked True. The first data
 -- constructor is for contiguous clues (all the cells should touch),
 -- whereas Seg is for segregated clues (should have some gap between each
 -- part).
@@ -60,7 +61,7 @@ movesToPuzzle :: [Move] -> Puzzle
 movesToPuzzle = zip3 xs ys . concat
     where (xs, ys) = unzip [(x, y) | y <- [1..height], x <- [1..width]]
           
--- Safe list access via index.
+-- Safe list access.
 maybeAt :: [a] -> Int -> Maybe a
 maybeAt ls n
     | n <= pred (length ls) && n >= 0 = Just $ ls !! n
@@ -68,7 +69,6 @@ maybeAt ls n
 
 -- The clues that must be matched (as shown above). 
 -- First list is row clues, the second is column clues.
-
 fiveByTen = [ [ Cont 4, Seg [1,1], Seg [1,1], Cont 1, Cont 0,
                 Seg [2,1], Cont 5, Seg [1,2], Cont 3, Cont 4]
             , [ Seg [4,1,2], Seg[1,5], Seg[1,2,2], Seg [1,2,1], Seg [2,3] ] ]
@@ -90,8 +90,8 @@ matchClues cs ms = rows && cols
        rows = and $ zipWith march (head cs) ms
        cols = and $ zipWith march (last cs) (transpose ms)
             
-march :: Clue -> Move -> Bool
 -- Check if the row was segmented and matches the series of clues.
+march :: Clue -> Move -> Bool
 march (Seg xs) bools = let (a, b) = march' bools False False 0 [] 
                         in   a && b == xs
 -- Make sure the row wasn't segmented, with enough marked cells.
@@ -101,14 +101,12 @@ march (Cont i) bools = let (a, b) = march' bools False False 0 []
 march' :: [Value] -> Bool -> Bool -> Int -> [Int] -> (Bool, [Int])
 -- Return a tuple of whether the row was segmented and a list of
 -- the marked cells.
-march' [] counting seg acc ls = (seg, if acc == 0 
-                                                then ls 
-                                                else ls ++ [acc])
+march' [] counting seg acc ls = (seg, if acc == 0 then ls else ls ++ [acc])
 -- Must keep track of when whenever we start/stop marching over
 -- marked cells, counting them as we go.
 march' (b:bs) counting seg acc ls
  | b && not counting 
-    && not (null ls) =  march' bs True     True (acc + 1) ls
+     && not (null ls) = march' bs True     True (acc + 1) ls
  | b && not counting  = march' bs True     seg  (acc + 1) ls
  | b && counting      = march' bs counting seg  (acc+1)   ls
  | not b && counting  = march' bs False    seg   0       (ls ++ [acc])
@@ -130,7 +128,7 @@ epsilons = replicate turns epsilon
         turns   = height -- The number of turns.
         moves   = width  -- The number of moves per turn.
         ps' :: [Move]
-        -- One row is empty. Include a full row of False.
+        -- One row may be empty. Include a full row of False.
         ps' = nub $ do
             x <- [0..moves] 
             permutations $ take moves $ replicate x True ++ repeat False
@@ -172,6 +170,7 @@ prettyPrint [l, t] ms =
             safeGetSeg _ _ = "    "
             maxLen :: Int -- The size of the largest Seg. 
             maxLen = maximum $ map (\(Seg xs) -> length xs) $ filter isSeg t
+            -- The clues displayed on the top and left of the puzzle.
             topSide, leftSide :: [String]
             topSide = do
                 y <- [0..maxLen - 1]

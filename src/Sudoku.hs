@@ -63,7 +63,9 @@ rows, cols :: [Int]
 rows   = [1..size]
 cols   = [1..size]
 
-peers       = UL.peers size size True
+-- The other cells in all the units of a particular cell. The cell used as 
+-- a key cannot share the same value as any of its peers.
+peers       = UL.peers size size True 
 checkPuzzle = UL.checkPuzzle size size True
 prettyPrint = UL.prettyPrint size
 
@@ -96,9 +98,9 @@ pPar :: [Move] -> [Move] -> R
 pPar preceding ms = let ms' = preceding ++ ms in p [] ms' 
 
 parOptimalPlay :: [Move] -> [Move]
-parOptimalPlay preceding = let result = GL.bigotimes (parEpsilons' preceding)
-                                                     (pPar preceding)
-                           in preceding ++ result
+parOptimalPlay preceding = 
+    let result = GL.bigotimes (parEpsilons' preceding) (pPar preceding)
+    in preceding ++ result
 
 -- Attach all the possible moves to each row to be searched by the
 -- Selection Monad.
@@ -134,6 +136,7 @@ getPermutations [a,b,c,d,e,f,g,h,i] =
         , g' <- g, h' <- h, i' <- i
         , length (nub [a',b',c',d',e',f',g',h',i']) == 9 ]
 
+-- Some test clues of varying difficulty.
 easyClue :: Clues
 easyClue =  -- 35 clues
  [[Just 4,Nothing,Nothing,Nothing,Nothing,Nothing,Just 3, Just 9, Nothing],
@@ -168,7 +171,7 @@ mediumClue = -- 27 clues, doesn't terminate, but 28 does.
  [Just 7,Nothing,Nothing,Just 6,Just 8,Nothing,Nothing,Nothing,Nothing],
  [Nothing,Just 2,Just 8,Nothing,Nothing,Nothing,Nothing,Nothing,Nothing]]
 
--- Use constrain propagation to filter possible solutions.
+-- Use constraint propagation to filter possible solutions.
 -- Call recursively until no more changes can be made.
 -- Consists of 2 stages:
 --      1) Remove certain answers from all other peers.
@@ -209,9 +212,8 @@ constrain possibilities =
         result = secondStage $ firstStage (M.toList singletons) possibilities
         resultLength = getLength result
     in 
-        if resultLength == initialLength
-            then result
-            else constrain result
+        -- If nothing was changed, return result, otherwise keep going.
+        if resultLength == initialLength then result else constrain result
 
 -- Find the possible solutions for each cell of the puzzle by using clues.
 findPossibilities :: Clues -> [[Possibilities]]

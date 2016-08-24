@@ -11,6 +11,7 @@ import Data.Maybe (fromMaybe)
 -
 - Sudoku variant, which also includes inequality constraints between
 - particular cells (less than/ greater than).
+- For instance, the value in the first cell must be less than that below it.
 -
 For the 4x4 puzzle:
 

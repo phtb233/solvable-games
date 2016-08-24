@@ -13,13 +13,11 @@ size :: Int
 size = 8
 
 attacks :: Position -> Position -> Bool
-attacks (x, y) (a, b) =
-    x == a || y == b || abs(x - a) == abs(y - b)
+attacks (x, y) (a, b) = x == a || y == b || abs(x - a) == abs(y - b)
 
 valid :: [Position] -> Bool
 valid [] = True
-valid (u : vs) =
-    not(any (\v -> attacks u v) vs) && valid vs
+valid (u : vs) = not(any (\v -> attacks u v) vs) && valid vs
 
 p :: [Move] -> R
 p ms = valid(zip ms [0..(size-1)])
@@ -50,6 +48,7 @@ parEpsilons preceding = replicate size' epsilon
           size'       = (size - (length preceding))
           poolOfMoves = [0..size-1] \\ preceding
 
+-- Find the solution in parallel.
 parMain :: IO ()
 parMain = do
     let allPossibleStarts = map (:[]) [0..size-1]

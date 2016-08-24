@@ -24,4 +24,4 @@ import Control.Exception
 -- Then run cabal build && cabal run
 
 main :: IO ()
-main = S.main
+main = BS.main
