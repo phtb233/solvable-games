@@ -1,4 +1,10 @@
 module Logic.GameLogic where
+{- 
+This code is not mine and is derived from the paper --
+Escardó, Oliva (2010): 
+    What Sequential Games, the Tychonoff Theorem and the Double-Negation Shift
+     have in Common, 2010 
+-}
 
 import Debug.Trace
 -- A function that takes a predicate (which accepts a move and produces

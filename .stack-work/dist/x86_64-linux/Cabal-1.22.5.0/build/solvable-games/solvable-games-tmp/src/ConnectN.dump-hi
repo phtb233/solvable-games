@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2016-08-24 17:04:47.911586 UTC
+2016-09-03 15:50:23.808594 UTC
 
 interface main@main:ConnectN 7103
-  interface hash: 32188508399288400fd807f827b5fbd9
-  ABI hash: ff448b6a6a5cc1877637a18dbc6976c7
+  interface hash: 0cf59ff712b7f133a59610bacbc69a83
+  ABI hash: 43e1b752bea14b835a063198e7ad44b7
   export-list hash: 08de2402677dbcd8948970f0b72e10ae
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 00e643ad7ce35edfdec2c9358b896e07
@@ -80,7 +80,7 @@ import  -/  Logic.GameLogic 26d44f799309be9333aa831cc195f912
   setMinus 9e687f4ea98fa5bb19d6b1054c1ce9b4
 import  -/  parallel-3.2.1.0@paral_BEbrIfHgHtmEpYU5TfKWK9:Control.Parallel 1b43eb56445614e8fc63261d7d1b82ab
 import  -/  parallel-3.2.1.0@paral_BEbrIfHgHtmEpYU5TfKWK9:Control.Parallel.Strategies e559e49e970aa71559d76fa817ccb0ac
-b00cfd8d035162fa92ab0b7b3611ee52
+ab973452333c92539131f2a6838980fc
   $fEqPlayer :: GHC.Classes.Eq ConnectN.Player
   DFunId[0]
   {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
@@ -88,7 +88,7 @@ b00cfd8d035162fa92ab0b7b3611ee52
                   @ ConnectN.Player
                   ConnectN.$fEqPlayer_$c==
                   ConnectN.$fEqPlayer_$c/= -}
-b00cfd8d035162fa92ab0b7b3611ee52
+ab973452333c92539131f2a6838980fc
   $fEqPlayer_$c/= ::
     ConnectN.Player -> ConnectN.Player -> GHC.Types.Bool
   {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
@@ -101,7 +101,7 @@ b00cfd8d035162fa92ab0b7b3611ee52
                    ConnectN.O
                    -> case b of wild1 {
                         ConnectN.X -> GHC.Types.True ConnectN.O -> GHC.Types.False } }) -}
-b00cfd8d035162fa92ab0b7b3611ee52
+ab973452333c92539131f2a6838980fc
   $fEqPlayer_$c== ::
     ConnectN.Player -> ConnectN.Player -> GHC.Types.Bool
   {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
@@ -114,7 +114,7 @@ b00cfd8d035162fa92ab0b7b3611ee52
                    ConnectN.O
                    -> case ds1 of wild1 {
                         ConnectN.X -> GHC.Types.False ConnectN.O -> GHC.Types.True } }) -}
-b00cfd8d035162fa92ab0b7b3611ee52
+ab973452333c92539131f2a6838980fc
   $fOrdPlayer :: GHC.Classes.Ord ConnectN.Player
   DFunId[0]
   {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
@@ -128,7 +128,7 @@ b00cfd8d035162fa92ab0b7b3611ee52
                   ConnectN.$fOrdPlayer_$c>=
                   ConnectN.$fOrdPlayer_$cmax
                   ConnectN.$fOrdPlayer_$cmin -}
-b00cfd8d035162fa92ab0b7b3611ee52
+ab973452333c92539131f2a6838980fc
   $fOrdPlayer_$c< ::
     ConnectN.Player -> ConnectN.Player -> GHC.Types.Bool
   {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
@@ -139,7 +139,7 @@ b00cfd8d035162fa92ab0b7b3611ee52
                    -> case b of wild1 {
                         ConnectN.X -> GHC.Types.False ConnectN.O -> GHC.Types.True }
                    ConnectN.O -> case b of wild1 { DEFAULT -> GHC.Types.False } }) -}
-b00cfd8d035162fa92ab0b7b3611ee52
+ab973452333c92539131f2a6838980fc
   $fOrdPlayer_$c<= ::
     ConnectN.Player -> ConnectN.Player -> GHC.Types.Bool
   {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
@@ -150,7 +150,7 @@ b00cfd8d035162fa92ab0b7b3611ee52
                    ConnectN.O
                    -> case b of wild1 {
                         ConnectN.X -> GHC.Types.False ConnectN.O -> GHC.Types.True } }) -}
-b00cfd8d035162fa92ab0b7b3611ee52
+ab973452333c92539131f2a6838980fc
   $fOrdPlayer_$c> ::
     ConnectN.Player -> ConnectN.Player -> GHC.Types.Bool
   {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
@@ -161,7 +161,7 @@ b00cfd8d035162fa92ab0b7b3611ee52
                    ConnectN.O
                    -> case b of wild1 {
                         ConnectN.X -> GHC.Types.True ConnectN.O -> GHC.Types.False } }) -}
-b00cfd8d035162fa92ab0b7b3611ee52
+ab973452333c92539131f2a6838980fc
   $fOrdPlayer_$c>= ::
     ConnectN.Player -> ConnectN.Player -> GHC.Types.Bool
   {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
@@ -172,7 +172,7 @@ b00cfd8d035162fa92ab0b7b3611ee52
                    -> case b of wild1 {
                         ConnectN.X -> GHC.Types.True ConnectN.O -> GHC.Types.False }
                    ConnectN.O -> case b of wild1 { DEFAULT -> GHC.Types.True } }) -}
-b00cfd8d035162fa92ab0b7b3611ee52
+ab973452333c92539131f2a6838980fc
   $fOrdPlayer_$ccompare ::
     ConnectN.Player -> ConnectN.Player -> GHC.Types.Ordering
   {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
@@ -185,7 +185,7 @@ b00cfd8d035162fa92ab0b7b3611ee52
                    ConnectN.O
                    -> case b of wild1 {
                         ConnectN.X -> GHC.Types.GT ConnectN.O -> GHC.Types.EQ } }) -}
-b00cfd8d035162fa92ab0b7b3611ee52
+ab973452333c92539131f2a6838980fc
   $fOrdPlayer_$cmax ::
     ConnectN.Player -> ConnectN.Player -> ConnectN.Player
   {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
@@ -194,7 +194,7 @@ b00cfd8d035162fa92ab0b7b3611ee52
                  case x1 of wild {
                    ConnectN.X -> y
                    ConnectN.O -> case y of wild1 { DEFAULT -> ConnectN.O } }) -}
-b00cfd8d035162fa92ab0b7b3611ee52
+ab973452333c92539131f2a6838980fc
   $fOrdPlayer_$cmin ::
     ConnectN.Player -> ConnectN.Player -> ConnectN.Player
   {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
@@ -203,7 +203,7 @@ b00cfd8d035162fa92ab0b7b3611ee52
                  case x1 of wild {
                    ConnectN.X -> case y of wild1 { DEFAULT -> ConnectN.X }
                    ConnectN.O -> y }) -}
-b00cfd8d035162fa92ab0b7b3611ee52
+ab973452333c92539131f2a6838980fc
   $fReadPlayer :: GHC.Read.Read ConnectN.Player
   DFunId[0]
   {- Strictness: m, Inline: [ALWAYS] CONLIKE,
@@ -213,7 +213,7 @@ b00cfd8d035162fa92ab0b7b3611ee52
                   ConnectN.$fReadPlayer_$sreadListDefault
                   ConnectN.$fReadPlayer_$creadPrec
                   ConnectN.$fReadPlayer_$creadListPrec -}
-b00cfd8d035162fa92ab0b7b3611ee52
+ab973452333c92539131f2a6838980fc
   $fReadPlayer1 ::
     Text.ParserCombinators.ReadPrec.Prec
     -> forall b.
@@ -232,7 +232,7 @@ b00cfd8d035162fa92ab0b7b3611ee52
                              <ConnectN.Player>_R))
                    @ b
                    eta1) -}
-b00cfd8d035162fa92ab0b7b3611ee52
+ab973452333c92539131f2a6838980fc
   $fReadPlayer10 ::
     Text.ParserCombinators.ReadPrec.Prec
     -> forall b.
@@ -247,7 +247,7 @@ b00cfd8d035162fa92ab0b7b3611ee52
 df157d8d09343247225c2c79cc7b4615
   $fReadPlayer11 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "X"#) -}
-b00cfd8d035162fa92ab0b7b3611ee52
+ab973452333c92539131f2a6838980fc
   $fReadPlayer2 ::
     Text.ParserCombinators.ReadPrec.Prec
     -> Text.ParserCombinators.ReadP.ReadP ConnectN.Player
@@ -262,7 +262,7 @@ b00cfd8d035162fa92ab0b7b3611ee52
                                        <ConnectN.Player>_R))
                         (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
                                   <ConnectN.Player>_R)))) -}
-b00cfd8d035162fa92ab0b7b3611ee52
+ab973452333c92539131f2a6838980fc
   $fReadPlayer3 ::
     Text.ParserCombinators.ReadPrec.Prec
     -> forall b.
@@ -279,7 +279,7 @@ b00cfd8d035162fa92ab0b7b3611ee52
                    eta
                    @ b
                    eta1) -}
-b00cfd8d035162fa92ab0b7b3611ee52
+ab973452333c92539131f2a6838980fc
   $fReadPlayer4 ::
     [(GHC.Base.String,
       Text.ParserCombinators.ReadPrec.ReadPrec ConnectN.Player)]
@@ -289,7 +289,7 @@ b00cfd8d035162fa92ab0b7b3611ee52
                       Text.ParserCombinators.ReadPrec.ReadPrec ConnectN.Player)
                    ConnectN.$fReadPlayer9
                    ConnectN.$fReadPlayer5) -}
-b00cfd8d035162fa92ab0b7b3611ee52
+ab973452333c92539131f2a6838980fc
   $fReadPlayer5 ::
     [(GHC.Base.String,
       Text.ParserCombinators.ReadPrec.ReadPrec ConnectN.Player)]
@@ -301,7 +301,7 @@ b00cfd8d035162fa92ab0b7b3611ee52
                    (GHC.Types.[]
                       @ (GHC.Base.String,
                          Text.ParserCombinators.ReadPrec.ReadPrec ConnectN.Player))) -}
-b00cfd8d035162fa92ab0b7b3611ee52
+ab973452333c92539131f2a6838980fc
   $fReadPlayer6 ::
     ([GHC.Types.Char],
      Text.ParserCombinators.ReadPrec.ReadPrec ConnectN.Player)
@@ -315,7 +315,7 @@ b00cfd8d035162fa92ab0b7b3611ee52
                                       <ConnectN.Player>_R))
                        (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
                                  <ConnectN.Player>_R))))) -}
-b00cfd8d035162fa92ab0b7b3611ee52
+ab973452333c92539131f2a6838980fc
   $fReadPlayer7 ::
     Text.ParserCombinators.ReadPrec.Prec
     -> forall b.
@@ -330,7 +330,7 @@ b00cfd8d035162fa92ab0b7b3611ee52
 6e6d975ae9f719bef576edaadaf3bac3
   $fReadPlayer8 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "O"#) -}
-b00cfd8d035162fa92ab0b7b3611ee52
+ab973452333c92539131f2a6838980fc
   $fReadPlayer9 ::
     ([GHC.Types.Char],
      Text.ParserCombinators.ReadPrec.ReadPrec ConnectN.Player)
@@ -344,7 +344,7 @@ b00cfd8d035162fa92ab0b7b3611ee52
                                       <ConnectN.Player>_R))
                        (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
                                  <ConnectN.Player>_R))))) -}
-b00cfd8d035162fa92ab0b7b3611ee52
+ab973452333c92539131f2a6838980fc
   $fReadPlayer_$creadListPrec ::
     Text.ParserCombinators.ReadPrec.ReadPrec [ConnectN.Player]
   {- Arity: 2, Strictness: <L,A><L,C(U)>,
@@ -357,7 +357,7 @@ b00cfd8d035162fa92ab0b7b3611ee52
                                     <[ConnectN.Player]>_R))
                      (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
                                <[ConnectN.Player]>_R))) -}
-b00cfd8d035162fa92ab0b7b3611ee52
+ab973452333c92539131f2a6838980fc
   $fReadPlayer_$creadPrec ::
     Text.ParserCombinators.ReadPrec.ReadPrec ConnectN.Player
   {- Arity: 1,
@@ -366,7 +366,7 @@ b00cfd8d035162fa92ab0b7b3611ee52
                   `cast`
                 (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
                           <ConnectN.Player>_R)) -}
-b00cfd8d035162fa92ab0b7b3611ee52
+ab973452333c92539131f2a6838980fc
   $fReadPlayer_$s$dmreadsPrec ::
     GHC.Types.Int -> Text.ParserCombinators.ReadP.ReadS ConnectN.Player
   {- Arity: 1, Strictness: <L,U>,
@@ -376,7 +376,7 @@ b00cfd8d035162fa92ab0b7b3611ee52
                    @ ConnectN.Player
                    ConnectN.$fReadPlayer_$creadPrec
                    eta) -}
-b00cfd8d035162fa92ab0b7b3611ee52
+ab973452333c92539131f2a6838980fc
   $fReadPlayer_$sreadListDefault ::
     Text.ParserCombinators.ReadP.ReadS [ConnectN.Player]
   {- Arity: 1,
@@ -393,7 +393,7 @@ b00cfd8d035162fa92ab0b7b3611ee52
                       @ [ConnectN.Player]
                       (Text.ParserCombinators.ReadP.$fApplicativeP_$creturn
                          @ [ConnectN.Player]))) -}
-b00cfd8d035162fa92ab0b7b3611ee52
+ab973452333c92539131f2a6838980fc
   $fShowPlayer :: GHC.Show.Show ConnectN.Player
   DFunId[0]
   {- Strictness: m, Inline: [ALWAYS] CONLIKE,
@@ -402,7 +402,7 @@ b00cfd8d035162fa92ab0b7b3611ee52
                   ConnectN.$fShowPlayer_$cshowsPrec
                   ConnectN.$fShowPlayer_$cshow
                   ConnectN.$fShowPlayer_$cshowList -}
-b00cfd8d035162fa92ab0b7b3611ee52
+ab973452333c92539131f2a6838980fc
   $fShowPlayer1 :: ConnectN.Player -> GHC.Show.ShowS
   {- Arity: 2, Strictness: <S,1*U><L,1*U>,
      Unfolding: InlineRule (2, True, False)
@@ -411,16 +411,16 @@ b00cfd8d035162fa92ab0b7b3611ee52
                    ConnectN.X
                    -> GHC.Base.augment
                         @ GHC.Types.Char
-                        (\ @ b c :: GHC.Types.Char -> b -> b[OneShot] n1 :: b[OneShot] ->
-                         GHC.Base.foldr @ GHC.Types.Char @ b c n1 ConnectN.$fReadPlayer11)
+                        (\ @ b c :: GHC.Types.Char -> b -> b[OneShot] n :: b[OneShot] ->
+                         GHC.Base.foldr @ GHC.Types.Char @ b c n ConnectN.$fReadPlayer11)
                         eta
                    ConnectN.O
                    -> GHC.Base.augment
                         @ GHC.Types.Char
-                        (\ @ b c :: GHC.Types.Char -> b -> b[OneShot] n1 :: b[OneShot] ->
-                         GHC.Base.foldr @ GHC.Types.Char @ b c n1 ConnectN.$fReadPlayer8)
+                        (\ @ b c :: GHC.Types.Char -> b -> b[OneShot] n :: b[OneShot] ->
+                         GHC.Base.foldr @ GHC.Types.Char @ b c n ConnectN.$fReadPlayer8)
                         eta }) -}
-b00cfd8d035162fa92ab0b7b3611ee52
+ab973452333c92539131f2a6838980fc
   $fShowPlayer_$cshow :: ConnectN.Player -> GHC.Base.String
   {- Arity: 1, Strictness: <S,1*U>,
      Unfolding: InlineRule (1, True, False)
@@ -428,13 +428,13 @@ b00cfd8d035162fa92ab0b7b3611ee52
                  case x1 of wild {
                    ConnectN.X -> ConnectN.$fReadPlayer11
                    ConnectN.O -> ConnectN.$fReadPlayer8 }) -}
-b00cfd8d035162fa92ab0b7b3611ee52
+ab973452333c92539131f2a6838980fc
   $fShowPlayer_$cshowList :: [ConnectN.Player] -> GHC.Show.ShowS
   {- Arity: 2,
      Unfolding: (GHC.Show.showList__
                    @ ConnectN.Player
                    ConnectN.$fShowPlayer1) -}
-b00cfd8d035162fa92ab0b7b3611ee52
+ab973452333c92539131f2a6838980fc
   $fShowPlayer_$cshowsPrec ::
     GHC.Types.Int -> ConnectN.Player -> GHC.Show.ShowS
   {- Arity: 3, Strictness: <L,A><S,1*U><L,1*U>,
@@ -446,19 +446,19 @@ b00cfd8d035162fa92ab0b7b3611ee52
                    ConnectN.X
                    -> GHC.Base.augment
                         @ GHC.Types.Char
-                        (\ @ b c :: GHC.Types.Char -> b -> b[OneShot] n1 :: b[OneShot] ->
-                         GHC.Base.foldr @ GHC.Types.Char @ b c n1 ConnectN.$fReadPlayer11)
+                        (\ @ b c :: GHC.Types.Char -> b -> b[OneShot] n :: b[OneShot] ->
+                         GHC.Base.foldr @ GHC.Types.Char @ b c n ConnectN.$fReadPlayer11)
                         eta
                    ConnectN.O
                    -> GHC.Base.augment
                         @ GHC.Types.Char
-                        (\ @ b c :: GHC.Types.Char -> b -> b[OneShot] n1 :: b[OneShot] ->
-                         GHC.Base.foldr @ GHC.Types.Char @ b c n1 ConnectN.$fReadPlayer8)
+                        (\ @ b c :: GHC.Types.Char -> b -> b[OneShot] n :: b[OneShot] ->
+                         GHC.Base.foldr @ GHC.Types.Char @ b c n ConnectN.$fReadPlayer8)
                         eta }) -}
 8ab2f7189bfdfd0edf502c77ff262072
   $wgo :: GHC.Prim.Int# -> (# [ConnectN.Move], [[ConnectN.Move]] #)
   {- Arity: 1, Strictness: <L,U>, Inline: [0] -}
-5786e25b6998efa9d60a0eb4eafd250c
+0a22e1f976f2e79ec718bab2a120dfd6
   $wisBlank ::
     GHC.Prim.Int#
     -> ConnectN.Y
@@ -490,7 +490,7 @@ addbb15bd850c9389bc219ff1d9b5d76
   $wunsafeDrop :: GHC.Prim.Int# -> [a1] -> [a1]
   {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U><S,1*U>,
      Inline: [0] -}
-b2e4030796aeaf6ce03f151b7c6f4675
+19115b0a8322365729cff44a6cabd5a0
   $wvalue :: ConnectN.Board -> GHC.Prim.Int#
   {- Arity: 1, Strictness: <L,U>, Inline: [0],
      Unfolding: (\ w :: ConnectN.Board ->
@@ -505,20 +505,20 @@ d8557d99d23f9bf5761f18f0531b5fb7
 2cfa72c50dd009bcaaa9dc9beb8b2632
   $wxs1 :: GHC.Prim.Int# -> [GHC.Types.Int]
   {- Arity: 1, Strictness: <S,1*U>, Inline: [0] -}
-1b9fd200ba3648f50524812cda415283
-  $wxs2 :: GHC.Prim.Int# -> [GHC.Types.Int]
+f2e6c97c65c59ae733bbacc46a96ba6f
+  $wxs2 :: GHC.Prim.Int# -> [GHC.Types.Char]
   {- Arity: 1, Strictness: <S,1*U>, Inline: [0] -}
-b80044623f406e4ff74d78bd856a801d
-  $wxs3 :: GHC.Prim.Int# -> [GHC.Types.Char]
+7924e8e8172a6d50bcf8fa501117083c
+  $wxs3 :: GHC.Prim.Int# -> [GHC.Types.Int]
   {- Arity: 1, Strictness: <S,1*U>, Inline: [0] -}
-f94d9642c413c5bc286d3b26a561e6a5
+4b9e104760e0d1b1157ef29a044bd431
   type Board = [ConnectN.Position]
 f6732f5e1ddc64e1de69ae471e9e69e2
   type Move = GHC.Types.Int
-b00cfd8d035162fa92ab0b7b3611ee52
+ab973452333c92539131f2a6838980fc
   data Player = X | O
     Promotable
-ae3792e5515e94b167dd948b13d3b3f4
+4f98d2d50de1a166e44e916be66bf114
   type Position = (ConnectN.X, ConnectN.Y, ConnectN.Player)
 35e85e55bd7532d12206eff38fd7f9f6
   type R = GHC.Types.Int
@@ -771,7 +771,7 @@ ad822f3cff222b779287f714cb3a81c6
                         @ ([ConnectN.Move] -> Logic.GameLogic.J ConnectN.R ConnectN.Move)
                         ww2
                         ConnectN.epsilons_all } }) -}
-901e823ea5fa74db5f2ea70fc04b5e61
+d606a58e164f7a6243a2c63f30f2cbd9
   epsilons' ::
     [[ConnectN.Move] -> Logic.GameLogic.J ConnectN.R ConnectN.Move]
   {- Unfolding: (case GHC.List.$wlenAcc
@@ -788,30 +788,50 @@ ad822f3cff222b779287f714cb3a81c6
                    -> GHC.List.$wunsafeTake
                         @ ([ConnectN.Move] -> Logic.GameLogic.J ConnectN.R ConnectN.Move)
                         ww2
-                        ConnectN.epsilons'_all' } }) -}
-a89e8ec796bd22567d61e94655981b5a
+                        ConnectN.epsilons'1 } }) -}
+467858a625fc8f1c80d7dd6bbc680f96
   epsilons'1 ::
     [[GHC.Types.Int]
      -> (GHC.Types.Int -> GHC.Types.Int) -> GHC.Types.Int]
-  {- Strictness: m2 -}
-14ee71638956fa08a53bd60fda6d64aa
-  epsilons'2 :: [GHC.Types.Int]
-  {- Unfolding: (ConnectN.$wxs1 3) -}
-d13e1a0f5bfc1f29e0b5e39e8e2a6d63
-  epsilons'_all' ::
-    [[GHC.Types.Int]
-     -> (GHC.Types.Int -> GHC.Types.Int) -> GHC.Types.Int]
-  {- Strictness: m2,
-     Unfolding: (GHC.Types.:
+  {- Unfolding: (GHC.Types.:
                    @ ([GHC.Types.Int]
                       -> (GHC.Types.Int -> GHC.Types.Int) -> GHC.Types.Int)
-                   ConnectN.epsilons'_epsilonX'
-                   ConnectN.epsilons'1) -}
-b69559fd4d1d8de12310b0920f82d7f3
-  epsilons'_epsilonX' ::
+                   ConnectN.epsilons'6
+                   ConnectN.epsilons'2) -}
+a33be88c6670bf39185ce4c25ade7994
+  epsilons'2 ::
+    [[GHC.Types.Int]
+     -> (GHC.Types.Int -> GHC.Types.Int) -> GHC.Types.Int]
+  {- Unfolding: (GHC.Types.:
+                   @ ([GHC.Types.Int]
+                      -> (GHC.Types.Int -> GHC.Types.Int) -> GHC.Types.Int)
+                   ConnectN.epsilons'5
+                   ConnectN.epsilons'_all) -}
+ce7d01ba99b5fe547ce399047bc88996
+  epsilons'3 ::
+    [[GHC.Types.Int] -> Logic.GameLogic.J GHC.Types.Int GHC.Types.Int]
+  {- Strictness: m2 -}
+3c5690116966a01f96db2287550d99f6
+  epsilons'4 :: [GHC.Types.Int]
+  {- Unfolding: (ConnectN.$wxs1 3) -}
+766bea511d2f90e2074049fc6c7d1d0a
+  epsilons'5 ::
     [GHC.Types.Int]
     -> (GHC.Types.Int -> GHC.Types.Int) -> GHC.Types.Int
-  {- Arity: 1, Strictness: <L,1*U>,
+  {- Arity: 1,
+     Unfolding: (\ h :: [GHC.Types.Int] ->
+                 let {
+                   a1 :: [Logic.GameLogic.Move]
+                   = Logic.GameLogic.epsilons_go h ConnectN.epsilons'_poolOfMoves
+                 } in
+                 \ x1 :: GHC.Types.Int -> GHC.Types.Int ->
+                 case ConnectN.argmin_$sargmin a1 x1 of wild {
+                   [] -> GHC.List.badHead @ GHC.Types.Int : x2 ds1 -> x2 }) -}
+7f303a172e103e1ced9ab0da10c1606b
+  epsilons'6 ::
+    [GHC.Types.Int]
+    -> (GHC.Types.Int -> GHC.Types.Int) -> GHC.Types.Int
+  {- Arity: 1,
      Unfolding: (\ h :: [GHC.Types.Int] ->
                  let {
                    a1 :: [Logic.GameLogic.Move]
@@ -820,12 +840,30 @@ b69559fd4d1d8de12310b0920f82d7f3
                  \ x1 :: GHC.Types.Int -> GHC.Types.Int ->
                  case ConnectN.argmax_$sargmax a1 x1 of wild {
                    [] -> GHC.List.badHead @ GHC.Types.Int : x2 ds1 -> x2 }) -}
-bba3d5179c79d68f389504158f21f86f
+51b7090afe23cdcde108384f2c442517
+  epsilons'_all ::
+    [[GHC.Types.Int] -> Logic.GameLogic.J GHC.Types.Int GHC.Types.Int]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ ([GHC.Types.Int]
+                      -> Logic.GameLogic.J GHC.Types.Int GHC.Types.Int)
+                   ConnectN.epsilons'_epsilonX
+                   ConnectN.epsilons'3) -}
+2471075e5f693b7201535a75215907dc
+  epsilons'_epsilonX ::
+    [GHC.Types.Int] -> Logic.GameLogic.J GHC.Types.Int GHC.Types.Int
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ h :: [GHC.Types.Int] ->
+                 Logic.GameLogic.argsup
+                   @ GHC.Types.Int
+                   (Logic.GameLogic.epsilons_go h ConnectN.epsilons'_poolOfMoves)) -}
+d56a8f40dfbe2d463676e9ef3c0359c6
   epsilons'_poolOfMoves :: [GHC.Types.Int]
   {- Unfolding: (Data.OldList.sortBy
                    @ GHC.Types.Int
                    GHC.Classes.compareInt
-                   ConnectN.epsilons'2) -}
+                   ConnectN.epsilons'4) -}
 34a6aca2a4c314f957ce89e1a01d91e3
   epsilons1 ::
     [[GHC.Types.Int] -> Logic.GameLogic.J GHC.Types.Int GHC.Types.Int]
@@ -860,11 +898,141 @@ d1403f167117484e481488b99614ed61
 ffd372863d63a31fddf3e05b08239c9e
   height :: GHC.Types.Int
   {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 3) -}
-9eddeb4eb907bdce5e33415fb77905f7
-  main :: [ConnectN.Move] -> [ConnectN.Move]
-  {- Arity: 1, Strictness: <S,U>,
-     Unfolding: InlineRule (0, True, True) ConnectN.parOptimalPlay -}
-d64e2739df8de6c194cee86d25294030
+6514b48c9eb625c83bf109a96fcb5236
+  main :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True)
+                ConnectN.main1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
+be9cd5cec5e7f5e617f882e2744c0cda
+  main1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: (\ s :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 case GHC.IO.Handle.Text.hPutStr2
+                        GHC.IO.Handle.FD.stdout
+                        ConnectN.main9
+                        GHC.Types.True
+                        s of ds1 { (#,#) ipv ipv1 ->
+                 case GHC.IO.Handle.Text.hPutStr2
+                        GHC.IO.Handle.FD.stdout
+                        ConnectN.main6
+                        GHC.Types.True
+                        ipv of ds2 { (#,#) ipv2 ipv3 ->
+                 GHC.IO.Handle.Text.hPutStr2
+                   GHC.IO.Handle.FD.stdout
+                   ConnectN.main2
+                   GHC.Types.True
+                   ipv2 } }) -}
+9a6afd98d66dc197e8dc7b49eecbc8e3
+  main10 :: [GHC.Types.Char]
+  {- Unfolding: (case GHC.Show.$wshowSignedInt
+                        0
+                        3
+                        (GHC.Types.[] @ GHC.Types.Char) of ww4 { (#,#) ww5 ww6 ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   (GHC.Types.: @ GHC.Types.Char ww5 ww6)
+                   ConnectN.main11 }) -}
+d468e18155b7ef2f147a949c6c2f8d86
+  main11 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackAppendCString#
+                   " on a "#
+                   ConnectN.main12) -}
+a8006a5505d430b0661668e3ff1c3176
+  main12 :: [GHC.Types.Char]
+  {- Unfolding: (case GHC.Show.$wshowSignedInt
+                        0
+                        3
+                        (GHC.Types.[] @ GHC.Types.Char) of ww4 { (#,#) ww5 ww6 ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   (GHC.Types.: @ GHC.Types.Char ww5 ww6)
+                   ConnectN.main13 }) -}
+e2e10199d75cb8e77ccd11448b191110
+  main13 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackAppendCString#
+                   "x"#
+                   ConnectN.main14) -}
+7ead9af3f9b9385379353985847bc488
+  main14 :: [GHC.Types.Char]
+  {- Unfolding: (case GHC.Show.$wshowSignedInt
+                        0
+                        3
+                        (GHC.Types.[] @ GHC.Types.Char) of ww4 { (#,#) ww5 ww6 ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   (GHC.Types.: @ GHC.Types.Char ww5 ww6)
+                   ConnectN.main15 }) -}
+a5b360097e2d208d01e1aa34ffe29cdd
+  main15 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# " grid;"#) -}
+fdb2eb5073067272756660212e1d9097
+  main2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackAppendCString#
+                   "\n"#
+                   ConnectN.main3) -}
+66ea0e156ecced3a813b8236472a8911
+  main3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.Base.++
+                   @ GHC.Types.Char
+                   ConnectN.main4
+                   ConnectN.main_n) -}
+2a8c72108ea33e0e08554f847141002c
+  main4 :: GHC.Base.String
+  {- Unfolding: (ConnectN.prettyPrint ConnectN.main5) -}
+3294cdd8500189695e6df025895d3743
+  main5 :: ConnectN.Board
+  {- Unfolding: (ConnectN.movesToBoard_go
+                   ConnectN.movesToBoard_players
+                   ConnectN.main_optimalMoves
+                   (GHC.Types.[] @ ConnectN.Position)) -}
+19c9489f9d307efe1b0787477e85fc82
+  main6 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackAppendCString#
+                   "X "#
+                   ConnectN.main7) -}
+299ea182aeab1996cb6f00c026b4c996
+  main7 :: [GHC.Types.Char]
+  {- Unfolding: (case ConnectN.$wvalue ConnectN.main5 of ww {
+                   DEFAULT
+                   -> GHC.CString.unpackAppendCString# "lose"# ConnectN.main_n1
+                   0 -> GHC.CString.unpackAppendCString# "draw"# ConnectN.main_n1
+                   1 -> GHC.CString.unpackAppendCString# "win"# ConnectN.main_n1 }) -}
+99ef8f720b3e6360ba0adf6daf886cde
+  main8 :: GHC.Base.String
+  {- Unfolding: (GHC.Show.showList__
+                   @ GHC.Types.Int
+                   GHC.Show.shows7
+                   ConnectN.main_optimalMoves
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+059f32516c83852d7aaa374eae35a719
+  main9 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackAppendCString#
+                   "For a game of Connect"#
+                   ConnectN.main10) -}
+e5ae4120d713b0cef9e7eb03940e8c2e
+  main_a4 ::
+    [[ConnectN.Move]]
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, [[ConnectN.Move]] #)
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U> -}
+c784804edaaff5d7671d7e19dd7c9316
+  main_n :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "\n"#) -}
+511d7afc8421f8cffcad7ff64d89ec83
+  main_n1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackAppendCString#
+                   "s : "#
+                   ConnectN.main8) -}
+2851dff876eb62159c13285a4b021b3f
+  main_optimalMoves :: [ConnectN.Move]
+  {- Unfolding: (case ConnectN.$wgo 1 of ww { (#,#) ww1 ww2 ->
+                 case ConnectN.main_a4
+                        (GHC.Types.: @ [ConnectN.Move] ww1 ww2)
+                        GHC.Prim.realWorld# of ds { (#,#) ipv ipv1 ->
+                 Logic.GameLogic.argsup @ [ConnectN.Move] ipv1 ConnectN.p } }) -}
+998909560d595da9203981d1bdb0f7d3
   movesToBoard :: [ConnectN.Move] -> ConnectN.Board
   {- Arity: 1, Strictness: <L,1*U>,
      Unfolding: (\ moves :: [ConnectN.Move] ->
@@ -872,48 +1040,48 @@ d64e2739df8de6c194cee86d25294030
                    ConnectN.movesToBoard_players
                    moves
                    (GHC.Types.[] @ ConnectN.Position)) -}
-c6bcb8683ecf8c1d9d3a778a858145a2
+c884e7bf94622f5ee994783196c53c12
   movesToBoard1 :: [ConnectN.Player]
   {- HasNoCafRefs, Strictness: m2 -}
-c1c52f682629c09158f11854cf3b65c0
+d0d3b6a12c971199999c8fb34891b6e6
   movesToBoard_go ::
     [ConnectN.Player]
     -> [GHC.Types.Int] -> ConnectN.Board -> ConnectN.Board
   {- Arity: 3, Strictness: <S,1*U><L,1*U><S,U> -}
-b2afa1c1fd5334cbfd7eecafb62f2b89
+1094eacecaa3024449a0669c521d56cc
   movesToBoard_players :: [ConnectN.Player]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ ConnectN.Player
                    ConnectN.X
                    ConnectN.movesToBoard1) -}
-91995d1e5c0f209a59542c75fc2735de
+e95f61abeffe84217dcad0dd8b2ecbeb
   optimalOutcome :: ConnectN.R
   {- Unfolding: (case ConnectN.$wvalue
                         ConnectN.optimalOutcome1 of ww { DEFAULT ->
                  GHC.Types.I# ww }) -}
-5d21a5320f2ab3dd126448f69341c91e
+39cdd89d50a862e3cf3ec1799dee97e2
   optimalOutcome1 :: ConnectN.Board
   {- Unfolding: (ConnectN.movesToBoard_go
                    ConnectN.movesToBoard_players
                    ConnectN.optimalPlay
                    (GHC.Types.[] @ ConnectN.Position)) -}
-3ee04c3c6080776e2e70a3f00be55720
+34f057a53ef6a165ec4d18f5e00fede5
   optimalPlay :: [ConnectN.Move]
   {- Unfolding: (ConnectN.optimalPlay1 ConnectN.p) -}
-75317d20c16039193329debe8d06b740
+c41f8cf15839598962dcfa055f077fad
   optimalPlay1 :: Logic.GameLogic.J ConnectN.R [ConnectN.Move]
   {- Unfolding: (Logic.GameLogic.bigotimes
                    @ ConnectN.Move
                    @ ConnectN.R
-                   ConnectN.epsilons) -}
-e0af485137329f2c8e53d4e2e8db9c48
+                   ConnectN.epsilons') -}
+1e08524bc61288d6137e0ab2581de90c
   p :: [ConnectN.Move] -> ConnectN.R
   {- Arity: 1, Strictness: <L,1*U>m,
      Unfolding: InlineRule (1, True, False)
                 (\ ms :: [ConnectN.Move] ->
                  ConnectN.value (ConnectN.movesToBoard ms)) -}
-225e613316087bc7d61eb861b61d85fb
+2806c52d346d6b39d7a33e7e4807e4a1
   pPar :: [ConnectN.Move] -> [ConnectN.Move] -> ConnectN.R
   {- Arity: 2, Strictness: <L,1*U><L,1*U>m,
      Unfolding: InlineRule (2, True, False)
@@ -922,10 +1090,10 @@ e0af485137329f2c8e53d4e2e8db9c48
                    (ConnectN.movesToBoard
                       (GHC.Base.augment
                          @ GHC.Types.Int
-                         (\ @ b c :: GHC.Types.Int -> b -> b[OneShot] n1 :: b[OneShot] ->
-                          GHC.Base.foldr @ GHC.Types.Int @ b c n1 preceding)
+                         (\ @ b c :: GHC.Types.Int -> b -> b[OneShot] n :: b[OneShot] ->
+                          GHC.Base.foldr @ GHC.Types.Int @ b c n preceding)
                          ms))) -}
-c22c794e7bcd049bcafdbf877939d863
+cef8e2b0ab49c8f583bcb9e32bf19d23
   parEpsilons ::
     [ConnectN.Move]
     -> [[ConnectN.Move] -> Logic.GameLogic.J ConnectN.R ConnectN.Move]
@@ -958,7 +1126,7 @@ c22c794e7bcd049bcafdbf877939d863
                              preceding
                              0 of ww1 { DEFAULT ->
                       let {
-                        epsilonO1 :: [GHC.Types.Int]
+                        epsilonO2 :: [GHC.Types.Int]
                                      -> Logic.GameLogic.J GHC.Types.Int GHC.Types.Int
                           {- Arity: 1, Strictness: <L,1*U> -}
                         = \ h :: [GHC.Types.Int] ->
@@ -1000,7 +1168,7 @@ c22c794e7bcd049bcafdbf877939d863
                         = GHC.Types.:
                             @ ([GHC.Types.Int]
                                -> Logic.GameLogic.J GHC.Types.Int GHC.Types.Int)
-                            epsilonO1
+                            epsilonO2
                             all
                       } in
                       case GHC.Prim.tagToEnum#
@@ -1020,10 +1188,10 @@ c22c794e7bcd049bcafdbf877939d863
                              @ ([ConnectN.Move] -> Logic.GameLogic.J ConnectN.R ConnectN.Move)
                              ww2
                              all } } } }) -}
-a82661b017d6091bdfa1a6731b5137d9
+7c45b16549548ee6ae3c3db763e8e3ca
   parEpsilons1 :: [GHC.Types.Int]
-  {- Unfolding: (ConnectN.$wxs2 3) -}
-80161c1086da82f65990a7248f5f2f5d
+  {- Unfolding: (ConnectN.$wxs3 3) -}
+ef27c83e1588b674297fae190276222a
   parOptimalPlay :: [ConnectN.Move] -> [ConnectN.Move]
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: (\ moves :: [ConnectN.Move] ->
@@ -1035,130 +1203,12 @@ a82661b017d6091bdfa1a6731b5137d9
                       @ ConnectN.R
                       (ConnectN.parEpsilons moves)
                       (ConnectN.pPar moves))) -}
-3c51f69730aaecf33a74d15d339b77cb
+07d0b477718106e3987d33b26dce4adf
   parShowOptimalPlay :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <L,U>,
      Unfolding: InlineRule (0, True, True)
-                ConnectN.parShowOptimalPlay1
-                  `cast`
-                (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
-527e5ca024b17e97f4c9c553e3b813fe
-  parShowOptimalPlay1 ::
-    GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 1, Strictness: <L,U>,
-     Unfolding: (\ s :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
-                 case GHC.IO.Handle.Text.hPutStr2
-                        GHC.IO.Handle.FD.stdout
-                        ConnectN.parShowOptimalPlay6
-                        GHC.Types.True
-                        s of ds1 { (#,#) ipv ipv1 ->
-                 GHC.IO.Handle.Text.hPutStr2
-                   GHC.IO.Handle.FD.stdout
-                   ConnectN.parShowOptimalPlay2
-                   GHC.Types.True
-                   ipv }) -}
-f6ebc3f2daf2b0d78cff6c77827869a8
-  parShowOptimalPlay10 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackAppendCString#
-                   "x"#
-                   ConnectN.parShowOptimalPlay11) -}
-65bb071d3cb5675b1231ef0ab3b9da91
-  parShowOptimalPlay11 :: [GHC.Types.Char]
-  {- Unfolding: (case GHC.Show.$wshowSignedInt
-                        0
-                        3
-                        (GHC.Types.[] @ GHC.Types.Char) of ww4 { (#,#) ww5 ww6 ->
-                 GHC.Base.++
-                   @ GHC.Types.Char
-                   (GHC.Types.: @ GHC.Types.Char ww5 ww6)
-                   ConnectN.parShowOptimalPlay12 }) -}
-8ad6d6081810cb1feb088f81fbabd22a
-  parShowOptimalPlay12 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# " grid;"#) -}
-c45d5543d5ae4352ac26588036dc0255
-  parShowOptimalPlay2 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackAppendCString#
-                   "X "#
-                   ConnectN.parShowOptimalPlay3) -}
-e42b7f91f87450c8c1d1b20e8c0ab3c1
-  parShowOptimalPlay3 :: [GHC.Types.Char]
-  {- Unfolding: (case ConnectN.$wvalue
-                        ConnectN.parShowOptimalPlay5 of ww {
-                   DEFAULT
-                   -> GHC.CString.unpackAppendCString#
-                        "lose"#
-                        ConnectN.parShowOptimalPlay_n
-                   0
-                   -> GHC.CString.unpackAppendCString#
-                        "draw"#
-                        ConnectN.parShowOptimalPlay_n
-                   1
-                   -> GHC.CString.unpackAppendCString#
-                        "win"#
-                        ConnectN.parShowOptimalPlay_n }) -}
-90b7322444a4199410b2975569045862
-  parShowOptimalPlay4 :: GHC.Base.String
-  {- Unfolding: (GHC.Show.showList__
-                   @ GHC.Types.Int
-                   GHC.Show.shows7
-                   ConnectN.parShowOptimalPlay_optimalMoves
-                   (GHC.Types.[] @ GHC.Types.Char)) -}
-794877a5735deffa30f6c43bf643b972
-  parShowOptimalPlay5 :: ConnectN.Board
-  {- Unfolding: (ConnectN.movesToBoard_go
-                   ConnectN.movesToBoard_players
-                   ConnectN.parShowOptimalPlay_optimalMoves
-                   (GHC.Types.[] @ ConnectN.Position)) -}
-9ba51c1954e8ead3608544f53e2d7616
-  parShowOptimalPlay6 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackAppendCString#
-                   "For a game of Connect"#
-                   ConnectN.parShowOptimalPlay7) -}
-dd33721f5406d1d4d5db5cfa622464fa
-  parShowOptimalPlay7 :: [GHC.Types.Char]
-  {- Unfolding: (case GHC.Show.$wshowSignedInt
-                        0
-                        3
-                        (GHC.Types.[] @ GHC.Types.Char) of ww4 { (#,#) ww5 ww6 ->
-                 GHC.Base.++
-                   @ GHC.Types.Char
-                   (GHC.Types.: @ GHC.Types.Char ww5 ww6)
-                   ConnectN.parShowOptimalPlay8 }) -}
-63dcfa61b288fb7633f05dbbd27b58b8
-  parShowOptimalPlay8 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackAppendCString#
-                   " on a "#
-                   ConnectN.parShowOptimalPlay9) -}
-0f0db0db3b6e6989840a3d5b730482ae
-  parShowOptimalPlay9 :: [GHC.Types.Char]
-  {- Unfolding: (case GHC.Show.$wshowSignedInt
-                        0
-                        3
-                        (GHC.Types.[] @ GHC.Types.Char) of ww4 { (#,#) ww5 ww6 ->
-                 GHC.Base.++
-                   @ GHC.Types.Char
-                   (GHC.Types.: @ GHC.Types.Char ww5 ww6)
-                   ConnectN.parShowOptimalPlay10 }) -}
-2fdb98fa75b9478780894c73c4a24f87
-  parShowOptimalPlay_a4 ::
-    [[ConnectN.Move]]
-    -> GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, [[ConnectN.Move]] #)
-  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U> -}
-5941d9a499c72b63eb99cb2232a73f13
-  parShowOptimalPlay_n :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackAppendCString#
-                   "s : "#
-                   ConnectN.parShowOptimalPlay4) -}
-d284818ebe6064f5d0be4651116b1877
-  parShowOptimalPlay_optimalMoves :: [ConnectN.Move]
-  {- Unfolding: (case ConnectN.$wgo 1 of ww { (#,#) ww1 ww2 ->
-                 case ConnectN.parShowOptimalPlay_a4
-                        (GHC.Types.: @ [ConnectN.Move] ww1 ww2)
-                        GHC.Prim.realWorld# of ds { (#,#) ipv ipv1 ->
-                 Logic.GameLogic.argsup @ [ConnectN.Move] ipv1 ConnectN.p } }) -}
-0592c60216eb9750667d18058b63bb27
+                ConnectN.main1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
+380b1de37479149e5d41dd17998c2b8f
   prettyPrint :: ConnectN.Board -> GHC.Base.String
   {- Arity: 1, Strictness: <L,U>,
      Unfolding: (\ b :: ConnectN.Board ->
@@ -1239,15 +1289,15 @@ d284818ebe6064f5d0be4651116b1877
                            @ [GHC.Types.Char]
                            ConnectN.prettyPrint1
                            xs1) }) -}
-7ed944a8a57c3bb7a613b3cd98df9340
+12aecf369a9f2da3f81997d03224fb63
   prettyPrint1 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackAppendCString#
                    "\n"#
                    ConnectN.prettyPrint2) -}
-6d116cd2a96384c7e2d7c9f807806487
+c3091a4b1387507d242dd80359e33ad3
   prettyPrint2 :: [GHC.Types.Char]
-  {- Unfolding: (ConnectN.$wxs3 3) -}
-355d6fccbbca7722bd23a8cfa09821a9
+  {- Unfolding: (ConnectN.$wxs2 3) -}
+730c519cf61e521f9181ab92f411c53f
   prettyPrint3 ::
     [(ConnectN.X, ConnectN.Y, GHC.Base.Maybe ConnectN.Player)]
     -> [GHC.Types.Char]
@@ -1274,7 +1324,7 @@ d284818ebe6064f5d0be4651116b1877
 a40c81aa58938617c0fa6177ee9499b4
   prettyPrint4 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# " | "#) -}
-7e06f1f7035cb83c799884f2d616c255
+28c5b60ff64c7bc5bf420893db1a3e52
   prettyPrint5 ::
     (ConnectN.X, ConnectN.Y, GHC.Base.Maybe ConnectN.Player)
     -> [GHC.Types.Char]
@@ -1296,7 +1346,7 @@ a40c81aa58938617c0fa6177ee9499b4
 103517e793502b22bdcbce81d71b0c9b
   prettyPrint7 :: [GHC.Types.Int]
   {- Unfolding: (GHC.Enum.eftInt 1 3) -}
-e8003198f535c835c8ee7bf98c3d8155
+b2dbefafab18f0eb67e1f8c7079e3242
   prettyPrint_isBlank ::
     (ConnectN.X, ConnectN.Y, GHC.Base.Maybe ConnectN.Player)
     -> (ConnectN.X, ConnectN.Y, GHC.Base.Maybe ConnectN.Player)
@@ -1312,7 +1362,7 @@ e8003198f535c835c8ee7bf98c3d8155
                  case w1 of ww6 { (,,) ww7 ww8 ww9 ->
                  case ww7 of ww10 { GHC.Types.I# ww11 ->
                  ConnectN.$wisBlank ww5 ww2 ww11 ww8 ww9 } } } }) -}
-050cbc32e7629914d09b1dfd4fd3038a
+4b6f3842fae3c5263472cf3ebc95e9cf
   prettyPrint_order ::
     (ConnectN.X, ConnectN.Y, GHC.Base.Maybe ConnectN.Player)
     -> (ConnectN.X, ConnectN.Y, GHC.Base.Maybe ConnectN.Player)
@@ -1325,17 +1375,17 @@ e8003198f535c835c8ee7bf98c3d8155
                  case ds of wild { (,,) x1 ds2 ds3 ->
                  case ds1 of wild1 { (,,) x' ds4 ds5 ->
                  GHC.Classes.compareInt x1 x' } }) -}
-2fb0a1783dc1a2d27ea06ef772926ea4
+54babfa3419f35b7946b9a59a640e2d3
   prettyPrint_xs :: [GHC.Base.Maybe ConnectN.Player]
   {- HasNoCafRefs, Strictness: m2 -}
-e554d5cc608982cc5ebedb8d749fe5e5
+02cdaaf583092fc799b864f7d1309651
   showOptimalPlay :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <L,U>,
      Unfolding: InlineRule (0, True, True)
                 ConnectN.showOptimalPlay1
                   `cast`
                 (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
-514f556b79369e3dfb868d4ddf1fdfab
+1a39b3392b89df6a4f2cf883402c40b7
   showOptimalPlay1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -1347,7 +1397,7 @@ e554d5cc608982cc5ebedb8d749fe5e5
                    (GHC.Show.$fShow[]_$s$cshow ConnectN.optimalPlay)
                    GHC.Types.True
                    eta) -}
-936ddc333c8d465e6f544637a4dfa69d
+3973436216805a48ed4cb5f3977db8ca
   takeTurn ::
     ConnectN.Player
     -> ConnectN.Move -> ConnectN.Board -> ConnectN.Board
@@ -1386,10 +1436,10 @@ e554d5cc608982cc5ebedb8d749fe5e5
                            @ (ConnectN.X, ConnectN.Y, ConnectN.Player)
                            (m, GHC.Types.I# (GHC.Prim.+# ww 1), p1)
                            (GHC.Types.[] @ (ConnectN.X, ConnectN.Y, ConnectN.Player))) } }) -}
-4045c66e5a488b1ea622a5398ace5ce9
+a06427f13d41b6d0b1a6739946e5d306
   takeTurn1 :: ConnectN.Move -> ConnectN.Board -> ConnectN.Board
   {- Arity: 2, Strictness: <L,U><L,U>b -}
-254abee85fcd368b524c32cd5719f562
+16cfeda757ca8b5555f61e2039486a46
   value :: ConnectN.Board -> ConnectN.R
   {- Arity: 1, Strictness: <L,U>m, Inline: INLINE[0],
      Unfolding: InlineRule (1, True, False)
@@ -1401,7 +1451,7 @@ e554d5cc608982cc5ebedb8d749fe5e5
 5569e1eee68e4618133c161afeeb2708
   winningAmount :: GHC.Types.Int
   {- Strictness: m, Unfolding: (ConnectN.height) -}
-aad04a3a5213b0053e6225c30aa34f3a
+1427e23bebd026ebe06b38b851e8ade7
   wins :: ConnectN.Player -> ConnectN.Board -> GHC.Types.Bool
   {- Arity: 2, Strictness: <L,U><L,U> -}
 instance GHC.Classes.Eq [ConnectN.Player] = ConnectN.$fEqPlayer

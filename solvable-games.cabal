@@ -15,8 +15,9 @@ cabal-version:       >=1.10
 executable solvable-games
   hs-source-dirs:      src
   main-is:             Main.hs
+  -- Took out -ls -s
   ghc-options:         -threaded -rtsopts -eventlog 
-                        "-with-rtsopts=-N -ls -s"
+                        "-with-rtsopts=-N"
   other-modules:       
                        ConnectN
                      , Sudoku

@@ -1,7 +1,7 @@
 #Solvable Games
 
-Features some examples of puzzles solved by the selection monad in Haskell.
-All of the sequentially solved puzzles are Sudoku variations.
+This project features some puzzles solved by the Selection Monad.
+
 Solved in parallel:
   * Sudoku
   * Connect 3 / Connect 4

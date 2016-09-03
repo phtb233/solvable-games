@@ -152,7 +152,7 @@ epsilons = take (length poolOfMoves) all
 epsilons' :: [[Move] -> GL.J R Move]
 epsilons' = take (length poolOfMoves) all'
     where all   = epsilonX : epsilonO : all
-          all'  = epsilonX': epsilonO' : all'
+          all'  = epsilonX': epsilonO' : all 
           epsilonX h = GL.argsup (poolOfMoves `GL.setMinus` h)
           epsilonO h = GL.arginf (poolOfMoves `GL.setMinus` h)
           epsilonX' h = head . argmax (poolOfMoves `GL.setMinus` h)
@@ -160,7 +160,7 @@ epsilons' = take (length poolOfMoves) all'
           poolOfMoves = sort $ concat $ replicate height [1..width]
 
 optimalPlay :: [Move]
-optimalPlay = GL.bigotimes epsilons p
+optimalPlay = GL.bigotimes epsilons' p
 
 optimalOutcome :: R
 optimalOutcome = p optimalPlay
@@ -207,12 +207,13 @@ parShowOptimalPlay = do
     putStrLn $ "For a game of Connect" ++ show winningAmount ++
             " on a " ++ show width ++ "x" ++ show height ++ " grid;"
     putStrLn $ "X " ++ message ++ "s : " ++ show optimalMoves
+    putStrLn $ "\n" ++ prettyPrint (movesToBoard optimalMoves) ++ "\n"
 
 -- Determines optimal play sequentially.
 showOptimalPlay :: IO ()
 showOptimalPlay = print optimalPlay
 
-main = parOptimalPlay
+main = parShowOptimalPlay
 
 -- Generic argmax with parallel map, offered by supervisor (P. Oliva).
 argmax :: (NFData a, Ord a) => [a] -> (a -> Int) -> [a]
