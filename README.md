@@ -1,4 +1,4 @@
-#Solvable Games
+# Solvable Games
 
 This project features some puzzles solved by the Selection Monad.
 
