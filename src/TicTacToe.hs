@@ -1,5 +1,6 @@
 module TicTacToe where
 import qualified Logic.GameLogic as GL
+import qualified Logic.Utils as UL
 import Data.List ((\\))
 import Control.Parallel.Strategies (parMap, rdeepseq)
 
@@ -7,7 +8,9 @@ type R = Int
 type Move = Int
 type Board = ([Move], [Move])
 
-data Player = X | O deriving (Show, Eq)
+type Player = UL.Player
+x' = UL.X
+o' = UL.O
 
 value :: Board -> R
 value (x, o) | wins x    = 1
@@ -16,12 +19,12 @@ value (x, o) | wins x    = 1
 
 outcome :: Player -> [Move] -> Board -> Board
 outcome whoever [] board = board
-outcome X (m : ms) (x, o) =
+outcome UL.X (m : ms) (x, o) =
     if wins o then (x, o)
-    else outcome O ms (GL.insert m x, o)
-outcome O (m :ms) (x, o) =
+    else outcome o' ms (GL.insert m x, o)
+outcome UL.O (m :ms) (x, o) =
     if wins x then (x, o)
-    else outcome X ms (x, GL.insert m o)
+    else outcome x' ms (x, GL.insert m o)
     
 wins :: [Move] -> Bool
 wins = 
@@ -30,7 +33,7 @@ wins =
                 [0,4,8],[2,4,6]]
 
 p :: [Move] -> R
-p ms = value (outcome X ms ([], []))
+p ms = value (outcome x' ms ([], []))
 
 optimalPlay :: [Move]
 optimalPlay = GL.bigotimes GL.epsilons p
@@ -39,7 +42,7 @@ optimalOutcome :: R
 optimalOutcome = p optimalPlay
 
 pPar :: [Move] -> [Move] -> R
-pPar preceding ms = value (outcome X (preceding ++ ms) ([], []))
+pPar preceding ms = value (outcome x' (preceding ++ ms) ([], []))
 
 parEpsilons :: [Move] -> [[Move] -> GL.J R Move]
 parEpsilons preceding = take (9 - (length preceding)) all'
@@ -75,8 +78,21 @@ nextMove played =
 playMatch :: IO ()
 playMatch = 
     do
+    let showBoard :: [Move] -> IO()
+        showBoard history = 
+            putStrLn $ (UL.prettyPrint_ 3 $ movesToBoard history) ++ "\n"
+        showTip = putStrLn $ 
+                  "\n==== How to play ====\n" ++
+                  "\nSpecify a move between 0 - 8:\n" ++
+                  "\n 0 | 1 | 2" ++
+                  "\n――― ――― ―――" ++
+                  "\n 3 | 4 | 5" ++
+                  "\n――― ――― ―――" ++
+                  "\n 6 | 7 | 8 \n"
+
     let getMove :: [Move] -> IO Move
         getMove history = do
+            showBoard history
             putStrLn ( "history = " ++ show history)
             putStrLn "What is your next move?"
             input <- fmap reads getLine :: IO [(Int, String)]
@@ -87,24 +103,27 @@ playMatch =
                            then putStrLn "This move is taken." >> 
                                   getMove history
                            else  if move < 0 || move > 8
-                                     then putStrLn "Must be within 0 and 8." >>
+                                     then putStrLn "Must be between 0 and 8." >>
                                         getMove history
                                      else return move
     let gameLoop :: [Move] -> Player -> Board -> IO ()
         gameLoop history player board
-            | value board == 1 = putStrLn "Player X wins"
-            | value board == -1 = putStrLn "Player O wins"
-            | length history == 9 = putStrLn "Its a draw"
-            | otherwise = if player == X 
+            | value board == 1 = showBoard history >> 
+                                 putStrLn (show board) >>
+                                 putStrLn "Player X wins"
+            | value board == -1 = showBoard history >> putStrLn "Player O wins"
+            | length history == 9 = showBoard history >> putStrLn "Its a draw"
+            | otherwise = if player == x' 
                             then do
                                  next <- fmap (:[]) $ getMove history
-                                 let board' = outcome X next board
-                                 gameLoop (history ++ next) O board'
+                                 let board' = outcome x' next board
+                                 gameLoop (history ++ next) o' board'
                             else do
                                  let next = (:[]) $ nextMove history
-                                 let board' = outcome O next board
-                                 gameLoop (history ++ next) X board'
-    gameLoop [] X ([],[])
+                                 let board' = outcome o' next board
+                                 gameLoop (history ++ next) x' board'
+    showTip
+    gameLoop [] x' ([],[])
 
 -- Show the series of plays/outcome when both players play optimally.
 getOptimalPlay :: IO ()
@@ -118,6 +137,17 @@ getOptimalPlay = do
                 | otherwise           = "x loses"
         putStrLn $ "The optimal moves are : " ++ show optimalMoves
         putStrLn $ "The optimal outcome is : " ++ message
+
+
+movesToBoard :: [Move] -> UL.Board
+movesToBoard ms = 
+        let plays = cycle [x', o']
+            getX :: Move -> Int
+            getX m = ( m `mod` 3 ) + 1
+            getY :: Move -> Int
+            getY m = 3 - (m `div` 3)
+            moveToPos move player = (getX move, getY move, player)
+            in zipWith moveToPos ms plays
 
 main :: IO ()
 main = getOptimalPlay

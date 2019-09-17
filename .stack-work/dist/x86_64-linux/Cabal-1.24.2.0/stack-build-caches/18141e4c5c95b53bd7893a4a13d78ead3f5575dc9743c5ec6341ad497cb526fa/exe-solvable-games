@@ -1,0 +1,64 @@
+/home/stephen/Documents/git/solvable-games/src/ConnectN.hs:
+  hash: 311464bbc14feb6a52bce9ade2fc105ffaff110d8286e1ebb5adcb13443226b3
+  size: 7887
+  modtime: 1568715416
+/home/stephen/Documents/git/solvable-games/src/Sudoku.hs:
+  hash: 156a2e578f266f876eaf0588510442a2f666749fc10f69af6f4bb1b5181ffff7
+  size: 9672
+  modtime: 1568711950
+/home/stephen/Documents/git/solvable-games/src/Logic/Utils.hs:
+  hash: 62af313045a09471742004940090efa07fa7ded4eeabf43a2f43e734ba711f64
+  size: 4613
+  modtime: 1568715119
+/home/stephen/Documents/git/solvable-games/src/TicTacToe.hs:
+  hash: 3bd4c9ed3782dd5511dbf07a58edc00951820a6218c273611d4d515a46a7c172
+  size: 5676
+  modtime: 1568721157
+/home/stephen/Documents/git/solvable-games/src/NimPencils.hs:
+  hash: 24b87f629f8907458cfdf34aa1800aa3540500c1471771d029c5f1010874cfc8
+  size: 5538
+  modtime: 1568711950
+/home/stephen/Documents/git/solvable-games/src/NQueens.hs:
+  hash: 346bbfae3cd262abff02ab10a9f48ea1627b286e90ea8e23443a8aef0fb60fa5
+  size: 1965
+  modtime: 1568711950
+/home/stephen/Documents/git/solvable-games/solvable-games.cabal:
+  hash: 832c7511cf06d9ceeb3118d94699e099d1551a8adabc5771efb16f11681cd6e2
+  size: 1483
+  modtime: 1568711950
+/home/stephen/Documents/git/solvable-games/src/Buchstabensalat.hs:
+  hash: a3833f2941dc2c7e7efc04275d89aaaa9f886faf9581321b7eb6450cfdc575e6
+  size: 4886
+  modtime: 1568711950
+/home/stephen/Documents/git/solvable-games/src/ParSudoku/Sudoku4.hs:
+  hash: c330b7391a357976d89de86a3e0ca673fba8304485d955e52aa18965f3d025a2
+  size: 6128
+  modtime: 1568711950
+/home/stephen/Documents/git/solvable-games/src/Futoshiki.hs:
+  hash: 360ac5dacb22023d3b876cab67ac893c851a890141858ca0d2fd1786855d9297
+  size: 2411
+  modtime: 1568711950
+/home/stephen/Documents/git/solvable-games/src/Main.hs:
+  hash: df6cd322a37f408fcce0b302656cf7145d59b9a4477819a146de3dc25a697779
+  size: 2162
+  modtime: 1568722222
+/home/stephen/Documents/git/solvable-games/src/FoxGooseBeans.hs:
+  hash: f79598c2951df778c76ac29e017ef155fd572412c938c8d8986242aa585d5a81
+  size: 4035
+  modtime: 1568711950
+/home/stephen/Documents/git/solvable-games/src/Logic/GameLogic.hs:
+  hash: 9167195cda4d5c764078fa850c3689dea149040d26a88ccf0be4fd76d31c1820
+  size: 3618
+  modtime: 1568711950
+/home/stephen/Documents/git/solvable-games/src/InshiNoHeya.hs:
+  hash: 2913689cecd737c0e46768f5d8cce2c0dd17f7b497d29faaccc8477d00907d53
+  size: 2869
+  modtime: 1568711950
+/home/stephen/Documents/git/solvable-games/src/Nonograms.hs:
+  hash: 7dff60ceac7f545e48166ea09c20dba0840a452a62b4e6e04b9a9c27a3868596
+  size: 8265
+  modtime: 1568711950
+/home/stephen/Documents/git/solvable-games/src/ParSudoku/Sudoku6.hs:
+  hash: 479fe80a3927adeeecc2b63f849d511bd42c3427e0f885b5d853baa162801798
+  size: 7107
+  modtime: 1568711950

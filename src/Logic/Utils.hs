@@ -5,7 +5,8 @@ module Logic.Utils where
 -- (possibly from many calls to movesToPuzzle).
 
 import Data.Map.Strict (Map)
-import Data.List (nub, delete, intercalate)
+import Data.List (nub, delete, intercalate, sortBy, unionBy)
+import Data.Maybe (isNothing)
 import Math.NumberTheory.Powers.Squares (isSquare', integerSquareRoot')
 import qualified Data.Map as M
 
@@ -13,6 +14,11 @@ type Value      = Int
 type Move       = [Int]
 type Coordinate = (Int, Int)
 type Unit       = [Coordinate]
+type X          = Int
+type Y          = Int
+type Position   = (X, Y, Player)
+type Board      = [Position]
+data Player = X | O deriving (Eq, Read, Ord, Show)
 type Puzzle     = Map Coordinate Value
 
 -- Taken from Peter Norvig's Sudoku solver: http://norvig.com/sudoku.html 
@@ -77,3 +83,31 @@ prettyPrint size ms =
     -- Turn each number into a string
     map  show )  ms ) ++ divider
         where divider = " \n " ++ unwords (replicate size "———") ++  " \n"
+
+
+-- Human readable Board for TicTacToe and ConnectN.
+prettyPrint_ :: Int -> Board -> String
+prettyPrint_ size b =
+        -- Populate a list of filled/empty spaces for the connect 4 grid.
+    let rows :: [[(X, Y, Maybe Player)]]
+        rows = do 
+                y <- [1..size]
+                -- A list of empty spaces we'll combine with the filled ones
+                let emptySpaces :: [(X, Y, Maybe a)]
+                    emptySpaces = zip3 [1..size] (repeat y) (repeat Nothing)
+                return $ sortBy order $ flip (unionBy isBlank) emptySpaces $ 
+                    map (\(a,b,c) -> (a,b,Just c)) $
+                    filter (\(_,y',_) -> y' == y) b
+        -- If second tuple contains Nothing, return True.
+        isBlank ::  (X, Y, Maybe Player) ->
+                    (X, Y, Maybe Player) -> Bool
+        isBlank (x,y,m) (x',y',m') = x == x' && y == y' && isNothing m'
+        -- Organize rows by their x coordinate.
+        order ::  (X, Y, Maybe Player) ->
+                  (X, Y, Maybe Player) -> Ordering
+        order (x,_,_) (x',_,_) = compare x x'
+        line :: String
+        line = "\n" ++ concat ( replicate size " ―――") ++ "\n"
+    in 
+        intercalate line $ map ( (\s -> "  " ++ s) . intercalate " | " . 
+            map (\(_,_,p) -> maybe " " show p)) (reverse rows)

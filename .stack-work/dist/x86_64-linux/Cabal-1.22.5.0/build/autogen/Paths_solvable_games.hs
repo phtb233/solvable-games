@@ -16,11 +16,11 @@ version :: Version
 version = Version [0,1,0,0] []
 bindir, libdir, datadir, libexecdir, sysconfdir :: FilePath
 
-bindir     = "/home/stephen/Documents/ComputerScienceMSc/Semester2/Project/deliverables/solvable-games/.stack-work/install/x86_64-linux/lts-6.12/7.10.3/bin"
-libdir     = "/home/stephen/Documents/ComputerScienceMSc/Semester2/Project/deliverables/solvable-games/.stack-work/install/x86_64-linux/lts-6.12/7.10.3/lib/x86_64-linux-ghc-7.10.3/solvable-games-0.1.0.0-6uGb1izsW2EIjT3XmHfit3"
-datadir    = "/home/stephen/Documents/ComputerScienceMSc/Semester2/Project/deliverables/solvable-games/.stack-work/install/x86_64-linux/lts-6.12/7.10.3/share/x86_64-linux-ghc-7.10.3/solvable-games-0.1.0.0"
-libexecdir = "/home/stephen/Documents/ComputerScienceMSc/Semester2/Project/deliverables/solvable-games/.stack-work/install/x86_64-linux/lts-6.12/7.10.3/libexec"
-sysconfdir = "/home/stephen/Documents/ComputerScienceMSc/Semester2/Project/deliverables/solvable-games/.stack-work/install/x86_64-linux/lts-6.12/7.10.3/etc"
+bindir     = "/home/stephen/Documents/git/solvable-games/.stack-work/install/x86_64-linux/970008006449c137949de122614dbff0746457205d039a790ee1ba959730c8d8/7.10.3/bin"
+libdir     = "/home/stephen/Documents/git/solvable-games/.stack-work/install/x86_64-linux/970008006449c137949de122614dbff0746457205d039a790ee1ba959730c8d8/7.10.3/lib/x86_64-linux-ghc-7.10.3/solvable-games-0.1.0.0-6uGb1izsW2EIjT3XmHfit3"
+datadir    = "/home/stephen/Documents/git/solvable-games/.stack-work/install/x86_64-linux/970008006449c137949de122614dbff0746457205d039a790ee1ba959730c8d8/7.10.3/share/x86_64-linux-ghc-7.10.3/solvable-games-0.1.0.0"
+libexecdir = "/home/stephen/Documents/git/solvable-games/.stack-work/install/x86_64-linux/970008006449c137949de122614dbff0746457205d039a790ee1ba959730c8d8/7.10.3/libexec"
+sysconfdir = "/home/stephen/Documents/git/solvable-games/.stack-work/install/x86_64-linux/970008006449c137949de122614dbff0746457205d039a790ee1ba959730c8d8/7.10.3/etc"
 
 getBinDir, getLibDir, getDataDir, getLibexecDir, getSysconfDir :: IO FilePath
 getBinDir = catchIO (getEnv "solvable_games_bindir") (\_ -> return bindir)

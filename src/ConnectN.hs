@@ -1,6 +1,7 @@
 module ConnectN where
 
 import qualified Logic.GameLogic as GL
+import qualified Logic.Utils as UL
 import Data.List (unionBy, intercalate, sortBy, sort, (\\))
 import Data.Maybe (isNothing)
 import Control.Parallel (par, pseq)
@@ -15,6 +16,10 @@ import Control.Exception (evaluate)
 - winningAmount = 4
 -}
 
+type Player = UL.Player
+x = UL.X
+o = UL.O
+
 type R          = Int
 type Move       = Int  
 type X          = Int
@@ -27,7 +32,6 @@ height =        3
 width  =        3
 winningAmount = 3
 
-data Player = X | O deriving (Eq, Read, Show, Ord)
 
 takeTurn :: Player -> Move -> Board -> Board
 takeTurn p m b = 
@@ -43,16 +47,16 @@ movesToBoard :: [Move] -> Board
 movesToBoard moves = foldl func [] pandm 
     where pandm = zip players moves 
           func b (p,m) | m > width || m < 1   = error "Move outta bounds."
-                       | wins X b  || wins O b = b
+                       | wins x b  || wins o b = b
                        | otherwise            = takeTurn p m b
           players :: [Player] -- Alternating turns of X and O 
-          players = X : O : players
+          players = x : o : players
 
 -- Find the outcome from a board state.
 value :: Board -> R
 value b 
-   | wins X b  = 1
-   | wins O b  = -1
+   | wins x b  = 1
+   | wins o b  = -1
    | otherwise = 0
 
 -- Check the board vertically, horizontally and diagonally to see if the 
@@ -165,32 +169,6 @@ optimalPlay = GL.bigotimes epsilons' p
 optimalOutcome :: R
 optimalOutcome = p optimalPlay
 
--- Human readable Board.
-prettyPrint :: Board -> String
-prettyPrint b =
-        -- Populate a list of filled/empty spaces for the connect 4 grid.
-    let rows :: [[(X, Y, Maybe Player)]]
-        rows = do 
-                y <- [1..height]
-                -- A list of empty spaces we'll combine with the filled ones
-                let emptySpaces :: [(X, Y, Maybe a)]
-                    emptySpaces = zip3 [1..width] (repeat y) (repeat Nothing)
-                return $ sortBy order $ flip (unionBy isBlank) emptySpaces $ 
-                    map (\(a,b,c) -> (a,b,Just c)) $
-                    filter (\(_,y',_) -> y' == y) b
-        -- If second tuple contains Nothing, return True.
-        isBlank ::  (X, Y, Maybe Player) ->
-                    (X, Y, Maybe Player) -> Bool
-        isBlank (x,y,m) (x',y',m') = x == x' && y == y' && isNothing m'
-        -- Organize rows by their x coordinate.
-        order ::  (X, Y, Maybe Player) ->
-                  (X, Y, Maybe Player) -> Ordering
-        order (x,_,_) (x',_,_) = compare x x'
-        line :: String
-        line = "\n" ++ concat ( replicate width " ―――") ++ "\n"
-    in 
-        intercalate line $ map ( (\s -> "  " ++ s) . intercalate " | " . 
-            map (\(_,_,p) -> maybe " " show p)) (reverse rows)
 
 -- Determines optimal play by considering possible initial moves in
 -- parallel.
@@ -207,7 +185,7 @@ parShowOptimalPlay = do
     putStrLn $ "For a game of Connect" ++ show winningAmount ++
             " on a " ++ show width ++ "x" ++ show height ++ " grid;"
     putStrLn $ "X " ++ message ++ "s : " ++ show optimalMoves
-    putStrLn $ "\n" ++ prettyPrint (movesToBoard optimalMoves) ++ "\n"
+    putStrLn $ "\n" ++ UL.prettyPrint_ height (movesToBoard optimalMoves) ++ "\n"
 
 -- Determines optimal play sequentially.
 showOptimalPlay :: IO ()
