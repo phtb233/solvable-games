@@ -20,7 +20,7 @@ The selection monad itself is contained in the module 'GameLogic'.
 [Stack](https://docs.haskellstack.org/en/stable/README/) is recommended for building and executing this code. 
 Run:
 ```bash
-$ stack setup
-$ stack build
-$ stack exec solvable-games
+$ git clone https://github.com/phtb233/solvable-games
+$ cd solvable-games
+$ stack run
 ```
