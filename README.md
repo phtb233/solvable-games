@@ -3,7 +3,6 @@
 ## How to run:
 
 [Stack](https://docs.haskellstack.org/en/stable/README/) is recommended for building and executing this code. 
-Run:
 ```bash
 $ git clone https://github.com/phtb233/solvable-games
 $ cd solvable-games
