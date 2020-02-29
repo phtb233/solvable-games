@@ -1,5 +1,15 @@
 # Solvable Games
 
+## How to run:
+
+[Stack](https://docs.haskellstack.org/en/stable/README/) is recommended for building and executing this code. 
+Run:
+```bash
+$ git clone https://github.com/phtb233/solvable-games
+$ cd solvable-games
+$ stack run
+```
+
 This project features some puzzles solved by the Selection Monad.
 
 Solved in parallel:
@@ -17,10 +27,4 @@ Computed sequentially:
   * River Crossing Problem
 
 The selection monad itself is contained in the module 'GameLogic'. 
-[Stack](https://docs.haskellstack.org/en/stable/README/) is recommended for building and executing this code. 
-Run:
-```bash
-$ git clone https://github.com/phtb233/solvable-games
-$ cd solvable-games
-$ stack run
-```
+
